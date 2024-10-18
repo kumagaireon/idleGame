@@ -3,9 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CSVReader : MonoBehaviour
 {
+    #region　インスタンスへのstaticなアクセスポイント
+    public static CSVReader Instance
+    {
+        get { return instance; }
+    }
+    private static CSVReader instance = null;
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     public struct MusicData
     {
         public float time;
@@ -14,6 +27,12 @@ public class CSVReader : MonoBehaviour
     }
 
     public static List<MusicData> data = new List<MusicData>();
+
+    //一時的に作成
+    public GameObject[] iconPrefab;
+
+    //csvの行数を格納
+    public int height = 0;
 
     public List<MusicData> Music_CSV()
     {
@@ -25,10 +44,7 @@ public class CSVReader : MonoBehaviour
         TextAsset csvFile;
 
         //読み込んだcsvを格納
-        List<string[]> csvData = new List<string[]>();
-
-        //csvの行数を格納
-        int height = 0;
+        List<string[]> csvData = new List<string[]>();        
 
         csvFile = Resources.Load("CSV/musicData") as TextAsset;   
         StringReader reader = new StringReader(csvFile.text);
@@ -49,23 +65,15 @@ public class CSVReader : MonoBehaviour
             dat.type = int.Parse(csvData[i][2]);
 
             dat_list.Add(dat);
-            Debug.Log(dat.time);
-            Debug.Log(dat.keepTime);
-            Debug.Log(dat.type);
         }
         return dat_list;
     }
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-        data = Music_CSV();
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        data = Music_CSV();       
     }
 }
