@@ -74,7 +74,7 @@ public class SwipeWithMetrics : MonoBehaviour
                 isSwiping = false;
 
                 Vector2 swipeDelta = endTouchPosition - startTouchPosition;
-                float
+                float  swipeTime = endTime - startTime;
                 Debug.Log("スワイプが検出されました: ");
                 Debug.Log("距離: " + swipeDelta.magnitude);
                 Debug.Log("時間: " + swipeTime + " 秒");
