@@ -1,16 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TTestap : MonoBehaviour
+public class TapTest : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetMouseButton(0))
+#if UNITY_EDITOR
+        // PC の場合の入力処理
+        if (Input.GetMouseButtonDown(0))
         {
-            //ここにタップされた時の処理を書く
-            Debug.Log("AAAAAAAAAAAA");
+            Vector3 mousePosition = Input.mousePosition;
+            Debug.Log("マウスクリック: " + mousePosition);
         }
+#else
+        // モバイルの入力処理
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            Vector2 touchPosition = Input.GetTouch(0).position;
+            Debug.Log("タッチ検出: " + touchPosition);
+        }
+#endif
         if (Input.touchCount == 0)
         {
             //画面に触れていない場合の処理 
@@ -20,8 +28,8 @@ public class TTestap : MonoBehaviour
         {
             Debug.Log("タップされました");
         }
-    } 
-    
+    }
+
     //スマホ向け そのオブジェクトがタッチされていたらtrue（マルチタップ対応）
     bool OnTouchDown()
     {
