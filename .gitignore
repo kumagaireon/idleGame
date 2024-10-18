@@ -70,3 +70,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+#ライトのマテリアルの変更する用のアセットを除外
+/Assets/SkySeries Freebie
+#3Dの部屋を入れる用に使用したアセットを除外
+/Assets/Furniture_ges1
+
