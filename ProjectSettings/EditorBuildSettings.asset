@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: "Assets/\u8C4A/Scenes/SampleScene.unity"
+    path: Assets/[yutaka]/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Kumagai/TestScene/TestScene.unity
     guid: ac5e1340c875f7c4fad98cca7be517f6
   m_configObjects: {}
