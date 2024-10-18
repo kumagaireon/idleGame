@@ -8,6 +8,8 @@ public class SceneController : MonoBehaviour
 {
     private void Update()
     {
+        //エスケープキーでアプリ終了
+        
         //Tキーでタイトル        
         if (Input.GetKeyDown(KeyCode.T))
         {
