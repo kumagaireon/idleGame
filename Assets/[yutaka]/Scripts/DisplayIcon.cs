@@ -8,6 +8,18 @@ using UnityEngine;
 //タップするアイコンを表示するコントローラー
 public class DisplayIcon : MonoBehaviour
 {
+    #region　インスタンスへのstaticなアクセスポイント
+    public static DisplayIcon Instance
+    {
+        get { return instance; }
+    }
+    private static DisplayIcon instance = null;
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     [Header("タップするアイコン")]
     [SerializeField] private GameObject[] iconPrefab;
 
@@ -21,9 +33,9 @@ public class DisplayIcon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(CSVReader.data[0].time);
-        Debug.Log(CSVReader.data[0].keepTime);
-        Debug.Log(CSVReader.data[0].type);
+        //Debug.Log(CSVReader.data[0].time);
+        //Debug.Log(CSVReader.data[0].keepTime);
+        //Debug.Log(CSVReader.data[0].type);
 
         //for (int i = 0; i < CSVReader.data.Count; ++i)
         //{
@@ -41,7 +53,7 @@ public class DisplayIcon : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        //Debug.Log(timer);
+        Debug.Log("0");
         if(number < CSVReader.data.Count && timer > CSVReader.data[number].time)
         {
             switch (CSVReader.data[number].type)
@@ -52,7 +64,7 @@ public class DisplayIcon : MonoBehaviour
                         if (!showFlag[i])
                         {
                             iconObject[i] = Instantiate(iconPrefab[0]);
-                            DestroyTimer(CSVReader.data[number].keepTime, i);
+                            Destroy(iconObject[i], CSVReader.data[number].keepTime);
                             break;
                         }
                     }                                                                                                            
@@ -63,7 +75,7 @@ public class DisplayIcon : MonoBehaviour
                         if (!showFlag[i])
                         {
                             iconObject[i] = Instantiate(iconPrefab[1]);
-                            DestroyTimer(CSVReader.data[number].keepTime, i);
+                            Destroy(iconObject[i], CSVReader.data[number].keepTime);
                             break;
                         }
                     }
@@ -73,15 +85,22 @@ public class DisplayIcon : MonoBehaviour
         }
     }
 
-    private void DestroyTimer(float time, int num)
-    {
-        Debug.Log(time);
-        float destroyTimer = 0;
-        destroyTimer += Time.deltaTime;
-        if(destroyTimer > time)
-        {
-            showFlag[num] = false;
-            Destroy(iconObject[num]);
-        }
-    }
+    //Destroyメソッドの引数で数秒後を指定できた
+    //private void DestroyTimer(float time, int num)
+    //{
+    //    Debug.Log(time);
+    //    float destroyTimer = 0;
+    //    while (destroyTimer < time)
+    //    {
+    //        destroyTimer += Time.deltaTime;
+    //        Debug.Log(destroyTimer);
+    //        if (destroyTimer > time)
+    //        {
+    //            Debug.Log("ijfi");
+    //            showFlag[num] = false;
+    //            Destroy(iconObject[num]);
+    //            break;
+    //        }
+    //    }
+    //}
 }
