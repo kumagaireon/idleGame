@@ -55,6 +55,8 @@ public class SongSelectReon : MonoBehaviour
         // スペースキーが押されたら
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            csvFileName = dataBase.songData[select].csvFileName;//曲の情報を格納
+            Debug.Log(csvFileName);
             SongStart(); // 曲の再生を開始
         }
     }
@@ -96,6 +98,6 @@ public class SongSelectReon : MonoBehaviour
     public void SongStart()
     {
         GManagerReon.instance.songID = select; // 選択された曲のIDをGManagerに設定
-        SceneManager.LoadScene("MusicScene"); // 音楽シーンをロード
+        SceneManager.LoadScene("LiveScene"); // 音楽シーンをロード
     }    
 }
