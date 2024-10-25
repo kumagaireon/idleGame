@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c619f3729c8c13f4ba8cb29545f818b9, type: 3}
-  m_Name: cinema2
+  m_Name: SongData
   m_EditorClassIdentifier: 
-  songID: 0
-  songName: cinema2
-  songLevel: 19
-  songImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  songTime: 180
+  songID: 
+  songName: 
+  songLevel: 0
+  songImage: {fileID: 0}

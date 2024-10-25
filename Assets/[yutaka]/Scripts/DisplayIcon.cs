@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections.LowLevel.Unsafe;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
@@ -27,7 +28,7 @@ public class DisplayIcon : MonoBehaviour
     private int number = 0;
 
     private const int ICONNUM = 30;
-    private GameObject[] iconObject = new GameObject[ICONNUM];
+    [SerializeField] private GameObject[] iconObject = new GameObject[ICONNUM];
     private bool[] showFlag = new bool[ICONNUM];
 
     [Header("曲のBPM")]
@@ -45,54 +46,30 @@ public class DisplayIcon : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime * (BPM / FPS);
-        Debug.Log(timer);
+        //Debug.Log(timer);
         if(number < CSVReader.data.Count && timer > CSVReader.data[number].time)
-        {
-            switch (CSVReader.data[number].type)
-            {
-                case 1:
-                    for(int i = 0; i < ICONNUM; ++i)
-                    {
-                        if (!showFlag[i])
-                        {
-                            iconObject[i] = Instantiate(iconPrefab[0]);
-                            Destroy(iconObject[i], CSVReader.data[number].keepTime);
-                            break;
-                        }
-                    }                                                                                                            
-                    break;
-                case 2:
-                    for (int i = 0; i < ICONNUM; ++i)
-                    {
-                        if (!showFlag[i])
-                        {
-                            iconObject[i] = Instantiate(iconPrefab[1]);
-                            Destroy(iconObject[i], CSVReader.data[number].keepTime);
-                            break;
-                        }
-                    }
-                    break;
-            }            
+        {            
+            ManageCreationAndDestruction(CSVReader.data[number].direction);                
             number++;
         }
     }
 
-    //Destroyメソッドの引数で数秒後を指定できた
-    //private void DestroyTimer(float time, int num)
-    //{
-    //    Debug.Log(time);
-    //    float destroyTimer = 0;
-    //    while (destroyTimer < time)
-    //    {
-    //        destroyTimer += Time.deltaTime;
-    //        Debug.Log(destroyTimer);
-    //        if (destroyTimer > time)
-    //        {
-    //            Debug.Log("ijfi");
-    //            showFlag[num] = false;
-    //            Destroy(iconObject[num]);
-    //            break;
-    //        }
-    //    }
-    //}
+    private void ManageCreationAndDestruction(int direction)
+    {
+        GameObject iconObject = Instantiate(iconPrefab[direction - 1]);
+        Debug.Log(direction - 1);
+        Destroy(iconObject, CSVReader.data[number].keepTime);
+
+        //ノーツの数をあらかじめ想定してメモリを確保する方法→オブジェクトプールへ
+        //for (int i = 0; i < ICONNUM; ++i)
+        //{
+
+        //    if (!showFlag[i])
+        //    {
+        //        iconObject[i] = Instantiate(iconPrefab[direction - 1]);
+        //        Destroy(iconObject[i], CSVReader.data[number].keepTime);
+        //        break;
+        //    }
+        //}
+    }    
 }

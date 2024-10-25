@@ -10,12 +10,16 @@ public class SongSelectReon : MonoBehaviour
     [SerializeField] SongDataBaseReon dataBase; // 曲のデータベース
     [SerializeField] TextMeshProUGUI[] songNameText; // 曲名を表示するTextMeshProUGUIの配列
     [SerializeField] TextMeshProUGUI[] songLevelText; // 曲レベルを表示するTextMeshProUGUIの配列
+    [SerializeField] TextMeshProUGUI[] csvFileText; // 曲レベルを表示するTextMeshProUGUIの配列
+
     [SerializeField] Image songImage; // 曲の画像を表示するImageオブジェクト
 
     AudioSource audio; // オーディオソースコンポーネント
     AudioClip Music; // 現在選択されている曲のオーディオクリップ
     string songName; // 現在選択されている曲の名前
     int select; // 現在選択されている曲のインデックス
+
+    public static string csvFileName;
 
     private void Start()
     {
@@ -93,5 +97,5 @@ public class SongSelectReon : MonoBehaviour
     {
         GManagerReon.instance.songID = select; // 選択された曲のIDをGManagerに設定
         SceneManager.LoadScene("MusicScene"); // 音楽シーンをロード
-    }
+    }    
 }
