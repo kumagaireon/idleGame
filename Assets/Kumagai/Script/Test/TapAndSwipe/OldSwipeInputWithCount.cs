@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class OldSwipeInputWithCount : MonoBehaviour
 {
-    public float touchInterval = 0.1f; // タッチポジションを取得する間隔
-    public float swipeThreshold = 2f; // スワイプとして認識するための最小距離
-    [SerializeField] private Vector2[] touchPositions = new Vector2[3]; // タッチ位置を格納する配列
-    private bool isSwiping = false; // スワイプ中かどうかを示すフラグ
+    [Header("タッチポジションを取得する間隔")] public float touchInterval = 0.1f; // タッチポジションを取得する間隔
+    [Header("スワイプとして認識するための最小距離")] public float swipeThreshold = 2f; // スワイプとして認識するための最小距離
+    [SerializeField][Header("タッチ位置を格納する配列")]  private Vector2[] touchPositions = new Vector2[3]; // タッチ位置を格納する配列
+    [Header("スワイプ中かどうかを示すフラグ")] private bool isSwiping = false; // スワイプ中かどうかを示すフラグ
     [SerializeField] private int swipeCount = 0; // スワイプの方向変更回数
-    private float lastTouchTime; // 最後にタッチ位置を取得した時間
+    [Header("最後にタッチ位置を取得した時間")] private float lastTouchTime; // 最後にタッチ位置を取得した時間
 
     void Update()
     {
