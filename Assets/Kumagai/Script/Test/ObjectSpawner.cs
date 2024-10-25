@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//簡易サイズ確認用
 public class ObjectSpawner : MonoBehaviour
 {
     public GameObject prefab; // 生成するオブジェクトのプレハブ
