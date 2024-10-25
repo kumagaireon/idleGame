@@ -30,30 +30,22 @@ public class DisplayIcon : MonoBehaviour
     private GameObject[] iconObject = new GameObject[ICONNUM];
     private bool[] showFlag = new bool[ICONNUM];
 
+    [Header("‹È‚ÌBPM")]
+    [SerializeField] private float BPM;
+
+    private const int FPS = 60;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(CSVReader.data[0].time);
-        //Debug.Log(CSVReader.data[0].keepTime);
-        //Debug.Log(CSVReader.data[0].type);
-
-        //for (int i = 0; i < CSVReader.data.Count; ++i)
-        //{
-        //    switch (CSVReader.data[i].type)
-        //    {
-        //        case 1:
-        //            Instantiate(iconPrefab[0]); break;
-        //        case 2:
-        //            Instantiate(iconPrefab[1]); break;
-        //    }
-        //}
+        Application.targetFrameRate = FPS;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        Debug.Log("0");
+        timer += Time.deltaTime * (BPM / FPS);
+        Debug.Log(timer);
         if(number < CSVReader.data.Count && timer > CSVReader.data[number].time)
         {
             switch (CSVReader.data[number].type)
