@@ -15,7 +15,6 @@ MonoBehaviour:
   songData:
   - {fileID: 11400000, guid: 4db3b5d9b79cb394d96dd722b0a8fb2f, type: 2}
   - {fileID: 11400000, guid: 9b296039b9ac62247afbb6c132f432b4, type: 2}
-  - {fileID: 11400000, guid: 4db3b5d9b79cb394d96dd722b0a8fb2f, type: 2}
-  - {fileID: 11400000, guid: 9b296039b9ac62247afbb6c132f432b4, type: 2}
-  - {fileID: 11400000, guid: 9b296039b9ac62247afbb6c132f432b4, type: 2}
-  - {fileID: 11400000, guid: 9b296039b9ac62247afbb6c132f432b4, type: 2}
+  - {fileID: 11400000, guid: 74fd9b86f0bf88a4abaab6375db59ff7, type: 2}
+  - {fileID: 11400000, guid: 3dbb7ca9f81d6c1488d64102f06ac095, type: 2}
+  - {fileID: 11400000, guid: 91376f16e6d5b8444a9942f9a9a28e9b, type: 2}

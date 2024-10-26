@@ -18,6 +18,7 @@ public class CSVReader : MonoBehaviour
         instance = this;
     }
     #endregion
+    
 
     public struct MusicData
     {
@@ -36,7 +37,7 @@ public class CSVReader : MonoBehaviour
     public int height = 0;
 
     //CSVファイルの名前を保存
-    public static string csvFileName = "musicData";
+    string csvFileName ;
 
     public List<MusicData> Music_CSV()
     {
@@ -49,7 +50,7 @@ public class CSVReader : MonoBehaviour
 
         //読み込んだcsvを格納
         List<string[]> csvData = new List<string[]>();
-
+        
         csvFile = Resources.Load("CSV/" + csvFileName) as TextAsset;
         //csvFile = Resources.Load("CSV/musicData") as TextAsset;   
         StringReader reader = new StringReader(csvFile.text);
@@ -74,12 +75,10 @@ public class CSVReader : MonoBehaviour
         }
         return dat_list;
     }
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        data = Music_CSV();       
+        csvFileName = SongSelectReon.csvFileName;
+        Debug.Log(csvFileName);
+        data = Music_CSV();
     }
 }
