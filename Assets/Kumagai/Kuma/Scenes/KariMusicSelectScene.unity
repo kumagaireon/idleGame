@@ -2100,8 +2100,10 @@ MonoBehaviour:
   - {fileID: 2130590994}
   - {fileID: 2096350110}
   - {fileID: 944340450}
-  songTimeText:
-  - {fileID: 1479781498}
+  csvFileText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   songImage: {fileID: 1313276205}
