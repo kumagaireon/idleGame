@@ -27,7 +27,7 @@ public class TestScript : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime; // Debug.Log(timer);
+    /*    timer += Time.deltaTime; // Debug.Log(timer);
         if (number < CSVReader.data.Count && timer > CSVReader.data[number].time)
         {
             switch (CSVReader.data[number].type)
@@ -73,6 +73,6 @@ public class TestScript : MonoBehaviour
                     break;
             }
             number++;
-        }
+        }*/
     }
 }

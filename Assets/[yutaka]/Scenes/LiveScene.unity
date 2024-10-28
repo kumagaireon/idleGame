@@ -910,6 +910,7 @@ MonoBehaviour:
   iconPrefab:
   - {fileID: 7899140880461903926, guid: e65b65a80ae7a594eab07cf3a5d94915, type: 3}
   - {fileID: 4098479592249414173, guid: 0ac3be9ecc363814b8c0e44a612a791e, type: 3}
+  BPM: 120
 --- !u!1 &549196460
 GameObject:
   m_ObjectHideFlags: 0
