@@ -5,19 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/[yutaka]/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-<<<<<<< HEAD
   - enabled: 1
-    path: Assets/Akama/Scene/LoudSence.unity
-    guid: 4d6379d325ac8dc46a10efa2864146f6
-  - enabled: 1
-    path: Assets/Akama/Scene/Video Scene.unity
-    guid: 405eeaba69214764da8d10cd40047aa4
-=======
-  - enabled: 0
     path: Assets/Kumagai/TestScene/TestScene.unity
     guid: ac5e1340c875f7c4fad98cca7be517f6
->>>>>>> 974aefaf24993cd8339eb915da42210d19136888
   m_configObjects: {}
