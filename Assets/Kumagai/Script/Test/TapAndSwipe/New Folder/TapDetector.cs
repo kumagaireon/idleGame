@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TapDetector : MonoBehaviour
 {
-    public float longPressThreshold = 0.5f; // 長押しとして認識するための時間
-    private bool isPressing = false; // ボタンが押されているかどうかのフラグ
-    private float pressStartTime; // ボタンが押され始めた時間
+    public float longPressThreshold = 0.5f;
+    private bool isPressing = false;
+    private float pressStartTime;
 
     public void CheckTap()
     {
@@ -22,11 +22,7 @@ public class TapDetector : MonoBehaviour
 
             if (pressDuration >= longPressThreshold)
             {
-               // Debug.Log("長押し成功");
-            }
-            else
-            {
-              //  Debug.Log("単押し成功");
+                Debug.Log("長押し成功");
             }
         }
     }
