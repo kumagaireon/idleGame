@@ -28,11 +28,8 @@ public class DisplayIcon : MonoBehaviour
     private int number = 0;
 
     private const int ICONNUM = 30;
-    [SerializeField] private GameObject[] iconObject = new GameObject[ICONNUM];
-    private bool[] showFlag = new bool[ICONNUM];
-
-    [Header("曲のBPM")]
-    [SerializeField] private float BPM;
+    [SerializeField] private GameObject[] iconObject;
+    private bool[] showFlag = new bool[ICONNUM];    
 
     private const int FPS = 60;
 
@@ -45,8 +42,10 @@ public class DisplayIcon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime * (BPM / FPS);
+        timer += Time.deltaTime * (CSVReader.Instance.BPM / FPS);
         //Debug.Log(timer);
+
+        //カウントが要素数より小さく、表示時間に達したときにオブジェクト表示
         if(number < CSVReader.data.Count && timer > CSVReader.data[number].time)
         {            
             ManageCreationAndDestruction(CSVReader.data[number].direction);                
