@@ -28,4 +28,9 @@ public class SwipeJudge : MonoBehaviour
             RhythmTest.Instance.AddInputTime(Time.time);
         }
     }
+
+    public void LeftCheck(Vector3 l)
+    {
+
+    }
 }

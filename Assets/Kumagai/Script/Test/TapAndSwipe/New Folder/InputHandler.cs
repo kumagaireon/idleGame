@@ -68,7 +68,7 @@ public class InputHandler : MonoBehaviour
 #endif
     }
 
-    private void InitializeSwipe(Vector2 position)
+    private void InitializeSwipe(Vector2 position) 
     {
         touchPositions[0] = touchPositions[1] = touchPositions[2] = position;
         isSwiping = true;
