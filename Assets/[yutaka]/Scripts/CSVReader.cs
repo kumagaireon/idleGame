@@ -39,6 +39,9 @@ public class CSVReader : MonoBehaviour
     //CSVファイルの名前を保存
     string csvFileName ;
 
+    //曲のBPMを保存
+    public int BPM { get; private set; }
+
     public List<MusicData> Music_CSV()
     {
         //一時入力用で毎回初期化する
@@ -64,6 +67,8 @@ public class CSVReader : MonoBehaviour
             height++;
         }
 
+        BPM = int.Parse(csvData[0][3]);
+
         for(int i = 3; i < height; ++i)
         {
             dat.time = Convert.ToSingle(csvData[i][0]);
@@ -77,8 +82,15 @@ public class CSVReader : MonoBehaviour
     }
     void Start()
     {
-        csvFileName = SongSelectReon.csvFileName;
-        Debug.Log(csvFileName);
+        if (csvFileName != null)
+        {
+            csvFileName = SongSelectReon.csvFileName;
+        }
+        else
+        {
+            csvFileName = "musicData0";
+        }
+        Debug.Log(csvFileName);        
         data = Music_CSV();
     }
 }

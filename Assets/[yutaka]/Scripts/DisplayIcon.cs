@@ -28,25 +28,34 @@ public class DisplayIcon : MonoBehaviour
     private int number = 0;
 
     private const int ICONNUM = 30;
-    [SerializeField] private GameObject[] iconObject = new GameObject[ICONNUM];
-    private bool[] showFlag = new bool[ICONNUM];
+    [SerializeField] private GameObject[] iconObject;
+    private bool[] showFlag = new bool[ICONNUM];    
 
-    [Header("曲のBPM")]
-    [SerializeField] private float BPM;
+    private const float FPS = 60;
 
-    private const int FPS = 60;
+    private bool startedNotes = false;
 
     // csvAAAA is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = FPS;        
+        //Application.targetFrameRate = FPS;        
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime * (BPM / FPS);
-        //Debug.Log(timer);
+        timer += Time.deltaTime * (CSVReader.Instance.BPM / FPS);
+        for(int i = 1; i < 30; ++i)
+        {
+            if (timer > i)
+            {
+                //Debug.Log(i);
+                continue;
+            }
+        }
+        
+
+        //カウントが要素数より小さく、表示時間に達したときにオブジェクト表示
         if(number < CSVReader.data.Count && timer > CSVReader.data[number].time)
         {            
             ManageCreationAndDestruction(CSVReader.data[number].direction);                
@@ -57,7 +66,7 @@ public class DisplayIcon : MonoBehaviour
     private void ManageCreationAndDestruction(int direction)
     {
         GameObject iconObject = Instantiate(iconPrefab[direction - 1]);
-        Debug.Log(direction - 1);
+        //Debug.Log(direction - 1);
         Destroy(iconObject, CSVReader.data[number].keepTime);
 
         //ノーツの数をあらかじめ想定してメモリを確保する方法→オブジェクトプールへ
@@ -72,4 +81,9 @@ public class DisplayIcon : MonoBehaviour
         //    }
         //}
     }    
+
+    private void StartNotes()
+    {
+        startedNotes = true;
+    }
 }

@@ -652,6 +652,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   BPM: 100
+<<<<<<< HEAD
 --- !u!1 &849355245
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +768,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  iconObj: []
+>>>>>>> 16e9207e63127ca5f3a348fc90e6a2616b3272a7
 --- !u!1 &1237613136
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,35 +839,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1454484869
-GameObject:
+--- !u!1001 &7340944321696104940
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1454484871}
-  - component: {fileID: 1454484876}
-  - component: {fileID: 1454484877}
-  - component: {fileID: 1454484879}
-  - component: {fileID: 1454484878}
-  - component: {fileID: 1454484880}
-  m_Layer: 0
-  m_Name: CyalumeObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1454484871
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1454484869}
   serializedVersion: 2
+<<<<<<< HEAD
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1107,6 +1087,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+=======
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4539265861452386578, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534799287232143200, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+      propertyPath: m_Name
+      value: CyalumeObject
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
+>>>>>>> 16e9207e63127ca5f3a348fc90e6a2616b3272a7
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1114,6 +1149,10 @@ SceneRoots:
   - {fileID: 389391718}
   - {fileID: 1237613139}
   - {fileID: 808899743}
+<<<<<<< HEAD
   - {fileID: 1454484871}
   - {fileID: 309783193}
   - {fileID: 1027254585}
+=======
+  - {fileID: 7340944321696104940}
+>>>>>>> 16e9207e63127ca5f3a348fc90e6a2616b3272a7
