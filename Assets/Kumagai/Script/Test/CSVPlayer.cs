@@ -61,10 +61,10 @@ public class CSVPlayer : MonoBehaviour
         GameObject iconObject = Instantiate(iconPrefab[musicData.direction - 1]);
         iconObj.Add(iconObject);
         Destroy(iconObject, musicData.keepTime);
-        StartCoroutine(LogKeepTimeEnd(iconObject,musicData.keepTime));
+        StartCoroutine(LogKeepTimeEnd(iconObject, musicData.keepTime));
     }
 
-    private IEnumerator LogKeepTimeEnd(GameObject obj,float keepTime)
+    private IEnumerator LogKeepTimeEnd(GameObject obj, float keepTime)
     {
         yield return new WaitForSeconds(keepTime);
         LogManager.Instance.LogKeepTimeEnd();

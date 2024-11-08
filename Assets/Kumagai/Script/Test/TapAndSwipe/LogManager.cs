@@ -21,10 +21,10 @@ public class LogManager : MonoBehaviour
 
     public void LogMusicData(CSVAAAA.MusicData musicData)
     {
-        Debug.Log($"時間: {musicData.time}," +
-            $"継続時間: {musicData.keepTime}, " +
-            $"方向: {musicData.direction}," +
-            $"タイプ: {musicData.type}");
+        Debug.Log("時間:" + musicData.time);
+        Debug.Log("継続時間:" + musicData.keepTime);
+        Debug.Log("方向:" + musicData.direction);
+        Debug.Log("タイプ:" + musicData.type);
     }
     public void LogKeepTimeEnd()
     {
