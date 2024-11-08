@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class SwipeJudge : MonoBehaviour
 {  
@@ -18,11 +19,13 @@ public class SwipeJudge : MonoBehaviour
         Vector2 direction = currentPosition - previousPosition;
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-           // Debug.Log(direction.x > 0 ? "右スワイプ" : "左スワイプ");
+            Debug.Log(direction.x > 0 ? "右スワイプ" : "左スワイプ");
+            RhythmTest.Instance.AddInputTime(Time.time);
         }
         else
         {
-          //  Debug.Log(direction.y > 0 ? "上スワイプ" : "下スワイプ");
+            Debug.Log(direction.y > 0 ? "上スワイプ" : "下スワイプ");
+            RhythmTest.Instance.AddInputTime(Time.time);
         }
     }
 }

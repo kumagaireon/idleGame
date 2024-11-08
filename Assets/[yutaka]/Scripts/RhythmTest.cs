@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class RhythmTest : MonoBehaviour
 {
+    public static RhythmTest Instance;
+
     private List<float> expectedTimes = new List<float> { 1f, 2f, 3f, 4f, 5f };
     private List<float> inputTimes = new List<float>();
     private List<float> lags = new List<float>();
 
     private float startTime;
     private float tolerance = 0.5f;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +46,13 @@ public class RhythmTest : MonoBehaviour
             CulcLag();
         }
     }
+
+    public void AddInputTime(float time)
+    {
+        float inputTime = time - startTime;
+        inputTimes.Add(inputTime);
+    }
+
     private void CulcLag()
     {
         int inputIndex = 0;
@@ -61,7 +82,6 @@ public class RhythmTest : MonoBehaviour
                 }
             }
         }
-
         float sumOfLag = 0f;
         for(int i = 0; i < lags.Count; i++)
         {
