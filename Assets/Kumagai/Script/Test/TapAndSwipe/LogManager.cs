@@ -11,23 +11,24 @@ public class LogManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // �V�[�����ς���Ă��I�u�W�F�N�g��ێ�
+            DontDestroyOnLoad(gameObject); // シーンが変わってもオブジェクトを保持
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject);// すでにインスタンスが存在する場合はこのオブジェクトを破棄
         }
     }
 
     public void LogMusicData(CSVAAAA.MusicData musicData)
     {
-        Debug.Log("����:" + musicData.time);
-        Debug.Log("�p������:" + musicData.keepTime);
-        Debug.Log("����:" + musicData.direction);
-        Debug.Log("�^�C�v:" + musicData.type);
+        Debug.Log("時間:" + musicData.time); // 音楽の再生時間をログに出力
+        Debug.Log("継続時間:" + musicData.keepTime); // 継続時間をログに出力
+        Debug.Log("方向:" + musicData.direction); // 方向をログに出力
+        Debug.Log("タイプ:" + musicData.type); // タイプをログに出力
     }
+
     public void LogKeepTimeEnd()
     {
-        Debug.Log("�p�����Ԃ��I�����܂����B");
+        Debug.Log("継続時間が終了しました。"); // 継続時間の終了をログに出力
     }
 }

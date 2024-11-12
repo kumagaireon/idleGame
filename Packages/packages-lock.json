@@ -18,24 +18,8 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
-    "com.cysharp.r3": {
-      "version": "1.2.9",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.imgui": "1.0.0"
-      },
-      "url": "https://package.openupm.com"
-    },
     "com.cysharp.unitask": {
       "version": "2.5.10",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
-    "com.cysharp.zlogger": {
-      "version": "2.5.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {},

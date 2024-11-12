@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    [SerializeField] SongDataBaseReon dataBase; // ‹È‚Ìƒf[ƒ^ƒx[ƒX
-    AudioSource audio; // ƒI[ƒfƒBƒIƒ\[ƒXƒRƒ“ƒ|[ƒlƒ“ƒg
-    AudioClip Music; // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚ÌƒI[ƒfƒBƒIƒNƒŠƒbƒv
-    string songName; // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚Ì–¼‘O
-    bool played; // ‹È‚ªÄ¶‚³‚ê‚½‚©‚Ç‚¤‚©‚ğ¦‚·ƒtƒ‰ƒO
+    [SerializeField] SongDataBaseReon dataBase; // æ›²ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹
+    AudioSource audio; // ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã‚½ãƒ¼ã‚¹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+    AudioClip Music; // ç¾åœ¨å†ç”Ÿã™ã‚‹éŸ³æ¥½ã‚¯ãƒªãƒƒãƒ—
+    string songName; // ç¾åœ¨å†ç”Ÿã™ã‚‹æ›²å
+    bool played; // æ›²ãŒæ—¢ã«å†ç”Ÿã•ã‚ŒãŸã‹ã‚’ç¤ºã™ãƒ•ãƒ©ã‚°
 
     private void Start()
     {
-        // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚Ì–¼‘O‚ğƒf[ƒ^ƒx[ƒX‚©‚çæ“¾
-        songName = dataBase.songData[GManagerReon.instance.songID].songName; //•ÏX“_
-        audio = GetComponent<AudioSource>(); // AudioSourceƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
-        Music = GetComponent<AudioClip>(); // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚ÌƒI[ƒfƒBƒIƒNƒŠƒbƒv‚ğæ“¾
-        played = false; // Ä¶ƒtƒ‰ƒO‚ğ‰Šú‰»
+        // æ›²åã‚’ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‹ã‚‰å–å¾—
+        songName = dataBase.songData[GManagerReon.instance.songID].songName; // æ›²IDã«åŸºã¥ã„ã¦æ›²åã‚’å–å¾—
+        audio = GetComponent<AudioSource>(); // ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã‚½ãƒ¼ã‚¹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’å–å¾—
+        Music = GetComponent<AudioClip>(); // ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªã‚¯ãƒªãƒƒãƒ—ã‚’å–å¾—
+        played = false; // å†ç”Ÿãƒ•ãƒ©ã‚°ã‚’åˆæœŸåŒ–
     }
 
     private void Update()
     {
-        // ƒXƒy[ƒXƒL[‚ª‰Ÿ‚³‚êA‚Ü‚¾‹È‚ªÄ¶‚³‚ê‚Ä‚¢‚È‚¢ê‡
+        // ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸæ™‚ã‹ã¤æ›²ãŒã¾ã å†ç”Ÿã•ã‚Œã¦ã„ãªã„å ´åˆ
         if ((Input.GetKeyUp(KeyCode.Space)) && !played)
         {
-            GManagerReon.instance.Start = this; // GManager‚Å‚±‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğŠJnƒtƒ‰ƒO‚Æ‚µ‚Äİ’è
-            GManagerReon.instance.StartTime = Time.time; // ƒQ[ƒ€ŠJnŠÔ‚ğİ’è
-            played = true; // Ä¶ƒtƒ‰ƒO‚ğİ’è
-            audio.PlayOneShot(Music); // ‹È‚ğÄ¶
+            GManagerReon.instance.Start = this;
+            ; // GManagerã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ç¾åœ¨ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨­å®š
+            GManagerReon.instance.StartTime = Time.time; // ã‚²ãƒ¼ãƒ é–‹å§‹æ™‚é–“ã‚’è¨­å®š
+            played = true; // å†ç”Ÿãƒ•ãƒ©ã‚°ã‚’è¨­å®š
+            audio.PlayOneShot(Music); // æ›²ã‚’å†ç”Ÿ
         }
-
     }
 }

@@ -2,9 +2,7 @@
   "dependencies": {
     "com.annulusgames.lit-motion": "https://github.com/AnnulusGames/LitMotion.git?path=src/LitMotion/Assets/LitMotion",
     "com.cysharp.csprojmodifier": "1.2.1",
-    "com.cysharp.r3": "1.2.9",
     "com.cysharp.unitask": "2.5.10",
-    "com.cysharp.zlogger": "2.5.7",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.collab-proxy": "2.5.1",
     "com.unity.device-simulator.devices": "1.0.0",

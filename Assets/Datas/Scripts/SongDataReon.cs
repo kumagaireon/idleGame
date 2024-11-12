@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ScriptableObject ‚ğì¬‚·‚é‚½‚ß‚Ìƒƒjƒ…[€–Ú‚ğ’Ç‰Á
+// ScriptableObjectã‚’ä½œæˆã™ã‚‹ãŸã‚ã®ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã‚’è¿½åŠ 
 
-[CreateAssetMenu(fileName ="SongData",menuName ="Šy‹Èƒf[ƒ^‚ğì¬")]
+[CreateAssetMenu(fileName ="SongData",menuName ="éŸ³æ¥½ãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆ")]
 public class SongDataReon : ScriptableObject
 {
-    // Šy‹Èƒf[ƒ^‚ÌƒvƒƒpƒeƒB
-    public string songID;     // Šy‹È‚ÌID
-    public string songName;   // Šy‹È‚Ì–¼‘O
-    public int songLevel;     // Šy‹È‚Ì“ïˆÕ“xƒŒƒxƒ‹
-    public string csvFileName;     //Šy‹È‚ÌCSVƒtƒ@ƒCƒ‹‚Ì–¼‘O
-    public Sprite songImage;  // Šy‹È‚Ì‰æ‘œ    
+    // éŸ³æ¥½ãƒ‡ãƒ¼ã‚¿ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+    public string songID;     // éŸ³æ¥½ã®ID
+    public string songName;   // éŸ³æ¥½ã®åå‰
+    public int songLevel;     // éŸ³æ¥½ã®é›£æ˜“åº¦ãƒ¬ãƒ™ãƒ«
+    public string csvFileName;     // éŸ³æ¥½ã®CSVãƒ•ã‚¡ã‚¤ãƒ«å
+    public Sprite songImage;  // éŸ³æ¥½ã®ç”»åƒ    
 }

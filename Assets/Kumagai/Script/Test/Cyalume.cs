@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//g‚¦‚é
+
 
 public class Cyalume : MonoBehaviour
 {
-    [SerializeField] GameObject CyalumeObl; // ƒ^ƒbƒv‚µ‚½‚Éo‚éƒIƒuƒWƒFƒNƒg
-    private GameObject currentCyalume; // Œ»İ¶¬‚³‚ê‚Ä‚¢‚éCyalumeƒIƒuƒWƒFƒNƒg
+    [SerializeField] GameObject CyalumeObl; // ã‚¿ãƒƒãƒ—ã—ãŸã¨ãã«ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+    private GameObject currentCyalume; // ç¾åœ¨ç”Ÿæˆã•ã‚Œã¦ã„ã‚‹Cyalumeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     void Update()
     {
 #if UNITY_EDITOR
-        // PC ‚Ìê‡‚Ì“ü—Íˆ—
+        // PCã®å ´åˆã®å…¥åŠ›å‡¦ç†
         if (Input.GetMouseButtonDown(0))
         {
             StartCoroutine(StartCyalume(Input.mousePosition));
@@ -25,7 +25,7 @@ public class Cyalume : MonoBehaviour
             StartCoroutine(EndCyalume());
         }
 #else
-        // ƒ‚ƒoƒCƒ‹‚Ì“ü—Íˆ—
+       // ãƒ¢ãƒã‚¤ãƒ«ã®å ´åˆã®å…¥åŠ›å‡¦ç†
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -44,14 +44,14 @@ public class Cyalume : MonoBehaviour
         }
 #endif
     }
-
+// Cyalumeã®ç”Ÿæˆã‚’é–‹å§‹ã™ã‚‹ã‚³ãƒ«ãƒ¼ãƒãƒ³
     private IEnumerator StartCyalume(Vector2 position)
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(position.x, position.y, 10));
         currentCyalume = Instantiate(CyalumeObl, worldPosition, Quaternion.identity);
         yield return null;
     }
-
+// Cyalumeã®ä½ç½®ã‚’æ›´æ–°ã™ã‚‹ã‚³ãƒ«ãƒ¼ãƒãƒ³
     private IEnumerator UpdateCyalume(Vector2 position)
     {
         if (currentCyalume != null)
@@ -61,7 +61,7 @@ public class Cyalume : MonoBehaviour
         }
         yield return null;
     }
-
+// Cyalumeã®ç”Ÿæˆã‚’çµ‚äº†ã™ã‚‹ã‚³ãƒ«ãƒ¼ãƒãƒ³
     private IEnumerator EndCyalume()
     {
         if (currentCyalume != null)
