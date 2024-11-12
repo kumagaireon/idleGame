@@ -6,7 +6,7 @@ public class RhythmTest : MonoBehaviour
 {
     public static RhythmTest Instance;
 
-    private List<float> expectedTimes = new List<float> { 1f, 2f, 3f, 4f, 5f };
+    private List<float> expectedTimes = new List<float> { 3f, 5f, 7f, 9f, 11f, 13f, 15f, 17f, 19f, 21f, 23f, 25f, 27f, 29f };
     private List<float> inputTimes = new List<float>();
     private List<float> lags = new List<float>();
 

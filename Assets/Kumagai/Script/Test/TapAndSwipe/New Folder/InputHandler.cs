@@ -67,8 +67,12 @@ public class InputHandler : MonoBehaviour
 #endif
     }
 
+<<<<<<< HEAD
     // スワイプの初期化を行うメソッド
     private void InitializeSwipe(Vector2 position)
+=======
+    private void InitializeSwipe(Vector2 position) 
+>>>>>>> 980fe2fe36f547688c088a7af467b6ce1e5e1f6c
     {
         touchPositions[0] = touchPositions[1] = touchPositions[2] = position;// タッチポジションを初期化
         isSwiping = true;// スワイプ中フラグを立てる

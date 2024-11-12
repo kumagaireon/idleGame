@@ -30,4 +30,9 @@ public class SwipeJudge : MonoBehaviour
             RhythmTest.Instance.AddInputTime(Time.time);// リズムテストインスタンスに入力時間を追加
         }
     }
+
+    public void LeftCheck(Vector3 l)
+    {
+
+    }
 }
