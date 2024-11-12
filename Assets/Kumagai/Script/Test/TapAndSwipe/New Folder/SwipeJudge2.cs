@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class SwipeJudge : MonoBehaviour
+public class SwipeJudge2 : MonoBehaviour
 {  
     // スワイプの方向が反転しているかを確認するメソッド
     // 入力された3点のベクトルが逆方向を向いているかどうかを判定
@@ -21,18 +21,13 @@ public class SwipeJudge : MonoBehaviour
         Vector2 direction = currentPosition - previousPosition;// 方向ベクトルを計算
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))// 水平方向の移動が大きい場合
         {
-            Debug.Log(direction.x > 0 ? "右スワイプ" : "左スワイプ"); // 右スワイプか左スワイプかを判定してログに出力
+         //   Debug.Log(direction.x > 0 ? "右スワイプ" : "左スワイプ"); // 右スワイプか左スワイプかを判定してログに出力
             RhythmTest.Instance.AddInputTime(Time.time);// リズムテストインスタンスに入力時間を追加
         }
         else
         {
-            Debug.Log(direction.y > 0 ? "上スワイプ" : "下スワイプ"); // 上スワイプか下スワイプかを判定してログに出力
+         //   Debug.Log(direction.y > 0 ? "上スワイプ" : "下スワイプ"); // 上スワイプか下スワイプかを判定してログに出力
             RhythmTest.Instance.AddInputTime(Time.time);// リズムテストインスタンスに入力時間を追加
         }
-    }
-
-    public void LeftCheck(Vector3 l)
-    {
-
     }
 }

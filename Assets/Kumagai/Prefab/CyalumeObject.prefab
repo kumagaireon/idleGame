@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4539265861452386578
 Transform:
   m_ObjectHideFlags: 0
@@ -63,10 +63,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   touchInterval: 0.1
   swipeThreshold: 2
-  touchPositions:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
 --- !u!114 &7431760884888674749
 MonoBehaviour:
   m_ObjectHideFlags: 0

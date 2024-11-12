@@ -1,4 +1,5 @@
 using Kumagai.Entites;
+using Kumagai.InterfaceAdapters;
 using UnityEngine;
 
 namespace Kumagai.UseCase
@@ -18,12 +19,14 @@ namespace Kumagai.UseCase
             this.swipeJudge = swipeJudge;
         }
 
+
         public void IntitalizeSwipe(Vector2 position, SwipeData swipeData)
         {
             swipeData.touchPositions[0] = swipeData.touchPositions[1] = swipeData.touchPositions[2] = position;
-            swipeData.isSwiping = true;
+           // swipeData.isSwiping = true;
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         public void UpdateSwipe(Vector2 position, float touchInterval, float swipeThreshold, SwipeData swipeData)
         {
             if (Time.time - swipeData.lastTouchTime >= touchInterval)
@@ -45,36 +48,7 @@ namespace Kumagai.UseCase
 
         public void EndSwipe(SwipeData swipeData)
         {
-            swipeData.isSwiping = false;
-        }
-    }
-
-    public interface ITapInputUseCase
-    {
-        void CheckTap(float longPressThreshold);
-    }
-
-    public class TapInputUseCase : ITapInputUseCase
-    {
-        private bool isPressing = false;
-        private float pressStartTime;
-
-        public void CheckTap(float longPressThreshold)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                isPressing = true;
-                pressStartTime = Time.time;
-            }
-            else if (Input.GetMouseButtonUp(0) && isPressing)
-            {
-                isPressing = false;
-                float pressDuration = Time.time - pressStartTime;
-                if (pressDuration >= longPressThreshold)
-                {
-                    Debug.Log("Long Press Detected");
-                }
-            }
+          //  swipeData.isSwiping = false;
         }
     }
 }

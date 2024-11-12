@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Kumagai.InterfaceAdapters
 {
-    public class SwipeJudge:MonoBehaviour
+    public class SwipeJudge : MonoBehaviour
     {
         public bool AreVectorsReversed(Vector2 a, Vector2 b, Vector2 c)
         {
@@ -16,12 +16,12 @@ namespace Kumagai.InterfaceAdapters
             Vector2 direction = currentPosition - previousPosition;
             if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
             {
-                Debug.Log(direction.x > 0 ? "Right Swipe" : "Left Swipe");
+                //  Debug.Log(direction.x > 0 ? "Right Swipe" : "Left Swipe");
                 RhythmTest.Instance.AddInputTime(Time.time);
             }
             else
             {
-                Debug.Log(direction.y > 0 ? "Up Swipe" : "Down Swipe");
+                //   Debug.Log(direction.y > 0 ? "Up Swipe" : "Down Swipe");
                 RhythmTest.Instance.AddInputTime(Time.time);
             }
         }

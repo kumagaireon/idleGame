@@ -16,14 +16,14 @@ public class InputHandler : MonoBehaviour
     private bool isSwiping = false;
 
     private TapDetector tapDetector;// タップを検出するためのコンポーネント
-    private SwipeJudge swipeJudge;// スワイプを判定するためのコンポーネント
+    private SwipeJudge2 swipeJudge2;// スワイプを判定するためのコンポーネント
 
     private float lastTouchTime;// 最後にタッチを検出した時間
 
     private void Start()
     {
         tapDetector = GetComponent<TapDetector>();
-        swipeJudge = GetComponent<SwipeJudge>();
+        swipeJudge2 = GetComponent<SwipeJudge2>();
     }
 
     private void Update()
@@ -87,10 +87,10 @@ public class InputHandler : MonoBehaviour
             
             // スワイプが閾値を超え、ベクトルが逆転している場合
             if (Vector2.Distance(touchPositions[0], touchPositions[1]) > swipeThreshold &&
-                swipeJudge.AreVectorsReversed(touchPositions[0], touchPositions[1], touchPositions[2]))
+                swipeJudge2.AreVectorsReversed(touchPositions[0], touchPositions[1], touchPositions[2]))
             {
                 // スワイプ方向を判定
-                swipeJudge.DetectSwipeDirection(touchPositions[0], touchPositions[1]);
+                swipeJudge2.DetectSwipeDirection(touchPositions[0], touchPositions[1]);
             }
         }
     }

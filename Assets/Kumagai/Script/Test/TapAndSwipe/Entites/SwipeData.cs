@@ -8,5 +8,6 @@ namespace Kumagai.Entites
         public bool isSwiping = false;
         public float lastTouchTime = 0.0f;
         public int swipeCount = 0;
+        public bool isPressing = false;
     }
 }
