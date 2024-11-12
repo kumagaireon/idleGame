@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 1259912188}
   - component: {fileID: 1259912187}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Save
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1698240535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,7 +522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7534799287232143200, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8445700644371074440, guid: f8b7b56b67c7a7e44961682d9ad58abe, type: 3}
       propertyPath: m_Enabled
