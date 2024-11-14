@@ -12,5 +12,6 @@ public class SongDataReon : ScriptableObject
     public string songName;   // 音楽の名前
     public int songLevel;     // 音楽の難易度レベル
     public string csvFileName;     // 音楽のCSVファイル名
+    public string selectedVideoPath;     // 動画のPath仮
     public Sprite songImage;  // 音楽の画像    
 }

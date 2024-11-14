@@ -16,4 +16,5 @@ MonoBehaviour:
   songName: name0
   songLevel: 10
   csvFileName: musicData0
+  selectedVideoPath: C:/School/IdolGame/2DIdolGameKari/Assets/StreamingAssets\Videos\video1.mp4
   songImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}

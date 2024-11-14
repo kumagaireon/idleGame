@@ -15,20 +15,19 @@ namespace Kumagai.InterfaceAdapters
         public void Initialize(IMusicDataLoader loader)
         {
             musicDataLoader = loader;
-            Debug.Log("MusicDataLoader initialized in CSVLoaderAdapter");
+         //   Debug.Log("MusicDataLoader initialized in CSVLoaderAdapter");
         }
 
         public async UniTask LoadMusicData()
         {
             if (musicDataLoader == null)
             {
-                Debug.LogError("MusicDataLoader が設定されていません。Initialize メソッドを呼び出して設定してください。");
+              //  Debug.LogError("MusicDataLoader が設定されていません。Initialize メソッドを呼び出して設定してください。");
                 return;
             }
 
 // SongDataReonの情報をログに出力
-            Debug.Log(
-                $"Song ID: {selectedSong.songID}, Song Name: {selectedSong.songName}, Song Level: {selectedSong.songLevel}, CSV File: {selectedSong.csvFileName}");
+            Debug.Log( $"Song ID: {selectedSong.songID}, Song Name: {selectedSong.songName}, Song Level: {selectedSong.songLevel}, CSV File: {selectedSong.csvFileName}");
 
             // CSVファイルを読み込み
             List<MusicData> data = await musicDataLoader.LoadMusicDataAsync(selectedSong.csvFileName);
@@ -43,8 +42,7 @@ namespace Kumagai.InterfaceAdapters
             // 読み込んだデータのログ出力（必要ならば）
             foreach (var musicData in data)
             {
-                Debug.Log(
-                    $"Time: {musicData.time}, KeepTime: {musicData.keepTime}, Direction: {musicData.direction}, Type: {musicData.type}");
+                Debug.Log(  $"Time: {musicData.time}, KeepTime: {musicData.keepTime}, Direction: {musicData.direction}, Type: {musicData.type}");
             }
         }
     }

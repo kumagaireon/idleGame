@@ -14,14 +14,14 @@ namespace Kumagai.FrameworksDrivers
 
         protected override void Configure(IContainerBuilder builder)
         {
-            Debug.Log("GameLifetimeScope Configure method called");
+           // Debug.Log("GameLifetimeScope Configure method called");
             if (csvLoaderPrefab != null)
             {
-                Debug.Log("Instantiating CSVLoaderAdapter from prefab...");
+               // Debug.Log("Instantiating CSVLoaderAdapter from prefab...");
                 var csvLoaderAdapter = Instantiate(csvLoaderPrefab).GetComponent<CSVLoaderAdapter>();
                 if (csvLoaderAdapter != null)
                 {
-                    Debug.Log("CSVLoaderAdapter instantiated and registered successfully.");
+                   // Debug.Log("CSVLoaderAdapter instantiated and registered successfully.");
                 }
                 else
                 {

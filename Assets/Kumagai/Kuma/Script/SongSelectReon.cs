@@ -7,68 +7,70 @@ using TMPro;
 
 public class SongSelectReon : MonoBehaviour
 {
-    [SerializeField] SongDataBaseReon dataBase; // ‹È‚Ìƒf[ƒ^ƒx[ƒX
-    [SerializeField] TextMeshProUGUI[] songNameText; // ‹È–¼‚ğ•\¦‚·‚éTextMeshProUGUI‚Ì”z—ñ
-    [SerializeField] TextMeshProUGUI[] songLevelText; // ‹ÈƒŒƒxƒ‹‚ğ•\¦‚·‚éTextMeshProUGUI‚Ì”z—ñ
-    [SerializeField] TextMeshProUGUI[] csvFileText; // ‹ÈƒŒƒxƒ‹‚ğ•\¦‚·‚éTextMeshProUGUI‚Ì”z—ñ
+    [SerializeField] SongDataBaseReon dataBase; // ï¿½È‚Ìƒfï¿½[ï¿½^ï¿½xï¿½[ï¿½X
+    [SerializeField] TextMeshProUGUI[] songNameText; // ï¿½È–ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TextMeshProUGUIï¿½Ì”zï¿½ï¿½
+    [SerializeField] TextMeshProUGUI[] songLevelText; // ï¿½Èƒï¿½ï¿½xï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TextMeshProUGUIï¿½Ì”zï¿½ï¿½
+    [SerializeField] TextMeshProUGUI[] csvFileText; // ï¿½Èƒï¿½ï¿½xï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TextMeshProUGUIï¿½Ì”zï¿½ï¿½
 
-    [SerializeField] Image songImage; // ‹È‚Ì‰æ‘œ‚ğ•\¦‚·‚éImageƒIƒuƒWƒFƒNƒg
+    [SerializeField] Image songImage; // ï¿½È‚Ì‰æ‘œï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Imageï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
 
-    AudioSource audio; // ƒI[ƒfƒBƒIƒ\[ƒXƒRƒ“ƒ|[ƒlƒ“ƒg
-    AudioClip Music; // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚ÌƒI[ƒfƒBƒIƒNƒŠƒbƒv
-    string songName; // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚Ì–¼‘O
-    int select; // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚ÌƒCƒ“ƒfƒbƒNƒX
-
+    AudioSource audio; // ï¿½Iï¿½[ï¿½fï¿½Bï¿½Iï¿½\ï¿½[ï¿½Xï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½g
+    AudioClip Music; // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½È‚ÌƒIï¿½[ï¿½fï¿½Bï¿½Iï¿½Nï¿½ï¿½ï¿½bï¿½v
+    string songName; // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½È‚Ì–ï¿½ï¿½O
+    int select; // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½È‚ÌƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½X
+  [SerializeField]  private string selectedVideoPath;
     public static string csvFileName { get; private set; }
 
     private void Start()
     {
-        select = 0; // Å‰‚É‘I‘ğ‚³‚ê‚é‹È‚ğƒCƒ“ƒfƒbƒNƒX0‚Éİ’è
-        audio = GetComponent<AudioSource>(); // AudioSourceƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
-        songName = dataBase.songData[select].songName; // ‰Šú‚Ì‹È–¼‚ğƒf[ƒ^ƒx[ƒX‚©‚çæ“¾
-        Music = (AudioClip)Resources.Load("Musics/" + songName); // ‰Šú‚Ì‹È‚ğƒŠƒ\[ƒX‚©‚çƒ[ƒh
-        SongUpdateALL(); // ‹Èî•ñ‚ğ‘S‚ÄXV
+        select = 0; // ï¿½Åï¿½ï¿½É‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½X0ï¿½Éİ’ï¿½
+        audio = GetComponent<AudioSource>(); // AudioSourceï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½gï¿½ï¿½ï¿½æ“¾
+        songName = dataBase.songData[select].songName; // ï¿½ï¿½ï¿½ï¿½ï¿½Ì‹È–ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½xï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½æ“¾
+        selectedVideoPath = dataBase.songData[select].selectedVideoPath; // ï¿½ï¿½ï¿½ï¿½ï¿½Ì‹È–ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½xï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½æ“¾
+        Music = (AudioClip)Resources.Load("Musics/" + songName); // ï¿½ï¿½ï¿½ï¿½ï¿½Ì‹È‚ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ï¿½çƒï¿½[ï¿½h
+        SongUpdateALL(); // ï¿½Èï¿½ï¿½ï¿½Sï¿½ÄXï¿½V
     }
 
     void Update()
     {
-        // ‰º–îˆóƒL[‚ª‰Ÿ‚³‚ê‚½‚ç
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (select < dataBase.songData.Length - 1) // ƒf[ƒ^ƒx[ƒX‚Ì’·‚³ˆÈ“à‚Å‚ ‚ê‚Î
+            if (select < dataBase.songData.Length - 1) // ï¿½fï¿½[ï¿½^ï¿½xï¿½[ï¿½Xï¿½Ì’ï¿½ï¿½ï¿½ï¿½È“ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½
             {
-                select++; // ‹È‚Ì‘I‘ğ‚ğŸ‚Ì‹È‚ÉˆÚ“®
-                SongUpdateALL(); // ‹Èî•ñ‚ğ‘S‚ÄXV
+                select++; // ï¿½È‚Ì‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‹È‚ÉˆÚ“ï¿½
+                SongUpdateALL(); // ï¿½Èï¿½ï¿½ï¿½Sï¿½ÄXï¿½V
             }
         }
 
-        // ã–îˆóƒL[‚ª‰Ÿ‚³‚ê‚½‚ç
+        // ï¿½ï¿½ï¿½ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (select > 0) // ƒCƒ“ƒfƒbƒNƒX‚ª0ˆÈã‚Å‚ ‚ê‚Î
+            if (select > 0) // ï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½0ï¿½Èï¿½Å‚ï¿½ï¿½ï¿½ï¿½
             {
-                select--; // ‹È‚Ì‘I‘ğ‚ğ‘O‚Ì‹È‚ÉˆÚ“®
-                SongUpdateALL(); // ‹Èî•ñ‚ğ‘S‚ÄXV
+                select--; // ï¿½È‚Ì‘Iï¿½ï¿½ï¿½ï¿½Oï¿½Ì‹È‚ÉˆÚ“ï¿½
+                SongUpdateALL(); // ï¿½Èï¿½ï¿½ï¿½Sï¿½ÄXï¿½V
             }
         }
 
-        // ƒXƒy[ƒXƒL[‚ª‰Ÿ‚³‚ê‚½‚ç
+        // ï¿½Xï¿½yï¿½[ï¿½Xï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.Space))
         {                        
-            SongStart(); // ‹È‚ÌÄ¶‚ğŠJn
+            SongStart(); // ï¿½È‚ÌÄï¿½ï¿½ï¿½ï¿½Jï¿½n
         }
     }
 
     private void SongUpdateALL()
     {
-        songName = dataBase.songData[select].songName; // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È–¼‚ğƒf[ƒ^ƒx[ƒX‚©‚çæ“¾
-        Music = (AudioClip)Resources.Load("Musics/" + songName); // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚ğƒŠƒ\[ƒX‚©‚çƒ[ƒh
-        audio.Stop(); // Œ»İÄ¶’†‚Ì‰¹Šy‚ğ’â~
-        audio.PlayOneShot(Music); // V‚µ‚¢‹È‚ğÄ¶
+        songName = dataBase.songData[select].songName; // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½È–ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½xï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½æ“¾
+        selectedVideoPath = dataBase.songData[select].selectedVideoPath; // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½È–ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½xï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½æ“¾
+        Music = (AudioClip)Resources.Load("Musics/" + songName); // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ï¿½çƒï¿½[ï¿½h
+        audio.Stop(); // ï¿½ï¿½ï¿½İÄï¿½ï¿½ï¿½ï¿½Ì‰ï¿½ï¿½yï¿½ï¿½ï¿½~
+        audio.PlayOneShot(Music); // ï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Äï¿½
 
         for (int i = 0; i < 5; i++)
         {
-            SongUpdate(i - 2); // ‹È‚Ìî•ñ‚ğXV
+            SongUpdate(i - 2); // ï¿½È‚Ìï¿½ï¿½ï¿½ï¿½Xï¿½V
         }
     }
 
@@ -76,27 +78,27 @@ public class SongSelectReon : MonoBehaviour
     {
         try
         {
-            // ‹È–¼‚ÆƒŒƒxƒ‹‚ğƒeƒLƒXƒg‚É•\¦
+            // ï¿½È–ï¿½ï¿½Æƒï¿½ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½eï¿½Lï¿½Xï¿½gï¿½É•\ï¿½ï¿½
             songNameText[id + 2].text = dataBase.songData[select + id].songName;
             songLevelText[id + 2].text = "Lv." + dataBase.songData[select + id].songLevel;
         }
         catch
         {
-            // ƒCƒ“ƒfƒbƒNƒX‚ª”ÍˆÍŠO‚Ìê‡AƒeƒLƒXƒg‚ğ‹ó‚É‚·‚é
+            // ï¿½Cï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½Xï¿½ï¿½ï¿½ÍˆÍŠOï¿½Ìê‡ï¿½Aï¿½eï¿½Lï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½
             songNameText[id + 2].text = "";
             songLevelText[id + 2].text = "";
         }
 
         if (id == 0)
         {
-            songImage.sprite = dataBase.songData[select + id].songImage; // ‹È‚Ì‰æ‘œ‚ğ•\¦
+            songImage.sprite = dataBase.songData[select + id].songImage; // ï¿½È‚Ì‰æ‘œï¿½ï¿½\ï¿½ï¿½
         }
     }
 
     public void SongStart()
     {
-        GManagerReon.instance.songID = select; // ‘I‘ğ‚³‚ê‚½‹È‚ÌID‚ğGManager‚Éİ’è
-        csvFileName = dataBase.songData[select].csvFileName;//‹È‚Ìî•ñ‚ğŠi”[
-        SceneManager.LoadScene("LiveScene"); // ‰¹ŠyƒV[ƒ“‚ğƒ[ƒh
+        GManagerReon.instance.songID = select; // ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½È‚ï¿½IDï¿½ï¿½GManagerï¿½Éİ’ï¿½
+        csvFileName = dataBase.songData[select].csvFileName;//ï¿½È‚Ìï¿½ï¿½ï¿½ï¿½iï¿½[
+        SceneManager.LoadScene("LiveScene"); // ï¿½ï¿½ï¿½yï¿½Vï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½h
     }    
 }

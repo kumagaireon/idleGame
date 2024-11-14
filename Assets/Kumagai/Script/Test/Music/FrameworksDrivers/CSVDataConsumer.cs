@@ -17,8 +17,7 @@ namespace Kumagai.FrameworksDrivers
             {
                 foreach (var data in musicData)
                 {
-                    Debug.Log(
-                        $"Time: {data.time}, KeepTime: {data.keepTime}, Direction: {data.direction}, Type: {data.type}");
+                    Debug.Log(  $"Time: {data.time}, KeepTime: {data.keepTime}, Direction: {data.direction}, Type: {data.type}");
                 }
             }
             else

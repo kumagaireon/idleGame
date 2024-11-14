@@ -13,11 +13,11 @@ namespace Kumagai.FrameworksDrivers
 
         public void Initialize(CSVLoaderAdapter csvLoaderAdapter)
         {
-            Debug.Log("Initialize method called for CSVMana");
+         //   Debug.Log("Initialize method called for CSVMana");
             this.csvLoaderAdapter = csvLoaderAdapter;
             if (csvLoaderAdapter != null)
             {
-                Debug.Log("CSVLoaderAdapter is successfully injected in Initialize method");
+          //      Debug.Log("CSVLoaderAdapter is successfully injected in Initialize method");
                 IMusicDataLoader musicDataLoader = new MusicDataLoader();
                 csvLoaderAdapter.Initialize(musicDataLoader);
             }
@@ -29,7 +29,7 @@ namespace Kumagai.FrameworksDrivers
 
         private void Start()
         {
-            Debug.Log("Start method called for CSVMana");
+          //  Debug.Log("Start method called for CSVMana");
             // Initialize メソッドで注入済みの csvLoaderAdapter を使用するため、ここでは何もしません
         }
 

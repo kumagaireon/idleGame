@@ -1,6 +1,6 @@
 namespace Kumagai.Entities
 {
-    public struct MusicData
+    public struct MusicData//バリューオブジェクト化
     {
         public float time;//再生時間
         public float keepTime;//継続時間
