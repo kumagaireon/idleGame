@@ -14,7 +14,7 @@ public class VideoManager : MonoBehaviour
 
     private void Start()
     {
-        string videoDirectory = Path.Combine(Application.streamingAssetsPath, "Videos");
+        string videoDirectory = Path.Combine(Application.streamingAssetsPath, "Videos", "ATeam");
         videoPaths = new List<string>(Directory.GetFiles(videoDirectory, "*.mp4"));
 
         PlayRandomVideo().Forget();

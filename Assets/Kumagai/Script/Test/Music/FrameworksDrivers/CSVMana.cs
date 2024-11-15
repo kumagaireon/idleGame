@@ -17,7 +17,7 @@ namespace Kumagai.FrameworksDrivers
             this.csvLoaderAdapter = csvLoaderAdapter;
             if (csvLoaderAdapter != null)
             {
-          //      Debug.Log("CSVLoaderAdapter is successfully injected in Initialize method");
+              //Debug.Log("CSVLoaderAdapter is successfully injected in Initialize method");
                 IMusicDataLoader musicDataLoader = new MusicDataLoader();
                 csvLoaderAdapter.Initialize(musicDataLoader);
             }
@@ -36,6 +36,11 @@ namespace Kumagai.FrameworksDrivers
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
+            {
+                LoadCSVAndSwitchScene().Forget();
+            }
+
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 LoadCSVAndSwitchScene().Forget();
             }
