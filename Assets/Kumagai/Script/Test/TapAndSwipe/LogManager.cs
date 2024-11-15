@@ -19,13 +19,6 @@ public class LogManager : MonoBehaviour
         }
     }
 
-    public void LogMusicData(CSVAAAA.MusicData musicData)
-    {
-        Debug.Log("時間:" + musicData.time); // 音楽の再生時間をログに出力
-        Debug.Log("継続時間:" + musicData.keepTime); // 継続時間をログに出力
-        Debug.Log("方向:" + musicData.direction); // 方向をログに出力
-        Debug.Log("タイプ:" + musicData.type); // タイプをログに出力
-    }
 
     public void LogKeepTimeEnd()
     {

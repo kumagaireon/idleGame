@@ -9,9 +9,9 @@ namespace Kumagai.UseCase
 
     public class MusicDataLoader : IMusicDataLoader
     {
-        public async UniTask<List<MusicData>> LoadMusicDataAsync(string csvFileName)
+        public async UniTask<List<MusicDataKari>> LoadMusicDataAsync(string csvFileName)
         {
-            List<MusicData> dat_list = new List<MusicData>();
+            List<MusicDataKari> dat_list = new List<MusicDataKari>();
             TextAsset csvFile = await Resources.LoadAsync<TextAsset>($"CSV/{csvFileName}") as TextAsset;
             if (csvFile == null) return dat_list;
             StringReader reader = new StringReader(csvFile.text);
@@ -26,7 +26,7 @@ namespace Kumagai.UseCase
 
             for (int i = 3; i < height; ++i)
             {
-                var dat = new MusicData
+                var dat = new MusicDataKari
                 {
                     time = float.Parse(csvData[i][0]), keepTime = float.Parse(csvData[i][1]),
                     direction = int.Parse(csvData[i][2]), type = bool.Parse(csvData[i][3])

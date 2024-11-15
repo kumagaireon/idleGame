@@ -30,7 +30,7 @@ namespace Kumagai.InterfaceAdapters
             Debug.Log( $"Song ID: {selectedSong.songID}, Song Name: {selectedSong.songName}, Song Level: {selectedSong.songLevel}, CSV File: {selectedSong.csvFileName}");
 
             // CSVファイルを読み込み
-            List<MusicData> data = await musicDataLoader.LoadMusicDataAsync(selectedSong.csvFileName);
+            List<MusicDataKari> data = await musicDataLoader.LoadMusicDataAsync(selectedSong.csvFileName);
             if (DataHolder.Instance != null)
             {
                 DataHolder.Instance.SetMusicData(data);

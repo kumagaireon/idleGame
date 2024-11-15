@@ -7,33 +7,33 @@ using UnityEngine.SceneManagement;
 
 public class Judge : MonoBehaviour
 {
-    // •Ï”‚ÌéŒ¾
-    [SerializeField] private GameObject[] MessageObj; // ƒvƒŒƒCƒ„[‚É”»’è‚ğ“`‚¦‚éƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚Ì”z—ñ
-    [SerializeField] NotesManager notesManager; // NotesManagerƒXƒNƒŠƒvƒg‚ğŠi”[‚·‚é•Ï”
-    [SerializeField] TextMeshProUGUI comboText; // ƒRƒ“ƒ{”‚ğ•\¦‚·‚éTextMeshProUGUIƒIƒuƒWƒFƒNƒg
-    [SerializeField] TextMeshProUGUI scoreText; // ƒXƒRƒA‚ğ•\¦‚·‚éTextMeshProUGUIƒIƒuƒWƒFƒNƒg
-    [SerializeField] GameObject finish; // ƒQ[ƒ€I—¹‚É•\¦‚·‚éƒQ[ƒ€ƒIƒuƒWƒFƒNƒg
-    private AudioSource audio; // ƒI[ƒfƒBƒIƒ\[ƒXƒRƒ“ƒ|[ƒlƒ“ƒg
-    [SerializeField] AudioClip hitSound; // ƒm[ƒc‚ğ’@‚¢‚½‚ÌŒø‰Ê‰¹
-    float endTime = 0; // ƒQ[ƒ€‚ÌI—¹ŠÔ
+    // ï¿½Ïï¿½ï¿½ÌéŒ¾
+    [SerializeField] private GameObject[] MessageObj; // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½É”ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½Ì”zï¿½ï¿½
+    [SerializeField] NotesManager notesManager; // NotesManagerï¿½Xï¿½Nï¿½ï¿½ï¿½vï¿½gï¿½ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½Ïï¿½
+    [SerializeField] TextMeshProUGUI comboText; // ï¿½Rï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TextMeshProUGUIï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+    [SerializeField] TextMeshProUGUI scoreText; // ï¿½Xï¿½Rï¿½Aï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TextMeshProUGUIï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+    [SerializeField] GameObject finish; // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½É•\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½g
+    private new AudioSource audio; // ï¿½Iï¿½[ï¿½fï¿½Bï¿½Iï¿½\ï¿½[ï¿½Xï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½g
+    [SerializeField] AudioClip hitSound; // ï¿½mï¿½[ï¿½cï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÌŒï¿½ï¿½Ê‰ï¿½
+    float endTime = 0; // ï¿½Qï¿½[ï¿½ï¿½ï¿½ÌIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     private void Start()
     {
-        // ƒI[ƒfƒBƒIƒ\[ƒXƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
+        // ï¿½Iï¿½[ï¿½fï¿½Bï¿½Iï¿½\ï¿½[ï¿½Xï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½gï¿½ï¿½ï¿½æ“¾
         audio = GetComponent<AudioSource>();
-        // ÅŒã‚Ìƒm[ƒc‚ÌŠÔ‚ğæ“¾‚µAƒQ[ƒ€‚ÌI—¹ŠÔ‚ğİ’è
+        // ï¿½ÅŒï¿½Ìƒmï¿½[ï¿½cï¿½Ìï¿½ï¿½Ô‚ï¿½ï¿½æ“¾ï¿½ï¿½ï¿½Aï¿½Qï¿½[ï¿½ï¿½ï¿½ÌIï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½İ’ï¿½
         endTime = notesManager.NotesTime[notesManager.NotesTime.Count - 1];
     }
 
     void Update()
     {
-        // ƒQ[ƒ€‚ªŠJn‚³‚ê‚Ä‚¢‚éê‡
+        // ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½nï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ê‡
         if (GManagerReon.instance.Start)
         {
-            // ƒL[“ü—Í‚É‰‚¶‚½ƒm[ƒc‚Ì”»’è
-            if (Input.GetKeyDown(KeyCode.D)) // "D"ƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+            // ï¿½Lï¿½[ï¿½ï¿½ï¿½Í‚É‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½[ï¿½cï¿½Ì”ï¿½ï¿½ï¿½
+            if (Input.GetKeyDown(KeyCode.D)) // "D"ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½
             {
-                if (notesManager.LaneNum[0] == 0) // ƒŒ[ƒ“‚Ì”Ô†‚ªˆê’v‚·‚é‚©Šm”F
+                if (notesManager.LaneNum[0] == 0) // ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ì”Ôï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½é‚©ï¿½mï¿½F
                 {
                     Judgement(GetABS(Time.time - (notesManager.NotesTime[0] + GManagerReon.instance.StartTime)), 0);
                 }
@@ -43,7 +43,7 @@ public class Judge : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.F)) // "F"ƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+            if (Input.GetKeyDown(KeyCode.F)) // "F"ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½
             {
                 if (notesManager.LaneNum[0] == 1)
                 {
@@ -55,7 +55,7 @@ public class Judge : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.J)) // "J"ƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+            if (Input.GetKeyDown(KeyCode.J)) // "J"ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½
             {
                 if (notesManager.LaneNum[0] == 2)
                 {
@@ -67,7 +67,7 @@ public class Judge : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.K)) // "K"ƒL[‚ª‰Ÿ‚³‚ê‚½‚Æ‚«
+            if (Input.GetKeyDown(KeyCode.K)) // "K"ï¿½Lï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½
             {
                 if (notesManager.LaneNum[0] == 3)
                 {
@@ -79,60 +79,60 @@ public class Judge : MonoBehaviour
                 }
             }
 
-            // ÅŒã‚Ìƒm[ƒc‚ğ’@‚¢‚½Œã‚Ìˆ—
+            // ï¿½ÅŒï¿½Ìƒmï¿½[ï¿½cï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
             if (Time.time > endTime + GManagerReon.instance.StartTime)
             {
-                finish.SetActive(true); // ƒQ[ƒ€I—¹ƒIƒuƒWƒFƒNƒg‚ğ•\¦
-                Invoke("ResuleScene", 3f); // 3•bŒã‚ÉŒ‹‰Ê‰æ–Ê‚É‘JˆÚ
+                finish.SetActive(true); // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½\ï¿½ï¿½
+                Invoke("ResuleScene", 3f); // 3ï¿½bï¿½ï¿½ÉŒï¿½ï¿½Ê‰ï¿½Ê‚É‘Jï¿½ï¿½
                 return;
             }
 
-            // ƒm[ƒc‚ğ’@‚­‚×‚«ŠÔ‚©‚ç0.2•bŒo‰ß‚µ‚Ä‚à“ü—Í‚ª‚È‚©‚Á‚½ê‡
+            // ï¿½mï¿½[ï¿½cï¿½ï¿½@ï¿½ï¿½ï¿½×‚ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½ï¿½0.2ï¿½bï¿½oï¿½ß‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Í‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡
             if (Time.time > notesManager.NotesTime[0] + 0.2f + GManagerReon.instance.StartTime)
             {
-                message(3); // ƒ~ƒXƒƒbƒZ[ƒW‚ğ•\¦
-                deleteData(0); // ƒm[ƒcƒf[ƒ^‚ğíœ
-                Debug.Log("Miss"); // ƒfƒoƒbƒOƒƒO‚É"Miss"‚ğ•\¦
-                GManagerReon.instance.miss++; // ƒ~ƒXƒJƒEƒ“ƒg‚ğ‘‰Á
-                GManagerReon.instance.combo = 0; // ƒRƒ“ƒ{‚ğƒŠƒZƒbƒg
+                message(3); // ï¿½~ï¿½Xï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½\ï¿½ï¿½
+                deleteData(0); // ï¿½mï¿½[ï¿½cï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœ
+                Debug.Log("Miss"); // ï¿½fï¿½oï¿½bï¿½Oï¿½ï¿½ï¿½Oï¿½ï¿½"Miss"ï¿½ï¿½\ï¿½ï¿½
+                GManagerReon.instance.miss++; // ï¿½~ï¿½Xï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ğ‘‰ï¿½
+                GManagerReon.instance.combo = 0; // ï¿½Rï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
             }
         }
     }
 
-    // ƒm[ƒc‚Ì”»’èˆ—
+    // ï¿½mï¿½[ï¿½cï¿½Ì”ï¿½ï¿½èˆï¿½ï¿½
     void Judgement(float timeLag, int numOffset)
     {
-        audio.PlayOneShot(hitSound); // Œø‰Ê‰¹‚ğÄ¶
-        if (timeLag <= 0.05) // ”»’èŠÔ‚ª0.05•bˆÈ‰º‚Ìê‡
+        audio.PlayOneShot(hitSound); // ï¿½ï¿½ï¿½Ê‰ï¿½ï¿½ï¿½ï¿½Äï¿½
+        if (timeLag <= 0.05) // ï¿½ï¿½ï¿½èï¿½Ô‚ï¿½0.05ï¿½bï¿½È‰ï¿½ï¿½Ìê‡
         {
-            Debug.Log("Perfect"); // ƒfƒoƒbƒOƒƒO‚É"Perfect"‚ğ•\¦
-            message(0); // ƒp[ƒtƒFƒNƒgƒƒbƒZ[ƒW‚ğ•\¦
-            GManagerReon.instance.ratioScore += 5; // ƒXƒRƒA‚ğ‰ÁZ
-            GManagerReon.instance.perfect++; // ƒp[ƒtƒFƒNƒgƒJƒEƒ“ƒg‚ğ‘‰Á
-            GManagerReon.instance.combo++; // ƒRƒ“ƒ{‚ğ‘‰Á
-            deleteData(numOffset); // ƒm[ƒcƒf[ƒ^‚ğíœ
+            Debug.Log("Perfect"); // ï¿½fï¿½oï¿½bï¿½Oï¿½ï¿½ï¿½Oï¿½ï¿½"Perfect"ï¿½ï¿½\ï¿½ï¿½
+            message(0); // ï¿½pï¿½[ï¿½tï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½\ï¿½ï¿½
+            GManagerReon.instance.ratioScore += 5; // ï¿½Xï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Z
+            GManagerReon.instance.perfect++; // ï¿½pï¿½[ï¿½tï¿½Fï¿½Nï¿½gï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ğ‘‰ï¿½
+            GManagerReon.instance.combo++; // ï¿½Rï¿½ï¿½ï¿½{ï¿½ğ‘‰ï¿½
+            deleteData(numOffset); // ï¿½mï¿½[ï¿½cï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœ
         }
-        else if (timeLag <= 0.08) // ”»’èŠÔ‚ª0.08•bˆÈ‰º‚Ìê‡
+        else if (timeLag <= 0.08) // ï¿½ï¿½ï¿½èï¿½Ô‚ï¿½0.08ï¿½bï¿½È‰ï¿½ï¿½Ìê‡
         {
-            Debug.Log("Great"); // ƒfƒoƒbƒOƒƒO‚É"Great"‚ğ•\¦
-            message(1); // ƒOƒŒ[ƒgƒƒbƒZ[ƒW‚ğ•\¦
-            GManagerReon.instance.ratioScore += 3; // ƒXƒRƒA‚ğ‰ÁZ
-            GManagerReon.instance.great++; // ƒOƒŒ[ƒgƒJƒEƒ“ƒg‚ğ‘‰Á
-            GManagerReon.instance.combo++; // ƒRƒ“ƒ{‚ğ‘‰Á
-            deleteData(numOffset); // ƒm[ƒcƒf[ƒ^‚ğíœ
+            Debug.Log("Great"); // ï¿½fï¿½oï¿½bï¿½Oï¿½ï¿½ï¿½Oï¿½ï¿½"Great"ï¿½ï¿½\ï¿½ï¿½
+            message(1); // ï¿½Oï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½\ï¿½ï¿½
+            GManagerReon.instance.ratioScore += 3; // ï¿½Xï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Z
+            GManagerReon.instance.great++; // ï¿½Oï¿½ï¿½ï¿½[ï¿½gï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ğ‘‰ï¿½
+            GManagerReon.instance.combo++; // ï¿½Rï¿½ï¿½ï¿½{ï¿½ğ‘‰ï¿½
+            deleteData(numOffset); // ï¿½mï¿½[ï¿½cï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœ
         }
-        else if (timeLag <= 0.10) // ”»’èŠÔ‚ª0.10•bˆÈ‰º‚Ìê‡
+        else if (timeLag <= 0.10) // ï¿½ï¿½ï¿½èï¿½Ô‚ï¿½0.10ï¿½bï¿½È‰ï¿½ï¿½Ìê‡
         {
-            Debug.Log("Bad"); // ƒfƒoƒbƒOƒƒO‚É"Bad"‚ğ•\¦
-            message(2); // ƒoƒbƒhƒƒbƒZ[ƒW‚ğ•\¦
-            GManagerReon.instance.ratioScore += 1; // ƒXƒRƒA‚ğ‰ÁZ
-            GManagerReon.instance.bad++; // ƒoƒbƒhƒJƒEƒ“ƒg‚ğ‘‰Á
-            GManagerReon.instance.combo = 0; // ƒRƒ“ƒ{‚ğƒŠƒZƒbƒg
-            deleteData(numOffset); // ƒm[ƒcƒf[ƒ^‚ğíœ
+            Debug.Log("Bad"); // ï¿½fï¿½oï¿½bï¿½Oï¿½ï¿½ï¿½Oï¿½ï¿½"Bad"ï¿½ï¿½\ï¿½ï¿½
+            message(2); // ï¿½oï¿½bï¿½hï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½\ï¿½ï¿½
+            GManagerReon.instance.ratioScore += 1; // ï¿½Xï¿½Rï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Z
+            GManagerReon.instance.bad++; // ï¿½oï¿½bï¿½hï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½ğ‘‰ï¿½
+            GManagerReon.instance.combo = 0; // ï¿½Rï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
+            deleteData(numOffset); // ï¿½mï¿½[ï¿½cï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœ
         }
     }
 
-    // ˆø”‚Ìâ‘Î’l‚ğ•Ô‚·ŠÖ”
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½Î’lï¿½ï¿½Ô‚ï¿½ï¿½Öï¿½
     float GetABS(float num)
     {
         if (num >= 0)
@@ -145,19 +145,19 @@ public class Judge : MonoBehaviour
         }
     }
 
-    // ‚·‚Å‚É’@‚¢‚½ƒm[ƒc‚ğíœ‚·‚éŠÖ”
+    // ï¿½ï¿½ï¿½Å‚É’@ï¿½ï¿½ï¿½ï¿½ï¿½mï¿½[ï¿½cï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½ï¿½Öï¿½
     void deleteData(int numOffset)
     {
-        notesManager.NotesTime.RemoveAt(numOffset); // ƒm[ƒcŠÔƒf[ƒ^‚ğíœ
-        notesManager.LaneNum.RemoveAt(numOffset); // ƒŒ[ƒ“”Ô†ƒf[ƒ^‚ğíœ
-        notesManager.NoteType.RemoveAt(numOffset); // ƒm[ƒcƒ^ƒCƒvƒf[ƒ^‚ğíœ
+        notesManager.NotesTime.RemoveAt(numOffset); // ï¿½mï¿½[ï¿½cï¿½ï¿½ï¿½Ôƒfï¿½[ï¿½^ï¿½ï¿½ï¿½íœ
+        notesManager.LaneNum.RemoveAt(numOffset); // ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ôï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœ
+        notesManager.NoteType.RemoveAt(numOffset); // ï¿½mï¿½[ï¿½cï¿½^ï¿½Cï¿½vï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½íœ
         GManagerReon.instance.score = (int)Math.Round(1000000 * Math.Floor(
-            GManagerReon.instance.ratioScore / GManagerReon.instance.maxScore * 1000000) / 1000000); // ƒXƒRƒA‚ğŒvZ‚µ‚ÄXV
-        comboText.text = GManagerReon.instance.combo.ToString(); // ƒRƒ“ƒ{”‚ğXV
-        scoreText.text = GManagerReon.instance.score.ToString(); // ƒXƒRƒA‚ğXV
+            GManagerReon.instance.ratioScore / GManagerReon.instance.maxScore * 1000000) / 1000000); // ï¿½Xï¿½Rï¿½Aï¿½ï¿½ï¿½vï¿½Zï¿½ï¿½ï¿½ÄXï¿½V
+        comboText.text = GManagerReon.instance.combo.ToString(); // ï¿½Rï¿½ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½V
+        scoreText.text = GManagerReon.instance.score.ToString(); // ï¿½Xï¿½Rï¿½Aï¿½ï¿½ï¿½Xï¿½V
     }
 
-    // ”»’è‚ğ•\¦‚·‚éŠÖ”
+    // ï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öï¿½
     void message(int judge)
     {
         Instantiate(MessageObj[judge],
@@ -165,7 +165,7 @@ public class Judge : MonoBehaviour
             Quaternion.Euler(45, 0, 0));
     }
 
-    // Œ‹‰Ê‰æ–Ê‚É‘JˆÚ‚·‚éŠÖ”
+    // ï¿½ï¿½ï¿½Ê‰ï¿½Ê‚É‘Jï¿½Ú‚ï¿½ï¿½ï¿½Öï¿½
     private void ResuleScene()
     {
         SceneManager.LoadScene("ResultScene");

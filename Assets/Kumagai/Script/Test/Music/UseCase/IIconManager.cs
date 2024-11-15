@@ -6,7 +6,7 @@ namespace Kumagai.UseCase
 {
     public interface IIconManager
     {
-        void CreateIcon(MusicData musicData);
+        void CreateIcon(MusicDataKari musicDataKari);
         UniTask HandleIconDestruction(GameObject icon, float keepTime);
     }
 }

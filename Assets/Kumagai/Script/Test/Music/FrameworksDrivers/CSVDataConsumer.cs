@@ -10,7 +10,7 @@ namespace Kumagai.FrameworksDrivers
         private void Start()
         {
             // 保存したCSVデータを取得
-            List<MusicData> musicData = DataHolder.Instance.GetMusicData();
+            List<MusicDataKari> musicData = DataHolder.Instance.GetMusicData();
 
             // CSVデータを使用する処理を記述
             if (musicData != null)

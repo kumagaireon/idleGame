@@ -6,6 +6,6 @@ namespace Kumagai.UseCase
 {
     public interface IMusicDataLoader
     {
-        UniTask<List<MusicData>> LoadMusicDataAsync(string csvFileName);
+        UniTask<List<MusicDataKari>> LoadMusicDataAsync(string csvFileName);
     }
 }

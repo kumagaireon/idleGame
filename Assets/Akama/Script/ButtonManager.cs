@@ -1,15 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
-    public Button[] buttons; // ƒ{ƒ^ƒ“‚Ì”z—ñ
-    public string[] videoNames; // “®‰æ‚Ì–¼‘O‚Ì”z—ñ
+    public Button[] buttons; // ï¿½{ï¿½^ï¿½ï¿½ï¿½Ì”zï¿½ï¿½
+    public string[] videoNames; // ï¿½ï¿½ï¿½ï¿½Ì–ï¿½ï¿½Oï¿½Ì”zï¿½ï¿½
 
+    [Obsolete("Obsolete")]
     void Start()
     {
         for (int i = 0; i < buttons.Length; i++)
         {
-           int index = i; // ƒ‰ƒ€ƒ_ƒLƒƒƒvƒ`ƒƒ–â‘è‚ð‰ñ”ð‚·‚é‚½‚ß‚É•K—v
+           int index = i; // ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½Lï¿½ï¿½ï¿½vï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚É•Kï¿½v
             buttons[i].onClick.AddListener(() => 
                 FindObjectOfType<ButtonClick>().SwitchScene(videoNames[index])
             );

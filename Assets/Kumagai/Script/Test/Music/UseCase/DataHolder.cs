@@ -7,7 +7,7 @@ namespace Kumagai.UseCase
     public class DataHolder : MonoBehaviour
     {
         public static DataHolder Instance { get; private set; } 
-        private List<MusicData> musicData;
+        private List<MusicDataKari> musicData;
 
         private void Awake()
         {
@@ -23,12 +23,12 @@ namespace Kumagai.UseCase
             } 
         }
 
-        public void SetMusicData(List<MusicData> data)
+        public void SetMusicData(List<MusicDataKari> data)
         {
             musicData = data;
         }
 
-        public List<MusicData> GetMusicData()
+        public List<MusicDataKari> GetMusicData()
         {
             return musicData;
         }

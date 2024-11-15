@@ -7,10 +7,10 @@ using TMPro;
 
 public class SelectCSV : MonoBehaviour
 {
-    [SerializeField] SongDataBaseReon dataBase; // ‹È‚Ìƒf[ƒ^ƒx[ƒX
-    [SerializeField] string songName; // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚Ì–¼‘O
-    int select; // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚é‹È‚ÌƒCƒ“ƒfƒbƒNƒX
-    [SerializeField] public static string csvFileName; // CSVƒtƒ@ƒCƒ‹–¼
+    [SerializeField] SongDataBaseReon dataBase; // ï¿½È‚Ìƒfï¿½[ï¿½^ï¿½xï¿½[ï¿½X
+    [SerializeField] string songName; // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½È‚Ì–ï¿½ï¿½O
+    int select; // ï¿½ï¿½ï¿½İ‘Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½È‚ÌƒCï¿½ï¿½ï¿½fï¿½bï¿½Nï¿½X
+    [SerializeField] public static string csvFileName; // CSVï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½
 
     private void Start()
     {
@@ -55,8 +55,8 @@ public class SelectCSV : MonoBehaviour
     public void SongStart()
     {
         CSVPlayer.csvFileName = dataBase.songData[select].csvFileName;
-        CSVAAAA.Instance.csvAAAA(); // CSVƒf[ƒ^‚ğÄ“Ç‚İ‚İ
-        CSVPlayer.Instance.StartPlayback(); // Ä¶ŠJn
+        //CSVAAAA.Instance.csvAAAA(); // CSVï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Ä“Ç‚İï¿½ï¿½ï¿½
+        CSVPlayer.Instance.StartPlayback(); // ï¿½Äï¿½ï¿½Jï¿½n
         Debug.Log(csvFileName);
     }
 }
