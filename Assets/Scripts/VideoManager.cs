@@ -14,7 +14,8 @@ public class VideoManager : MonoBehaviour
 
     private void Start()
     {
-        string videoDirectory = Path.Combine(Application.streamingAssetsPath, "Videos", "ATeam");
+        //仮
+        string videoDirectory = Path.Combine(Application.streamingAssetsPath, "Videos");
         videoPaths = new List<string>(Directory.GetFiles(videoDirectory, "*.mp4"));
 
         PlayRandomVideo().Forget();
@@ -30,7 +31,7 @@ public class VideoManager : MonoBehaviour
 
         // ランダムな動画パスを選択
         int randomIndex = Random.Range(0, videoPaths.Count);
-        string selectedVideoPath = videoPaths[randomIndex];
+        string selectedVideoPath = videoPaths[0];
      
         Debug.Log("Playing video: " + selectedVideoPath);
 
