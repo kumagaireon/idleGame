@@ -1,0 +1,12 @@
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\UnitSourceGen.GeneratedMSBuildEditorConfig.editorconfig
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\UnitSourceGen.AssemblyInfoInputs.cache
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\UnitSourceGen.AssemblyInfo.cs
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\UnitSourceGen.csproj.CoreCompileInputs.cache
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\UnitSourceGen.sourcelink.json
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\bin\Debug\net5.0\UnitSourceGen.deps.json
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\bin\Debug\net5.0\UnitSourceGen.dll
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\bin\Debug\net5.0\UnitSourceGen.pdb
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\UnitSourceGen.dll
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\refint\UnitSourceGen.dll
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\UnitSourceGen.pdb
+C:\School\IdolGame\2DIdolGameKari\UnitSourceGen\obj\Debug\net5.0\ref\UnitSourceGen.dll

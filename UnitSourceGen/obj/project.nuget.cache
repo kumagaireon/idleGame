@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "YENbG4jf0hTu9321hDf9K3gn+PlknVqGvF2URJj+um2ymrCRsVzgttAGhOMtTmYClfdWIt1RTRnf4fnkAMURaA==",
+  "success": true,
+  "projectFilePath": "C:\\School\\IdolGame\\2DIdolGameKari\\UnitSourceGen\\UnitSourceGen.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\81909\\.nuget\\packages\\unitgenerator\\1.6.2\\unitgenerator.1.6.2.nupkg.sha512",
+    "C:\\Users\\81909\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\81909\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\81909\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

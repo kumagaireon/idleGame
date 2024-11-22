@@ -1,0 +1,19 @@
+{
+    "name": "IdolGame.Common.ViewModels",
+    "rootNamespace": "",
+    "references": [
+        "IdolGame.Common.Views",
+        "UniTask",
+        "LitMotion",
+        "LitMotion.Extensions"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

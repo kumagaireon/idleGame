@@ -9,18 +9,24 @@ using System.IO;
 public class VideoManager : MonoBehaviour
 {
     //使う
+    // VideoPlayerコンポーネントの参照を保持するフィールド
     public VideoPlayer videoPlayer;
+    // ビデオファイルのパスを保持するリスト
    [SerializeField] private List<string> videoPaths;
 
     private void Start()
     {
-        //仮
+        // 仮のビデオディレクトリパスを設定
         string videoDirectory = Path.Combine(Application.streamingAssetsPath, "Videos");
+        // 指定されたディレクトリ内のすべての.mp4ファイルをリストに追加
         videoPaths = new List<string>(Directory.GetFiles(videoDirectory, "*.mp4"));
-
+        // ランダムなビデオを再生する非同期タスクを開始
         PlayRandomVideo().Forget();
     }
 
+    /// <summary>
+    /// ランダムなビデオを再生する非同期メソッド
+    /// </summary>
     private async UniTask PlayRandomVideo()
     {
         if (videoPaths.Count == 0)
@@ -45,6 +51,11 @@ public class VideoManager : MonoBehaviour
         videoPlayer.Play();
     }
 
+    /// <summary>
+    /// 指定されたパスの動画ファイルを非同期に読み込む
+    /// </summary>
+    /// <param name="path">読み込む動画ファイルのパス</param>
+    /// <returns>読み込まれた動画ファイルの完全なパス</returns>
     private async UniTask<string> LoadVideoAsync(string path)
     {
         // 動画ファイルを非同期に読み込む

@@ -5,21 +5,26 @@ using UnityEngine;
 
 namespace Kumagai.testCode
 {
+    // InputManagerTestクラスは、ゲームのテスト用にプレイヤーデータとセーブデータの管理を行う
     public class InputManagerTest : MonoBehaviour
     {
+        // セーブ・ロード機能を提供するインターフェース
         private ISaveLoadUseCase saveLoadUseCase;
-
+// プレイヤーデータ管理を提供するユースケース
         [SerializeField] private PlayerDataUseCase playerDataUseCase; 
+        // 現在のプレイヤーID
        [SerializeField] private string currentPlayerId = "player123";
         
         private void Awake()
         {
-            // 具体的なリポジトリのインスタンスを作成
+            // 具体的なリポジトリのインスタンスを作成し、依存性注入を行う
             var repository = new JsonSaveLoadRepository();
             saveLoadUseCase = new SaveloadUseCase(repository);
             
             var playrtrRepository = new JsonPlayerDataRepository();
             playerDataUseCase = new PlayerDataUseCase(playrtrRepository);
+          
+            // プレイヤーデータをロード
             PlayerData playerData = playerDataUseCase.Load(currentPlayerId);
             if (playerData != null)
             {
@@ -48,6 +53,9 @@ namespace Kumagai.testCode
             }
         }
 
+        /// <summary>
+        /// プレイヤーデータをセーブするメソッド
+        /// </summary>
         private void PlayerSave()
         {
             PlayerData data = new PlayerData
@@ -59,6 +67,9 @@ namespace Kumagai.testCode
             Debug.Log("ゲームデータをセーブしました。");
         }
 
+        /// <summary>
+        /// プレイヤーデータをロードするメソッド
+        /// </summary>
         private void PlayerLoadGame()
         {
             PlayerData data = playerDataUseCase.Load(currentPlayerId);
@@ -73,6 +84,10 @@ namespace Kumagai.testCode
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
+        
+        /// <summary>
+        /// ゲームデータをセーブするメソッド
+        /// </summary>
         private void SaveGame()
         {
             SaveData data = new SaveData
@@ -87,6 +102,10 @@ namespace Kumagai.testCode
         
 
         // ReSharper disable Unity.PerformanceAnalysis
+        
+        /// <summary>
+        /// ゲームデータをロードするメソッド
+        /// </summary>
         private void LoadGame()
         {
             SaveData data = saveLoadUseCase.Load();
