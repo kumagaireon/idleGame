@@ -28,33 +28,33 @@ namespace Kumagai
             var bgmClips = Resources.LoadAll<AudioClip>("Sound/Bgm");
             var seClips = Resources.LoadAll<AudioClip>("Sound/Se");
             var audioClips = Resources.LoadAll<AudioClip>("Audio");
-            
+
             // BGMクリップをディクショナリに追加
-            Debug.Log("BGM取得開始");
+            //    Debug.Log("BGM取得開始");
             foreach (var clip in bgmClips)
             {
                 soundData[clip.name] = clip;
-                Debug.Log(clip.name);
+                //  Debug.Log(clip.name);
             }
-            Debug.Log("BGM取得終了");
-            
+            //    Debug.Log("BGM取得終了");
+
             // SEクリップをディクショナリに追加
-            Debug.Log("SE取得開始");
+            //   Debug.Log("SE取得開始");
             foreach (var clip in seClips)
             {
                 soundData[clip.name] = clip;
-                Debug.Log(clip.name);
+                //  Debug.Log(clip.name);
             }
-            Debug.Log("SEを取得終了");
-            
+            //    Debug.Log("SEを取得終了");
+
             // 一般的なオーディオクリップをディクショナリに追加
-            Debug.Log("AUDIO取得開始");
+            //    Debug.Log("AUDIO取得開始");
             foreach (var clip in audioClips)
             {
                 soundData[clip.name] = clip;
-                Debug.Log(clip.name);
+                //  Debug.Log(clip.name);
             }
-            Debug.Log("AUDIO取得終了");
+            //   Debug.Log("AUDIO取得終了");
         }
 
         /// <summary>

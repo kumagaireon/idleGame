@@ -18,11 +18,11 @@ namespace Kumagai.FrameworksDrivers
         /// <param name="csvLoaderAdapter"></param>
         public void Initialize(CSVLoaderAdapter csvLoaderAdapter)
         {
-            //   Debug.Log("Initialize method called for CSVMana");
+            //   Debug.Log("CSVManaに対して呼び出されるinitializeメソッド");
             this.csvLoaderAdapter = csvLoaderAdapter;
             if (csvLoaderAdapter != null)
             {
-                //Debug.Log("CSVLoaderAdapter is successfully injected in Initialize method");
+                //Debug.Log("CSVLoaderAdapter が Initialize メソッドに正常に挿入されました");
                 IMusicDataLoader musicDataLoader = new MusicDataLoader();
                 csvLoaderAdapter.Initialize(musicDataLoader);
             }
@@ -66,7 +66,8 @@ namespace Kumagai.FrameworksDrivers
                 // CSVデータを非同期でロード
                 await csvLoaderAdapter.LoadMusicData();
                 // ロード完了後にシーンを切り替える
-                SceneManager.LoadScene("TESTSCENE 1");
+                //SceneManager.LoadScene("TESTSCENE 1");
+                Debug.Log("TESTSCENE 1に遷移した");
             }
             else
             {

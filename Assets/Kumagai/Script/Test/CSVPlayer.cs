@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CSVPlayer : MonoBehaviour
 {
     #region //インスタンスへのstaticなアクセスポイント
@@ -42,28 +43,28 @@ public class CSVPlayer : MonoBehaviour
     void Update()
     {
         /*if (number >= CSVAAAA.data.Count)
-            return;// インデックスがデータの数を超えたら処理を終了
+        return;// インデックスがデータの数を超えたら処理を終了
 
-        timer += Time.deltaTime * (BPM / FPS);
+    timer += Time.deltaTime * (BPM / FPS);
 
-        if (number < CSVAAAA.data.Count && timer > CSVAAAA.data[number].time)
-        {
-            LogManager.Instance.LogMusicData(CSVAAAA.data[number]);// 現在の音楽データをログに出力
-            ManageCreationAndDestruction(CSVAAAA.data[number]);// アイコンの作成と破棄を管理
-            number++;// インデックスをインクリメント
-        }*/
+    if (number < CSVAAAA.data.Count && timer > CSVAAAA.data[number].time)
+    {
+        LogManager.Instance.LogMusicData(CSVAAAA.data[number]);// 現在の音楽データをログに出力
+        ManageCreationAndDestruction(CSVAAAA.data[number]);// アイコンの作成と破棄を管理
+        number++;// インデックスをインクリメント
+    }*/
     }
 
     public List<GameObject> iconObj = new List<GameObject>();
 // アイコンの作成と破棄を管理するメソッド
     /*private void ManageCreationAndDestruction(CSVAAAA.MusicData musicData)
-    {
-        // 指定された方向のアイコンを生成
-        GameObject iconObject = Instantiate(iconPrefab[musicData.direction - 1]);
-        iconObj.Add(iconObject);
-        Destroy(iconObject, musicData.keepTime);
-        StartCoroutine(LogKeepTimeEnd(iconObject, musicData.keepTime));// 指定時間後にログを出力するコルーチンを開始
-    }*/
+{
+    // 指定された方向のアイコンを生成
+    GameObject iconObject = Instantiate(iconPrefab[musicData.direction - 1]);
+    iconObj.Add(iconObject);
+    Destroy(iconObject, musicData.keepTime);
+    StartCoroutine(LogKeepTimeEnd(iconObject, musicData.keepTime));// 指定時間後にログを出力するコルーチンを開始
+}*/
 // 継続時間終了後にログを出力するコルーチン
     private IEnumerator LogKeepTimeEnd(GameObject obj, float keepTime)
     {

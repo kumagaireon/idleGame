@@ -1,0 +1,4 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Title_Main.uss?fileID=7433441132597879392&amp;guid=5c41792beb4943a4b9b85693d04f3be6&amp;type=3#Title_Main" />
+    <IdolGame.RootUIElement name="Label" />
+</engine:UXML>

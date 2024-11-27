@@ -1,32 +1,38 @@
 [
   {
+    "id": 0,
+    "name": "ここに曲名",
+    "image_path": "ここに画像のパス",
+    "description": "ここに曲の説明文を書いて"
+  },
+  {
     "id": 1,
-    "name": "hello name",
-    "image_path": "FRUiTY_image1",
-    "description": "hello あああ"
+    "name": "ここに曲名",
+    "image_path": "ここに画像のパス",
+    "description": "ここに曲の説明文を書いて"
   },
   {
     "id": 2,
-    "name": "hello name",
-    "image_path": "hello image_path",
-    "description": "hello description"
+    "name": "ここに曲名",
+    "image_path": "ここに画像のパス",
+    "description": "ここに曲の説明文を書いて"
   },
   {
     "id": 3,
-    "name": "hello name",
-    "image_path": "hello image_path",
-    "description": "hello description"
+    "name": "ここに曲名",
+    "image_path": "ここに画像のパス",
+    "description": "ここに曲の説明文を書いて"
   },
   {
     "id": 4,
-    "name": "hello name",
-    "image_path": "hello image_path",
-    "description": "hello description"
+    "name": "ここに曲名",
+    "image_path": "ここに画像のパス",
+    "description": "ここに曲の説明文を書いて"
   },
   {
     "id": 5,
-    "name": "hello name",
-    "image_path": "hello image_path",
-    "description": "hello description"
+    "name": "ここに曲名",
+    "image_path": "ここに画像のパス",
+    "description": "ここに曲の説明文を書いて"
   }
 ]

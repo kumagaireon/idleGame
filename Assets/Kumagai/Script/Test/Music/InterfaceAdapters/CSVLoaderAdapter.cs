@@ -27,8 +27,7 @@ namespace Kumagai.InterfaceAdapters
             }
 
             // SongDataReonの情報をログに出力
-            Debug.Log(
-                $"Song ID: {selectedSong.songID}, Song Name: {selectedSong.songName}, Song Level: {selectedSong.songLevel}, CSV File: {selectedSong.csvFileName}");
+            Debug.Log($"Song ID: {selectedSong.songID}, Song Name: {selectedSong.songName}, Song Level: {selectedSong.songLevel}, CSV File: {selectedSong.csvFileName}");
 
             // CSVファイルを読み込み
             List<MusicDataKari> data = await musicDataLoader.LoadMusicDataAsync(selectedSong.csvFileName);

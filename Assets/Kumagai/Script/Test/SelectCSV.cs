@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Kumagai;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
