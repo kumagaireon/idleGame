@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.IO;
 using System.Threading;
@@ -6,14 +7,14 @@ using IdolGame.ApplicationBusinessRules.Interfaces;
 using IdolGame.ApplicationBusinessRules.UseCases;
 using IdolGame.EnterpriseBusinessRules;
 using IdolGame.Frameworks;
-using IdolGame.InterfaceAdapters.Frameworks;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 public sealed class DataUseCaseTester
 {
+    /*
     [UnityTest]
-    public IEnumerator TestCreateSaveData() => UniTask.ToCoroutine(async () =>
+    public IEnumerator TestCreateMusicSelectData() => UniTask.ToCoroutine(async () =>
     {
         var cts = new CancellationTokenSource();
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "music_data.json");
@@ -34,7 +35,7 @@ public sealed class DataUseCaseTester
     /// セーブデータをロードするテスト
     /// </summary>
     [UnityTest]
-    public IEnumerator TestLoadSaveData() => UniTask.ToCoroutine(async () =>
+    public IEnumerator TestLoadMusicSelectData() => UniTask.ToCoroutine(async () =>
     {
         var cts = new CancellationTokenSource();
         // JSONデータファイルのパスを構築
@@ -54,7 +55,7 @@ public sealed class DataUseCaseTester
     /// セーブデータを見つけるユースケースのテスト
     /// </summary>
     [UnityTest]
-    public IEnumerator TestFindSaveDataUscCase() => UniTask.ToCoroutine(async () =>
+    public IEnumerator TestFindMusicSelectDataUscCase() => UniTask.ToCoroutine(async () =>
     {
         var cts = new CancellationTokenSource();
         // JSONデータファイルのパスを構築
@@ -107,5 +108,67 @@ public sealed class DataUseCaseTester
             Debug.Log(saves[i]);
         }
     });
+    */
+    [UnityTest]
+    public IEnumerator TestCreateSaveData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+        
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "save_data.json");
+        
+        var dataStore = new JsonAsyncDataStore<SaveData[]>(path);
+        
+        await dataStore.StoreAsync(new []
+        {
+            new SaveData()
+            {
+                Id = 0,
+                IsAutoSave = false,
+                SavedLocationName = "Hallo World",
+                SavedAt = DateTimeOffset.Now
+            },
+            new SaveData()
+            {
+                Id = 1,
+                IsAutoSave = true,
+                SavedLocationName = "Hallo World1",
+                SavedAt = DateTimeOffset.Now
+            }
+        }, cts.Token);
+    });
 
+    [UnityTest]
+    public IEnumerator TestLoadSaveData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "save_data.json");
+
+        var dataStore = new JsonAsyncDataStore<SaveData[]>(path);
+
+        var saves = await dataStore.LoadAsync(cts.Token);
+        for (var i = 0; i < saves?.Length; i++)
+        {
+            Debug.Log(saves[i]);
+        }
+    });
+
+    [UnityTest]
+    public IEnumerator TestFindSaveDataUscCase() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "save_data.json");
+        
+        IAsyncDataStore<SaveData[]> dataStore = new JsonAsyncDataStore<SaveData[]>(path);
+        
+        IAsyncRepository<SaveData,SaveDataId> repository=new SaveDataRepository(dataStore);
+
+        var useCase = new FindSaveDataUseCase(repository);
+        var saves = await useCase.FindAllAsync(cts.Token);
+        foreach (var save in saves)
+        {
+            Debug.Log(save);
+        }
+    });
 }

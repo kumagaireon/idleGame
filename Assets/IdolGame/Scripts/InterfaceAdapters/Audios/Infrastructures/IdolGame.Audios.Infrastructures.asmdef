@@ -1,0 +1,21 @@
+{
+  "name": "IdolGame.Audios.Infrastructures",
+  "rootNamespace": "",
+  "references": [
+    "IdolGame.Common.Core",
+    "IdolGame.Audio.Core",
+    "UniTask",
+    "UniTask.Addressables",
+    "Unity.ResourceManager",
+    "Unity.Addressables"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

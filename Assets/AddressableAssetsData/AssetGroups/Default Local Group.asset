@@ -21,7 +21,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 859b624856ebdfc4cb6032fbb4b5da84
-    m_Address: Assets/StreamingAssets/TestVideos/video1.mp4
+    m_Address: video1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad0a59c07c32e314aabbb7c087d69d9e
+    m_Address: TestImage
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

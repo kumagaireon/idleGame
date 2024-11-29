@@ -1,6 +1,15 @@
+using System;
 using System.Text.Json.Serialization;
 
 namespace IdolGame.EnterpriseBusinessRules;
+
+public readonly record struct SaveData( 
+    [property: JsonPropertyName("id")] SaveDataId Id,
+    [property: JsonPropertyName("is_auto_save")] bool IsAutoSave,
+    [property: JsonPropertyName("saved_location_name")]  string SavedLocationName,
+    [property: JsonPropertyName("saved_at")]  DateTimeOffset SavedAt)
+{
+}
 
 public readonly record struct MusicData(
     [property:JsonPropertyName("id")] MusicId Id,

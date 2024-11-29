@@ -1,0 +1,20 @@
+{
+    "name": "IdolGame.Titles.Infrastructures",
+    "rootNamespace": "",
+    "references": [
+        "IdolGame.ApplicationBusinessRules.UseCases",
+        "IdolGame.Titles.Presenter",
+        "IdolGame.Titles.ViewModels",
+        "IdolGame.Titles.Views",
+        "VContainer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -2,6 +2,13 @@ using UnitGenerator;
 
 namespace IdolGame.EnterpriseBusinessRules;
 
+//SaveData
+[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct  SaveDataId
+{
+    
+}
+
 //MusicData
 [UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
 public readonly partial struct MusicId

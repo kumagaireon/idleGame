@@ -5,10 +5,9 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using IdolGame.ApplicationBusinessRules.Interfaces;
 using IdolGame.EnterpriseBusinessRules;
-using IdolGame.Frameworks;
 
-namespace IdolGame.InterfaceAdapters.Frameworks;
-
+namespace IdolGame.Frameworks;
+/*
 /// <summary>
 /// 非同期リポジトリクラス: MusicDataのデータ操作を担当
 /// </summary>
@@ -69,3 +68,4 @@ public sealed class MusicDataRepository : IAsyncRepository<MusicData, MusicId>
         await dataStore.StoreAsync(data, ct);
     }
 }
+*/

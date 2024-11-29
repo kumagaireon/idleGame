@@ -1,0 +1,23 @@
+{
+    "name": "IdolGame.Titles.Presenter",
+    "rootNamespace": "",
+    "references": [
+        "IdolGame.EnterpriseBusinessRules",
+        "IdolGame.ApplicationBusinessRules.UseCases",
+        "IdolGame.Common.ViewModels",
+        "IdolGame.Common.Views",
+        "IdolGame.Titles.ViewModels",
+        "IdolGame.Titles.Views",
+        "UniTask",
+        "VContainer"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

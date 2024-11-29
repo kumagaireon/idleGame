@@ -1,0 +1,5 @@
+@import url("unity-theme://default");
+
+@import url("/Assets/Resources/Style Sheets/Common/Common.uss");
+@import url("/Assets/Resources/Style Sheets/Common/Transition.uss");
+VisualElement {}

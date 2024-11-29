@@ -1,4 +1,24 @@
-<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Title_Main.uss?fileID=7433441132597879392&amp;guid=5c41792beb4943a4b9b85693d04f3be6&amp;type=3#Title_Main" />
-    <IdolGame.RootUIElement name="Label" />
+    <IdolGame.UIElements.RootUIElement>
+        <engine:VisualElement name="background" style="flex-grow: 1;">
+            <engine:VisualElement name="main-view" style="flex-grow: 1;">
+                <engine:VisualElement name="ui-container" style="flex-grow: 1;">
+                    <engine:VisualElement name="ui-title-logo-container" style="flex-grow: 1;">
+                        <engine:Label text="aaaaaaaaaaaaa" style="color: rgb(255, 255, 255); font-size: 37px;" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="ui-selectable-container" style="flex-grow: 1;">
+                        <engine:Label text="aaaaaaaaaaaaa" style="color: rgb(255, 255, 255);" />
+                        <engine:Label text="aaaaaaaaaaaaa" style="color: rgb(255, 255, 255);" />
+                        <engine:Label text="aaaaaaaaaaaaa" style="color: rgb(255, 255, 255);" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="ui-app-info-container" style="flex-grow: 1;">
+                        <engine:Label text="aaaaaaaaaaaaa" name="app-info-version-text" style="color: rgb(255, 255, 255);" />
+                        <engine:Label text="aaaaaaaaaaaaa" name="app-info-company-text" style="color: rgb(255, 255, 255);" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </IdolGame.UIElements.RootUIElement>
 </engine:UXML>

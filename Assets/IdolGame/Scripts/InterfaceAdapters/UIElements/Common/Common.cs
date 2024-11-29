@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace IdolGame.UIElements.Common;
+namespace IdolGame.UIElements;
 
 [UxmlElement]
 public partial class RootUIElement : VisualElement

@@ -1,26 +1,25 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Video;
 
 public class AddressablePlayer : MonoBehaviour
 {
-    // シリアライズフィールドとしてアドレス可能なゲームオブジェクトの参照
-    [SerializeField] private AssetReferenceGameObject _assetReference;
-
+    [SerializeField] private AssetReferenceGameObject cubePrefab;
     async UniTask Start()
     {
-        // アドレス可能なゲームオブジェクトを非同期にロード
-        var handle = Addressables.LoadAssetAsync<GameObject>(_assetReference);
+        // var handle = Addressables.LoadAssetAsync<GameObject>("Cube_Prefab");
+        // var handle = Addressables.LoadAssetAsync<GameObject>(cubePrefab);
+        var handle = cubePrefab.LoadAssetAsync<GameObject>();
         await handle;
-        // ロードしたゲームオブジェクトのインスタンスを作成
+
         var instance = Object.Instantiate(handle.Result);
-        // インスタンスの名前を設定
+
         instance.name = "Addressable Prefab ";
-        // 3秒間待機
-        await UniTask.WaitForSeconds(3.0f);
-        // インスタンスを破棄
-        Object.Destroy(instance.gameObject);
-        // アドレス可能なハンドルを解放
-        Addressables.Release(handle);
+
+        await UniTask.WaitForSeconds(2.0f);
+
+        Object.Destroy(instance);
+        Addressables.Release((handle));
     }
 }
