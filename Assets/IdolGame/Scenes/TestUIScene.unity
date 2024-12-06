@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 196018195}
+  - component: {fileID: 196018196}
   m_Layer: 0
   m_Name: '[EntryPoint] Menu Lifetime Scope'
   m_TagString: Untagged
@@ -150,6 +151,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &196018196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196018193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3827b0dff401458aba8a640c6ce23e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  rootDocument: {fileID: 1268093078}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: 098c337e5b66d764994194accde4520e, type: 3}
+  bgmAssetReference:
+    m_AssetGUID: 660d6236efec78c4297abbeffae4baf0
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &555029845
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840378548}
+  - component: {fileID: 840378549}
   m_Layer: 0
   m_Name: '[EntryPoint] SongSelection Lifetime Scope'
   m_TagString: Untagged
@@ -237,6 +263,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &840378549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840378547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e957b2a52cb4c46bd5143a351ed68ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  rootDocument: {fileID: 1268093078}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: 179abfa7a120d5c40baf92705e120051, type: 3}
+  bgmAssetReference:
+    m_AssetGUID: cdfbc2d41907b7b45a740f7e8ac11f2e
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &1095440131
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095440133}
+  - component: {fileID: 1095440134}
   m_Layer: 0
   m_Name: '[EntryPoint] Results Lifetime Scope'
   m_TagString: Untagged
@@ -268,6 +319,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1095440134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095440131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d76e120bf3e44c29bdc7bbace4ba50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  rootDocument: {fileID: 1268093078}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: 0aea0885d9e18c54c8c0ce57e8fa3759, type: 3}
+  bgmAssetReference:
+    m_AssetGUID: 0406211e2558e1a4c8e2ae7a83e4ef46
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &1250044207
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1250044208}
+  - component: {fileID: 1250044209}
   m_Layer: 0
   m_Name: '[EntryPoint] Gallery Lifetime Scope'
   m_TagString: Untagged
@@ -299,6 +375,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1250044209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250044207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd4dc872a3042a192e0f9f610071997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  rootDocument: {fileID: 1268093078}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: 426b35e26fe50424983857160d837b79, type: 3}
+  bgmAssetReference:
+    m_AssetGUID: 0406211e2558e1a4c8e2ae7a83e4ef46
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &1259198984
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1259198986}
+  - component: {fileID: 1259198987}
   m_Layer: 0
   m_Name: '[EntryPoint] Recommendation Lifetime Scope '
   m_TagString: Untagged
@@ -330,6 +431,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1259198987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259198984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e84292035824a82b6c6a915b990ff68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  rootDocument: {fileID: 1268093078}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: e36877241299f2548bf65b956d697526, type: 3}
+  bgmAssetReference:
+    m_AssetGUID: 0406211e2558e1a4c8e2ae7a83e4ef46
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &1268093077
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1354180501}
+  - component: {fileID: 1354180502}
   m_Layer: 0
   m_Name: '[EntryPoint] Options Lifetime Scope'
   m_TagString: Untagged
@@ -549,6 +675,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1354180502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354180499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6292e02cdcff4571861164c29801c49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  rootDocument: {fileID: 1268093078}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: dd0c872bb47641144badcd3d57f427ac, type: 3}
+  bgmAssetReference:
+    m_AssetGUID: cdfbc2d41907b7b45a740f7e8ac11f2e
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1 &1672803342
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1913591908}
+  - component: {fileID: 1913591909}
   m_Layer: 0
   m_Name: '[EntryPoint] InGame Lifetime Scope'
   m_TagString: Untagged
@@ -659,6 +810,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1913591909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913591906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b10490748346718174531e3662807b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects: []
+  rootDocument: {fileID: 1268093078}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: 6a739f09b1c27174b822920ba1656f20, type: 3}
+  bgmAssetReference:
+    m_AssetGUID: cdfbc2d41907b7b45a740f7e8ac11f2e
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

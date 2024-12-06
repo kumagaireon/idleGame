@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 5434bdfd09f09794ea901681a878b9fe
   m_SerializeEntries:
+  - m_GUID: 0406211e2558e1a4c8e2ae7a83e4ef46
+    m_Address: Assets/AddressableResources/Audio/like_this_day.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83e2b3bf2fd3560489a2727502dca84c
     m_Address: KariImage1
     m_ReadOnly: 0
@@ -27,6 +32,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad0a59c07c32e314aabbb7c087d69d9e
     m_Address: TestImage
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdfbc2d41907b7b45a740f7e8ac11f2e
+    m_Address: Assets/AddressableResources/Audio/KOTATSU.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
