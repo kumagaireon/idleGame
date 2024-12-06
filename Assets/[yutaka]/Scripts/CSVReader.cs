@@ -1,96 +1,103 @@
+using NUnit.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class CSVReader : MonoBehaviour
 {
-    #region　インスタンスへのstaticなアクセスポイント
-    public static CSVReader Instance
-    {
-        get { return instance; }
-    }
-    private static CSVReader instance = null;
+    public static CSVReader instance;
+
     private void Awake()
     {
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-    #endregion
-    
 
     public struct MusicData
     {
         public float time;
-        public float keepTime;
-        public int direction;
-        public bool type;
+        public float TypeOfGroup;
+        public int InfoOfGroup;
+        public List<int> position;
     }
 
     public static List<MusicData> data = new List<MusicData>();
 
-    //一時的に作成
-    public GameObject[] iconPrefab;
-
-    //csvの行数を格納
-    public int height = 0;
-
-    //CSVファイルの名前を保存
-    string csvFileName ;
-
-    //曲のBPMを保存
+    private int height = 0;
+    private int startHeight = 5;
+    private string csvFileName;
     public int BPM { get; private set; }
 
     public List<MusicData> Music_CSV()
     {
         //一時入力用で毎回初期化する
-        MusicData dat = new MusicData();
         List<MusicData> dat_list = new List<MusicData>();
 
-        //Resourcesからcsvを読み込むのに必要
-        TextAsset csvFile;
-
-        //読み込んだcsvを格納
-        List<string[]> csvData = new List<string[]>();
-        
+        //Resourcesからcsvファイルを読み込むため
+        TextAsset csvFile;        
         csvFile = Resources.Load("CSV/" + csvFileName) as TextAsset;
-        //csvFile = Resources.Load("CSV/musicData") as TextAsset;   
         StringReader reader = new StringReader(csvFile.text);
 
+        //読み込んだcsvの内容を格納
+        List<string[]> csvData = new List<string[]>();
         while(reader.Peek() > -1)
         {
             string line = reader.ReadLine();
 
-            //,で区切ってcsvに格納
+            //,で区切って格納
             csvData.Add(line.Split(','));
             height++;
         }
 
-        BPM = int.Parse(csvData[0][3]);
+        BPM = int.Parse(csvData[1][2]);        
 
-        for(int i = 3; i < height; ++i)
+        for(int i = startHeight - 1; i < height; ++i)
         {
-            dat.time = Convert.ToSingle(csvData[i][0]);
-            dat.keepTime = Convert.ToSingle(csvData[i][1]);
-            dat.direction = int.Parse(csvData[i][2]);
-            dat.type = bool.Parse(csvData[i][3]);
+            //1行のデータ保存用の変数
+            MusicData dat = new MusicData();       
+            
+            //*****各値の保存*****
+            dat.time = Convert.ToSingle(csvData[i][0]);            
+            //dat.InfoOfGroup = int.Parse(csvData[i][1]);
+            dat.TypeOfGroup = int.Parse(csvData[i][1]);
+            dat.InfoOfGroup = int.Parse(csvData[i][2]);           
 
+            //int positionStartIndex = 2;
+            int positionStartIndex = 3;
+            
+            //positionのデータは複数存在するためListを作成
+            dat.position = new List<int>();
+            for (int j = 0; j < dat.InfoOfGroup; ++j)
+            {
+                //位置は3列目から
+                dat.position.Add(int.Parse(csvData[i][j + positionStartIndex]));                
+            }
+            //********************
             dat_list.Add(dat);
-        }
+        }                
         return dat_list;
     }
-    void Start()
+
+    private void Start()
     {
-        if (csvFileName != null)
+        if(csvFileName == null)
         {
-            csvFileName = SongSelectReon.csvFileName;
+            csvFileName = "MusicAndNotes1";
         }
-        else
-        {
-            csvFileName = "musicData0";
-        }
-        Debug.Log(csvFileName);        
-        data = Music_CSV();
+        data = Music_CSV();        
+    }
+
+    public int GetGroupsCount()
+    {        
+        return height - startHeight + 1;
     }
 }
