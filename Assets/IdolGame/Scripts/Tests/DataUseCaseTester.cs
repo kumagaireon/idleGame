@@ -9,7 +9,7 @@ using IdolGame.EnterpriseBusinessRules;
 using IdolGame.Frameworks;
 using UnityEngine;
 using UnityEngine.TestTools;
-
+// background-image: resource("path to file");
 public sealed class DataUseCaseTester
 {
     [UnityTest]

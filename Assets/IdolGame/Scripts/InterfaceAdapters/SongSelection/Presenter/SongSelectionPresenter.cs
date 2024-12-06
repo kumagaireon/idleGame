@@ -5,6 +5,7 @@ using IdolGame.Audios.Core;
 using IdolGame.Common.ViewModels;
 using IdolGame.SongSelection.ViewModels;
 using Microsoft.Extensions.Logging;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using VContainer.Unity;
 using ZLogger;
@@ -66,7 +67,6 @@ public sealed class SongSelectionPresenter: IAsyncStartable
         await mainViewModel.InitializeAsync(ct);
         // 一定時間待機（1秒）
         await UniTask.WaitForSeconds((1.0f), cancellationToken: ct);
-        
         await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
         // ビューを開く
         await mainViewModel.OpenWithoutAddAsync(SceneTransitionState.Next, ct);

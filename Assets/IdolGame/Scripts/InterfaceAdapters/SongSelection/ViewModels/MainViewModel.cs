@@ -33,12 +33,11 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     public async UniTask InitializeAsync(CancellationToken ct)
     {
         // アプリのバージョン情報をテキスト要素に設定
-        view.AppInfoVersionTextElement.text
-            = $"Ver.{UnityEngine.Application.version}";
+    //    view.AppInfoVersionTextElement.text = $"Ver.{UnityEngine.Application.version}";
         
         
         //非同期で画像を読み込む
-        var visualElement = new VisualElement(); 
+        //  var visualElement = new VisualElement(); 
         
         // visualElement.style.backgroundImage = Background.FromTexture2D("テクスチャー");
         // visualElement.style.backgroundImage = Background.FromRenderTexture("テクスチャー");

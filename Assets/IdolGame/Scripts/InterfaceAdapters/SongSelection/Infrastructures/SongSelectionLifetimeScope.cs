@@ -27,14 +27,14 @@ namespace IdolGame.SongSelection.Infrastructures
         /// </summary>
         /// <param name="builder">コンテナビルダー</param>
         protected override void Configure(IContainerBuilder builder)
-        {
+        {  
             // TitlePresenterをエントリーポイントとして登録
             builder.RegisterEntryPoint<SongSelectionPresenter>();
             // メインビューモデルをスコープライフタイムで登録
             builder.Register<MainViewModel>(Lifetime.Scoped);
             // メインビューをスコープライフタイムで登録
             builder.Register<MainView>(Lifetime.Scoped);
-
+           
             // セーブデータ取得ユースケースをスコープライフタイムで登録
             builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
             // シリアライズフィールドのUIドキュメントを登録
