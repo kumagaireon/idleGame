@@ -8,37 +8,41 @@ using UnityEngine.UIElements;
 using VContainer;
 using VContainer.Unity;
 
-namespace IdolGame.InGame.Infrastructures;
-
-public sealed class InGameLifetimeScope:LifetimeScope
+namespace IdolGame.InGame.Infrastructures
 {
-    // UIドキュメントをシリアライズフィールドとして持つ
-    [SerializeField] UIDocument? rootDocument;
 
-    // ビジュアルツリーアセットをシリアライズフィールドとして持つ
-    [SerializeField] VisualTreeAsset? mainTreeAsset;
 
-    [SerializeField] AssetReference? bgmAssetReference;
-    /// <summary>
-    /// コンテナビルダーの設定を行うメソッド
-    /// </summary>
-    /// <param name="builder">コンテナビルダー</param>
-    protected override void Configure(IContainerBuilder builder)
+    public sealed class InGameLifetimeScope : LifetimeScope
     {
-        // TitlePresenterをエントリーポイントとして登録
-        builder.RegisterEntryPoint<InGamePresenter>();
-        // メインビューモデルをスコープライフタイムで登録
-        builder.Register<MainViewModel>(Lifetime.Scoped);
-        // メインビューをスコープライフタイムで登録
-        builder.Register<MainView>(Lifetime.Scoped);
+        // UIドキュメントをシリアライズフィールドとして持つ
+        [SerializeField] UIDocument? rootDocument;
 
-        // セーブデータ取得ユースケースをスコープライフタイムで登録
-        builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
-        // シリアライズフィールドのUIドキュメントを登録
-        builder.RegisterComponent(rootDocument);
-        // シリアライズフィールドのビジュアルツリーアセットをインスタンスとして登録
-        builder.RegisterInstance(mainTreeAsset);
-        builder.RegisterInstance(bgmAssetReference);
+        // ビジュアルツリーアセットをシリアライズフィールドとして持つ
+        [SerializeField] VisualTreeAsset? mainTreeAsset;
+
+        [SerializeField] AssetReference? bgmAssetReference;
+
+        /// <summary>
+        /// コンテナビルダーの設定を行うメソッド
+        /// </summary>
+        /// <param name="builder">コンテナビルダー</param>
+        protected override void Configure(IContainerBuilder builder)
+        {
+            // TitlePresenterをエントリーポイントとして登録
+            builder.RegisterEntryPoint<InGamePresenter>();
+            // メインビューモデルをスコープライフタイムで登録
+            builder.Register<MainViewModel>(Lifetime.Scoped);
+            // メインビューをスコープライフタイムで登録
+            builder.Register<MainView>(Lifetime.Scoped);
+
+            // セーブデータ取得ユースケースをスコープライフタイムで登録
+            builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
+            // シリアライズフィールドのUIドキュメントを登録
+            builder.RegisterComponent(rootDocument);
+            // シリアライズフィールドのビジュアルツリーアセットをインスタンスとして登録
+            builder.RegisterInstance(mainTreeAsset);
+            builder.RegisterInstance(bgmAssetReference);
+        }
+
     }
-
 }
