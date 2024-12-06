@@ -7,7 +7,7 @@ using IdolGame.ApplicationBusinessRules.Interfaces;
 using IdolGame.EnterpriseBusinessRules;
 
 namespace IdolGame.Frameworks;
-/*
+
 /// <summary>
 /// 非同期リポジトリクラス: MusicDataのデータ操作を担当
 /// </summary>
@@ -68,4 +68,3 @@ public sealed class MusicDataRepository : IAsyncRepository<MusicData, MusicId>
         await dataStore.StoreAsync(data, ct);
     }
 }
-*/

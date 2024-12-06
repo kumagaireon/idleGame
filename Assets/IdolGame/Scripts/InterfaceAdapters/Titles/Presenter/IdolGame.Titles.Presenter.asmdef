@@ -4,12 +4,14 @@
     "references": [
         "IdolGame.EnterpriseBusinessRules",
         "IdolGame.ApplicationBusinessRules.UseCases",
+        "IdolGame.Audio.Core",
         "IdolGame.Common.ViewModels",
         "IdolGame.Common.Views",
         "IdolGame.Titles.ViewModels",
         "IdolGame.Titles.Views",
         "UniTask",
-        "VContainer"
+        "VContainer",
+        "Unity.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

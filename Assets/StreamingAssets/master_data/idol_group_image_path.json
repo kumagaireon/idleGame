@@ -1,0 +1,20 @@
+[
+"idol_group_Id":1,
+  "idol_group_image_path":"path",
+  "idols":
+  {
+  {
+    "id": 1,
+    "name": "ここに曲名1",
+    "image_path": "ここに画像のパス2",
+    "description": "ここに曲の説明文を書いて3"
+  },
+  {
+    "id": 1,
+    "name": "ここに曲名1",
+    "image_path": "ここに画像のパス2",
+    "description": "ここに曲の説明文を書いて3"
+  }
+  }
+
+]

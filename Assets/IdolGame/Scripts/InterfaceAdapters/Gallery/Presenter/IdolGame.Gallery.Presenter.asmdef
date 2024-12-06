@@ -1,0 +1,25 @@
+{
+	"name": "IdolGame.Gallery.Presenter",
+	"rootNamespace": "",
+	"references": [
+		"IdolGame.EnterpriseBusinessRules",
+		"IdolGame.ApplicationBusinessRules.UseCases",
+		"IdolGame.Audio.Core",
+		"IdolGame.Common.ViewModels",
+		"IdolGame.Common.Views",
+		"IdolGame.Gallery.ViewModels",
+		"IdolGame.Gallery.Views",
+		"UniTask",
+		"VContainer",
+		"Unity.Addressables"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": false,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

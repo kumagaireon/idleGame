@@ -4,6 +4,8 @@
     "references": [
         "IdolGame.EnterpriseBusinessRules",
         "IdolGame.ApplicationBusinessRules.Interfaces",
+        "IdolGame.Audio.Core",
+        "IdolGame.Audios.Infrastructures",
         "IdolGame.Frameworks",
         "VContainer",
         "ZLogger.Unity"

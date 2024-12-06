@@ -1,0 +1,21 @@
+{
+	"name": "IdolGame.Recommendation.Infrastructures",
+	"rootNamespace": "",
+	"references": [
+		"IdolGame.ApplicationBusinessRules.UseCases",
+		"IdolGame.Recommendation.Presenter",
+		"IdolGame.Recommendation.ViewModels",
+		"IdolGame.Recommendation.Views",
+		"VContainer",
+		"Unity.Addressables"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": false,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

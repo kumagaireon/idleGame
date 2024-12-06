@@ -1,0 +1,21 @@
+{
+	"name": "IdolGame.Menu.Infrastructures",
+	"rootNamespace": "",
+	"references": [
+		"IdolGame.ApplicationBusinessRules.UseCases",
+		"IdolGame.Menu.Presenter",
+		"IdolGame.Menu.ViewModels",
+		"IdolGame.Menu.Views",
+		"VContainer",
+		"Unity.Addressables"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": false,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

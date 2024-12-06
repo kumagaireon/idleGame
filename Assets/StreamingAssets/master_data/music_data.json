@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "name": "\u3053\u3053\u306B\u66F2\u540D1",
-    "image_path": "\u3053\u3053\u306B\u753B\u50CF\u306E\u30D1\u30B92",
-    "description": "\u3053\u3053\u306B\u66F2\u306E\u8AAC\u660E\u6587\u3092\u66F8\u3044\u30663"
+    "name": "ここに曲名1",
+    "image_path": "ここに画像のパス2",
+    "description": "ここに曲の説明文を書いて3"
   }
 ]

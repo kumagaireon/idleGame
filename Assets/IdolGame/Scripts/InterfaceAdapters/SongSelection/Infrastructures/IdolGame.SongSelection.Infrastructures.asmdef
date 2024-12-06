@@ -1,0 +1,21 @@
+{
+	"name": "IdolGame.SongSelection.Infrastructures",
+	"rootNamespace": "",
+	"references": [
+		"IdolGame.ApplicationBusinessRules.UseCases",
+		"IdolGame.SongSelection.Presenter",
+		"IdolGame.SongSelection.ViewModels",
+		"IdolGame.SongSelection.Views",
+		"VContainer",
+		"Unity.Addressables"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": false,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

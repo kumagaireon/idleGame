@@ -56,11 +56,26 @@ public sealed class AddressableAudioLoader:IAudioLoader,IDisposable
 
     public async UniTask UnLoadAsync(AssetReference reference, CancellationToken ct)
     {
-        throw new System.NotImplementedException();
+        if (reference is null
+            || !cache.TryGetValue(reference.AssetGUID, out var value)
+            || value == null)
+        {
+            return;
+        }
+        
+        value.Clip?.UnloadAudioData();
+        value.Dispose();
+        
+        cache.Remove(reference.AssetGUID);
+        await UniTask.Yield(ct);
     }
 
     public void Dispose()
     {
-        throw new NotImplementedException();
+        foreach (var value in cache.Values)
+        {
+            value?.Dispose();
+        }
+        cache.Clear();
     }
 }

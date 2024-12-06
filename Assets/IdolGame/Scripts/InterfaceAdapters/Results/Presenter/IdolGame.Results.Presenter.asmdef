@@ -1,0 +1,25 @@
+{
+	"name": "IdolGame.Results.Presenter",
+	"rootNamespace": "",
+	"references": [
+		"IdolGame.EnterpriseBusinessRules",
+		"IdolGame.ApplicationBusinessRules.UseCases",
+		"IdolGame.Audio.Core",
+		"IdolGame.Common.ViewModels",
+		"IdolGame.Common.Views",
+		"IdolGame.Results.ViewModels",
+		"IdolGame.Results.Views",
+		"UniTask",
+		"VContainer",
+		"Unity.Addressables"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": false,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

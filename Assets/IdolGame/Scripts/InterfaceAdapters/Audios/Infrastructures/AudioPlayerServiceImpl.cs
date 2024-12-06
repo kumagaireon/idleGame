@@ -27,11 +27,12 @@ public sealed class AudioPlayerServiceImpl:IAudioPlayerService
     bool initialized;
     
     
-    public AudioPlayerServiceImpl(ILogger<AudioPlayerServiceImpl> logger, AudioPlayerSettings settings, GameObject gameObjcet)
+    public AudioPlayerServiceImpl(ILogger<AudioPlayerServiceImpl> logger, AudioPlayerSettings settings, GameObject gameObjcet, IAudioLoader loader)
     {
         this.logger = logger;
         this.settings = settings;
         this.gameObjcet = gameObjcet;
+        this.loader = loader;
     }
 
    

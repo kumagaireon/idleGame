@@ -1,0 +1,19 @@
+{
+	"name": "IdolGame.Options.ViewModels",
+	"rootNamespace": "",
+	"references": [
+		"IdolGame.Common.ViewModels",
+		"IdolGame.Common.Views",
+		"IdolGame.Options.Views",
+		"UniTask"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": false,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

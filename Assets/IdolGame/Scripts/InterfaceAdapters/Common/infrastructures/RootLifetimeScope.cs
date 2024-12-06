@@ -1,5 +1,7 @@
 using System.IO;
 using IdolGame.ApplicationBusinessRules.Interfaces;
+using IdolGame.Audios.Core;
+using IdolGame.Audios.Infrastructures;
 using IdolGame.EnterpriseBusinessRules;
 using IdolGame.Frameworks;
 using Microsoft.Extensions.Logging;
@@ -16,7 +18,9 @@ namespace IdolGame.Common.infrastructures
     public class RootLifetimeScope : LifetimeScope
     {
         [SerializeField] LogLevel minimumLevel;
-
+        [SerializeField] AudioPlayerSettings audioPlayerSettings;
+        [SerializeField] GameObject? audioContainer;
+        
         /// <summary>
         /// 依存性のコンテナを構成するメソッド
         /// </summary>
@@ -39,13 +43,23 @@ namespace IdolGame.Common.infrastructures
             builder.Register<SaveDataRepository>(Lifetime.Singleton)
                 .As<IAsyncRepository<SaveData, SaveDataId>>();
         
-           /*
+           
+            /*
             // JsonAsyncDataStore<MusicData[]>型のシングルトンインスタンスを登録
             builder.Register<JsonAsyncDataStore<MusicData[]>>(Lifetime.Singleton)
                 .WithParameter(Path.Combine(
                     Application.streamingAssetsPath, "master_data", "music_data.json")) // ファイルパスをパラメータとして指定
                 .As<IAsyncDataStore<MusicData[]>>(); // インターフェースとして登録
-            */
+            
+            builder.Register<SaveDataRepository>(Lifetime.Singleton)
+                .As<IAsyncRepository<MusicData, MusicId>>();
+                */
+
+            builder.Register<AudioPlayer>(Lifetime.Singleton);
+            builder.Register<AddressableAudioLoader>(Lifetime.Singleton).As<IAudioLoader>();
+            builder.Register<AudioPlayerServiceImpl>(Lifetime.Singleton)
+                .WithParameter(audioPlayerSettings)
+                .WithParameter(audioContainer).As<IAudioPlayerService>();
         }
     }
 }

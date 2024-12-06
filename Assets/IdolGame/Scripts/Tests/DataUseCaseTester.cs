@@ -12,7 +12,6 @@ using UnityEngine.TestTools;
 
 public sealed class DataUseCaseTester
 {
-    /*
     [UnityTest]
     public IEnumerator TestCreateMusicSelectData() => UniTask.ToCoroutine(async () =>
     {
@@ -108,7 +107,7 @@ public sealed class DataUseCaseTester
             Debug.Log(saves[i]);
         }
     });
-    */
+    
     [UnityTest]
     public IEnumerator TestCreateSaveData() => UniTask.ToCoroutine(async () =>
     {

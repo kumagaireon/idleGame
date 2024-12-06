@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Unicode;
 using System.Threading;
 using Cysharp.IO;
 using Cysharp.Threading.Tasks;
@@ -52,7 +54,14 @@ public sealed class JsonAsyncDataStore<T> : IAsyncDataStore<T>
         {
             await UniTask.SwitchToTaskPool();// タスクプールに切り替え
             await using var stream = new FileStream(path, FileMode.Create);
-            var bytes = JsonSerializer.SerializeToUtf8Bytes(data);// データをJSON形式にシリアライズ
+           
+            var options = new JsonSerializerOptions
+            {
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                WriteIndented = true 
+            };
+            var bytes = JsonSerializer.SerializeToUtf8Bytes(data,options);
+            // データをJSON形式にシリアライズ
 
             await stream.WriteAsync(bytes, ct);// 非同期にファイルに書き込み
             await stream.FlushAsync(ct);// 非同期にバッファをフラッシュ

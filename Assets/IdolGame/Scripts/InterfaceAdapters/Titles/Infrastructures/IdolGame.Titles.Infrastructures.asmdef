@@ -6,7 +6,8 @@
         "IdolGame.Titles.Presenter",
         "IdolGame.Titles.ViewModels",
         "IdolGame.Titles.Views",
-        "VContainer"
+        "VContainer",
+        "Unity.Addressables"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

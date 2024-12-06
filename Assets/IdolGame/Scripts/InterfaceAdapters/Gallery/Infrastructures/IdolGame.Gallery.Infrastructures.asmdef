@@ -1,0 +1,21 @@
+{
+	"name": "IdolGame.Gallery.Infrastructures",
+	"rootNamespace": "",
+	"references": [
+		"IdolGame.ApplicationBusinessRules.UseCases",
+		"IdolGame.Gallery.Presenter",
+		"IdolGame.Gallery.ViewModels",
+		"IdolGame.Gallery.Views",
+		"VContainer",
+		"Unity.Addressables"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": false,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

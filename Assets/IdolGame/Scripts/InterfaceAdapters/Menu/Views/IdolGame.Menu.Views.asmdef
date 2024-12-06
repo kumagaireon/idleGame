@@ -1,0 +1,16 @@
+{
+	"name": "IdolGame.Menu.Views",
+	"rootNamespace": "",
+	"references": [
+		"IdolGame.Common.Views"
+	],
+	"includePlatforms": [],
+	"excludePlatforms": [],
+	"allowUnsafeCode": false,
+	"overrideReferences": false,
+	"precompiledReferences": [],
+	"autoReferenced": false,
+	"defineConstraints": [],
+	"versionDefines": [],
+	"noEngineReferences": false
+}

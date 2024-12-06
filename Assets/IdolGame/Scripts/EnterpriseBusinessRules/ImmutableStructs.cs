@@ -11,6 +11,7 @@ public readonly record struct SaveData(
 {
 }
 
+//ライブ画面関係、選曲画面関係
 public readonly record struct MusicData(
     [property:JsonPropertyName("id")] MusicId Id,
     [property:JsonPropertyName("name")] MusicName Name,
@@ -18,12 +19,15 @@ public readonly record struct MusicData(
     [property:JsonPropertyName("description")] MusicDescription Description)
 {}
 
+//ライブが画面関係
 public readonly record struct LiveData(
     [property:JsonPropertyName("video_id")] VideoLiveID VideoId,
     [property:JsonPropertyName("notes_id")] NotesID NotesID,
     [property:JsonPropertyName("sound_id")] SoundID SoundID,
     [property:JsonPropertyName("call_id")] CallID CallID)
 {}
+
+//推し選択画面関係
 public readonly record struct AlbumData(
     [property:JsonPropertyName("id")] AlbumId Id,
     [property:JsonPropertyName("name")] AlbumName Name,

@@ -3,31 +3,14 @@ using IdolGame.Titles.Presenter;
 using IdolGame.Titles.ViewModels;
 using IdolGame.Titles.Views;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UIElements;
 using VContainer;
 using VContainer.Unity;
 
 namespace IdolGame.Titles.Infrastructures
 {
-    public sealed class TitleLifetimeScope : LifetimeScope
-    {
-        [SerializeField] UIDocument? rootDocument;
-        [SerializeField] VisualTreeAsset? mainTreeAsset;
-
-        protected override void Configure(IContainerBuilder builder)
-        {
-            builder.RegisterEntryPoint<TitlePresenter>();
-        
-            builder.Register<MainViewModel>(Lifetime.Scoped);
-            builder.Register<MainView>(Lifetime.Scoped);
-
-            builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
-            
-            builder.RegisterComponent(rootDocument);
-            builder.RegisterInstance(mainTreeAsset);
-        }
-    }
-    /*/// <summary>
+    /// <summary>
     /// タイトル画面のライフタイムスコープクラス
     /// </summary>
     public sealed class TitleLifetimeScope : LifetimeScope
@@ -38,6 +21,7 @@ namespace IdolGame.Titles.Infrastructures
         // ビジュアルツリーアセットをシリアライズフィールドとして持つ
         [SerializeField] VisualTreeAsset? mainTreeAsset;
 
+        [SerializeField] AssetReference? bgmAssetReference;
         /// <summary>
         /// コンテナビルダーの設定を行うメソッド
         /// </summary>
@@ -57,6 +41,7 @@ namespace IdolGame.Titles.Infrastructures
             builder.RegisterComponent(rootDocument);
             // シリアライズフィールドのビジュアルツリーアセットをインスタンスとして登録
             builder.RegisterInstance(mainTreeAsset);
+            builder.RegisterInstance(bgmAssetReference);
         }
-    }*/
+    }
 }
