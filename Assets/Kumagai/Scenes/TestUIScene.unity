@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &840378548
 Transform:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   rootDocument: {fileID: 1268093078}
-  mainTreeAsset: {fileID: 9197481963319205126, guid: 179abfa7a120d5c40baf92705e120051, type: 3}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: 0b3188e44b384952bd59772cdfcfd10a, type: 3}
   bgmAssetReference:
     m_AssetGUID: cdfbc2d41907b7b45a740f7e8ac11f2e
     m_SubObjectName: 
@@ -303,7 +303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1095440133
 Transform:
   m_ObjectHideFlags: 0

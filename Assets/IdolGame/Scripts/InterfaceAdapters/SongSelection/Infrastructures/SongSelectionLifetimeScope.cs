@@ -10,8 +10,6 @@ using VContainer.Unity;
 
 namespace IdolGame.SongSelection.Infrastructures
 {
-
-
     public sealed class SongSelectionLifetimeScope : LifetimeScope
     {
         // UIドキュメントをシリアライズフィールドとして持つ
@@ -28,7 +26,7 @@ namespace IdolGame.SongSelection.Infrastructures
         /// <param name="builder">コンテナビルダー</param>
         protected override void Configure(IContainerBuilder builder)
         {  
-            // TitlePresenterをエントリーポイントとして登録
+            // SongSelectionPresenterをエントリーポイントとして登録
             builder.RegisterEntryPoint<SongSelectionPresenter>();
             // メインビューモデルをスコープライフタイムで登録
             builder.Register<MainViewModel>(Lifetime.Scoped);
