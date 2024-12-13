@@ -175,25 +175,6 @@ public sealed class DataUseCaseTester
         }
     });
 
-//===========選曲===============
-    [UnityTest]
-    public IEnumerator TestCreateSongSelectionData() => UniTask.ToCoroutine(async () =>
-    {
-        var cts = new CancellationTokenSource();
-        
-        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "save_data.json");
-        
-        var dataStore = new JsonAsyncDataStore<SongSelectionData[]>(path);
-        
-        await dataStore.StoreAsync(new []
-        {
-            new SongSelectionData()
-            {
-               Data = 
-            }
-        }, cts.Token);
-    });
-
     
 
 //===========セーブデータ===============
