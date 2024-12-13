@@ -5,6 +5,10 @@ public class NoteDestroyer : MonoBehaviour
 {
     public static NoteDestroyer instance;
 
+    private float noteLifeTime = 2.0f;
+    private List<List<GameObject>> groupList = new List<List<GameObject>>();
+    private List<float> groupSpawnTimes = new List<float>();
+
     private void Awake()
     {
         if (instance == null)
@@ -15,6 +19,12 @@ public class NoteDestroyer : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        groupList = NoteController.groupList;
+        groupSpawnTimes = NoteController.groupSpawnTimes;
     }
 
     /// <summary>
@@ -33,7 +43,7 @@ public class NoteDestroyer : MonoBehaviour
                     //オブジェクト単体を消去する場合
                     if (type == 0)
                     {
-                        targetObj.SetActive(false);
+                        targetObj.SetActive(false);                        
                     }
 
                     //オブジェクトが所属するグループを消去する場合
@@ -54,6 +64,38 @@ public class NoteDestroyer : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+
+    //生存時間をすぎたらノーツを消去
+    public void CheckAndDestroyOldNotes()
+    {        
+        float currentTime = Time.time;
+        List<int> groupsToRemove = new List<int>();
+
+        foreach (var groupTime in groupSpawnTimes)
+        {
+            if (currentTime - groupTime >= noteLifeTime)
+            {
+                int groupNum = groupSpawnTimes.IndexOf(groupTime);
+                Debug.Log("timeOverNum:" + groupNum);
+                if (groupNum < groupList.Count)
+                {
+                    foreach (var note in groupList[groupNum])
+                    {
+                        if (note != null && note.activeSelf)
+                        {
+                            note.SetActive(false);
+                        }
+                    }
+                }
+                groupsToRemove.Add(groupNum);
+            }
+        }
+
+        foreach (var groupIndex in groupsToRemove)
+        {
+            groupSpawnTimes.Remove(groupIndex);
         }
     }
 }

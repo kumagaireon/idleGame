@@ -18,7 +18,7 @@ public class NoteOrderChecker : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void CheckNoteClick(GameObject targetObj)
+    public int CheckNoteClick(GameObject targetObj)
     {        
         clickedList.Add(targetObj);
         for (int row = 0; row < NoteController.groupList.Count; row++)
@@ -26,14 +26,12 @@ public class NoteOrderChecker : MonoBehaviour
             //クリックすべきオブジェクトかどうかを判定する（順番を確かめる）
             if (NoteController.groupList[row].Contains(targetObj))
             {
-                int index = NoteController.groupList[row].IndexOf(targetObj);
-                Debug.Log("index:" + index);
-                Debug.Log("count:" + clickedList.Count);
+                int index = NoteController.groupList[row].IndexOf(targetObj);                                
                 if (clickedList.Count != index + 1)
                 {
                     Debug.Log("失敗");
-                    NoteDestroyer.instance.DestroyObject(targetObj, 1);
-                    ClearClickedList();
+                    ClearClickedList();                    
+                    return 2;
                 }
                 else
                 {
@@ -42,12 +40,14 @@ public class NoteOrderChecker : MonoBehaviour
                     {
                         Debug.Log("最後");
                         ClearClickedList();
+                        return 3;
                     }
                     Debug.Log("成功");
-                    NoteDestroyer.instance.DestroyObject(targetObj, 0);
+                    return 1;
                 }
-            }                     
+            }            
         }
+        return 0;
     }
 
     public void ClearClickedList()

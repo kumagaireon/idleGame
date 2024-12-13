@@ -17,10 +17,21 @@ public class HitChecker : MonoBehaviour
                 //Hitしたオブジェクトを保持
                 currentHitObject = hit.collider.gameObject;                
 
-                NoteOrderChecker.instance.CheckNoteClick(currentHitObject);
+                //Hitしたオブジェクトの種類（0:成功、1:失敗、2:最後)
+                int destroyNum = NoteOrderChecker.instance.CheckNoteClick(currentHitObject);
 
-                //オブジェクト単体を消去
-                NoteDestroyer.instance.DestroyObject(currentHitObject, 0);                                         
+                switch(destroyNum)
+                {
+                    case 0: break;
+                    case 1: //オブジェクト単体を消去
+                        NoteDestroyer.instance.DestroyObject(currentHitObject, 0);
+                        ScoreController.instance.GetNoteScore(); ;break;
+                    case 2: //オブジェクトグループを消去
+                        NoteDestroyer.instance.DestroyObject(currentHitObject, 1); break;
+                    case 3: //オブジェクトグループを消去(最後のオブジェクト)
+                        NoteDestroyer.instance.DestroyObject(currentHitObject, 1);
+                        ScoreController.instance.GetNotePerfectScore(); break;
+                }                
             }
         }
 

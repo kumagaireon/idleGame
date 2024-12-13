@@ -12,26 +12,25 @@ public class NoteController : MonoBehaviour
     private NotePositioner positioner;
     private NoteAlphaChanger alphaChanger;
     private NoteTap tapChecker;
+    private NoteDestroyer destroyer;
 
     private int generatedGroupsNum = 0;
 
     private float timer = 0.0f;
 
     public static List<List<GameObject>> groupList = new List<List<GameObject>>();
-    
+
 
     private int BPM;
     private int FPS = 60;
 
     private List<GameObject> clickedList = new List<GameObject>();
 
-    private float noteLifeTime = 2.0f;
-    //private Dictionary<int, float> groupSpawnTimes = new Dictionary<int, float>();
-    private List<float> groupSpawnTimes = new List<float>();        
+    public static List<float> groupSpawnTimes = new List<float>();
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -41,38 +40,55 @@ public class NoteController : MonoBehaviour
         }
     }
     void Start()
-    {        
+    {
         generator = GetComponent<NoteGenerator>();
         positioner = GetComponent<NotePositioner>();
-        alphaChanger = GetComponent<NoteAlphaChanger>();  
+        alphaChanger = GetComponent<NoteAlphaChanger>();
         tapChecker = GetComponent<NoteTap>();
-        
-        BPM = CSVReader.instance.BPM;        
+        destroyer = GetComponent<NoteDestroyer>();
+
+        BPM = CSVReader.instance.BPM;
+        Debug.Log("BPM");
     }
 
     // Update is called once per frame
     async void Update()
     {
         timer += Time.deltaTime;
+
+        if (CSVReader.data != null && CSVReader.data.Count > 0)
+        {
+            if (generatedGroupsNum < CSVReader.data.Count)
+            {
+                Debug.Log($"Current time: {timer}, Next note time: {CSVReader.data[generatedGroupsNum].time}");
+            }
+        }
+
         if (generatedGroupsNum >= CSVReader.instance.GetGroupsCount())
         {
-            Debug.Log("Finish generatedGroupsNum:" + generatedGroupsNum + "groupCount:" + CSVReader.instance.GetGroupsCount());            
+            Debug.Log("Finish generatedGroupsNum:" + generatedGroupsNum + "groupCount:" + CSVReader.instance.GetGroupsCount());
         }
-
         else if (timer > CSVReader.data[generatedGroupsNum].time)
         {
+            Debug.Log($"Generating note group {generatedGroupsNum}, Type: {CSVReader.data[generatedGroupsNum].TypeOfGroup}");
+
             switch (CSVReader.data[generatedGroupsNum].TypeOfGroup)
             {
-                case 0: ExecuteGroup(generatedGroupsNum); break;    //’Êí‚Ìƒm[ƒc
-                case 1: ExecuteTap(); break;                          //ƒ^ƒbƒv”»’è
+                case 0:
+                    Debug.Log("Executing normal note group");
+                    ExecuteGroup(generatedGroupsNum);
+                    break;
+                case 1:
+                    Debug.Log("Executing tap note");
+                    ExecuteTap();
+                    break;
             }
 
-            //¶¬‚·‚éƒf[ƒ^‚ğXV‚·‚é
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½
             generatedGroupsNum++;
-
         }
 
-        CheckAndDestroyOldNotes();
+        destroyer.CheckAndDestroyOldNotes();
     }
 
     private async void ExecuteGroup(int groupsNum)
@@ -82,83 +98,217 @@ public class NoteController : MonoBehaviour
 
     private async Task OnExecuteGroup(int groupNum)
     {
-        //ƒOƒ‹[ƒv‚ÅŠÇ—‚·‚é‚½‚ß‚ÌList‚ğì¬
+        //ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ÅŠÇ—ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚ï¿½Listï¿½ï¿½ï¿½ì¬
         List<GameObject> objList = new List<GameObject>();
 
-        //¶¬‚·‚éŒÂ”
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âï¿½
         int generateNotesNum = CSVReader.data[groupNum].InfoOfGroup;
-        
-        //*****ƒOƒ‹[ƒvƒŠƒXƒg‚É’Ç‰Á******
-        for(int i = 0; i < generateNotesNum; i++)
+
+        //*****ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Xï¿½gï¿½É’Ç‰ï¿½******
+        for (int i = 0; i < generateNotesNum; i++)
         {
             GameObject noteObj = generator.GenerateNote();
-            noteObj.SetActive(false);
-
-            //ƒOƒ‹[ƒv‚É‚Ü‚Æ‚ß‚é
-            objList.Add(noteObj);
+            if (noteObj != null)
+            {
+                noteObj.SetActive(false);
+                objList.Add(noteObj);
+            }
+            else
+            {
+                Debug.LogError("Failed to generate note object");
+            }
         }
-        //ƒOƒ‹[ƒvƒŠƒXƒg‚É’Ç‰Á
+
         groupList.Add(objList);
         //******************************
 
-        //******À‘Ì‚ğ‚Â‚­‚é*******
+        //******ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Â‚ï¿½ï¿½ï¿½*******
         for (int i = 0; i < generateNotesNum; i++)
         {
             if (objList[i] != null)
             {
-                //¶¬               
+                //ï¿½ï¿½ï¿½ï¿½               
                 objList[i].SetActive(true);
 
-                //ˆÊ’u‚ğİ’è
-                objList[i].transform.position = positioner.SetPosition(CSVReader.data[groupNum].position[i]);
+                Vector3 position = positioner.SetPosition(CSVReader.data[groupNum].position[i]);
+                objList[i].transform.position = position;
+                Debug.Log($"Note {i} positioned at {position}");
 
-                //ƒAƒ‹ƒtƒ@’l‚ÌFade
+                //ï¿½Aï¿½ï¿½ï¿½tï¿½@ï¿½lï¿½ï¿½Fade
                 SpriteRenderer noteRenderer = objList[i].GetComponent<SpriteRenderer>();
-                alphaChanger.FadeIn(noteRenderer);
+                if (noteRenderer != null)
+                {
+                    alphaChanger.FadeIn(noteRenderer);
+                }
             }
-            //‘Ò‹@ŠÔ                
             await Task.Delay(1000 / (generateNotesNum - 1));
         }
         //*************************
 
-        //ƒOƒ‹[ƒv¶¬‚ğ‹L˜^
+        //ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½^
         groupSpawnTimes.Add(Time.time);
-    }
-
-
-    //¶‘¶ŠÔ‚ğ‚·‚¬‚½‚çƒm[ƒc‚ğÁ‹
-    private void CheckAndDestroyOldNotes() {
-        float currentTime = Time.time;
-        List<int> groupsToRemove = new List<int>();
-
-        foreach(var groupTime in groupSpawnTimes)
-        {
-            if(currentTime - groupTime >= noteLifeTime)
-            {
-                int groupNum = groupSpawnTimes.IndexOf(groupTime);
-                Debug.Log("timeOverNum:" +  groupNum);
-                if(groupNum < groupList.Count)
-                {
-                    foreach(var note in groupList[groupNum])
-                    {
-                        if(note != null && note.activeSelf)
-                        {
-                            note.SetActive(false);
-                        }
-                    }
-                }                
-                groupsToRemove.Add(groupNum);
-            }
-        }
-
-        foreach(var groupIndex in groupsToRemove)
-        {
-            groupSpawnTimes.Remove(groupIndex);
-        }
+        Debug.Log($"Completed generation of group {groupNum}");
     }
 
     private async void ExecuteTap()
     {
         await tapChecker.OnTapAble();
-    }  
+    }
 }
+//using NUnit.Framework;
+//using System.Collections.Generic;
+//using System.Runtime.CompilerServices;
+//using System.Threading.Tasks;
+//using UnityEngine;
+
+//public class NoteController : MonoBehaviour
+//{
+//    public static NoteController instance;
+
+//    private NoteGenerator generator;
+//    private NotePositioner positioner;
+//    private NoteAlphaChanger alphaChanger;
+//    private NoteTap tapChecker;
+//    private NoteDestroyer destroyer;
+
+//    private int generatedGroupsNum = 0;
+
+//    private float timer = 0.0f;
+
+//    public static List<List<GameObject>> groupList = new List<List<GameObject>>();
+
+
+//    private int BPM;
+//    private int FPS = 60;
+
+//    private List<GameObject> clickedList = new List<GameObject>();    
+
+//    public static List<float> groupSpawnTimes = new List<float>();        
+
+//    private void Awake()
+//    {
+//        if(instance == null)
+//        {
+//            instance = this;
+//        }
+//        else
+//        {
+//            Destroy(gameObject);
+//        }
+//    }
+//    void Start()
+//    {        
+//        generator = GetComponent<NoteGenerator>();
+//        positioner = GetComponent<NotePositioner>();
+//        alphaChanger = GetComponent<NoteAlphaChanger>();  
+//        tapChecker = GetComponent<NoteTap>();
+//        destroyer = GetComponent<NoteDestroyer>();
+
+//        BPM = CSVReader.instance.BPM;
+//        Debug.Log("BPM");
+//    }
+
+//    // Update is called once per frame
+//    async void Update()
+//    {
+//        timer += Time.deltaTime;
+
+//        if (CSVReader.data != null && CSVReader.data.Count > 0)
+//        {
+//            if (generatedGroupsNum < CSVReader.data.Count)
+//            {
+//                Debug.Log($"Current time: {timer}, Next note time: {CSVReader.data[generatedGroupsNum].time}");
+//            }
+//        }
+
+//        if (generatedGroupsNum >= CSVReader.instance.GetGroupsCount())
+//        {
+//            Debug.Log("Finish generatedGroupsNum:" + generatedGroupsNum + "groupCount:" + CSVReader.instance.GetGroupsCount());            
+//        }
+//        else if (timer > CSVReader.data[generatedGroupsNum].time)
+//        {
+//            Debug.Log($"Generating note group {generatedGroupsNum}, Type: {CSVReader.data[generatedGroupsNum].TypeOfGroup}");
+
+//            switch (CSVReader.data[generatedGroupsNum].TypeOfGroup)
+//            {
+//                case 0: 
+//                    Debug.Log("Executing normal note group");
+//                    ExecuteGroup(generatedGroupsNum); 
+//                    break;
+//                case 1: 
+//                    Debug.Log("Executing tap note");
+//                    ExecuteTap(); 
+//                    break;
+//            }
+
+//            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½Xï¿½Vï¿½ï¿½ï¿½ï¿½
+//            generatedGroupsNum++;
+//        }
+
+//        destroyer.CheckAndDestroyOldNotes();
+//    }
+
+//    private async void ExecuteGroup(int groupsNum)
+//    {
+//        await OnExecuteGroup(groupsNum);
+//    }
+
+//    private async Task OnExecuteGroup(int groupNum)
+//    {
+//        //ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ÅŠÇ—ï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚ï¿½Listï¿½ï¿½ï¿½ì¬
+//        List<GameObject> objList = new List<GameObject>();
+
+//        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âï¿½
+//        int generateNotesNum = CSVReader.data[groupNum].InfoOfGroup;
+
+//        //*****ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½Xï¿½gï¿½É’Ç‰ï¿½******
+//        for(int i = 0; i < generateNotesNum; i++)
+//        {
+//            GameObject noteObj = generator.GenerateNote();
+//            if (noteObj != null)
+//            {
+//                noteObj.SetActive(false);
+//                objList.Add(noteObj);
+//            }
+//            else
+//            {
+//                Debug.LogError("Failed to generate note object");
+//            }
+//        }
+
+//        groupList.Add(objList);
+//        //******************************
+
+//        //******ï¿½ï¿½ï¿½Ì‚ï¿½ï¿½Â‚ï¿½ï¿½ï¿½*******
+//        for (int i = 0; i < generateNotesNum; i++)
+//        {
+//            if (objList[i] != null)
+//            {
+//                //ï¿½ï¿½ï¿½ï¿½               
+//                objList[i].SetActive(true);
+
+//                Vector3 position = positioner.SetPosition(CSVReader.data[groupNum].position[i]);
+//                objList[i].transform.position = position;
+//                Debug.Log($"Note {i} positioned at {position}");
+
+//                //ï¿½Aï¿½ï¿½ï¿½tï¿½@ï¿½lï¿½ï¿½Fade
+//                SpriteRenderer noteRenderer = objList[i].GetComponent<SpriteRenderer>();
+//                if (noteRenderer != null)
+//                {
+//                    alphaChanger.FadeIn(noteRenderer);
+//                }
+//            }
+//            await Task.Delay(1000 / (generateNotesNum - 1));
+//        }
+//        //*************************
+
+//        //ï¿½Oï¿½ï¿½ï¿½[ï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½^
+//        groupSpawnTimes.Add(Time.time);
+//        Debug.Log($"Completed generation of group {groupNum}");
+//    }
+
+//    private async void ExecuteTap()
+//    {
+//        await tapChecker.OnTapAble();
+//    }  
+//}
