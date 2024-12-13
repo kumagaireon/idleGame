@@ -20,7 +20,7 @@ public readonly record struct IdolMembers(
 }
 //アイドルグループ
 public readonly record struct IdolGroup(
-    [property: JsonPropertyName("id")] IdolGroupId Id,
+    [property: JsonPropertyName("group-id")] IdolGroupId GroupId,
     [property: JsonPropertyName("group-name")] IdolGroupName GroupName,
     [property: JsonPropertyName("group-image-logo-path")]  IdolGroupImagelogoPath GroupImagelogoPath,
     [property: JsonPropertyName("group-description")]  IdolGroupDescription GroupDescription,
@@ -28,7 +28,12 @@ public readonly record struct IdolGroup(
 {
 }
 
-//ライブ画面関係、選曲画面関係
+//選曲画面関係
+public readonly record struct SongSelectionData(
+    [property:JsonPropertyName("data")] MusicData Data,
+    [property:JsonPropertyName("video-path")] MusicVideoPath VideoPath)
+{}
+//ライブ画面関係
 public readonly record struct MusicData(
     [property:JsonPropertyName("id")] MusicId Id,
     [property:JsonPropertyName("name")] MusicName Name,

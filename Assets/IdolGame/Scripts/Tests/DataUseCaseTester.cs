@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Cysharp.Threading.Tasks;
@@ -8,6 +7,7 @@ using IdolGame.ApplicationBusinessRules.Interfaces;
 using IdolGame.ApplicationBusinessRules.UseCases;
 using IdolGame.EnterpriseBusinessRules;
 using IdolGame.Frameworks;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
 
@@ -125,19 +125,76 @@ public sealed class DataUseCaseTester
         // サンプルのアイドルグループデータを作成し、データストアに保存
         await dataStore.StoreAsync(new[]
         {
-            
-            new IdolGroup()
+            new IdolGroup
             {
-                Id = 1,
+                GroupId = 1,
                 GroupName = "Super Idols Group",
                 GroupImagelogoPath = "path/to/logo1.png",
                 GroupDescription = "サンプルアイドルグループ",
+                Members =null
             }
-                
         }, cts.Token);
     });
 
+    [UnityTest]
+    public IEnumerator TestCreateIdolData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
 
+        // データストアのパスを設定
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "favorite_idol_data.json");
+
+        // データストアを初期化
+        var dataStore = new JsonAsyncDataStore<IdolMembers[]>(path);
+
+        // サンプルのアイドルグループデータを作成し、データストアに保存
+        await dataStore.StoreAsync(new[]
+        {
+            new IdolMembers
+            {
+                Id = 1,
+                Name = "アイドル",
+                ImagelogoPath = "path/to/logo2.png"
+            }
+        }, cts.Token);
+    });
+
+    [UnityTest]
+    public IEnumerator TestLoadFavoriteIdolData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+
+        var path = Path.Combine(Application.streamingAssetsPath,  "master_data", "favorite_idol_data.json");
+
+        var dataStore = new JsonAsyncDataStore<IdolGroup[]>(path);
+
+        var idolGroup = await dataStore.LoadAsync(cts.Token);
+        for (var i = 0; i < idolGroup?.Length; i++)
+        {
+            Debug.Log(idolGroup[i]);
+        }
+    });
+
+//===========選曲===============
+    [UnityTest]
+    public IEnumerator TestCreateSongSelectionData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+        
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "save_data.json");
+        
+        var dataStore = new JsonAsyncDataStore<SongSelectionData[]>(path);
+        
+        await dataStore.StoreAsync(new []
+        {
+            new SongSelectionData()
+            {
+               Data = 
+            }
+        }, cts.Token);
+    });
+
+    
 
 //===========セーブデータ===============
     

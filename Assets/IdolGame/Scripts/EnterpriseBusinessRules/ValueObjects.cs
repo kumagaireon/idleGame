@@ -27,6 +27,7 @@ public readonly partial struct IdolGroupDescription
 }
 
 //アイドル単体
+[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
 public readonly partial struct IdolId
 {
 }
@@ -57,7 +58,11 @@ public readonly partial struct MusicImagePath
 public readonly partial struct MusicDescription
 {
 }
-
+//選曲画面関係
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct MusicVideoPath
+{
+}
 //LiveData
 [UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
 public readonly partial struct VideoLiveID

@@ -25,7 +25,7 @@ public class FavoriteIdolDataRepository : IAsyncRepository<IdolGroup, IdolGroupI
 
     public async UniTask<IdolGroup?> FindAsync(IdolGroupId key, CancellationToken ct)
     {
-        return (data ??= await dataStore.LoadAsync(ct))?.FirstOrDefault(x => x.Id == key);
+        return (data ??= await dataStore.LoadAsync(ct))?.FirstOrDefault(x => x.GroupId == key);
     }
 
     public async UniTask StoreAsync(IdolGroup? value, CancellationToken ct)

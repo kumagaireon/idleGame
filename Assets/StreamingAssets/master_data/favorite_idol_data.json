@@ -1,9 +1,20 @@
 [
   {
-    "id": 1,
+    "group-id": 1,
     "group-name": "Super Idols Group",
     "group-image-logo-path": "path/to/logo1.png",
     "group-description": "サンプルアイドルグループ",
-    "members": null
+    "members": [
+      {
+        "id": 1,
+        "idol-name": "1アイドル",
+        "image-logo-path": "path/to/logo1.png"
+      },
+      {
+        "id": 2,
+        "idol-name": "2アイドル",
+        "image-logo-path": "path/to/logo2.png"
+      }
+    ]
   }
 ]
