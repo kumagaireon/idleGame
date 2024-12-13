@@ -25,7 +25,7 @@ public class NoteTap : MonoBehaviour
             if (InputChecker.instance.TappedEnter())
             {
                 counter++;
-                Debug.Log(counter);
+                ScoreController.instance.GetTapScore();
             }
             await Task.Yield();
         }

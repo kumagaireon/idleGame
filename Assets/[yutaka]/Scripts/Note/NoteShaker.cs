@@ -25,7 +25,7 @@ public class NoteShaker : MonoBehaviour
             if (InputChecker.instance.InputShake())
             {
                 counter++;
-                Debug.Log(counter);
+                ScoreController.instance.GetPsylliumScore();
             }
             await Task.Yield();
         }
