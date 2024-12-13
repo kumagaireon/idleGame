@@ -8,27 +8,27 @@ using IdolGame.EnterpriseBusinessRules;
 
 namespace IdolGame.Frameworks;
 
-public class FavoriteIdolDataRepository : IAsyncRepository<IdolGroup, IdolGroupId>
+public class FavoriteIdolDataRepository : IAsyncRepository<IdolGroupData, IdolGroupId>
 {
-    private readonly IAsyncDataStore<IdolGroup[]> dataStore;
-    private IdolGroup[]? data;
+    private readonly IAsyncDataStore<IdolGroupData[]> dataStore;
+    private IdolGroupData[]? data;
 
-    public FavoriteIdolDataRepository(IAsyncDataStore<IdolGroup[]> dataStore)
+    public FavoriteIdolDataRepository(IAsyncDataStore<IdolGroupData[]> dataStore)
     {
         this.dataStore = dataStore;
     }
 
-    public async UniTask<IEnumerable<IdolGroup>> FindAllAsync(CancellationToken ct)
+    public async UniTask<IEnumerable<IdolGroupData>> FindAllAsync(CancellationToken ct)
     {
-        return (data ??= await dataStore.LoadAsync(ct))?.AsEnumerable() ?? Enumerable.Empty<IdolGroup>();
+        return (data ??= await dataStore.LoadAsync(ct))?.AsEnumerable() ?? Enumerable.Empty<IdolGroupData>();
     }
 
-    public async UniTask<IdolGroup?> FindAsync(IdolGroupId key, CancellationToken ct)
+    public async UniTask<IdolGroupData?> FindAsync(IdolGroupId key, CancellationToken ct)
     {
         return (data ??= await dataStore.LoadAsync(ct))?.FirstOrDefault(x => x.GroupId == key);
     }
 
-    public async UniTask StoreAsync(IdolGroup? value, CancellationToken ct)
+    public async UniTask StoreAsync(IdolGroupData? value, CancellationToken ct)
     {
         if (value is null)
         {

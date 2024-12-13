@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+namespace _yutaka_.Scripts.TapAndSwipe;
 
 public class LogManager : MonoBehaviour
 {

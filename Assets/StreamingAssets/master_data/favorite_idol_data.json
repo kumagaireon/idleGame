@@ -1,19 +1,39 @@
 [
   {
     "group-id": 1,
-    "group-name": "Super Idols Group",
-    "group-image-logo-path": "path/to/logo1.png",
-    "group-description": "サンプルアイドルグループ",
+    "group-name": "ここにアイドルグループ名",
+    "group-image-logo-path": "ここにアイドルグループのロゴパス",
     "members": [
       {
         "id": 1,
-        "idol-name": "1アイドル",
-        "image-logo-path": "path/to/logo1.png"
-      },
-      {
-        "id": 2,
-        "idol-name": "2アイドル",
-        "image-logo-path": "path/to/logo2.png"
+        "idol-name": "アイドルの名前",
+        "image-logo-path": "",
+        "collar-code": "FF0000",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "path/to/logo2.png",
+          "reward-cheki-image-2-path": "path/to/logo2.png",
+          "reward-cheki-image-3-path": "path/to/logo2.png",
+          "reward-video-path": "path/to/logo2.png"
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "ここに自己紹介の説明文",
+          "self-introduction-voice-path": "path/to/logo2.png",
+          "favorite-image-path": "path/to/logo2.png"
+        },
+        "result-idol": {
+          "s-rank": "ここにSランクのセリフ",
+          "a-rank": "ここにAランクのセリフ",
+          "b-rank": "ここにBランクのセリフ",
+          "c-rank": "ここにCランクのセリフ",
+          "s-rank-point": {},
+          "a-rank-point": {},
+          "b-rank-point": {},
+          "c-rank-point": {},
+          "s-rank-voice": "path/to/logo2.png",
+          "a-rank-voice": "path/to/logo2.png",
+          "b-rank-voice": "path/to/logo2.png",
+          "c-rank-voice": "path/to/logo2.png"
+        }
       }
     ]
   }

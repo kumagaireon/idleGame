@@ -11,34 +11,34 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 namespace IdolGame.EnterpriseBusinessRules
 {
-    [JsonConverter(typeof(IdolImagelogoPathJsonConverter))]
-    [System.ComponentModel.TypeConverter(typeof(IdolImagelogoPathTypeConverter))]
-    readonly partial struct IdolImagePath 
-        : IEquatable<IdolImagePath>
+    [JsonConverter(typeof(IdolRewardVoicePathJsonConverter))]
+    [System.ComponentModel.TypeConverter(typeof(IdolRewardVoicePathTypeConverter))]
+    readonly partial struct IdolRewardVoicePath 
+        : IEquatable<IdolRewardVoicePath>
 #if NET8_0_OR_GREATER
-        , IEqualityOperators<IdolImagelogoPath, IdolImagelogoPath, bool>
+        , IEqualityOperators<IdolRewardVoicePath, IdolRewardVoicePath, bool>
 #endif
     {
         readonly string value;
 
         public string AsPrimitive() => value;
 
-        public IdolImagePath(string value)
+        public IdolRewardVoicePath(string value)
         {
             this.value = value;
         }
         
-        public static implicit operator string(IdolImagePath value)
+        public static implicit operator string(IdolRewardVoicePath value)
         {
             return value.value;
         }
 
-        public static implicit operator IdolImagePath(string value)
+        public static implicit operator IdolRewardVoicePath(string value)
         {
-            return new IdolImagePath(value);
+            return new IdolRewardVoicePath(value);
         }
 
-        public bool Equals(IdolImagePath other)
+        public bool Equals(IdolRewardVoicePath other)
         {
             return value.Equals(other.value);
         }
@@ -47,9 +47,9 @@ namespace IdolGame.EnterpriseBusinessRules
         {
             if (obj == null) return false;
             var t = obj.GetType();
-            if (t == typeof(IdolImagePath))
+            if (t == typeof(IdolRewardVoicePath))
             {
-                return Equals((IdolImagePath)obj);
+                return Equals((IdolRewardVoicePath)obj);
             }
             if (t == typeof(string))
             {
@@ -59,12 +59,12 @@ namespace IdolGame.EnterpriseBusinessRules
             return value.Equals(obj);
         }
         
-        public static bool operator ==(IdolImagePath x, IdolImagePath y)
+        public static bool operator ==(IdolRewardVoicePath x, IdolRewardVoicePath y)
         {
             return x.value.Equals(y.value);
         }
 
-        public static bool operator !=(IdolImagePath x, IdolImagePath y)
+        public static bool operator !=(IdolRewardVoicePath x, IdolRewardVoicePath y)
         {
             return !x.value.Equals(y.value);
         }
@@ -78,9 +78,9 @@ namespace IdolGame.EnterpriseBusinessRules
 
         // UnitGenerateOptions.JsonConverter
         
-        private class IdolImagelogoPathJsonConverter : JsonConverter<IdolImagePath>
+        private class IdolRewardVoicePathJsonConverter : JsonConverter<IdolRewardVoicePath>
         {
-            public override void Write(Utf8JsonWriter writer, IdolImagePath value, JsonSerializerOptions options)
+            public override void Write(Utf8JsonWriter writer, IdolRewardVoicePath value, JsonSerializerOptions options)
             {
                 var converter = options.GetConverter(typeof(string)) as JsonConverter<string>;
                 if (converter != null)
@@ -93,12 +93,12 @@ namespace IdolGame.EnterpriseBusinessRules
                 }
             }
 
-            public override IdolImagePath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            public override IdolRewardVoicePath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
             {
                 var converter = options.GetConverter(typeof(string)) as JsonConverter<string>;
                 if (converter != null)
                 {
-                    return new IdolImagePath(converter.Read(ref reader, typeToConvert, options));
+                    return new IdolRewardVoicePath(converter.Read(ref reader, typeToConvert, options));
                 }
                 else
                 {
@@ -110,9 +110,9 @@ namespace IdolGame.EnterpriseBusinessRules
 
         // Default
         
-        private class IdolImagelogoPathTypeConverter : System.ComponentModel.TypeConverter
+        private class IdolRewardVoicePathTypeConverter : System.ComponentModel.TypeConverter
         {
-            private static readonly Type WrapperType = typeof(IdolImagePath);
+            private static readonly Type WrapperType = typeof(IdolRewardVoicePath);
             private static readonly Type ValueType = typeof(string);
 
             public override bool CanConvertFrom(System.ComponentModel.ITypeDescriptorContext context, Type sourceType)
@@ -140,13 +140,13 @@ namespace IdolGame.EnterpriseBusinessRules
                 if (value != null)
                 {
                     var t = value.GetType();
-                    if (t == typeof(IdolImagePath))
+                    if (t == typeof(IdolRewardVoicePath))
                     {
-                        return (IdolImagePath)value;
+                        return (IdolRewardVoicePath)value;
                     }
                     if (t == typeof(string))
                     {
-                        return new IdolImagePath((string)value);
+                        return new IdolRewardVoicePath((string)value);
                     }
                 }
 
@@ -155,7 +155,7 @@ namespace IdolGame.EnterpriseBusinessRules
 
             public override object ConvertTo(System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
             {
-                if (value is IdolImagePath wrappedValue)
+                if (value is IdolRewardVoicePath wrappedValue)
                 {
                     if (destinationType == WrapperType)
                     {

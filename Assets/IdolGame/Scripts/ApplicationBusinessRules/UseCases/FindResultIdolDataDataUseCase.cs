@@ -6,23 +6,21 @@ using IdolGame.EnterpriseBusinessRules;
 
 namespace IdolGame.ApplicationBusinessRules.UseCases;
 
-public sealed class FindFavoriteIdolDataUseCase
+public class FindResultIdolDataDataUseCase
 {
-    private readonly IAsyncRepository<IdolGroupData, IdolGroupId> repository;
+    private readonly IAsyncRepository<ResultIdolData,IdolId> repository;
 
-    public FindFavoriteIdolDataUseCase(IAsyncRepository<IdolGroupData, IdolGroupId> repository)
+    public FindResultIdolDataDataUseCase(IAsyncRepository<ResultIdolData, IdolId> repository)
     {
         this.repository = repository;
     }
-
-    // 全てのアイドルグループを非同期に取得
-    public async UniTask<IEnumerable<IdolGroupData>> FindAllAsync(CancellationToken ct)
+    public async UniTask<IEnumerable<ResultIdolData>> FindAllAsync(CancellationToken ct)
     {
         return await repository.FindAllAsync(ct);
     }
 
     // 特定のIDに基づいてアイドルグループを非同期に検索
-    public async UniTask<IdolGroupData?> FindByAsync(IdolGroupId id, CancellationToken ct)
+    public async UniTask<ResultIdolData?> FindByAsync(IdolId id, CancellationToken ct)
     {
         return await repository.FindAsync(id, ct);
     }

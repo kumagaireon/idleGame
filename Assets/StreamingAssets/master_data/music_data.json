@@ -3,6 +3,7 @@
     "id": 1,
     "name": "ここに曲名1",
     "image_path": "ここに画像のパス2",
-    "description": "ここに曲の説明文を書いて3"
+    "description": "ここに曲の説明文を書いて3",
+    "video-path": "ここに動画パス書いて４"
   }
 ]

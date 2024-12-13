@@ -26,7 +26,8 @@ public sealed class DataUseCaseTester
                 Id = 1,
                 Name = "ここに曲名1",
                 ImagePath = "ここに画像のパス2",
-                Description = "ここに曲の説明文を書いて3"
+                Description = "ここに曲の説明文を書いて3",
+                VideoPath = "ここに動画パス書いて４"
             }
         }, cts.Token);
     });
@@ -112,7 +113,7 @@ public sealed class DataUseCaseTester
     //===========推しアイドル===============
 
     [UnityTest]
-    public IEnumerator TestCreateFavoriteIdolData() => UniTask.ToCoroutine(async () =>
+    public IEnumerator TestCreateFavoriteIdolGroupData() => UniTask.ToCoroutine(async () =>
     {
         var cts = new CancellationTokenSource();
 
@@ -120,17 +121,16 @@ public sealed class DataUseCaseTester
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "favorite_idol_data.json");
 
         // データストアを初期化
-        var dataStore = new JsonAsyncDataStore<IdolGroup[]>(path);
+        var dataStore = new JsonAsyncDataStore<IdolGroupData[]>(path);
       
         // サンプルのアイドルグループデータを作成し、データストアに保存
         await dataStore.StoreAsync(new[]
         {
-            new IdolGroup
+            new IdolGroupData
             {
                 GroupId = 1,
                 GroupName = "Super Idols Group",
                 GroupImagelogoPath = "path/to/logo1.png",
-                GroupDescription = "サンプルアイドルグループ",
                 Members =null
             }
         }, cts.Token);
@@ -145,16 +145,17 @@ public sealed class DataUseCaseTester
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "favorite_idol_data.json");
 
         // データストアを初期化
-        var dataStore = new JsonAsyncDataStore<IdolMembers[]>(path);
+        var dataStore = new JsonAsyncDataStore<IdolMembersData[]>(path);
 
         // サンプルのアイドルグループデータを作成し、データストアに保存
         await dataStore.StoreAsync(new[]
         {
-            new IdolMembers
+            new IdolMembersData
             {
                 Id = 1,
                 Name = "アイドル",
-                ImagelogoPath = "path/to/logo2.png"
+                ImagePath = "path/to/logo2.png",
+                CollarCode="FF0000"
             }
         }, cts.Token);
     });
@@ -166,7 +167,7 @@ public sealed class DataUseCaseTester
 
         var path = Path.Combine(Application.streamingAssetsPath,  "master_data", "favorite_idol_data.json");
 
-        var dataStore = new JsonAsyncDataStore<IdolGroup[]>(path);
+        var dataStore = new JsonAsyncDataStore<IdolGroupData[]>(path);
 
         var idolGroup = await dataStore.LoadAsync(cts.Token);
         for (var i = 0; i < idolGroup?.Length; i++)
