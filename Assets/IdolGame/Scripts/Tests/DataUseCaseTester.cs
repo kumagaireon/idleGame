@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Cysharp.Threading.Tasks;
@@ -9,7 +10,7 @@ using IdolGame.EnterpriseBusinessRules;
 using IdolGame.Frameworks;
 using UnityEngine;
 using UnityEngine.TestTools;
-// background-image: resource("path to file");
+
 public sealed class DataUseCaseTester
 {
     [UnityTest]
@@ -72,7 +73,7 @@ public sealed class DataUseCaseTester
             Debug.Log(save);
         }
     });
-    
+
     [UnityTest]
     public IEnumerator TestCreateVideoData() => UniTask.ToCoroutine(async () =>
     {
@@ -90,7 +91,7 @@ public sealed class DataUseCaseTester
             }
         }, cts.Token);
     });
-    
+
     [UnityTest]
     public IEnumerator TestLoadVideoData() => UniTask.ToCoroutine(async () =>
     {
@@ -107,6 +108,38 @@ public sealed class DataUseCaseTester
             Debug.Log(saves[i]);
         }
     });
+
+    //===========推しアイドル===============
+
+    [UnityTest]
+    public IEnumerator TestCreateFavoriteIdolData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+
+        // データストアのパスを設定
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "favorite_idol_data.json");
+
+        // データストアを初期化
+        var dataStore = new JsonAsyncDataStore<IdolGroup[]>(path);
+      
+        // サンプルのアイドルグループデータを作成し、データストアに保存
+        await dataStore.StoreAsync(new[]
+        {
+            
+            new IdolGroup()
+            {
+                Id = 1,
+                GroupName = "Super Idols Group",
+                GroupImagelogoPath = "path/to/logo1.png",
+                GroupDescription = "サンプルアイドルグループ",
+            }
+                
+        }, cts.Token);
+    });
+
+
+
+//===========セーブデータ===============
     
     [UnityTest]
     public IEnumerator TestCreateSaveData() => UniTask.ToCoroutine(async () =>

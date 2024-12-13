@@ -1,9 +1,17 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using IdolGame.Common.ViewModels;
 using IdolGame.Titles.Views;
+using IdolGame.UIElements;
 using Microsoft.Extensions.Logging;
+using R3;
+using Unity.Android.Types;
+using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using ZLogger;
 
 namespace IdolGame.Titles.ViewModels;
 
@@ -14,7 +22,10 @@ public sealed class MainViewModel: ViewModelBase<MainView>
 {
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
- 
+
+    DisposableBag bag;
+    
+    
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -35,19 +46,20 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// <param name="ct">キャンセルトークン</param>
     public async UniTask InitializeAsync(CancellationToken ct)
     {
-        // アプリのバージョン情報をテキスト要素に設定
-        view.AppInfoVersionTextElement.text = $"Ver.{UnityEngine.Application.version}";
-        
-        
-        //非同期で画像を読み込む
-        var visualElement = new VisualElement(); 
-        
-        // visualElement.style.backgroundImage = Background.FromTexture2D("テクスチャー");
-        // visualElement.style.backgroundImage = Background.FromRenderTexture("テクスチャー");
-        
+        view.Sample.OnInputAsObservable()
+            .SubscribeAwait(async (e, ct2)
+                => await OnInput(e, ct2)).AddTo(ref bag);
         
         // 非同期処理のためにフレームを待機
         await UniTask.Yield(ct);
+    }
+
+ 
+
+    async UniTask OnInput(PointerDownEvent e,CancellationToken ct)
+    {
+        logger.ZLogInformation($"OnMouseDown");
+        await SceneManager.LoadSceneAsync("MenuScene")!.WithCancellation(ct);
     }
 
     /// <summary>
@@ -62,5 +74,6 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// </summary>
     protected override void OnDispose()
     {
+        bag.Dispose();
     }
 }

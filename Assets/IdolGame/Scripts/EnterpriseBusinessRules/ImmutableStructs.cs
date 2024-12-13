@@ -10,6 +10,23 @@ public readonly record struct SaveData(
     [property: JsonPropertyName("saved_at")]  DateTimeOffset SavedAt)
 {
 }
+// 推し選択兼自己紹介Data
+//アイドル
+public readonly record struct IdolMembers(
+    [property: JsonPropertyName("id")] IdolId Id,
+    [property: JsonPropertyName("idol-name")] IdolName Name,
+    [property: JsonPropertyName("image-logo-path")]  IdolImagelogoPath ImagelogoPath    )
+{   
+}
+//アイドルグループ
+public readonly record struct IdolGroup(
+    [property: JsonPropertyName("id")] IdolGroupId Id,
+    [property: JsonPropertyName("group-name")] IdolGroupName GroupName,
+    [property: JsonPropertyName("group-image-logo-path")]  IdolGroupImagelogoPath GroupImagelogoPath,
+    [property: JsonPropertyName("group-description")]  IdolGroupDescription GroupDescription,
+    [property: JsonPropertyName("members")] IdolMembers[] Members)
+{
+}
 
 //ライブ画面関係、選曲画面関係
 public readonly record struct MusicData(

@@ -14,6 +14,13 @@
 
 }
 
+#ui-title-start{
+    position: absolute;
+    top: 10%;
+    height: 302px;
+    width: 371px; 
+    left: 169px;
+}
 #ui-container {
     width: 300px;
     height: 100%;
@@ -21,20 +28,21 @@
     -unity-text-align: middle-right;
 }
 
-#ui-title-logo-container {
-    width: 100%;
-    height: auto;
-    padding-top: 24px;
+#ui-title-logo {
+    width: 200px;
+    height: 100px;
+    left: 80px;
 }
 
-#ui-selectable-container {
-    width: 100%;
-    height: auto;
-    margin-top: auto;
+#ui-title-text{
+    font-size: 75px;
+    -unity-text-align: middle-center;
 }
 
-#ui-app-info-container {
+#touch-panel{
+    position: absolute;
     width: 100%;
-    height: auto;
-    margin-top: 60px;
+    height: 100%;
+    top: 0;
+    left: 0;
 }

@@ -74,8 +74,9 @@ public sealed class TitlePresenter : IAsyncStartable
 
         // メインビューの初期化
         await mainViewModel.InitializeAsync(ct);
-        // 一定時間待機（1秒）
-        await UniTask.WaitForSeconds((1.0f), cancellationToken: ct);
+        
+        // 一定時間待機（0.1秒）
+        await UniTask.WaitForSeconds((0.1f), cancellationToken: ct);
         
         await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
         // ビューを開く

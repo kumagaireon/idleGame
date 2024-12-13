@@ -8,6 +8,37 @@ public readonly partial struct  SaveDataId
 {
     
 }
+// アイドルグループ
+[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolGroupId
+{
+}
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolGroupName
+{
+}
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolGroupImagelogoPath
+{
+}
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolGroupDescription
+{
+}
+
+//アイドル単体
+public readonly partial struct IdolId
+{
+}
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolName
+{
+}
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolImagelogoPath
+{
+}
+
 
 //MusicData
 [UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]

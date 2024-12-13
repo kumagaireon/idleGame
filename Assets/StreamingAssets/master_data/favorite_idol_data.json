@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "group-name": "Super Idols Group",
+    "group-image-logo-path": "path/to/logo1.png",
+    "group-description": "サンプルアイドルグループ",
+    "members": null
+  }
+]

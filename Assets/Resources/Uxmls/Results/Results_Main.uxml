@@ -1,7 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Results_Main.uss?fileID=7433441132597879392&amp;guid=c0e2cc2efe916a6489493df0749392e7&amp;type=3#Results_Main" />
     <IdolGame.UIElements.RootUIElement>
-        <engine:VisualElement name="background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Kumagai/Kari/Objcet/2024-10-25_133845.png?fileID=2800000&amp;guid=3156d194beba80e4bbd502643ee60b7b&amp;type=3#2024-10-25_133845&quot;);">
+        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
             <engine:VisualElement name="main-view" style="flex-grow: 1;">
                 <engine:VisualElement name="ui-container" style="flex-grow: 1;">
                     <engine:VisualElement name="ui-song-selection-logo-container" style="flex-grow: 1;">

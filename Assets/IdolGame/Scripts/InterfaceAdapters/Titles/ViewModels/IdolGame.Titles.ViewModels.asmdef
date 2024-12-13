@@ -5,6 +5,7 @@
         "IdolGame.Common.ViewModels",
         "IdolGame.Common.Views",
         "IdolGame.Titles.Views",
+        "IdolGame.UIElements",
         "UniTask"
     ],
     "includePlatforms": [],
