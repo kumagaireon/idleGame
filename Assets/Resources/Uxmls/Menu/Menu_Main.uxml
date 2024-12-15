@@ -1,7 +1,10 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Menu_Main.uss?fileID=7433441132597879392&amp;guid=824702ba856e1fb40b80f731e46d7a65&amp;type=3#Menu_Main" />
     <IdolGame.UIElements.RootUIElement>
-        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
+        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none; width: 1280px; height: 720px; background-color: rgb(255, 0, 0);">
+            <engine:VisualElement name="idolpic" style="flex-grow: 0; width: 600px; height: 600px; bottom: -50px; background-color: rgba(0, 0, 0, 0); background-image: url(&quot;project://database/Assets/[yutaka]/Bunish/Prefabs/TimingAllow_blue.png?fileID=2800000&amp;guid=26d0a9a2281587d46a19ca9555fa99d8&amp;type=3#TimingAllow_blue&quot;); left: 20px;">
+                <engine:VisualElement name="idolline" style="flex-grow: 0; width: 600px; height: 199px; position: absolute; right: -620px; top: 430px; background-image: url(&quot;project://database/Assets/[yutaka]/Bunish/Prefabs/TimingAllow_blue.png?fileID=2800000&amp;guid=26d0a9a2281587d46a19ca9555fa99d8&amp;type=3#TimingAllow_blue&quot;);" />
+            </engine:VisualElement>
             <engine:VisualElement name="main-view" style="flex-grow: 1;">
                 <engine:VisualElement name="ui-container" style="flex-grow: 1;">
                     <engine:VisualElement name="ui-msnu-logo-container" style="flex-grow: 1;">
