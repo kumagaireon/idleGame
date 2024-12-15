@@ -13,6 +13,7 @@ using UnityEngine.TestTools;
 
 public sealed class DataUseCaseTester
 {
+    //===========選曲Data===============
     [UnityTest]
     public IEnumerator TestCreateMusicSelectData() => UniTask.ToCoroutine(async () =>
     {
@@ -32,9 +33,7 @@ public sealed class DataUseCaseTester
         }, cts.Token);
     });
 
-    /// <summary>
-    /// セーブデータをロードするテスト
-    /// </summary>
+    
     [UnityTest]
     public IEnumerator TestLoadMusicSelectData() => UniTask.ToCoroutine(async () =>
     {
@@ -52,9 +51,7 @@ public sealed class DataUseCaseTester
         }
     });
 
-    /// <summary>
-    /// セーブデータを見つけるユースケースのテスト
-    /// </summary>
+   
     [UnityTest]
     public IEnumerator TestFindMusicSelectDataUscCase() => UniTask.ToCoroutine(async () =>
     {
@@ -75,6 +72,7 @@ public sealed class DataUseCaseTester
         }
     });
 
+    //===========選曲Data===============
     [UnityTest]
     public IEnumerator TestCreateVideoData() => UniTask.ToCoroutine(async () =>
     {
@@ -137,6 +135,34 @@ public sealed class DataUseCaseTester
     });
 
     [UnityTest]
+    public IEnumerator TestCreateKakuninData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+
+        // データストアのパスを設定
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "kakunin_data.json");
+
+        // データストアを初期化
+        var dataStore = new JsonAsyncDataStore<IdolRewardData[]>(path);
+
+        // サンプルのアイドルグループデータを作成し、データストアに保存
+        await dataStore.StoreAsync(new[]
+        {
+            new IdolRewardData
+            {
+                RewardChekiImage1Path="path/to/logo1.png",
+                RewardChekiImage2Path="path/to/logo2.png",
+                RewardChekiImage3Path="path/to/logo3.png",
+                RewardVideoPath="path/to/video1.png",
+                DateAcquisitioRewardCheck1= DateTimeOffset.Now,
+                DateAcquisitioRewardCheck2= DateTimeOffset.Now,
+                DateAcquisitioRewardCheck3= DateTimeOffset.Now,
+                DateAcquisitioRewardCheck= DateTimeOffset.Now
+            }
+        }, cts.Token);
+    });
+    
+    [UnityTest]
     public IEnumerator TestCreateIdolData() => UniTask.ToCoroutine(async () =>
     {
         var cts = new CancellationTokenSource();
@@ -175,10 +201,10 @@ public sealed class DataUseCaseTester
             Debug.Log(idolGroup[i]);
         }
     });
-
+    //===========推しアイドル===============
     
 
-//===========セーブデータ===============
+    //===========セーブデータ===============
     
     [UnityTest]
     public IEnumerator TestCreateSaveData() => UniTask.ToCoroutine(async () =>
@@ -242,4 +268,6 @@ public sealed class DataUseCaseTester
             Debug.Log(save);
         }
     });
+    
+    //===========セーブデータ===============
 }

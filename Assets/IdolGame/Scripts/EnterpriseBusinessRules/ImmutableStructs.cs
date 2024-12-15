@@ -36,7 +36,11 @@ public readonly record struct IdolRewardData(
     [property: JsonPropertyName("reward-cheki-image-1-path")] IdolRewardChekiImage1Path RewardChekiImage1Path,
     [property: JsonPropertyName("reward-cheki-image-2-path")] IdolRewardChekiImage2Path RewardChekiImage2Path,
     [property: JsonPropertyName("reward-cheki-image-3-path")] IdolRewardChekiImage3Path RewardChekiImage3Path,
-    [property: JsonPropertyName("reward-video-path")] IdolRewardVideoPath RewardVideoPath)
+    [property: JsonPropertyName("reward-video-path")] IdolRewardVideoPath RewardVideoPath,
+    [property: JsonPropertyName("date-acquisitio-reward-check-1")]  DateTimeOffset DateAcquisitioRewardCheck1,
+    [property: JsonPropertyName("date-acquisitio-reward-check-2")]  DateTimeOffset DateAcquisitioRewardCheck2,
+    [property: JsonPropertyName("date-acquisitio-reward-check-3")]  DateTimeOffset DateAcquisitioRewardCheck3,
+    [property: JsonPropertyName("date-acquisitio-reward-video")]  DateTimeOffset DateAcquisitioRewardCheck)
 {
 }
 //自己紹介
@@ -61,7 +65,7 @@ public readonly record struct ResultIdolData(
     [property: JsonPropertyName("c-rank-voice")] CRankVoicePath CRankVoice)
 {}
 
-//ライブ画面関係
+//選曲Data
 public readonly record struct MusicData(
     [property:JsonPropertyName("id")] MusicId Id,
     [property:JsonPropertyName("name")] MusicName Name,
