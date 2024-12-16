@@ -74,6 +74,25 @@ public readonly record struct MusicData(
     [property:JsonPropertyName("video-path")] MusicVideoPath VideoPath)
 {}
 
+//シーンUIData
+
+public readonly record struct TitleData(
+    [property:JsonPropertyName("button")]  ButtonData　Button,
+    [property:JsonPropertyName("speech-bubble")]  SpeechBubbleData　SpeechBubble
+    
+    ){}
+public readonly record struct ButtonData(
+    [property:JsonPropertyName("image_path")]  ButtonUIPath ImagePath,
+    [property:JsonPropertyName("text")]  ButtonText Text)
+{
+}
+public readonly record struct SpeechBubbleData(
+    [property:JsonPropertyName("image_path")]  DialogueSpeechBubbleImagePath ImagePath,
+    [property:JsonPropertyName("text")]  SerifText Text)
+{
+}
+
+
 //ライブが画面関係
 public readonly record struct LiveData(
     [property:JsonPropertyName("video_id")] VideoLiveID VideoId,
