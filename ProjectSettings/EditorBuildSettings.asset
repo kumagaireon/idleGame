@@ -4,40 +4,6 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/IdolGame/Scenes/LiveScene.unity
-    guid: d03c8e83b1c13bb4985c399b069089ca
-  - enabled: 1
-    path: Assets/IdolGame/Scenes/MenuScene.unity
-    guid: 24e71c21a85d3f14cb6f65e95862efa2
-  - enabled: 1
-    path: Assets/IdolGame/Scenes/ResultScene.unity
-    guid: 40c0bc17b9a06c745925eda02929a7ef
-  - enabled: 1
-    path: Assets/[yutaka]/Bunish/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/IdolGame/Scenes/SelectScene.unity
-    guid: 9d4fd2350167d14478b60f5a744c44eb
-  - enabled: 1
-    path: Assets/IdolGame/Scenes/SetLoveScene.unity
-    guid: ec0d4931335b0e545a0ab9c6ba065378
-  - enabled: 1
-    path: Assets/IdolGame/Scenes/TitleScene.unity
-    guid: 1340be1bbf8ae324bb8c0cb2a5aa1f7f
-  - enabled: 1
-    path: Assets/Kumagai/Kuma/Scenes/KariMusicSelectScene.unity
-    guid: 9aaaa477f53925f438e8550726ac14db
-  - enabled: 1
-    path: Assets/Kumagai/Scenes/TESTSCENE 2.unity
-    guid: 7969a3c2cdc84d049868e1d091508ee9
-  - enabled: 1
-    path: Assets/Kumagai/Scenes/TESTSCENE 1.unity
-    guid: 349416983ced97e458931015ce117346
-  - enabled: 1
-    path: Assets/Kumagai/Scenes/TestScene.unity
-    guid: ac5e1340c875f7c4fad98cca7be517f6
-  m_configObjects:
-    com.unity.addressableassets: {fileID: 11400000, guid: 7827b70b8e2e9a84a9c424de08272e1b, type: 2}
+  m_Scenes: []
+  m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

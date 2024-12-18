@@ -2,21 +2,12 @@
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Recommendation_Main.uss?fileID=7433441132597879392&amp;guid=ce6ef629d9f858a4784eab33a2edd333&amp;type=3#Recommendation_Main" />
     <IdolGame.UIElements.RootUIElement>
         <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
-            <engine:VisualElement name="main-view" style="flex-grow: 1;">
-                <engine:VisualElement name="ui-container" style="flex-grow: 1;">
-                    <engine:VisualElement name="ui-recommendation-logo-container" style="flex-grow: 1;">
-                        <engine:Label text="Song Selection" style="color: rgb(255, 255, 255); font-size: 37px;" />
-                    </engine:VisualElement>
-                    <engine:VisualElement name="ui-results-container" style="flex-grow: 1;">
-                        <engine:Label text="Song 1" style="color: rgb(255, 255, 255);" />
-                        <engine:Label text="Song 2" style="color: rgb(255, 255, 255);" />
-                        <engine:Label text="Song 3" style="color: rgb(255, 255, 255);" />
-                    </engine:VisualElement>
-                    <engine:VisualElement name="ui-app-info-container" style="flex-grow: 1;">
-                        <engine:Label text="Version 1.0.0" name="app-info-version-text" style="color: rgb(255, 255, 255);" />
-                        <engine:Label text="Company Name" name="app-info-company-text" style="color: rgb(255, 255, 255);" />
-                    </engine:VisualElement>
+            <engine:VisualElement name="idollogo" style="flex-grow: 1; position: absolute; width: 700px; height: 150px; left: 300px; top: 30px;">
+                <engine:VisualElement name="explainflame" style="flex-grow: 1; top: 500px; left: -249px; width: 850px; height: 150px;">
+                    <engine:Label text="Label" />
                 </engine:VisualElement>
+                <engine:VisualElement name="gallerybutton" style="flex-grow: 1; position: absolute; top: 500px; width: 300px; height: 150px; right: -230px;" />
+                <engine:VisualElement name="backbutton" style="flex-grow: 1; width: 200px; height: 150px; left: -270px; top: -70px;" />
             </engine:VisualElement>
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>
