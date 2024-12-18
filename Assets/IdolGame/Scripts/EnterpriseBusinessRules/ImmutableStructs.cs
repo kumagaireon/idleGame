@@ -17,6 +17,7 @@ public readonly record struct IdolGroupData(
     [property: JsonPropertyName("group-id")] IdolGroupId GroupId,
     [property: JsonPropertyName("group-name")] IdolGroupName GroupName,
     [property: JsonPropertyName("group-image-logo-path")]  IdolGroupImagelogoPath GroupImagelogoPath,
+    [property:JsonPropertyName("image-path")]  BackgroundImagePath　ImagePath,
     [property: JsonPropertyName("members")] IdolMembersData[] Members)
 {
 }
@@ -24,8 +25,9 @@ public readonly record struct IdolGroupData(
 public readonly record struct IdolMembersData(
     [property: JsonPropertyName("id")] IdolId Id,
     [property: JsonPropertyName("idol-name")] IdolName Name,
-    [property: JsonPropertyName("image-logo-path")]  IdolImagePath ImagePath,
+    [property: JsonPropertyName("image-path")]  IdolImagePath ImagePath,
     [property: JsonPropertyName("collar-code")]  IdolCollarCode CollarCode,
+    [property: JsonPropertyName("serif-menu-text")]  SerifMenuText SerifMenuText,
     [property: JsonPropertyName("idol-reward")]  IdolRewardData IdolReward,
     [property: JsonPropertyName("idol-self-introduction")]  IdolSelfIntroductionData IdolSelfIntroduction,
     [property: JsonPropertyName("result-idol")]  ResultIdolData ResultIdol )
@@ -36,7 +38,7 @@ public readonly record struct IdolRewardData(
     [property: JsonPropertyName("reward-cheki-image-1-path")] IdolRewardChekiImage1Path RewardChekiImage1Path,
     [property: JsonPropertyName("reward-cheki-image-2-path")] IdolRewardChekiImage2Path RewardChekiImage2Path,
     [property: JsonPropertyName("reward-cheki-image-3-path")] IdolRewardChekiImage3Path RewardChekiImage3Path,
-    [property: JsonPropertyName("reward-video-path")] IdolRewardVideoPath RewardVideoPath,
+    [property: JsonPropertyName("reward-vidce-path")] IdolRewardVicePath RewardVicePath,
     [property: JsonPropertyName("date-acquisitio-reward-check-1")]  DateTimeOffset DateAcquisitioRewardCheck1,
     [property: JsonPropertyName("date-acquisitio-reward-check-2")]  DateTimeOffset DateAcquisitioRewardCheck2,
     [property: JsonPropertyName("date-acquisitio-reward-check-3")]  DateTimeOffset DateAcquisitioRewardCheck3,
@@ -71,26 +73,32 @@ public readonly record struct MusicData(
     [property:JsonPropertyName("name")] MusicName Name,
     [property:JsonPropertyName("image_path")] MusicImagePath ImagePath,
     [property:JsonPropertyName("description")] MusicDescription Description,
-    [property:JsonPropertyName("video-path")] MusicVideoPath VideoPath)
+    [property:JsonPropertyName("video-path")] MusicVoicePath VoicePath)
 {}
 
 //シーンUIData
-
+//タイトル
 public readonly record struct TitleData(
-    [property:JsonPropertyName("button")]  ButtonData　Button,
-    [property:JsonPropertyName("speech-bubble")]  SpeechBubbleData　SpeechBubble
-    
-    ){}
+    [property:JsonPropertyName("image-path")]  BackgroundImagePath　ImagePath,
+    [property:JsonPropertyName("logo-image-path")]  LogoOrImagePath[]　LogoImagePat)
+{}
+//メニュー
+public readonly record struct MenuData(
+    [property:JsonPropertyName("image-path")]  BackgroundImagePath　ImagePath,
+    [property:JsonPropertyName("button")]  ButtonData[]　Button,
+    [property:JsonPropertyName("serif-text")]  SerifText　SerifText,
+    [property: JsonPropertyName("members")] IdolMembersData Members)
+{
+}
+
+
+//ボタン
 public readonly record struct ButtonData(
     [property:JsonPropertyName("image_path")]  ButtonUIPath ImagePath,
     [property:JsonPropertyName("text")]  ButtonText Text)
 {
 }
-public readonly record struct SpeechBubbleData(
-    [property:JsonPropertyName("image_path")]  DialogueSpeechBubbleImagePath ImagePath,
-    [property:JsonPropertyName("text")]  SerifText Text)
-{
-}
+
 
 
 //ライブが画面関係

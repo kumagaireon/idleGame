@@ -13,8 +13,8 @@ namespace IdolGame.EnterpriseBusinessRules
 {
     [JsonConverter(typeof(MusicVideoPathJsonConverter))]
     [System.ComponentModel.TypeConverter(typeof(MusicVideoPathTypeConverter))]
-    readonly partial struct MusicVideoPath 
-        : IEquatable<MusicVideoPath>
+    readonly partial struct MusicVoicePath 
+        : IEquatable<MusicVoicePath>
 #if NET8_0_OR_GREATER
         , IEqualityOperators<MusicVideoPath, MusicVideoPath, bool>
 #endif
@@ -23,22 +23,22 @@ namespace IdolGame.EnterpriseBusinessRules
 
         public string AsPrimitive() => value;
 
-        public MusicVideoPath(string value)
+        public MusicVoicePath(string value)
         {
             this.value = value;
         }
         
-        public static implicit operator string(MusicVideoPath value)
+        public static implicit operator string(MusicVoicePath value)
         {
             return value.value;
         }
 
-        public static implicit operator MusicVideoPath(string value)
+        public static implicit operator MusicVoicePath(string value)
         {
-            return new MusicVideoPath(value);
+            return new MusicVoicePath(value);
         }
 
-        public bool Equals(MusicVideoPath other)
+        public bool Equals(MusicVoicePath other)
         {
             return value.Equals(other.value);
         }
@@ -47,9 +47,9 @@ namespace IdolGame.EnterpriseBusinessRules
         {
             if (obj == null) return false;
             var t = obj.GetType();
-            if (t == typeof(MusicVideoPath))
+            if (t == typeof(MusicVoicePath))
             {
-                return Equals((MusicVideoPath)obj);
+                return Equals((MusicVoicePath)obj);
             }
             if (t == typeof(string))
             {
@@ -59,12 +59,12 @@ namespace IdolGame.EnterpriseBusinessRules
             return value.Equals(obj);
         }
         
-        public static bool operator ==(MusicVideoPath x, MusicVideoPath y)
+        public static bool operator ==(MusicVoicePath x, MusicVoicePath y)
         {
             return x.value.Equals(y.value);
         }
 
-        public static bool operator !=(MusicVideoPath x, MusicVideoPath y)
+        public static bool operator !=(MusicVoicePath x, MusicVoicePath y)
         {
             return !x.value.Equals(y.value);
         }
@@ -78,9 +78,9 @@ namespace IdolGame.EnterpriseBusinessRules
 
         // UnitGenerateOptions.JsonConverter
         
-        private class MusicVideoPathJsonConverter : JsonConverter<MusicVideoPath>
+        private class MusicVideoPathJsonConverter : JsonConverter<MusicVoicePath>
         {
-            public override void Write(Utf8JsonWriter writer, MusicVideoPath value, JsonSerializerOptions options)
+            public override void Write(Utf8JsonWriter writer, MusicVoicePath value, JsonSerializerOptions options)
             {
                 var converter = options.GetConverter(typeof(string)) as JsonConverter<string>;
                 if (converter != null)
@@ -93,12 +93,12 @@ namespace IdolGame.EnterpriseBusinessRules
                 }
             }
 
-            public override MusicVideoPath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            public override MusicVoicePath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
             {
                 var converter = options.GetConverter(typeof(string)) as JsonConverter<string>;
                 if (converter != null)
                 {
-                    return new MusicVideoPath(converter.Read(ref reader, typeToConvert, options));
+                    return new MusicVoicePath(converter.Read(ref reader, typeToConvert, options));
                 }
                 else
                 {
@@ -112,7 +112,7 @@ namespace IdolGame.EnterpriseBusinessRules
         
         private class MusicVideoPathTypeConverter : System.ComponentModel.TypeConverter
         {
-            private static readonly Type WrapperType = typeof(MusicVideoPath);
+            private static readonly Type WrapperType = typeof(MusicVoicePath);
             private static readonly Type ValueType = typeof(string);
 
             public override bool CanConvertFrom(System.ComponentModel.ITypeDescriptorContext context, Type sourceType)
@@ -140,13 +140,13 @@ namespace IdolGame.EnterpriseBusinessRules
                 if (value != null)
                 {
                     var t = value.GetType();
-                    if (t == typeof(MusicVideoPath))
+                    if (t == typeof(MusicVoicePath))
                     {
-                        return (MusicVideoPath)value;
+                        return (MusicVoicePath)value;
                     }
                     if (t == typeof(string))
                     {
-                        return new MusicVideoPath((string)value);
+                        return new MusicVoicePath((string)value);
                     }
                 }
 
@@ -155,7 +155,7 @@ namespace IdolGame.EnterpriseBusinessRules
 
             public override object ConvertTo(System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
             {
-                if (value is MusicVideoPath wrappedValue)
+                if (value is MusicVoicePath wrappedValue)
                 {
                     if (destinationType == WrapperType)
                     {

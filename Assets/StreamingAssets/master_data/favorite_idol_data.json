@@ -1,19 +1,21 @@
 [
   {
-    "group-id": 1,
+    "group-id": 0,
     "group-name": "ここにアイドルグループ名",
     "group-image-logo-path": "ここにアイドルグループのロゴパス",
+    "image-path": "ここにグループの背景画像パス",
     "members": [
       {
-        "id": 1,
+        "id": 0,
         "idol-name": "アイドルの名前",
-        "image-logo-path": "",
+        "image-path": "アイドルの画像パス",
         "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフ",
         "idol-reward": {
-          "reward-cheki-image-1-path": "path/to/logo1.png",
-          "reward-cheki-image-2-path": "path/to/logo2.png",
-          "reward-cheki-image-3-path": "path/to/logo3.png",
-          "reward-video-path": "path/to/video1.png",
+          "reward-cheki-image-1-path": "報酬チェキ1",
+          "reward-cheki-image-2-path": "報酬チェキ2",
+          "reward-cheki-image-3-path": "報酬チェキ3",
+          "reward-video-path": "報酬ボイス",
           "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
           "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
           "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
@@ -21,22 +23,138 @@
         },
         "idol-self-introduction": {
           "self-introduction-text": "ここに自己紹介の説明文",
-          "self-introduction-voice-path": "path/to/logo2.png",
-          "favorite-image-path": "path/to/logo2.png"
+          "self-introduction-voice-path": "自己紹介ボイスパス",
+          "favorite-image-path": "推し設定用画像パス"
         },
         "result-idol": {
-          "s-rank": "ここにSランクのセリフ",
-          "a-rank": "ここにAランクのセリフ",
-          "b-rank": "ここにBランクのセリフ",
-          "c-rank": "ここにCランクのセリフ",
-          "s-rank-point": {},
-          "a-rank-point": {},
-          "b-rank-point": {},
-          "c-rank-point": {},
-          "s-rank-voice": "path/to/logo2.png",
-          "a-rank-voice": "path/to/logo2.png",
-          "b-rank-voice": "path/to/logo2.png",
-          "c-rank-voice": "path/to/logo2.png"
+          "s-rank": "Sランク用テキスト",
+          "a-rank": "Aランク用テキスト",
+          "b-rank": "Bランク用テキスト",
+          "c-rank": "Cランク用テキスト",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "Sランク用ボイスパス",
+          "a-rank-voice": "Aランク用ボイスパス",
+          "b-rank-voice": "Bランク用ボイスパス",
+          "c-rank-voice": "Cランク用ボイスパス"
+        }
+      }
+    ]
+  },
+  {
+    "group-id": 1,
+    "group-name": "ここにアイドルグループ名",
+    "group-image-logo-path": "ここにアイドルグループのロゴパス",
+    "image-path": "ここにグループの背景画像パス",
+    "members": [
+      {
+        "id": 1,
+        "idol-name": "アイドルの名前",
+        "image-path": "アイドルの画像パス",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフ",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "報酬チェキ1",
+          "reward-cheki-image-2-path": "報酬チェキ2",
+          "reward-cheki-image-3-path": "報酬チェキ3",
+          "reward-video-path": "報酬ボイス",
+          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00"
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "ここに自己紹介の説明文",
+          "self-introduction-voice-path":"自己紹介ボイスパス",
+          "favorite-image-path": "推し設定用画像パス"
+        },
+        "result-idol": {
+          "s-rank": "Sランク用テキスト",
+          "a-rank": "Aランク用テキスト",
+          "b-rank": "Bランク用テキスト",
+          "c-rank": "Cランク用テキスト",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "Sランク用ボイスパス",
+          "a-rank-voice": "Aランク用ボイスパス",
+          "b-rank-voice": "Bランク用ボイスパス",
+          "c-rank-voice": "Cランク用ボイスパス"
+        }
+      },
+      {
+        "id": 2,
+        "idol-name": "アイドルの名前",
+        "image-path": "アイドルの画像パス",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフ",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "報酬チェキ1",
+          "reward-cheki-image-2-path": "報酬チェキ2",
+          "reward-cheki-image-3-path": "報酬チェキ3",
+          "reward-video-path": "報酬ボイス",
+          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00"
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "ここに自己紹介の説明文",
+          "self-introduction-voice-path": "自己紹介ボイスパス",
+          "favorite-image-path": "推し設定用画像パス"
+        },
+        "result-idol": {
+          "s-rank": "Sランク用テキスト",
+          "a-rank": "Aランク用テキスト",
+          "b-rank": "Bランク用テキスト",
+          "c-rank": "Cランク用テキスト",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "Sランク用ボイスパス",
+          "a-rank-voice": "Aランク用ボイスパス",
+          "b-rank-voice": "Bランク用ボイスパス",
+          "c-rank-voice": "Cランク用ボイスパス"
+        }
+      },
+      {
+        "id": 3,
+        "idol-name": "アイドルの名前",
+        "image-path": "アイドルの画像パス",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフ",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "報酬チェキ1",
+          "reward-cheki-image-2-path": "報酬チェキ2",
+          "reward-cheki-image-3-path": "報酬チェキ3",
+          "reward-video-path": "報酬ボイス",
+          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00"
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "ここに自己紹介の説明文",
+          "self-introduction-voice-path": "自己紹介ボイスパス",
+          "favorite-image-path": "推し設定用画像パス"
+        },
+        "result-idol": {
+          "s-rank": "Sランク用テキスト",
+          "a-rank": "Aランク用テキスト",
+          "b-rank": "Bランク用テキスト",
+          "c-rank": "Cランク用テキスト",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "Sランク用ボイスパス",
+          "a-rank-voice": "Aランク用ボイスパス",
+          "b-rank-voice": "Bランク用ボイスパス",
+          "c-rank-voice": "Cランク用ボイスパス"
         }
       }
     ]

@@ -1,12 +1,16 @@
 [
   {
-    "reward-cheki-image-1-path": "path/to/logo1.png",
-    "reward-cheki-image-2-path": "path/to/logo2.png",
-    "reward-cheki-image-3-path": "path/to/logo3.png",
-    "reward-video-path": "path/to/video1.png",
-    "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-    "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-    "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-    "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00"
+    "s-rank": "Sランク用テキスト",
+    "a-rank": "Aランク用テキスト",
+    "b-rank": "Bランク用テキスト",
+    "c-rank": "Cランク用テキスト",
+    "s-rank-point": 2000.75,
+    "a-rank-point": 1500.5,
+    "b-rank-point": 1000.25,
+    "c-rank-point": 500,
+    "s-rank-voice": "Sランク用ボイスパス",
+    "a-rank-voice": "Aランク用ボイスパス",
+    "b-rank-voice": "Bランク用ボイスパス",
+    "c-rank-voice": "Cランク用ボイスパス"
   }
 ]
