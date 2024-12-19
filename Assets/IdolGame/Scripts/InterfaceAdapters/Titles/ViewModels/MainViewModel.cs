@@ -6,7 +6,7 @@ using IdolGame.Titles.Views;
 using IdolGame.UIElements;
 using Microsoft.Extensions.Logging;
 using R3;
-using Unity.Android.Types;
+//using Unity.Android.Types;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;

@@ -52,8 +52,9 @@ public class NoteController : MonoBehaviour
     }
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
+        Debug.Log("noteController");
         timer += Time.deltaTime;
 
         if (CSVReader.data != null && CSVReader.data.Count > 0)
@@ -107,6 +108,7 @@ public class NoteController : MonoBehaviour
         //*****�O���[�v���X�g�ɒǉ�******
         for (int i = 0; i < generateNotesNum; i++)
         {
+            Debug.Log("generater");
             GameObject noteObj = generator.GenerateNote();
             if (noteObj != null)
             {

@@ -30,6 +30,9 @@ public class NoteGenerator : MonoBehaviour
     /// <param name="posNum">ê∂ê¨Ç∑ÇÈà íu</param>
     public GameObject GenerateNote()
     {
-        return Instantiate(notePrefab);        
+        //return Instantiate(notePrefab);
+        GameObject note = Instantiate(notePrefab);
+        Debug.Log($"Generated note at position: {note.transform.position}");
+        return note;
     }
 }
