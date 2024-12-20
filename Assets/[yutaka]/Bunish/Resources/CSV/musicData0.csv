@@ -1,9 +1,0 @@
-﻿タイトル,ほｎｙ,BPM,140
-,,,
-時間（time）（ｓ）,継続時間（keepTime）,方向（direction）,判定の種類（type）
-4,1,1,FALSE
-6,1,2,FALSE
-8,1,1,TRUE
-10,1,2,TRUE
-12,1,1,TRUE
-14,1,2,TRUE
