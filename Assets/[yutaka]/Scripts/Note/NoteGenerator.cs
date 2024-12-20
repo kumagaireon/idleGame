@@ -6,7 +6,7 @@ public class NoteGenerator : MonoBehaviour
 {
     public static NoteGenerator instance;
 
-    [Header("ƒm[ƒc")]
+    [Header("ï¿½mï¿½[ï¿½c")]
     [SerializeField] private GameObject notePrefab;
 
     private List<List<GameObject>> groupList = new List<List<GameObject>>();
@@ -24,15 +24,26 @@ public class NoteGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// //note‚ğ¶¬‚·‚éƒƒ\ƒbƒh
+    /// //noteï¿½ğ¶ï¿½ï¿½ï¿½ï¿½éƒï¿½\ï¿½bï¿½h
     /// </summary>
-    /// <param name="num">¶¬‚·‚éŒÂ”</param>
-    /// <param name="posNum">¶¬‚·‚éˆÊ’u</param>
+    /// <param name="num">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âï¿½</param>
+    /// <param name="posNum">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê’u</param>
     public GameObject GenerateNote()
     {
-        //return Instantiate(notePrefab);
+        if (notePrefab == null)
+        {
+            Debug.LogError("Note prefab is not assigned in NoteGenerator!");
+            return null;
+        }
+
         GameObject note = Instantiate(notePrefab);
-        Debug.Log($"Generated note at position: {note.transform.position}");
+        if (note == null)
+        {
+            Debug.LogError("Failed to instantiate note prefab");
+            return null;
+        }
+
+        Debug.Log($"Successfully generated note: {note.name}");
         return note;
     }
 }
