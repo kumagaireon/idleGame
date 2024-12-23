@@ -1,4 +1,5 @@
 using IdolGame.Common.Views;
+using IdolGame.UIElements;
 using UnityEngine.UIElements;
 
 namespace IdolGame.Options.Views;
@@ -6,7 +7,11 @@ namespace IdolGame.Options.Views;
 public sealed class MainView: ViewBase
 {  
     // アプリのバージョン情報を表示するテキスト要素
-    public TextElement AppInfoVersionTextElement { get; }
+    public OptionsDropdownUIElement GraphicsSettingsOptions { get; }
+    public OptionsButtonUIElement SoundEnabledOptions { get; }
+    public OptionsSliderUIElement BgmVolumeOptions { get; }
+    public OptionsSliderUIElement SeVolumeOptions { get; }
+
 
     /// <summary>
     /// コンストラクタ
@@ -14,7 +19,10 @@ public sealed class MainView: ViewBase
     /// <param name="asset">/// <param name="asset">VisualTreeAssetからビューを構築するためのアセット</param>
     public MainView(VisualTreeAsset asset) : base(asset)
     { 
-        // ビューから指定された名前のテキスト要素を取得
-        AppInfoVersionTextElement = OwnView.Q<TextElement>("app-info-version-text");
+        GraphicsSettingsOptions = OwnView.Q<OptionsDropdownUIElement>("quality-settings-options");
+        SoundEnabledOptions = OwnView.Q<OptionsButtonUIElement>("sound-enabled-options");
+        BgmVolumeOptions = OwnView.Q<OptionsSliderUIElement>("bgm-volume-options");
+        SeVolumeOptions = OwnView.Q<OptionsSliderUIElement>("se-volume-options");
+        
     }
 }

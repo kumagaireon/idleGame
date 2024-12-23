@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using IdolGame.Common.ViewModels;
@@ -6,9 +5,6 @@ using IdolGame.Titles.Views;
 using IdolGame.UIElements;
 using Microsoft.Extensions.Logging;
 using R3;
-using Unity.Android.Types;
-using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using ZLogger;
@@ -46,9 +42,10 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// <param name="ct">キャンセルトークン</param>
     public async UniTask InitializeAsync(CancellationToken ct)
     {
-        view.Sample.OnInputAsObservable()
+        view.TouchPanel.OnInputAsObservable()
             .SubscribeAwait(async (e, ct2)
-                => await OnInput(e, ct2)).AddTo(ref bag);
+                => await OnInput(e, ct2))
+            .AddTo(ref bag);
         
         // 非同期処理のためにフレームを待機
         await UniTask.Yield(ct);

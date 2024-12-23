@@ -35,8 +35,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be83a85961540cb419fc7a0acccbc191
+    m_Address: Assets/IdolGame/UI/Menu background/OIP.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdfbc2d41907b7b45a740f7e8ac11f2e
     m_Address: Assets/AddressableResources/Audio/KOTATSU.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff78c0d899de113448e5ddcc5de74a81
+    m_Address: Assets/StreamingAssets/TestVideos/video2.mp4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

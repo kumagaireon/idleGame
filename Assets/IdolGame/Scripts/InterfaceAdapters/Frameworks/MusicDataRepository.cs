@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using IdolGame.ApplicationBusinessRules.Interfaces;
-using IdolGame.EnterpriseBusinessRules;
 
 namespace IdolGame.Frameworks;
 

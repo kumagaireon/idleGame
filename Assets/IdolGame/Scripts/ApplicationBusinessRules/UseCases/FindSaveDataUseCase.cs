@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using IdolGame.ApplicationBusinessRules.Interfaces;
-using IdolGame.EnterpriseBusinessRules;
 using Cysharp.Threading.Tasks;
 
 namespace IdolGame.ApplicationBusinessRules.UseCases;

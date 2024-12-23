@@ -1,7 +1,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace IdolGame.EnterpriseBusinessRules;
+namespace IdolGame;
 
 public readonly record struct SaveData( 
     [property: JsonPropertyName("id")] SaveDataId Id,
@@ -17,8 +17,9 @@ public readonly record struct IdolGroupData(
     [property: JsonPropertyName("group-id")] IdolGroupId GroupId,
     [property: JsonPropertyName("group-name")] IdolGroupName GroupName,
     [property: JsonPropertyName("group-image-logo-path")]  IdolGroupImagelogoPath GroupImagelogoPath,
-    [property:JsonPropertyName("image-path")]  BackgroundImagePath　ImagePath,
-    [property: JsonPropertyName("members")] IdolMembersData[] Members)
+    [property: JsonPropertyName("image-path")]  BackgroundImagePath　ImagePath,
+    [property: JsonPropertyName("idol-button-ui-path")]  IdolGroupButtonUIPath　IdolButtonUIPath,
+    [property: JsonPropertyName("members")] IdolMembersData[]? Members)
 {
 }
 //アイドル
@@ -42,7 +43,8 @@ public readonly record struct IdolRewardData(
     [property: JsonPropertyName("date-acquisitio-reward-check-1")]  DateTimeOffset DateAcquisitioRewardCheck1,
     [property: JsonPropertyName("date-acquisitio-reward-check-2")]  DateTimeOffset DateAcquisitioRewardCheck2,
     [property: JsonPropertyName("date-acquisitio-reward-check-3")]  DateTimeOffset DateAcquisitioRewardCheck3,
-    [property: JsonPropertyName("date-acquisitio-reward-video")]  DateTimeOffset DateAcquisitioRewardCheck)
+    [property: JsonPropertyName("date-acquisitio-reward-video")]  DateTimeOffset DateAcquisitioRewardCheck,
+    [property: JsonPropertyName("idol-point")]  IdolRewardPoint IdolPoint)
 {
 }
 //自己紹介

@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using IdolGame.Common.ViewModels;
 using IdolGame.SongSelection.Views;
 using Microsoft.Extensions.Logging;
+using R3;
 using UnityEngine.UIElements;
 
 namespace IdolGame.SongSelection.ViewModels;
@@ -11,7 +12,9 @@ public sealed class MainViewModel: ViewModelBase<MainView>
 {
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
- 
+    DisposableBag bag;
+    
+    
     /// <summary>
     /// コンストラクタ
     /// </summary>

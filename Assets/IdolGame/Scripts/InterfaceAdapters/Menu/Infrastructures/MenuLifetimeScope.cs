@@ -21,7 +21,7 @@ namespace IdolGame.Menu.Infrastructures
         [SerializeField] VisualTreeAsset? mainTreeAsset;
 
         [SerializeField] AssetReference? bgmAssetReference;
-
+        [SerializeField] VisualTreeAsset? optionsTreeAsset;
         protected override void Configure(IContainerBuilder builder)
         {
             // TitlePresenterをエントリーポイントとして登録

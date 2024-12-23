@@ -3,15 +3,26 @@ using Cysharp.Threading.Tasks;
 using IdolGame.Common.ViewModels;
 using IdolGame.Options.Views;
 using Microsoft.Extensions.Logging;
+using R3;
 using UnityEngine.UIElements;
 
 namespace IdolGame.Options.ViewModels;
 
 public sealed class MainViewModel: ViewModelBase<MainView>
 {
+    enum OptionsType
+    {
+        GraphicsSettings,
+        SoundEnabled,
+        BgmVolume,
+        SeVolume
+    }
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
- 
+    OptionsType currentOptions;
+    DisposableBag bag;
+    
+    
     /// <summary>
     /// コンストラクタ
     /// </summary>

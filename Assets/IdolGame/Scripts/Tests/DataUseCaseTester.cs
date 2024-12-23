@@ -3,11 +3,10 @@ using System.Collections;
 using System.IO;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using IdolGame;
 using IdolGame.ApplicationBusinessRules.Interfaces;
 using IdolGame.ApplicationBusinessRules.UseCases;
-using IdolGame.EnterpriseBusinessRules;
 using IdolGame.Frameworks;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.TestTools;
 
@@ -23,29 +22,26 @@ public sealed class DataUseCaseTester
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "kakunin_data.json");
 
         // データストアを初期化
-        var dataStore = new JsonAsyncDataStore<ResultIdolData[]>(path);
+        var dataStore = new JsonAsyncDataStore<IdolRewardData[]>(path);
 
         // サンプルのアイドルグループデータを作成し、データストアに保存
         await dataStore.StoreAsync(new[]
         {
-            new ResultIdolData
+            new IdolRewardData
             {
-                SRank = "Sランク用テキスト",
-                ARank = "Aランク用テキスト",
-                BRank = "Bランク用テキスト",
-                CRank = "Cランク用テキスト",
-                SRankPoint = 2000.750f,
-                ARankPoint = 1500.500f,
-                BRankPoint = 1000.250f,
-                CRankPoint = 500.00f,
-                SRankVoice = "Sランク用ボイスパス",
-                ARankVoice = "Aランク用ボイスパス",
-                BRankVoice = "Bランク用ボイスパス",
-                CRankVoice = "Cランク用ボイスパス"
+                RewardChekiImage1Path="aa",
+                RewardChekiImage2Path="bb",
+                RewardChekiImage3Path="cc",
+                RewardVicePath="ss",
+                DateAcquisitioRewardCheck1="aa",
+                DateAcquisitioRewardCheck2="bb",
+                DateAcquisitioRewardCheck3 = "aa",
+                DateAcquisitioRewardCheck="aa",
+                IdolPoint=100.0
             }
         }, cts.Token);
     });
-    
+
     //===========選曲Data===============
     [UnityTest]
     public IEnumerator TestCreateMusicSelectData() => UniTask.ToCoroutine(async () =>
@@ -53,7 +49,7 @@ public sealed class DataUseCaseTester
         var cts = new CancellationTokenSource();
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "music_data.json");
         var dataStore = new JsonAsyncDataStore<MusicData[]>(path);
-        /*await dataStore.StoreAsync(new[]
+        await dataStore.StoreAsync(new[]
         {
             new MusicData()
             {
@@ -63,10 +59,10 @@ public sealed class DataUseCaseTester
                 Description = "ここに曲の説明文を書いて3",
                 VoicePath = "ここに動画パス書いて４"
             }
-        }, cts.Token);*/
+        }, cts.Token);
     });
 
-    
+
     [UnityTest]
     public IEnumerator TestLoadMusicSelectData() => UniTask.ToCoroutine(async () =>
     {
@@ -84,7 +80,7 @@ public sealed class DataUseCaseTester
         }
     });
 
-   
+
     [UnityTest]
     public IEnumerator TestFindMusicSelectDataUscCase() => UniTask.ToCoroutine(async () =>
     {
@@ -153,7 +149,7 @@ public sealed class DataUseCaseTester
 
         // データストアを初期化
         var dataStore = new JsonAsyncDataStore<IdolGroupData[]>(path);
-      
+
         // サンプルのアイドルグループデータを作成し、データストアに保存
         await dataStore.StoreAsync(new[]
         {
@@ -208,19 +204,19 @@ public sealed class DataUseCaseTester
         }
     });
     //===========推しアイドル===============
-    
+
 
     //===========セーブデータ===============
-    
+
     [UnityTest]
     public IEnumerator TestCreateSaveData() => UniTask.ToCoroutine(async () =>
     {
         var cts = new CancellationTokenSource();
-        
+
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "save_data.json");
-        
+
         var dataStore = new JsonAsyncDataStore<SaveData[]>(path);
-        
+
         await dataStore.StoreAsync(new []
         {
             new SaveData()
@@ -262,9 +258,9 @@ public sealed class DataUseCaseTester
         var cts = new CancellationTokenSource();
 
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "save_data.json");
-        
+
         IAsyncDataStore<SaveData[]> dataStore = new JsonAsyncDataStore<SaveData[]>(path);
-        
+
         IAsyncRepository<SaveData,SaveDataId> repository=new SaveDataRepository(dataStore);
 
         var useCase = new FindSaveDataUseCase(repository);
@@ -274,6 +270,7 @@ public sealed class DataUseCaseTester
             Debug.Log(save);
         }
     });
-    
+
     //===========セーブデータ===============
+    
 }

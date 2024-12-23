@@ -6,43 +6,64 @@
 
 #background {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    height: 720px;
+    width: 1280px;
     top: 0;
     left: 0;
     background-color: rgb(24, 24, 24);
-
+    -unity-background-image-tint-color: rgb(88, 104, 195);
 }
 
-#ui-title-start{
+#company-logo {
+    width: 270px;
+    height: 150px;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 200px;
+    max-width: 500px;
+    align-self: center;
+    align-content: center;
+    flex-direction: column;
+    top: 15px;
+    left: 30px;
+    bottom: 502px;
     position: absolute;
-    top: 10%;
-    height: 302px;
-    width: 371px; 
-    left: 169px;
-}
-#ui-container {
-    width: 300px;
-    height: 100%;
-    margin-left: auto;
-    -unity-text-align: middle-right;
 }
 
-#ui-title-logo {
+#title-logo {
+    width: 500px;
+    height: 200px;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 200px;
+    max-width: 500px;
+    align-self: center;
+    align-content: center;
+    flex-direction: column;
+    top: auto;
+    bottom: 315px;
+    position: absolute;
+}
+
+#text-start {
+    bottom: -500px;
+    align-self: center;
     width: 200px;
-    height: 100px;
-    left: 80px;
+    height: 50px;
+    align-items: auto;
+    align-content: auto;
+    -unity-text-align: middle-center; 
+    font-size: 66px;
+    flex-shrink: 1;
+    background-color:rgba(20, 20, 20, 0.5);
 }
 
-#ui-title-text{
-    font-size: 75px;
-    -unity-text-align: middle-center;
-}
-
-#touch-panel{
+#touch-panel {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    text-shadow: 0 0 0 rgba(249, 39, 39, 0);
+    background-color: rgba(0, 0, 0, 0);
 }

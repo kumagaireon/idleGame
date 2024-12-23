@@ -2,13 +2,12 @@
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/SongSelection_Main.uss?fileID=7433441132597879392&amp;guid=30fb8f969473d724cbd860ce08824e66&amp;type=3#SongSelection_Main" />
     <IdolGame.UIElements.RootUIElement style="width: 1280px;">
         <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
-            <engine:VisualElement name="musicjacket" style="flex-grow: 1; width: 650px; height: 370px; position: absolute; top: 160px; left: 90px;">
-                <engine:VisualElement name="musicexplain" style="flex-grow: 1; width: 650px; height: 100px; position: absolute; top: 401px;">
-                    <engine:VisualElement name="startbutton" style="flex-grow: 1; position: absolute; width: 420px; height: 200px; top: -100px; right: -440px;">
-                        <engine:VisualElement name="backbutton" style="flex-grow: 1; width: 150px; position: absolute; top: -525px; left: -40px; height: 100px;" />
-                    </engine:VisualElement>
-                </engine:VisualElement>
+            <engine:VisualElement name="music-jacket" style="flex-grow: 1; width: 650px; height: 370px; position: absolute; top: 112px; left: 71px;" />
+            <engine:VisualElement name="start-button-pos" style="flex-grow: 1; position: absolute; width: 420px; height: 200px; top: 486px; right: 82px;">
+                <engine:Button name="start-button" text="start" style="height: 100%; width: 420px;" />
             </engine:VisualElement>
+            <engine:VisualElement name="music-explain" style="flex-grow: 1; width: 650px; height: 100px; position: absolute; top: 568px; left: 55px;" />
+            <engine:VisualElement name="back-button" style="flex-grow: 1; width: 150px; position: absolute; top: 13px; left: 24px; height: 100px;" />
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>
 </engine:UXML>

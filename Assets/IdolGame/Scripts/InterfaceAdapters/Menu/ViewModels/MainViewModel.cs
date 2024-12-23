@@ -3,15 +3,26 @@ using Cysharp.Threading.Tasks;
 using IdolGame.Common.ViewModels;
 using IdolGame.Menu.Views;
 using Microsoft.Extensions.Logging;
+using R3;
 using UnityEngine.UIElements;
 
 namespace IdolGame.Menu.ViewModels;
 
 public sealed class MainViewModel: ViewModelBase<MainView>
 {
+    enum ModeSelectType
+    {
+        Options,
+        SongSelection,
+        Recommendation
+    }
+    
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
- 
+    ModeSelectType currentMode;
+    VisualElement? beforeFocusedElement;
+    DisposableBag bag;
+
     /// <summary>
     /// コンストラクタ
     /// </summary>

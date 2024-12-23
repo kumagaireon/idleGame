@@ -9,21 +9,21 @@ namespace IdolGame.Titles.Views;
 public sealed class MainView: ViewBase
 {  
     // アプリのバージョン情報を表示するテキスト要素
-    public TextElement AppInfoVersionTextElement { get; }
 
-    public VisualElement Sample { get;}
-    
+    public VisualElement TouchPanel { get;}
+
+    public VisualElement IdolTextElement { get; }
 
     /// <summary>
     /// コンストラクタ
     /// </summary>
     /// <param name="asset">VisualTreeAssetからビューを構築するためのアセット</param>
     public MainView(VisualTreeAsset asset) : base(asset)
-    { 
+    {
         // ビューから指定された名前のテキスト要素を取得
-        AppInfoVersionTextElement = OwnView.Q<TextElement>("app-info-version-text");
-        
-        Sample= OwnView.Q<VisualElement>("touch-panel");
-        
+
+        TouchPanel = OwnView.Q<VisualElement>("touch-panel");
+       // IdolTextElement.style.backgroundImage = Background.FromTexture2D(result);
+
     }
 }

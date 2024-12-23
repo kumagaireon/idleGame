@@ -1,6 +1,6 @@
 using UnitGenerator;
 
-namespace IdolGame.EnterpriseBusinessRules;
+namespace IdolGame;
 
 //SaveData
 [UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
@@ -23,6 +23,11 @@ public readonly partial struct IdolGroupName
 //グループロゴ画像
 [UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
 public readonly partial struct IdolGroupImagelogoPath
+{
+}
+//ボタン画像
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolGroupButtonUIPath
 {
 }
 
@@ -66,6 +71,11 @@ public readonly partial struct IdolRewardChekiImage3Path
 [UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
 public readonly partial struct IdolRewardVicePath
 {}
+//合計報酬ポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardPoint
+{
+}
 
 //自己紹介
 //自己紹介セリフ
