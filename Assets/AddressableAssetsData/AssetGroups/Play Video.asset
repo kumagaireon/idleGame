@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Play Video
+  m_EditorClassIdentifier: 
+  m_GroupName: Play Video
+  m_GUID: 620d3da5a41e19043ac503cd77c27b83
+  m_SerializeEntries:
+  - m_GUID: 062e025a886604d4ea177ce64ac6a15a
+    m_Address: play_video_0_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac56daf5d3b9b45478e13617d60231c1
+    m_Address: play_video_1_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5f5fc3a1f48c3ed42a09be91683fc245, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6bb2a732f0a2ef6458d17941af7dd824, type: 2}
+    - {fileID: 11400000, guid: 549e14b674570844ca0ff577b2a04c8a, type: 2}
