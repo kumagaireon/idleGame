@@ -1,8 +1,10 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using IdolGame.Audios.Core;
 using IdolGame.Common.ViewModels;
 using IdolGame.Scripts.InterfaceAdapters.Gallery.Views;
 using Microsoft.Extensions.Logging;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UIElements;
 
 namespace IdolGame.Gallery.ViewModels;
@@ -10,13 +12,10 @@ namespace IdolGame.Gallery.ViewModels;
 public sealed class MainViewModel : ViewModelBase<MainView>
 {
     readonly ILogger<MainViewModel> logger;
- 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="logger">ロガーのインスタンス</param>
-    /// <param name="view">ビューのインスタンス</param>
-    /// <param name="rootDocument">ルートドキュメントのインスタンス</param>
+    readonly AudioPlayer audioPlayer;
+    readonly AssetReference bgmAssetReference;
+    
+    
     public MainViewModel(ILogger<MainViewModel> logger,
         MainView view,
         UIDocument rootDocument)

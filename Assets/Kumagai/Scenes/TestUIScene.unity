@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &840378548
 Transform:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1095440133
 Transform:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   rootDocument: {fileID: 1268093078}
   mainTreeAsset: {fileID: 9197481963319205126, guid: aa11269a5db243babc9c97231bda8b20, type: 3}
   bgmAssetReference:
-    m_AssetGUID: 0406211e2558e1a4c8e2ae7a83e4ef46
+    m_AssetGUID: cc28bb4955c8b1842b2b7febf64e0b4e
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 

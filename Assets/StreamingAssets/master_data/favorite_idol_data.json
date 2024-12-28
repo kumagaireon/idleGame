@@ -4,7 +4,7 @@
     "group-id": 10,
     "group-name": "確認用グループ",
     "group-image-logo-path": "group_logo_00",
-    "image-path": "group_image_00",
+    "background-image-path": "background_00",
     "idol-button-ui-path": "idol_button_ui_00",
     "members": [
       {

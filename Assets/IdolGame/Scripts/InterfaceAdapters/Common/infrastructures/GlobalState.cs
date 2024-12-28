@@ -27,6 +27,6 @@ public static class GlobalState
     public static List<string>? IdolResultRankVoice { get; set; } = new List<string>(4);
     //リザルトのSABC別テキスト
     public static List<string>? IdolResultRankText { get; set; } = new List<string>(4);
-    //ギャラリーの現在ポイント(ギャラリーで追加する)
+    //現在ポイント
     public static float? IdolRewardPoint { get; set; }
 }

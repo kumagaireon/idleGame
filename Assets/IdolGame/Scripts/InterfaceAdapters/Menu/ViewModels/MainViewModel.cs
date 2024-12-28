@@ -1,5 +1,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using IdolGame.Audios.Core;
 using IdolGame.Common.infrastructures;
 using IdolGame.Common.ViewModels;
 using IdolGame.Menu.Views;
@@ -9,6 +10,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using ZLogger;
 
@@ -21,14 +23,17 @@ public sealed class MainViewModel : ViewModelBase<MainView>
     readonly ILogger<MainViewModel> logger;
     DisposableBag bag;
 
-
+    readonly AudioPlayer audioPlayer;
+    readonly AssetReference bgmAssetReference;
 
     public MainViewModel(ILogger<MainViewModel> logger,
         MainView view,
-        UIDocument rootDocument)
+        UIDocument rootDocument, AudioPlayer audioPlayer, AssetReference bgmAssetReference)
         : base(view, rootDocument, new FadeViewTransition(rootDocument))
     {
         this.logger = logger;
+        this.audioPlayer = audioPlayer;
+        this.bgmAssetReference = bgmAssetReference;
     }
 
 
@@ -36,23 +41,8 @@ public sealed class MainViewModel : ViewModelBase<MainView>
     {
         logger.ZLogTrace($"Called {GetType().Name}.InitializeAsync");
 
-        /*
-        // IdolImageElementの背景画像を設定
-        var idolImageHandle = Addressables.LoadAssetAsync<Texture2D>("Idol group Image/boby_idol_000");
-        await idolImageHandle.Task;
-        view.IdolImageElement.style.backgroundImage = new StyleBackground(idolImageHandle.Result);
+        await SetUiElementsFromGlobalState();
 
-        // SongSelectionTextElementとAboutMeTextElementの背景画像を設定
-        var buttonHandle = Addressables.LoadAssetAsync<Texture2D>("Button UI/idol_button_ui_00");
-        await buttonHandle.Task;
-        view.SongSelectionTextElement.style.backgroundImage = new StyleBackground(buttonHandle.Result);
-        view.AboutMeTextElement.style.backgroundImage = new StyleBackground(buttonHandle.Result);
-        */
-
-        if (GlobalState.IdolId != null)
-        {
-            await SetUiElementsFromGlobalState();
-        }
 
         view.SongSelectionVisualElement.OnInputAsObservable()
             .SubscribeAwait(async (e, ct2)
@@ -120,17 +110,27 @@ public sealed class MainViewModel : ViewModelBase<MainView>
 
             // IdolSerifMenuTextを設定
             view.IdolSpeechBubbleTextElement.text = GlobalState.IdolSerifMenuText;
+
+            view.SpeechBubbleVisualElement.style.display = DisplayStyle.Flex;
+        }
+        else
+        {
+            view.SpeechBubbleVisualElement.style.display = DisplayStyle.None;
         }
     }
 
     async UniTask OnInputSongSelection(PointerDownEvent e, CancellationToken ct)
     {
         logger.ZLogInformation($"選曲画面遷移");
+        await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
+        await SceneManager.LoadSceneAsync("SelectScene")!.WithCancellation(ct);
     }
 
     async UniTask OnInputAboutMe(PointerDownEvent e, CancellationToken ct)
     {
         logger.ZLogInformation($"自己紹介画面遷移");
+        await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
+        await SceneManager.LoadSceneAsync("OsiSetupScene")!.WithCancellation(ct);
     }
 
     /// <summary>

@@ -62,5 +62,6 @@ public sealed class TitlePresenter : IAsyncStartable
         await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
         // ビューを開く
         await mainViewModel.OpenWithoutAddAsync(SceneTransitionState.Next, ct);
+       
     }
 }

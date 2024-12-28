@@ -14,7 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Play Video
   m_GUID: 620d3da5a41e19043ac503cd77c27b83
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0ada2bd9acc021a45983de1480d65d73
+    m_Address: play_video_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d34242a832929cf49a1a041aed290d8a
+    m_Address: play_video_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5f5fc3a1f48c3ed42a09be91683fc245, type: 2}
   m_SchemaSet:

@@ -10,6 +10,7 @@ public sealed class MainView : ViewBase
     public VisualElement AboutMeVisualElement { get; }
     public VisualElement BackgroundImageVisualElement { get; }
     public VisualElement IdolImageVisualElement { get; }
+    public VisualElement SpeechBubbleVisualElement { get; }
     public TextElement IdolSpeechBubbleTextElement { get; }
 
 
@@ -21,6 +22,7 @@ public sealed class MainView : ViewBase
         AboutMeVisualElement = OwnView.Q<VisualElement>("about-me-button");
         BackgroundImageVisualElement= OwnView.Q<VisualElement>("background");
         IdolImageVisualElement = OwnView.Q<VisualElement>("idol-image");
+        SpeechBubbleVisualElement = OwnView.Q<VisualElement>("idol-speech-bubble-image");
         IdolSpeechBubbleTextElement = OwnView.Q<TextElement>("idol-speech-bubble-text");
     }
 }

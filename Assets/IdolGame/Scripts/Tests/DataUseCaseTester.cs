@@ -119,7 +119,7 @@ public sealed class DataUseCaseTester
                 GroupId = 1,
                 GroupName = "Super Idols Group",
                 GroupImagelogoPath = "path/to/logo1.png",
-                ImagePath="path/to/logo2.png",
+                BackgroundImagePath="path/to/logo2.png",
                 Members =null
             }
         }, cts.Token);

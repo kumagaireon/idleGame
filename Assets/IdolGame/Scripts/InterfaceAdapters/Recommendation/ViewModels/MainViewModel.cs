@@ -12,6 +12,7 @@ using R3;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using ZLogger;
 
@@ -20,18 +21,18 @@ namespace IdolGame.Recommendation.ViewModels;
 public sealed class MainViewModel : ViewModelBase<MainView>
 {
     readonly ILogger<MainViewModel> logger;
-    readonly IAudioPlayerService audioPlayerService;
     List<IdolMembersData>? members; 
     DisposableBag bag;
-
+    readonly AudioPlayer audioPlayer;
+    readonly AssetReference bgmAssetReference;
 
     public MainViewModel(ILogger<MainViewModel> logger,
-        MainView view, UIDocument rootDocument,
-        IAudioPlayerService audioPlayerService) : base(
+        MainView view, UIDocument rootDocument, AudioPlayer audioPlayer, AssetReference bgmAssetReference) : base(
         view, rootDocument, new FadeViewTransition(rootDocument))
     {
         this.logger = logger;
-        this.audioPlayerService = audioPlayerService;
+        this.audioPlayer = audioPlayer;
+        this.bgmAssetReference = bgmAssetReference;
     }
 
 
@@ -87,13 +88,13 @@ public sealed class MainViewModel : ViewModelBase<MainView>
         view.ExplanatoryTextElementext.text = idol.IdolSelfIntroduction.SelfIntroductionText;
 
         var voiceReference = new AssetReference(idol.IdolSelfIntroduction.SelfIntroductionVoicePath);
-        await audioPlayerService.PlaySeAsync(voiceReference, 1.0f, ct);
+        await audioPlayer.PlaySeAsync(voiceReference, 1.0f, ct);
 
-       
+
         GlobalState.GroupId = idolGroup.GroupId;
-        GlobalState.GroupBackgroundImagePath = idolGroup.ImagePath;
+        GlobalState.GroupBackgroundImagePath = idolGroup.BackgroundImagePath;
         GlobalState.GroupButtonUIPath = idolGroup.IdolButtonUIPath;
-        
+
         GlobalState.IdolId = idol.Id;
         GlobalState.IdolImagePath = idol.ImagePath.ToString();
         GlobalState.IdolColor = idol.CollarCode.ToString();
@@ -121,19 +122,32 @@ public sealed class MainViewModel : ViewModelBase<MainView>
             idol.ResultIdol.BRank.ToString(),
             idol.ResultIdol.CRank.ToString()
         };
-        
-        
+        logger.ZLogInformation($"GroupId: {GlobalState.GroupId}");
+        logger.ZLogInformation($"GroupBackgroundImagePath: {GlobalState.GroupBackgroundImagePath}");
+        logger.ZLogInformation($"GroupButtonUIPath: {GlobalState.GroupButtonUIPath}");
+        logger.ZLogInformation($"IdolId: {GlobalState.IdolId}");
+        logger.ZLogInformation($"IdolImagePath: {GlobalState.IdolImagePath}");
+        logger.ZLogInformation($"IdolColor: {GlobalState.IdolColor}");
+        logger.ZLogInformation($"IdolSerifMenuText: {GlobalState.IdolSerifMenuText}");
+        logger.ZLogInformation($"IdolRewardPoint: {GlobalState.IdolRewardPoint}");
+
         await UniTask.Yield();
-    }
+   }
 
     async UniTask OnInputGallery(PointerDownEvent e, CancellationToken ct)
     {
-        logger.ZLogInformation($"ギャラリー画面遷移");
+        if (GlobalState.IdolImagePath != null)
+        {
+            logger.ZLogInformation($"ギャラリー画面遷移");
+            await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
+        }
     }
 
     async UniTask OnInputReturn(PointerDownEvent e, CancellationToken ct)
     {
         logger.ZLogInformation($"メニュー画面に戻る");
+        await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
+        await SceneManager.LoadSceneAsync("MenuScene")!.WithCancellation(ct);
     }
     
     protected override void PreOpen()

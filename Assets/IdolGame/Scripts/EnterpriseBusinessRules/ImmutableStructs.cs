@@ -17,7 +17,7 @@ public readonly record struct IdolGroupData(
     [property: JsonPropertyName("group-id")] IdolGroupId GroupId,
     [property: JsonPropertyName("group-name")] IdolGroupName GroupName,
     [property: JsonPropertyName("group-image-logo-path")]  IdolGroupImagelogoPath GroupImagelogoPath,
-    [property: JsonPropertyName("image-path")]  BackgroundImagePath　ImagePath,
+    [property: JsonPropertyName("background-image-path")]  BackgroundImagePath　BackgroundImagePath,
     [property: JsonPropertyName("idol-button-ui-path")]  IdolGroupButtonUIPath　IdolButtonUIPath,
     [property: JsonPropertyName("members")] IdolMembersData[]? Members)
 {

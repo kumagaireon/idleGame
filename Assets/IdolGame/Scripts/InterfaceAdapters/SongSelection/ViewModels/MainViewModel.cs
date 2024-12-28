@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using IdolGame.Audios.Core;
 using IdolGame.Common.ViewModels;
 using IdolGame.SongSelection.Views;
 using IdolGame.UIElements;
@@ -12,6 +13,7 @@ using UIToolkit.R3.Integration;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEngine.Video;
 using ZLogger;
@@ -23,17 +25,20 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
     DisposableBag bag;
-    
+    readonly AudioPlayer audioPlayer;
+    readonly AssetReference bgmAssetReference;
     string? selectedVoicePath;
     
     public Func<SceneTransitionState, CancellationToken, UniTask>? CloseContinueAsync { get; set; }
 
     public MainViewModel(ILogger<MainViewModel> logger,
         MainView view,
-        UIDocument rootDocument)
+        UIDocument rootDocument, AudioPlayer audioPlayer, AssetReference bgmAssetReference)
         : base(view, rootDocument, new FadeViewTransition(rootDocument))
     {
         this.logger = logger;
+        this.audioPlayer = audioPlayer;
+        this.bgmAssetReference = bgmAssetReference;
     }
 
     public async UniTask InitializeAsync(CancellationToken ct)
@@ -129,11 +134,15 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         {
             logger.ZLogTrace($"ないよ");
         }
+        
+        await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
     }
 
     async UniTask OnInputReturn(PointerDownEvent e, CancellationToken ct)
     {
         logger.ZLogInformation($"メニュー画面に戻る");
+        await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
+        await SceneManager.LoadSceneAsync("MenuScene")!.WithCancellation(ct);
     }
     
     /// <summary>

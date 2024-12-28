@@ -1,40 +1,93 @@
-#main-view {
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-}
-
 #background {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgb(24, 24, 24);
+    background-color: rgb(204, 157, 157);
 
 }
 
-#ui-container {
-    width: 300px;
+#idol-image {
+    position: absolute;
+    width: 550px;
+    height: 650px;
+    top: 40px;
+    left: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#idol-line {
+    position: absolute;
+    width: 600px;
+    height: 150px;
+    left: 627px;
+    top: 490px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#idol-support-dialogue-text {
+    position: absolute;
+    top: 9px;
+    left: 54px;
+    height: 135px;
+    width: 534px;
+}
+
+#result-point-text {
+    position: absolute;
+    top: 2px;
+    left: 97px;
+    height: 88px;
+    width: 391px;
+    color: rgb(0, 0, 0);
+    font-size: 56px;
+    -unity-text-align: middle-left;
+}
+
+#point-flame {
+    position: absolute;
+    width: 500px;
+    height: 100px;
+    left: 689px;
+    top: 70px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#result-point-image {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    top: 17px;
+    left: 21px;
+}
+
+#menu-button {
+    position: absolute;
+    width: 454px;
+    height: 100px;
+    left: 674px;
+    top: 230px;
+    background-color: rgba(0, 0, 0, 0.38);
+}
+
+#menu-image {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    margin-left: auto;
-    -unity-text-align: middle-right;
 }
 
-#ui-results-logo-container {
-    width: 100%;
-    height: auto;
-    padding-top: 24px;
+#retry-button {
+    position: absolute;
+    width: 450px;
+    height: 100px;
+    left: 807px;
+    top: 394px;
+    background-color: rgba(0, 0, 0, 0.36);
 }
 
-#ui-selectable-container {
+#retry-image {
+    position: absolute;
     width: 100%;
-    height: auto;
-    margin-top: auto;
-}
-
-#ui-app-info-container {
-    width: 100%;
-    height: auto;
-    margin-top: 60px;
+    height: 100%;
 }
