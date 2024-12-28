@@ -15,33 +15,35 @@
 }
 
 #company-logo {
+    position: absolute;
+   
     width: 270px;
     height: 150px;
     align-items: center;
     justify-content: space-between;
-    max-height: 200px;
-    max-width: 500px;
     align-self: center;
     align-content: center;
     flex-direction: column;
     top: 15px;
     left: 30px;
     bottom: 502px;
-    position: absolute;
 }
 
 #title-logo {
-    width: 500px;
-    height: 200px;
+    height: 100%;
+    bottom: 12px;
+    width: 100%;
+    left: 4px;
+    max-width: none;
+    max-height: none;
+
     align-items: center;
     justify-content: space-between;
-    max-height: 200px;
-    max-width: 500px;
+
     align-self: center;
     align-content: center;
     flex-direction: column;
     top: auto;
-    bottom: 315px;
     position: absolute;
 }
 

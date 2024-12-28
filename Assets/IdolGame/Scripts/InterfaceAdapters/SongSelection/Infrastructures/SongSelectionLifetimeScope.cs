@@ -34,7 +34,7 @@ namespace IdolGame.SongSelection.Infrastructures
             builder.Register<MainView>(Lifetime.Scoped);
            
             // セーブデータ取得ユースケースをスコープライフタイムで登録
-            builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
+            builder.Register<FindSongSelectionDataUseCase>(Lifetime.Scoped);
             // シリアライズフィールドのUIドキュメントを登録
             builder.RegisterComponent(rootDocument);
             // シリアライズフィールドのビジュアルツリーアセットをインスタンスとして登録

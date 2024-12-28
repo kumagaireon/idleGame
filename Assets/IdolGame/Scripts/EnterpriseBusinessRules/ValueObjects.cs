@@ -157,24 +157,6 @@ public readonly partial struct MusicVoicePath
 }
 
 
-//LiveData
-[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct VideoLiveID
-{
-}
-[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct NotesID
-{
-}
-[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct SoundID
-{
-}
-[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct CallID
-{
-}
-
 //シーンUIData
 
 //背景

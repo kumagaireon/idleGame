@@ -1,20 +1,23 @@
 using IdolGame.Common.Views;
+using IdolGame.UIElements;
 using UnityEngine.UIElements;
 
 namespace IdolGame.Recommendation.Views;
 
-public sealed class MainView: ViewBase
-{  
-    // アプリのバージョン情報を表示するテキスト要素
-    public TextElement AppInfoVersionTextElement { get; }
+public sealed class MainView : ViewBase
+{
+    public VisualElement IdolGroupLogoImageElement { get; }
+    public TextElement ExplanatoryTextElementext { get; }
+    public VisualElement GalleryVisualElement { get; }
+    public VisualElement ReturnVisualElement { get; }
+    public CustomScrollView IdolScrollView { get; }
 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="asset">/// <param name="asset">VisualTreeAssetからビューを構築するためのアセット</param>
     public MainView(VisualTreeAsset asset) : base(asset)
-    { 
-        // ビューから指定された名前のテキスト要素を取得
-        AppInfoVersionTextElement = OwnView.Q<TextElement>("app-info-version-text");
+    {
+        IdolGroupLogoImageElement = OwnView.Q<VisualElement>("idol-logo");
+        ExplanatoryTextElementext = OwnView.Q<TextElement>("explanatory-text");
+        GalleryVisualElement = OwnView.Q<VisualElement>("gallery-button");
+        ReturnVisualElement = OwnView.Q<VisualElement>("back-button");
+        IdolScrollView = OwnView.Q<CustomScrollView>("idol-scroll-view");
     }
 }

@@ -4,6 +4,9 @@
         <engine:VisualElement name="background" style="flex-grow: 0; background-image: none;">
             <engine:VisualElement name="optionflame" style="flex-grow: 1; width: 1000px; height: 500px; position: absolute; align-self: center; align-content: auto; justify-content: flex-start; align-items: auto; top: 100px; background-image: url(&quot;project://database/Assets/[yutaka]/Bunish/Prefabs/TimingAllow_blue.png?fileID=2800000&amp;guid=26d0a9a2281587d46a19ca9555fa99d8&amp;type=3#TimingAllow_blue&quot;); background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgb(0, 0, 0);">
                 <engine:Label text="Label" name="volumechange" style="position: absolute; flex-shrink: 0; align-self: center; width: 500px; height: 100px; align-items: auto; left: 249px; top: 310px; right: auto; bottom: auto; -unity-background-image-tint-color: rgb(255, 0, 0); background-image: url(&quot;project://database/Assets/[yutaka]/Bunish/Prefabs/TimingAllow_blue.png?fileID=2800000&amp;guid=26d0a9a2281587d46a19ca9555fa99d8&amp;type=3#TimingAllow_blue&quot;);" />
+                <engine:VisualElement name="option-value" style="flex-grow: 1; width: auto;">
+                    <engine:Slider label="Slider" value="42" high-value="100" name="option-slider" />
+                </engine:VisualElement>
             </engine:VisualElement>
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>

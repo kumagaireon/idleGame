@@ -6,7 +6,9 @@
         "IdolGame.Common.Views",
         "IdolGame.Titles.Views",
         "IdolGame.UIElements",
-        "UniTask"
+        "UniTask",
+        "Unity.Addressables",
+        "IdolGame.Audio.Core"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -15,12 +15,12 @@ MonoBehaviour:
   m_GroupName: Idol Group Image
   m_GUID: 8e4632749cda1c14b88054170ad3860a
   m_SerializeEntries:
-  - m_GUID: 41615ede940043e43a528bb87e7b0653
+  - m_GUID: 54f8fcc9774fe4b409c812a98f972ae0
     m_Address: full_idol_image_000
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 81b146267d923c941ac301136405fe7b
+  - m_GUID: dfcb18d89f6a6a143b1e5ce62632d616
     m_Address: boby_idol_000
     m_ReadOnly: 0
     m_SerializedLabels: []

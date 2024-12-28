@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Group Logo
   m_GUID: 7fa50e985e1f79b4fbddf1ae6d548761
   m_SerializeEntries:
-  - m_GUID: a0a89d61f4e224c40bbdb20bdcc409ad
+  - m_GUID: b2970f4e8e8b3ac4daf72b7b7566831a
     m_Address: group_logo_00
     m_ReadOnly: 0
     m_SerializedLabels: []

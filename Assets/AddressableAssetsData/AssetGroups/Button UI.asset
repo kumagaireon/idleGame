@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Button UI
   m_GUID: 3512097ab9b80864fa658b6cae53d54d
   m_SerializeEntries:
-  - m_GUID: 19652f249b7866f4d8d7eaa88b0ddffa
+  - m_GUID: d7074d1730ba91d45be302fff7082bc9
     m_Address: idol_button_ui_00
     m_ReadOnly: 0
     m_SerializedLabels: []

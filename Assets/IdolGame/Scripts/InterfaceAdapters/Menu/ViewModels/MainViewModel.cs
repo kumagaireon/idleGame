@@ -1,34 +1,28 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using IdolGame.Common.infrastructures;
 using IdolGame.Common.ViewModels;
 using IdolGame.Menu.Views;
+using IdolGame.UIElements;
 using Microsoft.Extensions.Logging;
 using R3;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UIElements;
+using ZLogger;
 
 namespace IdolGame.Menu.ViewModels;
 
-public sealed class MainViewModel: ViewModelBase<MainView>
+public sealed class MainViewModel : ViewModelBase<MainView>
 {
-    enum ModeSelectType
-    {
-        Options,
-        SongSelection,
-        Recommendation
-    }
-    
+
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
-    ModeSelectType currentMode;
-    VisualElement? beforeFocusedElement;
     DisposableBag bag;
 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="logger">ロガーのインスタンス</param>
-    /// <param name="view">ビューのインスタンス</param>
-    /// <param name="rootDocument">ルートドキュメントのインスタンス</param>
+
+
     public MainViewModel(ILogger<MainViewModel> logger,
         MainView view,
         UIDocument rootDocument)
@@ -37,25 +31,106 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         this.logger = logger;
     }
 
-    /// <summary>
-    /// 非同期にビューを初期化するメソッド
-    /// </summary>
-    /// <param name="ct">キャンセルトークン</param>
+
     public async UniTask InitializeAsync(CancellationToken ct)
     {
-        // アプリのバージョン情報をテキスト要素に設定
-     //   view.AppInfoVersionTextElement.text = $"Ver.{UnityEngine.Application.version}";
-        
-        
-        //非同期で画像を読み込む
-        var visualElement = new VisualElement(); 
-        
-        // visualElement.style.backgroundImage = Background.FromTexture2D("テクスチャー");
-        // visualElement.style.backgroundImage = Background.FromRenderTexture("テクスチャー");
-        
-        
+        logger.ZLogTrace($"Called {GetType().Name}.InitializeAsync");
+
+        /*
+        // IdolImageElementの背景画像を設定
+        var idolImageHandle = Addressables.LoadAssetAsync<Texture2D>("Idol group Image/boby_idol_000");
+        await idolImageHandle.Task;
+        view.IdolImageElement.style.backgroundImage = new StyleBackground(idolImageHandle.Result);
+
+        // SongSelectionTextElementとAboutMeTextElementの背景画像を設定
+        var buttonHandle = Addressables.LoadAssetAsync<Texture2D>("Button UI/idol_button_ui_00");
+        await buttonHandle.Task;
+        view.SongSelectionTextElement.style.backgroundImage = new StyleBackground(buttonHandle.Result);
+        view.AboutMeTextElement.style.backgroundImage = new StyleBackground(buttonHandle.Result);
+        */
+
+        if (GlobalState.IdolId != null)
+        {
+            await SetUiElementsFromGlobalState();
+        }
+
+        view.SongSelectionVisualElement.OnInputAsObservable()
+            .SubscribeAwait(async (e, ct2)
+                => await OnInputSongSelection(e, ct2))
+            .AddTo(ref bag);
+
+        view.AboutMeVisualElement.OnInputAsObservable()
+            .SubscribeAwait(async (e, ct2)
+                => await OnInputAboutMe(e, ct2))
+            .AddTo(ref bag);
+
         // 非同期処理のためにフレームを待機
         await UniTask.Yield(ct);
+    }
+
+    private async UniTask SetUiElementsFromGlobalState()
+    {
+        if (GlobalState.IdolId != null)
+        {
+            // GroupButtonUIPathを設定
+            var groupButtonUIHandle =
+                Addressables.LoadAssetAsync<Texture2D>(GlobalState.GroupButtonUIPath);
+            await groupButtonUIHandle.Task;
+            if (groupButtonUIHandle.Status == AsyncOperationStatus.Succeeded)
+            {
+                view.SongSelectionVisualElement.style.backgroundImage =
+                    new StyleBackground(groupButtonUIHandle.Result);
+                view.AboutMeVisualElement.style.backgroundImage =
+                    new StyleBackground(groupButtonUIHandle.Result);
+            }
+            else
+            {
+                logger.ZLogError($"Failed to load texture: {GlobalState.GroupButtonUIPath}");
+
+            }
+
+            // GroupBackgroundImagePathを設定
+            var groupBackgroundImageHandle =
+                Addressables.LoadAssetAsync<Texture2D>(GlobalState.GroupBackgroundImagePath);
+            await groupBackgroundImageHandle.Task;
+            if (groupBackgroundImageHandle.Status == AsyncOperationStatus.Succeeded)
+            {
+                view.BackgroundImageVisualElement.style.backgroundImage =
+                    new StyleBackground(groupBackgroundImageHandle.Result);
+            }
+            else
+            {
+                logger.ZLogError($"Failed to load texture: {GlobalState.GroupBackgroundImagePath}");
+            }
+
+            // IdolImagePathを設定
+            var idolImageHandle =
+                Addressables.LoadAssetAsync<Texture2D>(GlobalState.IdolImagePath);
+
+            await idolImageHandle.Task;
+            if (idolImageHandle.Status == AsyncOperationStatus.Succeeded)
+            {
+                view.IdolImageVisualElement.style.backgroundImage =
+                    new StyleBackground(idolImageHandle.Result);
+            }
+            else
+            {
+                logger.ZLogError($"Failed to load texture: {GlobalState.IdolImagePath}");
+            }
+
+            // IdolSerifMenuTextを設定
+            view.IdolSpeechBubbleTextElement.text = GlobalState.IdolSerifMenuText;
+        }
+    }
+
+    async UniTask OnInputSongSelection(PointerDownEvent e, CancellationToken ct)
+    {
+        logger.ZLogInformation($"選曲画面遷移");
+    }
+
+    async UniTask OnInputAboutMe(PointerDownEvent e, CancellationToken ct)
+    {
+        logger.ZLogInformation($"自己紹介画面遷移");
     }
 
     /// <summary>
@@ -70,5 +145,6 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// </summary>
     protected override void OnDispose()
     {
+        bag.Dispose();
     }
 }

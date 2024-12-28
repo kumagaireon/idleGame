@@ -32,10 +32,6 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// <param name="ct">キャンセルトークン</param>
     public async UniTask InitializeAsync(CancellationToken ct)
     {
-        // アプリのバージョン情報をテキスト要素に設定
-        //view.AppInfoVersionTextElement.text = $"Ver.{UnityEngine.Application.version}";
-        
-        
         //非同期で画像を読み込む
         var visualElement = new VisualElement(); 
         

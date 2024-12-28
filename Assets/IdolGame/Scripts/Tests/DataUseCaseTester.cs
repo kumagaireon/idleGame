@@ -33,111 +33,72 @@ public sealed class DataUseCaseTester
                 RewardChekiImage2Path="bb",
                 RewardChekiImage3Path="cc",
                 RewardVicePath="ss",
-                DateAcquisitioRewardCheck1="aa",
-                DateAcquisitioRewardCheck2="bb",
-                DateAcquisitioRewardCheck3 = "aa",
-                DateAcquisitioRewardCheck="aa",
-                IdolPoint=100.0
+                DateAcquisitioRewardCheck1= DateTimeOffset.Now,
+                DateAcquisitioRewardCheck2= DateTimeOffset.Now,
+                DateAcquisitioRewardCheck3 =  DateTimeOffset.Now,
+                DateAcquisitioRewardCheck= DateTimeOffset.Now,
+                IdolPoint = (IdolRewardPoint)0.0
             }
         }, cts.Token);
     });
-
-    //===========選曲Data===============
+   
     [UnityTest]
-    public IEnumerator TestCreateMusicSelectData() => UniTask.ToCoroutine(async () =>
+    public IEnumerator TestLoadKakuninData() => UniTask.ToCoroutine(async () =>
     {
         var cts = new CancellationTokenSource();
+        // JSONデータファイルのパスを構築
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "kakunin_data.json");
+
+        var dataStore = new JsonAsyncDataStore<IdolGroupData[]>(path);
+        // データストアからセーブデータを非同期にロード
+        var saves = await dataStore.LoadAsync(cts.Token);
+        // ロードしたデータをデバッグログに出力
+        for (var i = 0; i < saves.Length; i++)
+        {
+            Debug.Log(saves[i]);
+        }
+    });
+  
+    
+    //===========選曲Data===============
+    [UnityTest]
+    public IEnumerator TestCreateMusicData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+
+        // データストアのパスを設定
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "music_data.json");
+        
+        // データストアを初期化
         var dataStore = new JsonAsyncDataStore<MusicData[]>(path);
         await dataStore.StoreAsync(new[]
         {
-            new MusicData()
+            new MusicData
             {
                 Id = 1,
-                Name = "ここに曲名1",
-                ImagePath = "ここに画像のパス2",
-                Description = "ここに曲の説明文を書いて3",
-                VoicePath = "ここに動画パス書いて４"
+                Name = "曲名",
+                ImagePath = "画像パス",
+                Description= "説明文",
+                VoicePath = "動画パス"
             }
         }, cts.Token);
     });
-
-
     [UnityTest]
-    public IEnumerator TestLoadMusicSelectData() => UniTask.ToCoroutine(async () =>
+    public IEnumerator TestLoadMusicData() => UniTask.ToCoroutine(async () =>
     {
         var cts = new CancellationTokenSource();
-        // JSONデータファイルのパスを構築
-        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "music_data.json");
+
+        var path = Path.Combine(Application.streamingAssetsPath,  "master_data", "music_data.json");
 
         var dataStore = new JsonAsyncDataStore<MusicData[]>(path);
-        // データストアからセーブデータを非同期にロード
-        var saves = await dataStore.LoadAsync(cts.Token);
-        // ロードしたデータをデバッグログに出力
-        for (var i = 0; i < saves.Length; i++)
+
+        var idolGroup = await dataStore.LoadAsync(cts.Token);
+        for (var i = 0; i < idolGroup?.Length; i++)
         {
-            Debug.Log(saves[i]);
+            Debug.Log(idolGroup[i]);
         }
     });
-
-
-    [UnityTest]
-    public IEnumerator TestFindMusicSelectDataUscCase() => UniTask.ToCoroutine(async () =>
-    {
-        var cts = new CancellationTokenSource();
-        // JSONデータファイルのパスを構築
-        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "music_data.json");
-
-        IAsyncDataStore<MusicData[]> dataStore = new JsonAsyncDataStore<MusicData[]>(path);
-        // 非同期リポジトリのインスタンスを作成
-        IAsyncRepository<MusicData, MusicId> repository = new MusicDataRepository(dataStore);
-        var useCase = new FindMusicDataUseCase(repository);
-        // ユースケースから全データを非同期に取得
-        var saves = await useCase.FindAllAsync(cts.Token);
-        // 取得したデータをデバッグログに出力
-        foreach (var save in saves)
-        {
-            Debug.Log(save);
-        }
-    });
-
-    //===========選曲Data===============
-    [UnityTest]
-    public IEnumerator TestCreateVideoData() => UniTask.ToCoroutine(async () =>
-    {
-        var cts = new CancellationTokenSource();
-        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "video_data.json");
-        var dataStore = new JsonAsyncDataStore<LiveData[]>(path);
-        await dataStore.StoreAsync(new[]
-        {
-            new LiveData()
-            {
-                VideoId = 1,
-                NotesID = 1,
-                SoundID = 1,
-                CallID = 1
-            }
-        }, cts.Token);
-    });
-
-    [UnityTest]
-    public IEnumerator TestLoadVideoData() => UniTask.ToCoroutine(async () =>
-    {
-        var cts = new CancellationTokenSource();
-        // JSONデータファイルのパスを構築
-        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "video_data.json");
-
-        var dataStore = new JsonAsyncDataStore<LiveData[]>(path);
-        // データストアからセーブデータを非同期にロード
-        var saves = await dataStore.LoadAsync(cts.Token);
-        // ロードしたデータをデバッグログに出力
-        for (var i = 0; i < saves.Length; i++)
-        {
-            Debug.Log(saves[i]);
-        }
-    });
-
-    //===========推しアイドル===============
+        //===========推しアイドル===============
 
     [UnityTest]
     public IEnumerator TestCreateFavoriteIdolGroupData() => UniTask.ToCoroutine(async () =>
@@ -164,29 +125,7 @@ public sealed class DataUseCaseTester
         }, cts.Token);
     });
 
-    [UnityTest]
-    public IEnumerator TestCreateIdolData() => UniTask.ToCoroutine(async () =>
-    {
-        var cts = new CancellationTokenSource();
-
-        // データストアのパスを設定
-        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "kakunin_data.json");
-
-        // データストアを初期化
-        var dataStore = new JsonAsyncDataStore<IdolMembersData[]>(path);
-
-        // サンプルのアイドルグループデータを作成し、データストアに保存
-        await dataStore.StoreAsync(new[]
-        {
-            new IdolMembersData
-            {
-                Id = 1,
-                Name = "アイドル",
-                ImagePath = "path/to/logo2.png",
-                CollarCode="FF0000"
-            }
-        }, cts.Token);
-    });
+  
 
     [UnityTest]
     public IEnumerator TestLoadFavoriteIdolData() => UniTask.ToCoroutine(async () =>

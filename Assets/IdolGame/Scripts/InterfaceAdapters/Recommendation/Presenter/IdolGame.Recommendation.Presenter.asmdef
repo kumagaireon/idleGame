@@ -9,6 +9,10 @@
 		"IdolGame.Common.Views",
 		"IdolGame.Recommendation.ViewModels",
 		"IdolGame.Recommendation.Views",
+		"IdolGame.Menu.ViewModels",
+		"IdolGame.Menu.Views",
+		"IdolGame.Results.ViewModels",
+		"IdolGame.Results.Views",
 		"UniTask",
 		"VContainer",
 		"Unity.Addressables"

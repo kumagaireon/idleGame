@@ -4,8 +4,8 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgb(24, 24, 24);
-
+    background-image: none;
+    background-color: rgb(255, 0, 0);
 }
 
 #idol-image {
@@ -19,15 +19,18 @@
     width: 600px;
     height: 199px;
     position: absolute;
-    right: 20px;
-    top: 498px;
+    top: 498px; right: 23px;
 }
 
-idol-speech-bubble-text {
+#idol-speech-bubble-text {
     position: absolute;
-    height: 200px;
-    left: -50px;
-    width: 545px;
+    white-space: nowrap;
+    width: 542px;
+    left: 49px;
+    height: 187px;
+    top: 8px;
+    -unity-font-style: bold;
+    font-size: 27px;
 }
 
 #option-button {

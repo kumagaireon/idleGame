@@ -10,8 +10,14 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgb(24, 24, 24);
+}
 
+#idol-logo {
+    position: absolute;
+    width: 700px;
+    height: 150px;
+    left: 300px;
+    top: 30px;
 }
 
 #ui-container {
@@ -21,20 +27,46 @@
     -unity-text-align: middle-right;
 }
 
-#ui-recommendation-logo-container {
-    width: 100%;
-    height: auto;
-    padding-top: 24px;
+#back-button {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    left: -270px;
+    top: -70px;
 }
 
-#ui-selectable-container {
-    width: 100%;
-    height: auto;
-    margin-top: auto;
+#gallery-button {
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    top: 538px;
+    right: 48px;
 }
 
-#ui-app-info-container {
-    width: 100%;
-    height: auto;
-    margin-top: 60px;
+#explainflame {
+    position: absolute;
+    top: 536px;
+    left: 47px;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    background-color: rgb(175, 134, 134);
+    color: rgba(255, 255, 255, 0);
+    -unity-text-align: upper-center;
+    width: 850px;
+    height: 150px;
 }
+
+#explanatory-text {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+
+#idol-scroll-view {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 30px;
+    right: 30px;
+    padding: 90px 10%;
+    flex-direction: column;
+}
+

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Idol Group Background
   m_GUID: 0fac34d28008ae74a87f16d347062aa4
   m_SerializeEntries:
-  - m_GUID: e2d47fb4e6cfe174cb7172132d328b9c
+  - m_GUID: 18c2087c7c9dae047a11bfdc8eea922c
     m_Address: background_00
     m_ReadOnly: 0
     m_SerializedLabels: []

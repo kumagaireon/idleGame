@@ -2520,7 +2520,7 @@ MonoBehaviour:
   rootDocument: {fileID: 1604613870}
   mainTreeAsset: {fileID: 9197481963319205126, guid: 0b3188e44b384952bd59772cdfcfd10a, type: 3}
   bgmAssetReference:
-    m_AssetGUID: a9a62f9ac4f3a1a46a967ceea61607c4
+    m_AssetGUID: ca612644c9869194c913845e209b2829
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 

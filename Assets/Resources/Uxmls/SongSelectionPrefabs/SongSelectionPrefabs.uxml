@@ -1,0 +1,6 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/SongSelectionPrefabs.uss?fileID=7433441132597879392&amp;guid=3a246346e7f6a5b42a223aec457378aa&amp;type=3#SongSelectionPrefabs" />
+    <engine:VisualElement name="song-selection-image" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_fruity.png?fileID=2800000&amp;guid=f9679ae67af5d1744b24121ce0178838&amp;type=3#Button_fruity&quot;);">
+        <engine:Label text="曲名" name="song-name" style="" />
+    </engine:VisualElement>
+</engine:UXML>

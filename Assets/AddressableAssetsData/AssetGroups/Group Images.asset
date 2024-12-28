@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Group Images
   m_GUID: 2bbbc9e6e0d94114fb2de84f081e5e84
   m_SerializeEntries:
-  - m_GUID: 765be18f302acfc40b52478d92fa11d4
+  - m_GUID: 8a8471b5af292a247a4433ea29ab9851
     m_Address: group_image_00
     m_ReadOnly: 0
     m_SerializedLabels: []

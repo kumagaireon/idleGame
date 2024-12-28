@@ -1,9 +1,3 @@
-#main-view {
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-}
-
 #background {
     position: absolute;
     width: 100%;
@@ -14,27 +8,111 @@
 
 }
 
-#ui-container {
-    width: 300px;
+#albambg {
+    position: absolute;
+    width: 1200px;
+    height: 680px;
+    align-content: auto;
+    align-self: center;
+    top: 20px;
+}
+
+#idol-image {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    margin-left: auto;
-    -unity-text-align: middle-right;
+    top: 0;
+    left: 0;
 }
 
-#ui-gallery-logo-container {
-    width: 100%;
-    height: auto;
-    padding-top: 24px;
+#idle-cheki-1 {
+    position: absolute;
+    width: 250px;
+    top: 22px;
+    left: 71px;
+    height: 342px;
+    background-color: rgba(50, 60, 120, 0.5);
 }
 
-#ui-selectable-container {
-    width: 100%;
-    height: auto;
-    margin-top: auto;
+#idle-cheki-2 {
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    top: 15px;
+    left: 340px;
+    background-color: rgba(50, 60, 120, 0.5);
 }
 
-#ui-app-info-container {
+#idle-cheki-3 {
+    position: absolute;
+    width: 350px;
+    height: 250px;
+    top: 382px;
+    left: 109px;
+    background-color: rgba(50, 60, 120, 0.5);
+}
+
+#idol-pic-1 {
+    position: absolute;
     width: 100%;
-    height: auto;
-    margin-top: 60px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#idol-pic-2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#idol-pic-3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#idle-cheki-date-1 {
+}
+
+#idle-cheki-date-2 {
+}
+
+#idle-cheki-date-3 {
+}
+#idle-cheki-release-point-1{
+    
+}
+
+#idle-cheki-release-point-2{
+    
+}
+
+#idle-cheki-release-point-3{
+    
+}
+
+#idol-video-pos {
+    position: absolute;
+    width: 500px;
+    height: 600px;
+    top: 19px;
+    left: 629px;
+    background-color: rgba(146, 89, 129, 0.61);
+}
+
+#idol-video-date {
+
+}
+
+#idol-video {
+    position: absolute;
+}
+
+#idle-video-release-point{
+    
 }

@@ -2,7 +2,8 @@
     "name": "IdolGame.SongSelection.Views",
     "rootNamespace": "",
     "references": [
-        "IdolGame.Common.Views"
+        "IdolGame.Common.Views",
+        "IdolGame.UIElements"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

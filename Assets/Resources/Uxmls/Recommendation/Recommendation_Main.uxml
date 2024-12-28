@@ -1,14 +1,17 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Recommendation_Main.uss?fileID=7433441132597879392&amp;guid=ce6ef629d9f858a4784eab33a2edd333&amp;type=3#Recommendation_Main" />
     <IdolGame.UIElements.RootUIElement>
-        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
-            <engine:VisualElement name="idol-logo" style="flex-grow: 1; position: absolute; width: 700px; height: 150px; left: 300px; top: 30px;">
-                <engine:VisualElement name="explainflame" style="flex-grow: 1; top: 500px; left: -249px; width: 850px; height: 150px; color: rgb(255, 255, 255);">
-                    <engine:Label text="Label" />
-                </engine:VisualElement>
-                <engine:VisualElement name="gallery-button" style="flex-grow: 1; position: absolute; top: 500px; width: 300px; height: 150px; right: -230px;" />
-                <engine:VisualElement name="back-7button" style="flex-grow: 1; width: 200px; height: 150px; left: -270px; top: -70px;" />
+        <engine:VisualElement name="background">
+            <engine:VisualElement name="idol-logo" />
+            <IdolGame.UIElements.CustomScrollView name="idol-scroll-view" items-template="project://database/Assets/Resources/Uxmls/IdolMemberPrefabs/IdolMemberPrefabs.uxml?fileID=9197481963319205126&amp;guid=e77429986a9910649b39419293ac10cb&amp;type=3#IdolMemberPrefabs" mode="Horizontal" />
+            <engine:VisualElement name="explainflame">
+                <engine:Label text="説明テキスト" name="explanatory-text" />
             </engine:VisualElement>
+            <engine:VisualElement name="gallery-button">
+                <engine:Label text="ギャラリー画面へ" style="height: 122px; color: rgb(255, 255, 255); background-color: rgb(141, 7, 7); -unity-text-align: middle-center; font-size: 25px; -unity-font-style: bold;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="back-button" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_Back.png?fileID=2800000&amp;guid=45237e02bbd81164ca62cff269cd55d6&amp;type=3#Button_Back&quot;); top: 17px; left: 42px;" />
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>
+    <IdolGame.UIElements.CustomScrollView />
 </engine:UXML>

@@ -35,8 +35,6 @@ namespace IdolGame.Titles.Infrastructures
             // メインビューをスコープライフタイムで登録
             builder.Register<MainView>(Lifetime.Scoped);
 
-            // セーブデータ取得ユースケースをスコープライフタイムで登録
-            builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
             // シリアライズフィールドのUIドキュメントを登録
             builder.RegisterComponent(rootDocument);
             // シリアライズフィールドのビジュアルツリーアセットをインスタンスとして登録

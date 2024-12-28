@@ -32,7 +32,7 @@ public readonly record struct IdolMembersData(
     [property: JsonPropertyName("idol-reward")]  IdolRewardData IdolReward,
     [property: JsonPropertyName("idol-self-introduction")]  IdolSelfIntroductionData IdolSelfIntroduction,
     [property: JsonPropertyName("result-idol")]  ResultIdolData ResultIdol )
-{   
+{
 }
 //報酬
 public readonly record struct IdolRewardData(
@@ -76,38 +76,5 @@ public readonly record struct MusicData(
     [property:JsonPropertyName("image_path")] MusicImagePath ImagePath,
     [property:JsonPropertyName("description")] MusicDescription Description,
     [property:JsonPropertyName("video-path")] MusicVoicePath VoicePath)
-{}
-
-//シーンUIData
-//タイトル
-public readonly record struct TitleData(
-    [property:JsonPropertyName("image-path")]  BackgroundImagePath　ImagePath,
-    [property:JsonPropertyName("logo-image-path")]  LogoOrImagePath[]　LogoImagePat)
-{}
-//メニュー
-public readonly record struct MenuData(
-    [property:JsonPropertyName("image-path")]  BackgroundImagePath　ImagePath,
-    [property:JsonPropertyName("button")]  ButtonData[]　Button,
-    [property:JsonPropertyName("serif-text")]  SerifText　SerifText,
-    [property: JsonPropertyName("members")] IdolMembersData Members)
-{
-}
-
-
-//ボタン
-public readonly record struct ButtonData(
-    [property:JsonPropertyName("image_path")]  ButtonUIPath ImagePath,
-    [property:JsonPropertyName("text")]  ButtonText Text)
-{
-}
-
-
-
-//ライブが画面関係
-public readonly record struct LiveData(
-    [property:JsonPropertyName("video_id")] VideoLiveID VideoId,
-    [property:JsonPropertyName("notes_id")] NotesID NotesID,
-    [property:JsonPropertyName("sound_id")] SoundID SoundID,
-    [property:JsonPropertyName("call_id")] CallID CallID)
 {}
 

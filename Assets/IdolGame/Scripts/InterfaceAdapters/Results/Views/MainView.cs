@@ -6,7 +6,9 @@ namespace IdolGame.Results.Views;
 public sealed class MainView: ViewBase
 {  
     // アプリのバージョン情報を表示するテキスト要素
-    public TextElement AppInfoVersionTextElement { get; }
+    public TextElement IdolSupportDialogueTextElement { get; }
+    public TextElement ResultPointsTextElement { get; }
+    public VisualElement IdolImageVisualElement { get; }
 
     /// <summary>
     /// コンストラクタ
@@ -15,6 +17,8 @@ public sealed class MainView: ViewBase
     public MainView(VisualTreeAsset asset) : base(asset)
     { 
         // ビューから指定された名前のテキスト要素を取得
-        AppInfoVersionTextElement = OwnView.Q<TextElement>("app-info-version-text");
+        IdolSupportDialogueTextElement = OwnView.Q<TextElement>("idol-support-dialogue-text");
+        ResultPointsTextElement = OwnView.Q<TextElement>("result-points-text");
+        IdolImageVisualElement = OwnView.Q<VisualElement>("idol-image");
     }
 }

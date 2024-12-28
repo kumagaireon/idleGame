@@ -1,15 +1,17 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Results_Main.uss?fileID=7433441132597879392&amp;guid=c0e2cc2efe916a6489493df0749392e7&amp;type=3#Results_Main" />
     <IdolGame.UIElements.RootUIElement>
-        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
-            <engine:VisualElement name="idolpic" style="flex-grow: 1; position: absolute; width: 550px; height: 650px; top: 40px; left: 30px;">
-                <engine:VisualElement name="pointflame" style="flex-grow: 1; position: absolute; width: 500px; height: 100px; left: 650px; top: 50px;">
-                    <engine:VisualElement name="menubutton" style="flex-grow: 1; position: absolute; width: 454px; height: 100px; left: -50px; top: 130px;">
-                        <engine:VisualElement name="retrybutton" style="flex-grow: 1; position: absolute; width: 450px; height: 100px; left: 147px; top: 129px;">
-                            <engine:VisualElement name="idolline" style="flex-grow: 1; position: absolute; width: 600px; height: 150px; left: -133px; top: 150px;" />
-                        </engine:VisualElement>
-                    </engine:VisualElement>
+        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none; background-color: rgb(204, 157, 157);">
+            <engine:VisualElement name="idol-image" style="flex-grow: 1; position: absolute; width: 550px; height: 650px; top: 40px; left: 30px; background-color: rgba(0, 0, 0, 0.4);">
+                <engine:VisualElement name="idol-line" style="flex-grow: 1; position: absolute; width: 600px; height: 150px; left: 627px; top: 490px; background-color: rgba(0, 0, 0, 0); background-image: url(&quot;project://database/Assets/IdolGame/UI/SpeechBubble/Frame_Mes.png?fileID=2800000&amp;guid=df58d11c215471c43be0dda012921692&amp;type=3#Frame_Mes&quot;);">
+                    <engine:Label text="Label" name="idol-support-dialogue-text" />
                 </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="point-flame" style="flex-grow: 1; position: absolute; width: 500px; height: 100px; left: 689px; top: 70px; background-color: rgba(0, 0, 0, 0.75);">
+                <engine:Label text="Label" name="result-points-text" />
+            </engine:VisualElement>
+            <engine:VisualElement name="menu-button" style="flex-grow: 1; position: absolute; width: 454px; height: 100px; left: 674px; top: 230px; background-color: rgba(0, 0, 0, 0.38);">
+                <engine:VisualElement name="retry-button" style="flex-grow: 1; position: absolute; width: 450px; height: 100px; left: 147px; top: 129px; background-color: rgba(0, 0, 0, 0.36);" />
             </engine:VisualElement>
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>

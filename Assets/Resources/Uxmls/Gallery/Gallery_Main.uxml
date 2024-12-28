@@ -1,13 +1,28 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Gallery_Main.uss?fileID=7433441132597879392&amp;guid=3e6d886c19385734a9d1da7fe5c09ddf&amp;type=3#Gallery_Main" />
     <IdolGame.UIElements.RootUIElement>
-        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
-            <engine:VisualElement name="albambg" style="flex-grow: 1; position: absolute; width: 1200px; height: 680px; align-content: auto; align-self: center; top: 20px;">
-                <engine:VisualElement name="idolpic1" style="flex-grow: 1; position: absolute; width: 250px; height: 350px; top: 30px; left: 30px;">
-                    <engine:VisualElement name="idolpic2" style="flex-grow: 1; position: absolute; width: 250px; height: 350px; top: 0; left: 280px;">
-                        <engine:VisualElement name="idolpic3" style="flex-grow: 1; position: absolute; width: 350px; height: 250px; top: 380px; left: -190px;">
-                            <engine:VisualElement name="idolvideo" style="flex-grow: 1; width: 500px; height: 600px; position: absolute; top: -360px; left: 530px;" />
-                        </engine:VisualElement>
+        <engine:VisualElement name="background">
+            <engine:VisualElement name="albambg" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/Gallery/Album_Back.png?fileID=2800000&amp;guid=593be61348bb4bc4691a758537acc784&amp;type=3#Album_Back&quot;);">
+                <engine:VisualElement name="idol-image">
+                    <engine:VisualElement name="idle-cheki-1">
+                        <engine:VisualElement name="idol-pic-1" />
+                        <engine:Label text="Label" name="idle-cheki-date-1" />
+                        <engine:Label text="Label" name="idle-cheki-release-point-1" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="idle-cheki-2">
+                        <engine:VisualElement name="idol-pic-2" />
+                        <engine:Label text="Label" name="idle-cheki-date-2" />
+                        <engine:Label text="Label" name="idle-cheki-release-point-2" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="idle-cheki-3">
+                        <engine:VisualElement name="idol-pic-3" />
+                        <engine:Label text="Label" name="idle-cheki-date-3" />
+                        <engine:Label text="Label" name="idle-cheki-release-point-3" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="idol-video-pos">
+                        <engine:VisualElement name="idol-video" />
+                        <engine:Label text="Label" name="idol-video-date" />
+                        <engine:Label text="Label" name="idle-video-release-point" />
                     </engine:VisualElement>
                 </engine:VisualElement>
             </engine:VisualElement>

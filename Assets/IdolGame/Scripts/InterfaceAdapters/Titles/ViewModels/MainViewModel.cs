@@ -44,8 +44,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     {
         view.TouchPanel.OnInputAsObservable()
             .SubscribeAwait(async (e, ct2)
-                => await OnInput(e, ct2))
-            .AddTo(ref bag);
+                => await OnInput(e, ct2)).AddTo(ref bag);
         
         // 非同期処理のためにフレームを待機
         await UniTask.Yield(ct);

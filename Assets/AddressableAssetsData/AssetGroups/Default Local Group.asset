@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15eee3eb77e9d4740b522866ed6f9b93
+    m_Address: Assets/StreamingAssets/TestVideos/video3.mp4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83e2b3bf2fd3560489a2727502dca84c
     m_Address: KariImage1
     m_ReadOnly: 0

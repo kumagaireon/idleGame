@@ -1,0 +1,13 @@
+#song-selection-image
+{
+    height: 80px;
+    width: 300px;
+}
+
+#song-name {
+    height: 74px;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    color: rgb(0, 0, 0);
+    font-size: 28px;
+}

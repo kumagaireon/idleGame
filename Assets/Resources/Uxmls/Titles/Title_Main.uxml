@@ -3,9 +3,9 @@
     <IdolGame.UIElements.RootUIElement>
         <engine:VisualElement name="background" style="background-image: url(&quot;project://database/Assets/IdolGame/Scripts/InterfaceAdapters/UIElements/UIImage/Title/karihaikei.png?fileID=2800000&amp;guid=1035dba99c85bcb4ca18dda2b0e45ed5&amp;type=3#karihaikei&quot;);">
             <engine:VisualElement name="company-logo" style="background-image: url(&quot;project://database/Assets/[yutaka]/Bunish/Prefabs/TimingAllow_blue.png?fileID=2800000&amp;guid=26d0a9a2281587d46a19ca9555fa99d8&amp;type=3#TimingAllow_blue&quot;);" />
-            <engine:VisualElement name="title-logo" style="background-image: url(&quot;project://database/Assets/IdolGame/Scripts/InterfaceAdapters/UIElements/UIImage/Title/karititile.png?fileID=2800000&amp;guid=a44ab3b58aadcdf4a85437c3e8063b19&amp;type=3#karititile&quot;);" />
-            <engine:Label text="start" name="text-start"/>
+            <engine:VisualElement name="title-logo" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/Title/TitleKari.png?fileID=2800000&amp;guid=71d447af92c866f4db02aa2024854035&amp;type=3#TitleKari&quot;); " />
+            <engine:Label text="start" name="text-start" />
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>
-    <engine:VisualElement name="touch-panel" enabled="true" />
+    <engine:VisualElement name="touch-panel" enabled="true"  />
 </engine:UXML>

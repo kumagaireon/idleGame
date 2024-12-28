@@ -10,27 +10,23 @@ using VContainer.Unity;
 
 namespace IdolGame.Menu.Infrastructures
 {
-
-
     public sealed class MenuLifetimeScope : LifetimeScope
     {
         // UIドキュメントをシリアライズフィールドとして持つ
         [SerializeField] UIDocument? rootDocument;
-
         // ビジュアルツリーアセットをシリアライズフィールドとして持つ
         [SerializeField] VisualTreeAsset? mainTreeAsset;
-
+        // BGMのアセットリファレンス
         [SerializeField] AssetReference? bgmAssetReference;
-        [SerializeField] VisualTreeAsset? optionsTreeAsset;
+      
         protected override void Configure(IContainerBuilder builder)
         {
             // TitlePresenterをエントリーポイントとして登録
             builder.RegisterEntryPoint<MenuPresenter>();
             // メインビューモデルをスコープライフタイムで登録
-            builder.Register<MainViewModel>(Lifetime.Scoped);
+            builder.Register<MainViewModel>(Lifetime.Scoped); 
             // メインビューをスコープライフタイムで登録
-            builder.Register<MainView>(Lifetime.Scoped);
-
+            builder.Register<MainView>(Lifetime.Scoped).WithParameter(mainTreeAsset); 
             // セーブデータ取得ユースケースをスコープライフタイムで登録
             builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
             // シリアライズフィールドのUIドキュメントを登録

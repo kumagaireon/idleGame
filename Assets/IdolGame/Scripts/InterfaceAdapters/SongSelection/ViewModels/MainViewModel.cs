@@ -1,10 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using IdolGame.Common.ViewModels;
 using IdolGame.SongSelection.Views;
+using IdolGame.UIElements;
 using Microsoft.Extensions.Logging;
 using R3;
+using UIToolkit.R3.Integration;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UIElements;
+using UnityEngine.Video;
+using ZLogger;
 
 namespace IdolGame.SongSelection.ViewModels;
 
@@ -14,13 +24,10 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     readonly ILogger<MainViewModel> logger;
     DisposableBag bag;
     
+    string? selectedVoicePath;
     
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="logger">ロガーのインスタンス</param>
-    /// <param name="view">ビューのインスタンス</param>
-    /// <param name="rootDocument">ルートドキュメントのインスタンス</param>
+    public Func<SceneTransitionState, CancellationToken, UniTask>? CloseContinueAsync { get; set; }
+
     public MainViewModel(ILogger<MainViewModel> logger,
         MainView view,
         UIDocument rootDocument)
@@ -29,32 +36,112 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         this.logger = logger;
     }
 
-    /// <summary>
-    /// 非同期にビューを初期化するメソッド
-    /// </summary>
-    /// <param name="ct">キャンセルトークン</param>
     public async UniTask InitializeAsync(CancellationToken ct)
     {
-        // アプリのバージョン情報をテキスト要素に設定
-    //    view.AppInfoVersionTextElement.text = $"Ver.{UnityEngine.Application.version}";
-        
-        
-        //非同期で画像を読み込む
-        //  var visualElement = new VisualElement(); 
-        
-        // visualElement.style.backgroundImage = Background.FromTexture2D("テクスチャー");
-        // visualElement.style.backgroundImage = Background.FromRenderTexture("テクスチャー");
-        
+        logger.ZLogTrace($"Called {GetType().Name}.InitializeAsync");
+
+        var scrollView = view.SongSelectionScrollView as CustomScrollView;
+
+        if (scrollView == null)
+        {
+            logger.ZLogError($"SongSelectionScrollView is null.");
+            return;
+        }
+
+
+        // JSON データを読み込み
+        var musicDataLoader = new MusicDataLoader();
+        var musicsong = await musicDataLoader.LoadMusicDataAsync();
+     
+       
+        if (musicsong == null)
+            return;
+        foreach (var song in musicsong)
+        {
+            logger.ZLogTrace($"musicData ID: {song.Id}," +
+                             $"musicData Name: {song.Name}," +
+                             $"musicData ImagePath: {song.ImagePath}," +
+                             $"musicData Description: {song.Description}," +
+                             $"musicData VoicePath: {song.VoicePath}");
+
+            var element = scrollView.itemsTemplate.Instantiate();
+            element.Q<Label>("song-name").text = song.Name.ToString();
+
+            element.OnInputAsObservable()
+                    .SubscribeAwait(async (evt, ct2) =>
+                        await OnInput(evt, ct2, song))
+                    .AddTo(ref bag);
+            
+            scrollView.Add(element);
+        }
+
+        view.StartVisualElement.OnInputAsObservable()
+            .SubscribeAwait(async (e, ct2)
+                => await OnInputStart(e, ct2))
+            .AddTo(ref bag);
+
+        view.ReturnVisualElement.OnInputAsObservable()
+            .SubscribeAwait(async (e, ct2)
+                => await OnInputReturn(e, ct2))
+            .AddTo(ref bag);
         
         // 非同期処理のためにフレームを待機
         await UniTask.Yield(ct);
     }
 
+    async UniTask OnInput(PointerDownEvent e, CancellationToken ct,MusicData musicData)
+    {
+        logger.ZLogTrace($"musicData ID: {musicData.Id}," +
+                         $"musicData Name: {musicData.Name}," +
+                         $"musicData ImagePath: {musicData.ImagePath}," +
+                         $"musicData Description: {musicData.Description}," +
+                         $"musicData VoicePath: {musicData.VoicePath}");
+    
+        var handle = Addressables.LoadAssetAsync<Texture2D>(musicData.ImagePath.ToString());
+        await handle.Task;
+        
+        view.ExplanationSongSelectionTextElement.text= musicData.Description;
+        view.MusicJacketVisualElement.style.backgroundImage = new StyleBackground(handle.Result);
+
+        selectedVoicePath = musicData.VoicePath;
+        logger.ZLogTrace($"{selectedVoicePath}");
+        await UniTask.Yield(ct);
+    }
+
+    async UniTask OnInputStart(PointerDownEvent e, CancellationToken ct)
+    {
+        logger.ZLogInformation($"インゲーム画面遷移");
+
+        if (selectedVoicePath != null)
+        {
+            var voiceHandle = Addressables.LoadAssetAsync<VideoClip>(selectedVoicePath);
+            await voiceHandle.Task;
+            if (voiceHandle.Status == AsyncOperationStatus.Succeeded)
+            {
+                //ここでIngameの方にvoiceHandleを渡したい
+                if (CloseContinueAsync != null)
+                {
+                    await CloseContinueAsync(SceneTransitionState.Next, ct);
+                }
+            }
+        }
+        else
+        {
+            logger.ZLogTrace($"ないよ");
+        }
+    }
+
+    async UniTask OnInputReturn(PointerDownEvent e, CancellationToken ct)
+    {
+        logger.ZLogInformation($"メニュー画面に戻る");
+    }
+    
     /// <summary>
     /// ビューが開く前に実行される処理
     /// </summary>
     protected override void PreOpen()
     {
+        view.SongSelectionScrollView.Focus();
     }
 
     /// <summary>
@@ -62,5 +149,6 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// </summary>
     protected override void OnDispose()
     {
+        bag.Dispose();
     }
 }

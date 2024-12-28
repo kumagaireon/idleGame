@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using _yutaka_.Scripts.TapAndSwipe;
+//using _yutaka_.Scripts.TapAndSwipe;
 using UnityEngine;
 
 
@@ -70,7 +70,7 @@ public class CSVPlayer : MonoBehaviour
     private IEnumerator LogKeepTimeEnd(GameObject obj, float keepTime)
     {
         yield return new WaitForSeconds(keepTime);// 指定時間待機
-        LogManager.Instance.LogKeepTimeEnd();// 継続時間終了をログ出力
+       // LogManager.Instance.LogKeepTimeEnd();// 継続時間終了をログ出力
         iconObj.Remove(obj);// アイコンオブジェクトをリストから削除
         Destroy(obj);// アイコンオブジェクトを破棄
     }

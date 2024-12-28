@@ -18,19 +18,17 @@ public sealed class MenuPresenter : IAsyncStartable
     // メインビューのビューモデル
     readonly MainViewModel mainViewModel;
 
-    // セーブデータを取得するユースケース
-    readonly FindSaveDataUseCase findSaveDataUseCase;
   
     readonly AudioPlayer audioPlayer;
     readonly AssetReference bgmAssetReference;
 
     public MenuPresenter(ILogger<MenuPresenter> logger,
-        MainViewModel mainViewModel, FindSaveDataUseCase findSaveDataUseCase, AudioPlayer audioPlayer,
+        MainViewModel mainViewModel,
+        AudioPlayer audioPlayer,
         AssetReference bgmAssetReference)
     {
         this.logger = logger;
         this.mainViewModel = mainViewModel;
-        this.findSaveDataUseCase = findSaveDataUseCase;
         this.audioPlayer = audioPlayer;
         this.bgmAssetReference = bgmAssetReference;
     }
@@ -47,13 +45,7 @@ public sealed class MenuPresenter : IAsyncStartable
         mainViewModel.AddView(true);
         await audioPlayer.InitializeAsync(ct);
         
-        // セーブデータを非同期に取得
-        var saves = await findSaveDataUseCase.FindAllAsync(ct);
-        foreach (var save in saves)
-        {
-            logger.ZLogTrace($"{save}"); // ログ出力：セーブデータの情報
-        }
-
+       
         // メインビューの初期化
         await mainViewModel.InitializeAsync(ct);
         // 一定時間待機（1秒）

@@ -2,10 +2,18 @@
 	"name": "IdolGame.Recommendation.ViewModels",
 	"rootNamespace": "",
 	"references": [
+		"IdolGame.EnterpriseBusinessRules",
+		"IdolGame.Common.Infrastructures",
 		"IdolGame.Common.ViewModels",
 		"IdolGame.Common.Views",
 		"IdolGame.Recommendation.Views",
-		"UniTask"
+		"IdolGame.UIElements",
+		"UniTask",
+		"UIToolkit.R3.Integration",
+		"Unity.Addressables",
+		"Unity.ResourceManager",
+		"IdolGame.Recommendation.Common",
+		"IdolGame.Audio.Core"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Result Reward Cheki 2
   m_GUID: 04e18d52b0c80244999588383c1b3d44
   m_SerializeEntries:
-  - m_GUID: b582a99fd5aef694b89be4de1e2a46c9
+  - m_GUID: 606ba628655aa2a4aab2e499bd539783
     m_Address: gallery_idol_image_2_000
     m_ReadOnly: 0
     m_SerializedLabels: []
