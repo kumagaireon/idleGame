@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/IdolGame/UI/ButtonUI.meta
 guid: f2fadd23177d6ee438c99b0fef804da5
+========
+guid: 0a3a6612d08ae83438186926af6180e0
+>>>>>>>> 1f1f70cc82d25caf7d9d4dde72078c04f4b1c416:Assets/[yutaka2]/Materials 1.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
