@@ -4,11 +4,13 @@
     "references": [
         "IdolGame.EnterpriseBusinessRules",
         "IdolGame.ApplicationBusinessRules.Interfaces",
+        "IdolGame.ApplicationBusinessRules.UseCases",
         "IdolGame.Audio.Core",
         "IdolGame.Audios.Infrastructures",
         "IdolGame.Frameworks",
         "VContainer",
         "ZLogger.Unity",
+        "UniTask",
         "Unity.Addressables"
     ],
     "includePlatforms": [],

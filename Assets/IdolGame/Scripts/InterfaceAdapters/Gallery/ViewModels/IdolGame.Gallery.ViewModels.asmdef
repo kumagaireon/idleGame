@@ -5,10 +5,16 @@
 		"IdolGame.Common.ViewModels",
 		"IdolGame.Common.Views",
 		"IdolGame.Gallery.Views",
+		"IdolGame.EnterpriseBusinessRules",
+		"IdolGame.ApplicationBusinessRules.Interfaces",
+		"IdolGame.ApplicationBusinessRules.UseCases",
 		"UniTask",
 		"Unity.Addressables",
 		"Unity.ResourceManager",
-		"IdolGame.Audio.Core"
+		"IdolGame.Audio.Core",
+		"IdolGame.Recommendation.Common",
+		"IdolGame.Common.Infrastructures",
+		"IdolGame.UIElements"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

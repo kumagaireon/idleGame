@@ -10,7 +10,10 @@
 		"Unity.ResourceManager",
 		"IdolGame.UIElements",
 		"IdolGame.Common.Infrastructures",
-		"IdolGame.Audio.Core"
+		"IdolGame.Audio.Core",
+		"IdolGame.Recommendation.Common",
+		"IdolGame.EnterpriseBusinessRules",
+		"IdolGame.Results.Common"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

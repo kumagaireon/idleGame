@@ -1,7 +1,6 @@
 #idol-member {
-    height: 423px;
-    width: 319px;
-    margin-bottom: 20px;
+    height: 400px;
+    width: 300px;
 }
 
 #idol-image {

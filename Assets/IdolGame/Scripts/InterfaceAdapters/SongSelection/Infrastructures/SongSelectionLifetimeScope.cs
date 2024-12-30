@@ -1,4 +1,5 @@
 using IdolGame.ApplicationBusinessRules.UseCases;
+using IdolGame.Common.infrastructures;
 using IdolGame.SongSelection.Presenter;
 using IdolGame.SongSelection.ViewModels;
 using IdolGame.SongSelection.Views;
@@ -32,7 +33,8 @@ namespace IdolGame.SongSelection.Infrastructures
             builder.Register<MainViewModel>(Lifetime.Scoped);
             // メインビューをスコープライフタイムで登録
             builder.Register<MainView>(Lifetime.Scoped);
-           
+            // GlobalStateService を登録
+            builder.Register<GlobalStateService>(Lifetime.Singleton); 
             // セーブデータ取得ユースケースをスコープライフタイムで登録
             builder.Register<FindSongSelectionDataUseCase>(Lifetime.Scoped);
             // シリアライズフィールドのUIドキュメントを登録

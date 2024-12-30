@@ -16,10 +16,6 @@ public sealed class MainView: ViewBase
     public VisualElement  MenuVisualElement { get; }
     public VisualElement  RetryVisualElement { get; }
 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="asset">/// <param name="asset">VisualTreeAssetからビューを構築するためのアセット</param>
     public MainView(VisualTreeAsset asset) : base(asset)
     { 
         BackgroundImageVisualElement=OwnView.Query<VisualElement>("background");
@@ -28,7 +24,7 @@ public sealed class MainView: ViewBase
         IdolSupportDialogueTextElement = OwnView.Q<TextElement>("idol-support-dialogue-text");
         
         ResultPointImageVisualElement = OwnView.Q<VisualElement>("result-point-image");
-        ResultPointsTextElement = OwnView.Q<TextElement>("result-points-text");
+        ResultPointsTextElement = OwnView.Q<TextElement>("result-point-text");
       
         MenuVisualElement = OwnView.Q<VisualElement>("menu-button");
         RetryVisualElement = OwnView.Q<VisualElement>("retry-button");

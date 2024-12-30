@@ -47,9 +47,8 @@
     position: absolute;
     width: 350px;
     height: 250px;
-    top: 382px;
-    left: 109px;
     background-color: rgba(50, 60, 120, 0.5);
+    top: 387px; left: 243px;
 }
 
 #idol-pic-1 {
@@ -76,26 +75,38 @@
     left: 0;
 }
 
+#idol-video {
+    position: absolute;
+}
+
 #idle-cheki-date-1 {
+    -unity-text-align: middle-center;
 }
 
 #idle-cheki-date-2 {
+    -unity-text-align: middle-center;
 }
 
 #idle-cheki-date-3 {
+    -unity-text-align: middle-center;
 }
-#idle-cheki-release-point-1{
-    
+#idol-video-date {
+    -unity-text-align: middle-center;
 }
-
-#idle-cheki-release-point-2{
-    
-}
-
-#idle-cheki-release-point-3{
-    
+#idle-cheki-release-point-1 {
+    -unity-text-align: middle-center;
 }
 
+#idle-cheki-release-point-2 {
+    -unity-text-align: middle-center;
+}
+
+#idle-cheki-release-point-3 {
+    -unity-text-align: middle-center;
+}
+#idle-video-release-point {
+    -unity-text-align: middle-center;
+}
 #idol-video-pos {
     position: absolute;
     width: 500px;
@@ -105,14 +116,22 @@
     background-color: rgba(146, 89, 129, 0.61);
 }
 
-#idol-video-date {
-
-}
-
-#idol-video {
+#accumulated-point-pos {
     position: absolute;
+    background-color: rgba(225, 50, 50, 0.36);
+    height: 79px;
+    width: 192px;
+    top: 553px;
+    left: 49px;
 }
 
-#idle-video-release-point{
-    
+#accumulated-point-text {
+    width: 100%;
+    -unity-text-align: middle-center;
+    height: 74px;
+}
+
+#back-button
+{
+    position: absolute; height: 82px; width: 120px; top: 457px; left: 62px;
 }

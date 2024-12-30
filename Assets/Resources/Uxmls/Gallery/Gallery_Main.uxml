@@ -24,7 +24,11 @@
                         <engine:Label text="Label" name="idol-video-date" />
                         <engine:Label text="Label" name="idle-video-release-point" />
                     </engine:VisualElement>
+                    <engine:VisualElement name="accumulated-point-pos">
+                        <engine:Label text="Label" name="accumulated-point-text" />
+                    </engine:VisualElement>
                 </engine:VisualElement>
+                <engine:VisualElement name="back-button" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_Back.png?fileID=2800000&amp;guid=45237e02bbd81164ca62cff269cd55d6&amp;type=3#Button_Back&quot;);" />
             </engine:VisualElement>
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>

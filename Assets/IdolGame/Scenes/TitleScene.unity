@@ -2219,6 +2219,7 @@ MonoBehaviour:
   autoInjectGameObjects: []
   rootDocument: {fileID: 101037759}
   mainTreeAsset: {fileID: 9197481963319205126, guid: 2d5d0a68c86540741a9ea7a4ba328ce3, type: 3}
+  startTreeAsset: {fileID: 9197481963319205126, guid: 61b39b39b0218f048a56b838b236586d, type: 3}
   bgmAssetReference:
     m_AssetGUID: 4267227ceaee5cc498d5f0e20484f040
     m_SubObjectName: 
@@ -2783,7 +2784,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc069cc385981b4192c11330c8a159f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionPanel: {fileID: 507014238}
 --- !u!1 &2138431818
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ namespace IdolGame.Scripts.InterfaceAdapters.Gallery.Views;
 
 public sealed class MainView : ViewBase
 {
+    public VisualElement ReturnVisualElement { get; }
+    
     public VisualElement IdolPic1VisualElementElement { get; }
     public VisualElement IdolPic2VisualElementElement { get; }
     public VisualElement IdolPic3VisualElementElement { get; }
@@ -15,17 +17,15 @@ public sealed class MainView : ViewBase
     public TextElement IdolChekiDate2TextElement { get; }
     public TextElement IdolChekiDate3TextElement { get; }
     public TextElement IdolVideoDateTextElement { get; }
-    
+
     //解放まで残り○○ポイント的なのは直書き○○は必要ポイント
     public TextElement IdleChekiReleasePoint1TextElement { get; }
     public TextElement IdleChekiReleasePoint2TextElement { get; }
     public TextElement IdleChekiReleasePoint3TextElement { get; }
     public TextElement IdolVideoReleasePointTextElement { get; }
+    public TextElement AccumulatedPointTextElement { get; }
 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="asset">/// <param name="asset">VisualTreeAssetからビューを構築するためのアセット</param>
+
     public MainView(VisualTreeAsset asset) : base(asset)
     {
         // ビューから指定された名前のテキスト要素を取得
@@ -38,11 +38,14 @@ public sealed class MainView : ViewBase
         IdolChekiDate2TextElement = OwnView.Q<TextElement>("idle-cheki-date-2");
         IdolChekiDate3TextElement = OwnView.Q<TextElement>("idle-cheki-date-3");
         IdolVideoDateTextElement = OwnView.Q<TextElement>("idol-video-date");
+
+        IdleChekiReleasePoint1TextElement = OwnView.Q<TextElement>("idle-cheki-release-point-1");
+        IdleChekiReleasePoint2TextElement = OwnView.Q<TextElement>("idle-cheki-release-point-2");
+        IdleChekiReleasePoint3TextElement = OwnView.Q<TextElement>("idle-cheki-release-point-3");
+        IdolVideoReleasePointTextElement = OwnView.Q<TextElement>("idle-video-release-point");
+        AccumulatedPointTextElement = OwnView.Q<TextElement>("accumulated-point-text");
         
-        IdleChekiReleasePoint1TextElement= OwnView.Q<TextElement>("idle-cheki-release-point-1");
-        IdleChekiReleasePoint2TextElement= OwnView.Q<TextElement>("idle-cheki-release-point-2");
-        IdleChekiReleasePoint3TextElement= OwnView.Q<TextElement>("idle-cheki-release-point-3s");
-        IdolVideoReleasePointTextElement= OwnView.Q<TextElement>("idle-video-release-point");
-        
+        ReturnVisualElement= OwnView.Q<VisualElement>("back-button");
+
     }
 }

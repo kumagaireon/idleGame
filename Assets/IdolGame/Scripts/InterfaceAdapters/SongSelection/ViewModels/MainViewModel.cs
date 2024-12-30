@@ -127,7 +127,10 @@ public sealed class MainViewModel: ViewModelBase<MainView>
                 if (CloseContinueAsync != null)
                 {
                     await CloseContinueAsync(SceneTransitionState.Next, ct);
+                   
                 }
+                await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
+                await SceneManager.LoadSceneAsync("ResultScene")!.WithCancellation(ct);
             }
         }
         else
@@ -135,7 +138,6 @@ public sealed class MainViewModel: ViewModelBase<MainView>
             logger.ZLogTrace($"ないよ");
         }
         
-        await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
     }
 
     async UniTask OnInputReturn(PointerDownEvent e, CancellationToken ct)

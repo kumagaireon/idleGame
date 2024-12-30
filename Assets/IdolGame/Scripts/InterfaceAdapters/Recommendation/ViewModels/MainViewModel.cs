@@ -25,14 +25,20 @@ public sealed class MainViewModel : ViewModelBase<MainView>
     DisposableBag bag;
     readonly AudioPlayer audioPlayer;
     readonly AssetReference bgmAssetReference;
+    readonly GlobalStateService globalStateService;
 
     public MainViewModel(ILogger<MainViewModel> logger,
-        MainView view, UIDocument rootDocument, AudioPlayer audioPlayer, AssetReference bgmAssetReference) : base(
+        MainView view, 
+        UIDocument rootDocument,
+        AudioPlayer audioPlayer,
+        AssetReference bgmAssetReference,
+        GlobalStateService globalStateService) : base(
         view, rootDocument, new FadeViewTransition(rootDocument))
     {
         this.logger = logger;
         this.audioPlayer = audioPlayer;
         this.bgmAssetReference = bgmAssetReference;
+        this.globalStateService = globalStateService;
     }
 
 
@@ -130,7 +136,6 @@ public sealed class MainViewModel : ViewModelBase<MainView>
         logger.ZLogInformation($"IdolColor: {GlobalState.IdolColor}");
         logger.ZLogInformation($"IdolSerifMenuText: {GlobalState.IdolSerifMenuText}");
         logger.ZLogInformation($"IdolRewardPoint: {GlobalState.IdolRewardPoint}");
-
         await UniTask.Yield();
    }
 
@@ -139,7 +144,9 @@ public sealed class MainViewModel : ViewModelBase<MainView>
         if (GlobalState.IdolImagePath != null)
         {
             logger.ZLogInformation($"ギャラリー画面遷移");
+            await globalStateService.SaveGlobalStateAsync(ct);
             await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
+            await SceneManager.LoadSceneAsync("GalleryScene")!.WithCancellation(ct);
         }
     }
 
@@ -147,6 +154,7 @@ public sealed class MainViewModel : ViewModelBase<MainView>
     {
         logger.ZLogInformation($"メニュー画面に戻る");
         await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
+        await globalStateService.SaveGlobalStateAsync(ct);
         await SceneManager.LoadSceneAsync("MenuScene")!.WithCancellation(ct);
     }
     

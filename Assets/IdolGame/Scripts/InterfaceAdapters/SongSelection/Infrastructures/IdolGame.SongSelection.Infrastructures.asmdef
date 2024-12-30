@@ -7,7 +7,8 @@
 		"IdolGame.SongSelection.ViewModels",
 		"IdolGame.SongSelection.Views",
 		"VContainer",
-		"Unity.Addressables"
+		"Unity.Addressables",
+		"IdolGame.Common.Infrastructures"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

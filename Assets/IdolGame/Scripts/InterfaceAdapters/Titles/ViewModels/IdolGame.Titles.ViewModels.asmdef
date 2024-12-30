@@ -8,7 +8,8 @@
         "IdolGame.UIElements",
         "UniTask",
         "Unity.Addressables",
-        "IdolGame.Audio.Core"
+        "IdolGame.Audio.Core",
+        "IdolGame.Common.Infrastructures"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

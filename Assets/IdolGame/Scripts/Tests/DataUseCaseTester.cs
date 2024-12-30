@@ -19,25 +19,18 @@ public sealed class DataUseCaseTester
         var cts = new CancellationTokenSource();
 
         // データストアのパスを設定
-        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "kakunin_data.json");
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "global_state.json");
 
         // データストアを初期化
-        var dataStore = new JsonAsyncDataStore<IdolRewardData[]>(path);
+        var dataStore = new JsonAsyncDataStore<GlobalStateData[]>(path);
 
         // サンプルのアイドルグループデータを作成し、データストアに保存
         await dataStore.StoreAsync(new[]
         {
-            new IdolRewardData
+            new GlobalStateData
             {
-                RewardChekiImage1Path="aa",
-                RewardChekiImage2Path="bb",
-                RewardChekiImage3Path="cc",
-                RewardVicePath="ss",
-                DateAcquisitioRewardCheck1= DateTimeOffset.Now,
-                DateAcquisitioRewardCheck2= DateTimeOffset.Now,
-                DateAcquisitioRewardCheck3 =  DateTimeOffset.Now,
-                DateAcquisitioRewardCheck= DateTimeOffset.Now,
-                IdolPoint = (IdolRewardPoint)0.0
+                GroupId = 0,
+                IdolId = 0
             }
         }, cts.Token);
     });
@@ -49,7 +42,7 @@ public sealed class DataUseCaseTester
         // JSONデータファイルのパスを構築
         var path = Path.Combine(Application.streamingAssetsPath, "master_data", "kakunin_data.json");
 
-        var dataStore = new JsonAsyncDataStore<IdolGroupData[]>(path);
+        var dataStore = new JsonAsyncDataStore<GlobalStateData[]>(path);
         // データストアからセーブデータを非同期にロード
         var saves = await dataStore.LoadAsync(cts.Token);
         // ロードしたデータをデバッグログに出力

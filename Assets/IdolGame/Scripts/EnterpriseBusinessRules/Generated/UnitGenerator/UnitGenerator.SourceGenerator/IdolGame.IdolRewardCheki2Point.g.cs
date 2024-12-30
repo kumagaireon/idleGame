@@ -11,34 +11,35 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 namespace IdolGame
 {
-    [JsonConverter(typeof(IdolRewardVicePathJsonConverter))]
-    [System.ComponentModel.TypeConverter(typeof(IdolRewardVicePathTypeConverter))]
-    readonly partial struct IdolRewardVicePath 
-        : IEquatable<IdolRewardVicePath>
+    [JsonConverter(typeof(IdolRewardCheki2PointJsonConverter))]
+    [System.ComponentModel.TypeConverter(typeof(IdolRewardCheki2PointTypeConverter))]
+    readonly partial struct IdolRewardCheki2Point 
+        : IEquatable<IdolRewardCheki2Point>
+        , IFormattable
 #if NET8_0_OR_GREATER
-        , IEqualityOperators<IdolRewardVicePath, IdolRewardVicePath, bool>
+        , IEqualityOperators<IdolRewardCheki2Point, IdolRewardCheki2Point, bool>
 #endif
     {
-        readonly string value;
+        readonly float value;
 
-        public string AsPrimitive() => value;
+        public float AsPrimitive() => value;
 
-        public IdolRewardVicePath(string value)
+        public IdolRewardCheki2Point(float value)
         {
             this.value = value;
         }
         
-        public static implicit operator string(IdolRewardVicePath value)
+        public static implicit operator float(IdolRewardCheki2Point value)
         {
             return value.value;
         }
 
-        public static implicit operator IdolRewardVicePath(string value)
+        public static implicit operator IdolRewardCheki2Point(float value)
         {
-            return new IdolRewardVicePath(value);
+            return new IdolRewardCheki2Point(value);
         }
 
-        public bool Equals(IdolRewardVicePath other)
+        public bool Equals(IdolRewardCheki2Point other)
         {
             return value.Equals(other.value);
         }
@@ -47,24 +48,24 @@ namespace IdolGame
         {
             if (obj == null) return false;
             var t = obj.GetType();
-            if (t == typeof(IdolRewardVicePath))
+            if (t == typeof(IdolRewardCheki2Point))
             {
-                return Equals((IdolRewardVicePath)obj);
+                return Equals((IdolRewardCheki2Point)obj);
             }
-            if (t == typeof(string))
+            if (t == typeof(float))
             {
-                return value.Equals((string)obj);
+                return value.Equals((float)obj);
             }
 
             return value.Equals(obj);
         }
         
-        public static bool operator ==(IdolRewardVicePath x, IdolRewardVicePath y)
+        public static bool operator ==(IdolRewardCheki2Point x, IdolRewardCheki2Point y)
         {
             return x.value.Equals(y.value);
         }
 
-        public static bool operator !=(IdolRewardVicePath x, IdolRewardVicePath y)
+        public static bool operator !=(IdolRewardCheki2Point x, IdolRewardCheki2Point y)
         {
             return !x.value.Equals(y.value);
         }
@@ -74,35 +75,37 @@ namespace IdolGame
             return value.GetHashCode();
         }
 
-        public override string ToString() => value == null ? "null" : value.ToString(); 
+        public override string ToString() => value.ToString();
+
+        public string ToString(string? format, IFormatProvider? formatProvider) => value.ToString(format, formatProvider);
 
         // UnitGenerateOptions.JsonConverter
         
-        private class IdolRewardVicePathJsonConverter : JsonConverter<IdolRewardVicePath>
+        private class IdolRewardCheki2PointJsonConverter : JsonConverter<IdolRewardCheki2Point>
         {
-            public override void Write(Utf8JsonWriter writer, IdolRewardVicePath value, JsonSerializerOptions options)
+            public override void Write(Utf8JsonWriter writer, IdolRewardCheki2Point value, JsonSerializerOptions options)
             {
-                var converter = options.GetConverter(typeof(string)) as JsonConverter<string>;
+                var converter = options.GetConverter(typeof(float)) as JsonConverter<float>;
                 if (converter != null)
                 {
                     converter.Write(writer, value.value, options);
                 }
                 else
                 {
-                    throw new JsonException($"{typeof(string)} converter does not found.");
+                    throw new JsonException($"{typeof(float)} converter does not found.");
                 }
             }
 
-            public override IdolRewardVicePath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+            public override IdolRewardCheki2Point Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
             {
-                var converter = options.GetConverter(typeof(string)) as JsonConverter<string>;
+                var converter = options.GetConverter(typeof(float)) as JsonConverter<float>;
                 if (converter != null)
                 {
-                    return new IdolRewardVicePath(converter.Read(ref reader, typeToConvert, options));
+                    return new IdolRewardCheki2Point(converter.Read(ref reader, typeToConvert, options));
                 }
                 else
                 {
-                    throw new JsonException($"{typeof(string)} converter does not found.");
+                    throw new JsonException($"{typeof(float)} converter does not found.");
                 }
             }
 
@@ -110,10 +113,10 @@ namespace IdolGame
 
         // Default
         
-        private class IdolRewardVicePathTypeConverter : System.ComponentModel.TypeConverter
+        private class IdolRewardCheki2PointTypeConverter : System.ComponentModel.TypeConverter
         {
-            private static readonly Type WrapperType = typeof(IdolRewardVicePath);
-            private static readonly Type ValueType = typeof(string);
+            private static readonly Type WrapperType = typeof(IdolRewardCheki2Point);
+            private static readonly Type ValueType = typeof(float);
 
             public override bool CanConvertFrom(System.ComponentModel.ITypeDescriptorContext context, Type sourceType)
             {
@@ -140,13 +143,13 @@ namespace IdolGame
                 if (value != null)
                 {
                     var t = value.GetType();
-                    if (t == typeof(IdolRewardVicePath))
+                    if (t == typeof(IdolRewardCheki2Point))
                     {
-                        return (IdolRewardVicePath)value;
+                        return (IdolRewardCheki2Point)value;
                     }
-                    if (t == typeof(string))
+                    if (t == typeof(float))
                     {
-                        return new IdolRewardVicePath((string)value);
+                        return new IdolRewardCheki2Point((float)value);
                     }
                 }
 
@@ -155,7 +158,7 @@ namespace IdolGame
 
             public override object ConvertTo(System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
             {
-                if (value is IdolRewardVicePath wrappedValue)
+                if (value is IdolRewardCheki2Point wrappedValue)
                 {
                     if (destinationType == WrapperType)
                     {

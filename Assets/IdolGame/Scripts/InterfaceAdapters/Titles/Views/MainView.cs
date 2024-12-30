@@ -9,15 +9,14 @@ namespace IdolGame.Titles.Views;
 public sealed class MainView: ViewBase
 {  
     public VisualElement TouchPanel { get;}
+    public VisualElement CompanyVisualElement { get;}
 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="asset">VisualTreeAssetからビューを構築するためのアセット</param>
+    // コンストラクタ
     public MainView(VisualTreeAsset asset) : base(asset)
     {
         // ビューから指定された名前のテキスト要素を取得
         TouchPanel = OwnView.Q<VisualElement>("touch-panel");
+        CompanyVisualElement = OwnView.Q<VisualElement>("company-logo");
 
     }
 }

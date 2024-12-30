@@ -1,7 +1,7 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/IdolMemberPrefabs.uss?fileID=7433441132597879392&amp;guid=80e50bb913a644d4c9ecf8993d07b31a&amp;type=3#IdolMemberPrefabs" />
     <engine:VisualElement name="idol-member">
-        <engine:VisualElement name="idol-image">
+        <engine:VisualElement name="idol-image" >
             <engine:Label text="アイドルの名前" name="idol-name" />
         </engine:VisualElement>
     </engine:VisualElement>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace IdolGame;
@@ -11,7 +12,11 @@ public readonly record struct SaveData(
 {
 }
 
-
+//ゲーム開始時に保存する情報
+public readonly record struct GlobalStateData(
+    [property: JsonPropertyName("group-id")] int? GroupId,
+    [property: JsonPropertyName("idol-id")] int? IdolId )
+{}
 //アイドルグループ
 public readonly record struct IdolGroupData(
     [property: JsonPropertyName("group-id")] IdolGroupId GroupId,
@@ -39,11 +44,15 @@ public readonly record struct IdolRewardData(
     [property: JsonPropertyName("reward-cheki-image-1-path")] IdolRewardChekiImage1Path RewardChekiImage1Path,
     [property: JsonPropertyName("reward-cheki-image-2-path")] IdolRewardChekiImage2Path RewardChekiImage2Path,
     [property: JsonPropertyName("reward-cheki-image-3-path")] IdolRewardChekiImage3Path RewardChekiImage3Path,
-    [property: JsonPropertyName("reward-vidce-path")] IdolRewardVicePath RewardVicePath,
+    [property: JsonPropertyName("reward-vidce-path")] IdolRewardVideoPath RewardVideoPath,
     [property: JsonPropertyName("date-acquisitio-reward-check-1")]  DateTimeOffset DateAcquisitioRewardCheck1,
     [property: JsonPropertyName("date-acquisitio-reward-check-2")]  DateTimeOffset DateAcquisitioRewardCheck2,
     [property: JsonPropertyName("date-acquisitio-reward-check-3")]  DateTimeOffset DateAcquisitioRewardCheck3,
-    [property: JsonPropertyName("date-acquisitio-reward-video")]  DateTimeOffset DateAcquisitioRewardCheck,
+    [property: JsonPropertyName("date-acquisitio-reward-video")]  DateTimeOffset DateAcquisitioRewardVideo,
+    [property: JsonPropertyName("cheki-1-point")]  IdolRewardCheki1Point Cheki1Point,
+    [property: JsonPropertyName("cheki-2-point")]  IdolRewardCheki2Point Cheki2Point,
+    [property: JsonPropertyName("cheki-3-point")]  IdolRewardCheki3Point Cheki3Point,
+    [property: JsonPropertyName("video-point")]  IdolRewardVoicePoint VoicePoint,
     [property: JsonPropertyName("idol-point")]  IdolRewardPoint IdolPoint)
 {
 }

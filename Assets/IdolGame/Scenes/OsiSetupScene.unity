@@ -607,7 +607,7 @@ MonoBehaviour:
   rootDocument: {fileID: 304264977}
   mainTreeAsset: {fileID: 9197481963319205126, guid: 3429b2f7b6bf410c8e427d96e408cdaf, type: 3}
   bgmAssetReference:
-    m_AssetGUID: ca612644c9869194c913845e209b2829
+    m_AssetGUID: 5c7fa2211414c884facc52d3bdb3a8da
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 

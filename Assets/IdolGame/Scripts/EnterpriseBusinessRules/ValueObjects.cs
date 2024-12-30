@@ -69,7 +69,23 @@ public readonly partial struct IdolRewardChekiImage3Path
 {}
 //報酬ボイス
 [UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct IdolRewardVicePath
+public readonly partial struct IdolRewardVideoPath
+{}
+//報酬チェキ1ポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardCheki1Point
+{}
+//報酬チェキ2ポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardCheki2Point
+{}
+//報酬チェキ3ポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardCheki3Point
+{}
+//報酬ボイスポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardVoicePoint
 {}
 //合計報酬ポイント
 [UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]

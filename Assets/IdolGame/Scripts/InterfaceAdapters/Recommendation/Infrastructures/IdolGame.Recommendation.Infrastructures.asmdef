@@ -11,7 +11,8 @@
 		"IdolGame.Audio.Core",
 		"VContainer",
 		"Unity.Addressables",
-		"IdolGame.EnterpriseBusinessRules"
+		"IdolGame.EnterpriseBusinessRules",
+		"IdolGame.Common.Infrastructures"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

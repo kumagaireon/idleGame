@@ -1,4 +1,5 @@
 using IdolGame.ApplicationBusinessRules.UseCases;
+using IdolGame.Common.infrastructures;
 using IdolGame.Recommendation.Presenter;
 using IdolGame.Recommendation.ViewModels;
 using IdolGame.Recommendation.Views;
@@ -25,6 +26,8 @@ namespace IdolGame.Recommendation.Infrastructures
             // メインビューモデルとビューをスコープライフタイムで登録
             builder.Register<MainViewModel>(Lifetime.Scoped);
             builder.Register<MainView>(Lifetime.Scoped);
+            // GlobalStateService を登録
+            builder.Register<GlobalStateService>(Lifetime.Singleton); 
             // UIドキュメントとビジュアルツリーアセットを登録
             builder.RegisterComponent(rootDocument);
             builder.RegisterInstance(mainTreeAsset);

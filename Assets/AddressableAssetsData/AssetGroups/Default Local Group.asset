@@ -25,6 +25,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42dd222b2c7f69348b4b760a4aa2e2f8
+    m_Address: b-image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d6e059c6d9e98e4b859e986ebb16000
+    m_Address: start-image-path
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bc6bb4cc9207244d958aa89a9041eac
+    m_Address: c-image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75f549011c3e9274cb67245005b50959
+    m_Address: a-image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83e2b3bf2fd3560489a2727502dca84c
     m_Address: KariImage1
     m_ReadOnly: 0
@@ -32,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 859b624856ebdfc4cb6032fbb4b5da84
     m_Address: video1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a375d2ce672d684ca87ec0ab452994b
+    m_Address: s-image
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/IdolGame/Scenes/SelectScene.unity
     guid: 9d4fd2350167d14478b60f5a744c44eb
   - enabled: 1
-    path: Assets/IdolGame/Scenes/SetLoveScene.unity
+    path: Assets/IdolGame/Scenes/GalleryScene.unity
     guid: ec0d4931335b0e545a0ab9c6ba065378
   - enabled: 1
     path: Assets/IdolGame/Scenes/TitleScene.unity

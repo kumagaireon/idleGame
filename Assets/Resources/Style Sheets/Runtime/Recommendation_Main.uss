@@ -1,9 +1,3 @@
-#main-view {
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-}
-
 #background {
     position: absolute;
     width: 100%;
@@ -18,13 +12,6 @@
     height: 150px;
     left: 300px;
     top: 30px;
-}
-
-#ui-container {
-    width: 300px;
-    height: 100%;
-    margin-left: auto;
-    -unity-text-align: middle-right;
 }
 
 #back-button {
@@ -68,5 +55,6 @@
     right: 30px;
     padding: 90px 10%;
     flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.25);
 }
 

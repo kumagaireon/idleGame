@@ -1,6 +1,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using IdolGame.Audios.Core;
+using IdolGame.Common.infrastructures;
 using IdolGame.Common.ViewModels;
 using IdolGame.Titles.Views;
 using IdolGame.UIElements;
@@ -22,27 +23,29 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     readonly ILogger<MainViewModel> logger;
     readonly AudioPlayer audioPlayer;
     readonly AssetReference bgmAssetReference;
+    readonly GlobalStateService globalStateService;
     DisposableBag bag;
     
     public MainViewModel(ILogger<MainViewModel> logger,
         MainView view,
-        UIDocument rootDocument, AudioPlayer audioPlayer, AssetReference bgmAssetReference)
+        UIDocument rootDocument, AudioPlayer audioPlayer, 
+        AssetReference bgmAssetReference, GlobalStateService globalStateService)
         : base(view, rootDocument, new FadeViewTransition(rootDocument))
     {
         this.logger = logger;
         this.audioPlayer = audioPlayer;
         this.bgmAssetReference = bgmAssetReference;
+        this.globalStateService = globalStateService;
     }
 
-    /// <summary>
-    /// 非同期にビューを初期化するメソッド
-    /// </summary>
-    /// <param name="ct">キャンセルトークン</param>
+    // 非同期にビューを初期化するメソッド
     public async UniTask InitializeAsync(CancellationToken ct)
-    {
+    {   
         view.TouchPanel.OnInputAsObservable()
             .SubscribeAwait(async (e, ct2)
                 => await OnInput(e, ct2)).AddTo(ref bag);
+        
+        await globalStateService.LoadGlobalStateAsync(ct);
         
         // 非同期処理のためにフレームを待機
         await UniTask.Yield(ct);

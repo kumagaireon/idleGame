@@ -54,5 +54,7 @@ public sealed class ResultsPresenter: IAsyncStartable
         await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
         // ビューを開く
         await mainViewModel.OpenWithoutAddAsync(SceneTransitionState.Next, ct);
+       
+        await mainViewModel.PlayVoice(ct);
     }
 }

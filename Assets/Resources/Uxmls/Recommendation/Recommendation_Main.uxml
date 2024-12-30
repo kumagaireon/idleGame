@@ -7,8 +7,8 @@
             <engine:VisualElement name="explainflame">
                 <engine:Label text="説明テキスト" name="explanatory-text" />
             </engine:VisualElement>
-            <engine:VisualElement name="gallery-button">
-                <engine:Label text="ギャラリー画面へ" style="height: 122px; color: rgb(255, 255, 255); background-color: rgb(141, 7, 7); -unity-text-align: middle-center; font-size: 25px; -unity-font-style: bold;" />
+            <engine:VisualElement name="gallery-button" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_Free.png?fileID=2800000&amp;guid=53589c564a2bc3e41a5a762b482cfa34&amp;type=3#Button_Free&quot;);">
+                <engine:Label text="ギャラリー画面へ" style="height: 139px; color: rgb(255, 255, 255); background-color: rgba(141, 7, 7, 0); -unity-text-align: middle-center; font-size: 30px; -unity-font-style: bold;" />
             </engine:VisualElement>
             <engine:VisualElement name="back-button" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_Back.png?fileID=2800000&amp;guid=45237e02bbd81164ca62cff269cd55d6&amp;type=3#Button_Back&quot;); top: 17px; left: 42px;" />
         </engine:VisualElement>
