@@ -3,7 +3,7 @@
     <IdolGame.UIElements.RootUIElement style="width: 1280px;">
         <engine:VisualElement name="background" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/Menu%20background/OIP.jpg?fileID=2800000&amp;guid=be83a85961540cb419fc7a0acccbc191&amp;type=3#OIP&quot;);">
             <engine:VisualElement name="music-jacket" style="background-image: url(&quot;project://database/Assets/IdolGame/Scripts/InterfaceAdapters/UIElements/UIImage/Title/karihaikei.png?fileID=2800000&amp;guid=1035dba99c85bcb4ca18dda2b0e45ed5&amp;type=3#karihaikei&quot;);" />
-            <engine:VisualElement name="start-button-pos" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_Free.png?fileID=2800000&amp;guid=53589c564a2bc3e41a5a762b482cfa34&amp;type=3#Button_Free&quot;);">
+            <engine:VisualElement name="start-button-pos" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_Choice.png?fileID=2800000&amp;guid=4bb11ea3229e0f04b8bb1c4112cd378b&amp;type=3#Button_Choice&quot;);">
                 <engine:Label text="start" name="start-text" />
             </engine:VisualElement>
             <engine:VisualElement name="music-explain">

@@ -57,26 +57,29 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         // JSON データを読み込み
         var musicDataLoader = new MusicDataLoader();
         var musicsong = await musicDataLoader.LoadMusicDataAsync();
-     
-       
+
+
         if (musicsong == null)
             return;
+
+        var firstSong = musicsong.First();
+        var handle = Addressables.LoadAssetAsync<Texture2D>(firstSong.ImagePath.ToString());
+        await handle.Task;
+        
+        view.ExplanationSongSelectionTextElement.text = firstSong.Description;
+        view.MusicJacketVisualElement.style.backgroundImage = new StyleBackground(handle.Result);
+        selectedVoicePath = firstSong.VoicePath;
+      
         foreach (var song in musicsong)
         {
-            logger.ZLogTrace($"musicData ID: {song.Id}," +
-                             $"musicData Name: {song.Name}," +
-                             $"musicData ImagePath: {song.ImagePath}," +
-                             $"musicData Description: {song.Description}," +
-                             $"musicData VoicePath: {song.VoicePath}");
-
             var element = scrollView.itemsTemplate.Instantiate();
             element.Q<Label>("song-name").text = song.Name.ToString();
 
             element.OnInputAsObservable()
-                    .SubscribeAwait(async (evt, ct2) =>
-                        await OnInput(evt, ct2, song))
-                    .AddTo(ref bag);
-            
+                .SubscribeAwait(async (evt, ct2) =>
+                    await OnInput(evt, ct2, song))
+                .AddTo(ref bag);
+
             scrollView.Add(element);
         }
 
@@ -89,19 +92,13 @@ public sealed class MainViewModel: ViewModelBase<MainView>
             .SubscribeAwait(async (e, ct2)
                 => await OnInputReturn(e, ct2))
             .AddTo(ref bag);
-        
+
         // 非同期処理のためにフレームを待機
         await UniTask.Yield(ct);
     }
 
     async UniTask OnInput(PointerDownEvent e, CancellationToken ct,MusicData musicData)
     {
-        logger.ZLogTrace($"musicData ID: {musicData.Id}," +
-                         $"musicData Name: {musicData.Name}," +
-                         $"musicData ImagePath: {musicData.ImagePath}," +
-                         $"musicData Description: {musicData.Description}," +
-                         $"musicData VoicePath: {musicData.VoicePath}");
-    
         var handle = Addressables.LoadAssetAsync<Texture2D>(musicData.ImagePath.ToString());
         await handle.Task;
         

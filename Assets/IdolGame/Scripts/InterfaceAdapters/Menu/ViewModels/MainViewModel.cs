@@ -21,14 +21,15 @@ public sealed class MainViewModel : ViewModelBase<MainView>
 
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
-    DisposableBag bag;
-
     readonly AudioPlayer audioPlayer;
     readonly AssetReference bgmAssetReference;
+    DisposableBag bag;
 
     public MainViewModel(ILogger<MainViewModel> logger,
         MainView view,
-        UIDocument rootDocument, AudioPlayer audioPlayer, AssetReference bgmAssetReference)
+        UIDocument rootDocument,
+        AudioPlayer audioPlayer,
+        AssetReference bgmAssetReference)
         : base(view, rootDocument, new FadeViewTransition(rootDocument))
     {
         this.logger = logger;
@@ -43,7 +44,11 @@ public sealed class MainViewModel : ViewModelBase<MainView>
 
         await SetUiElementsFromGlobalState();
 
-
+        view. OptionVisualElement.OnInputAsObservable()
+            .SubscribeAwait(async (e, ct2)
+                => await OnInputOption(e, ct2))
+            .AddTo(ref bag);
+        
         view.SongSelectionVisualElement.OnInputAsObservable()
             .SubscribeAwait(async (e, ct2)
                 => await OnInputSongSelection(e, ct2))
@@ -58,7 +63,7 @@ public sealed class MainViewModel : ViewModelBase<MainView>
         await UniTask.Yield(ct);
     }
 
-    private async UniTask SetUiElementsFromGlobalState()
+    async UniTask SetUiElementsFromGlobalState()
     {
         if (GlobalState.IdolId != null)
         {
@@ -117,6 +122,12 @@ public sealed class MainViewModel : ViewModelBase<MainView>
         {
             view.SpeechBubbleVisualElement.style.display = DisplayStyle.None;
         }
+    }
+
+    async UniTask OnInputOption(PointerDownEvent e, CancellationToken ct)
+    {
+        logger.ZLogInformation($"オプション画面遷移");
+        await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
     }
 
     async UniTask OnInputSongSelection(PointerDownEvent e, CancellationToken ct)

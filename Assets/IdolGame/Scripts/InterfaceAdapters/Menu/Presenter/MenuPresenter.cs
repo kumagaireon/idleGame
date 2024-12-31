@@ -18,7 +18,6 @@ public sealed class MenuPresenter : IAsyncStartable
     // メインビューのビューモデル
     readonly MainViewModel mainViewModel;
 
-  
     readonly AudioPlayer audioPlayer;
     readonly AssetReference bgmAssetReference;
 

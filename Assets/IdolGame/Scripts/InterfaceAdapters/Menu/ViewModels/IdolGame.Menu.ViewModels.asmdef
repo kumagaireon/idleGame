@@ -12,7 +12,8 @@
 		"Unity.ResourceManager",
 		"UIToolkit.R3.Integration",
 		"IdolGame.UIElements",
-		"IdolGame.Audio.Core"
+		"IdolGame.Audio.Core",
+		"IdolGame.Options.Presenter"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

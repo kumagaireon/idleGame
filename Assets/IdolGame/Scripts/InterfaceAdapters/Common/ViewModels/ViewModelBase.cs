@@ -9,7 +9,7 @@ namespace IdolGame.Common.ViewModels;
 // ビューの遷移を管理するための抽象基底クラス
 public abstract class ViewModelBase<TView> : IDisposable where TView : ViewBase
 {
-    protected readonly TView view; // 継承先で使用するビューのインスタンス
+    public readonly TView view; // 継承先で使用するビューのインスタンス
     readonly UIDocument rootDocument; // ルートUIDocument
     readonly IViewTransition transition; // ビューの遷移インターフェース
 
@@ -43,6 +43,10 @@ public abstract class ViewModelBase<TView> : IDisposable where TView : ViewBase
         await transition.TransitionInAsync(state, ct); // 遷移アニメーションを実行
     }
 
+    public async UniTask OpenaAsync(SceneTransitionState state, CancellationToken ct)
+    {
+        PreOpen(); // ビューを開く前の処理
+    }
     // ビューを削除せずに遷移を非同期に実行
     public async UniTask CloseWithoutRemoveAsync(SceneTransitionState state, CancellationToken ct)
     {
@@ -82,14 +86,30 @@ public abstract class ViewModelBase<TView> : IDisposable where TView : ViewBase
     // 派生クラスのリソースを解放するための抽象メソッド
     protected abstract void OnDispose();
 
-    protected async UniTask ShowImageAndFadeOutAsync(
-        VisualElement visualElement, float fadeOutDuration,
+    public async UniTask ShowImageAndFadeOutAsync(
+        VisualElement visualElement, float fadeOutDuration,float DisplayTime,
         CancellationToken ct)
     {
+        if (!rootDocument.rootVisualElement.Contains(view.OwnView))
+        {
+            rootDocument.rootVisualElement.Add(view.OwnView);
+        }
+        
+        await UniTask.WaitForSeconds(DisplayTime, cancellationToken: ct);
+        
         // フェードアウト前に画像を表示
         visualElement.style.opacity = 1;
+
         // フェードアウトの持続時間を待機
-        await UniTask.Delay((int)(fadeOutDuration * 1000), cancellationToken: ct);
+        float elapsedTime = 0f;
+        while (elapsedTime < fadeOutDuration)
+        {
+            elapsedTime += UnityEngine.Time.deltaTime;
+            float opacity = UnityEngine.Mathf.Lerp(1, 0, elapsedTime / fadeOutDuration);
+            visualElement.style.opacity = opacity;
+            await UniTask.Yield(PlayerLoopTiming.Update, ct);
+        }
+
         // フェードアウトの効果
         visualElement.style.opacity = 0;
         // 非同期処理のためにフレームを待機

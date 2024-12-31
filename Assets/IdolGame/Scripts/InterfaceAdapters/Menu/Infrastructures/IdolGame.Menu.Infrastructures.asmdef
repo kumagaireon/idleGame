@@ -7,8 +7,10 @@
 		"IdolGame.Menu.ViewModels",
 		"IdolGame.Menu.Views",
 		"VContainer",
+		"UniTask",
 		"Unity.Addressables",
-		"IdolGame.Common.Infrastructures"
+		"IdolGame.Common.Infrastructures",
+		"IdolGame.Options.Presenter"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

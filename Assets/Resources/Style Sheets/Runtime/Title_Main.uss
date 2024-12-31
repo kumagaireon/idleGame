@@ -16,16 +16,15 @@
 
 #company-logo {
     position: absolute;
-   
-    width: 270px;
-    height: 150px;
+    width: 1270px;
+    height: 720px;
     align-items: center;
     justify-content: space-between;
     align-self: center;
     align-content: center;
     flex-direction: column;
-    top: 15px;
-    left: 30px;
+    top: 0px;
+    left: 0px;
     bottom: 502px;
 }
 

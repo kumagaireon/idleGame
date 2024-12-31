@@ -2,10 +2,10 @@
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/Title_Main.uss?fileID=7433441132597879392&amp;guid=5c41792beb4943a4b9b85693d04f3be6&amp;type=3#Title_Main" />
     <IdolGame.UIElements.RootUIElement>
         <engine:VisualElement name="background" style="background-image: url(&quot;project://database/Assets/IdolGame/Scripts/InterfaceAdapters/UIElements/UIImage/Title/karihaikei.png?fileID=2800000&amp;guid=1035dba99c85bcb4ca18dda2b0e45ed5&amp;type=3#karihaikei&quot;);">
-            <engine:VisualElement name="company-logo" style="background-image: url(&quot;project://database/Assets/AddressablesData/AKAKUNIN/Group%20Logo/1500x500.jpg?fileID=2800000&amp;guid=b2970f4e8e8b3ac4daf72b7b7566831a&amp;type=3#1500x500&quot;);" />
             <engine:VisualElement name="title-logo" style="background-image: url(&quot;project://database/Assets/Resources/UI/Title/TitleKari.png?fileID=2800000&amp;guid=71d447af92c866f4db02aa2024854035&amp;type=3#TitleKari&quot;);" />
             <engine:Label text="start" name="text-start" />
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>
+    <engine:VisualElement name="company-logo" style="background-image: url(&quot;project://database/Assets/AddressablesData/AKAKUNIN/Group%20Logo/1500x500.jpg?fileID=2800000&amp;guid=b2970f4e8e8b3ac4daf72b7b7566831a&amp;type=3#1500x500&quot;);" />
     <engine:VisualElement name="touch-panel" enabled="true" />
 </engine:UXML>

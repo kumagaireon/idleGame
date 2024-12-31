@@ -50,7 +50,8 @@ public sealed class TitlePresenter : IAsyncStartable
         // ログ出力：メソッド開始
         logger.ZLogTrace($"Called {GetType().Name}.StartAsync");
         // ビューの追加
-        mainViewModel.AddView(true);
+        await mainViewModel.ShowImageAndFadeOutAsync(mainViewModel.view.CompanyVisualElement,1.0f, 2.0f, ct);
+        //   mainViewModel.AddView(true);
         
         await audioPlayer.InitializeAsync(ct);
        
@@ -59,7 +60,7 @@ public sealed class TitlePresenter : IAsyncStartable
         
         await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
         // ビューを開く
-        await mainViewModel.OpenWithoutAddAsync(SceneTransitionState.Next, ct);
+        await mainViewModel.OpenaAsync(SceneTransitionState.Next, ct);
        
     }
 }

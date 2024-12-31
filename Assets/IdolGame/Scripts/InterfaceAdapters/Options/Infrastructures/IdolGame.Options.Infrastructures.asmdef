@@ -6,6 +6,7 @@
 		"IdolGame.Options.Presenter",
 		"IdolGame.Options.ViewModels",
 		"IdolGame.Options.Views",
+		"UniTask",
 		"VContainer",
 		"Unity.Addressables"
 	],
