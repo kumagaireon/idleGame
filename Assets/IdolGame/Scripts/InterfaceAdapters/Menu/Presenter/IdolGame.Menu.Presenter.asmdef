@@ -11,7 +11,8 @@
 		"IdolGame.Menu.Views",
 		"UniTask",
 		"VContainer",
-		"Unity.Addressables"
+		"Unity.Addressables",
+		"IdolGame.Options.ViewModels"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

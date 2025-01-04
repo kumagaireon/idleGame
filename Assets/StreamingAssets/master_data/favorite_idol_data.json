@@ -11,24 +11,24 @@
         "idol-name": "0仮太郎",
         "image-path": "boby_idol_000",
         "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。\n改行の仕方は\n",
         "idol-reward": {
           "reward-cheki-image-1-path": "gallery_idol_image_1_000",
           "reward-cheki-image-2-path": "gallery_idol_image_2_000",
           "reward-cheki-image-3-path": "gallery_idol_image_3_000",
           "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-1": "2025-01-04T17:13:23.0541938+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-video": "2025-01-04T17:13:23.0592141+09:00",
           "cheki-1-point": 1000,
           "cheki-2-point": 1500,
           "cheki-3-point": 2000,
           "video-point": 2500,
-          "idol-point": 0
+          "idol-point": 4200
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "0推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -52,7 +52,7 @@
         "idol-name": "1仮太郎",
         "image-path": "boby_idol_000",
         "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。\n改行の仕方は\n",
         "idol-reward": {
           "reward-cheki-image-1-path": "gallery_idol_image_1_000",
           "reward-cheki-image-2-path": "gallery_idol_image_2_000",
@@ -69,7 +69,7 @@
           "idol-point": 2050
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "1推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -110,7 +110,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "2推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -151,7 +151,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "3推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -192,7 +192,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "4推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -233,7 +233,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "5推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -274,7 +274,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "6推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -315,7 +315,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "7推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -356,7 +356,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "8推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -397,7 +397,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "9推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -438,7 +438,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "10推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },
@@ -479,7 +479,7 @@
           "idol-point": 0
         },
         "idol-self-introduction": {
-          "self-introduction-text": "推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "11推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },

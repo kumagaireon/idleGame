@@ -18,8 +18,6 @@ namespace IdolGame.Menu.ViewModels;
 
 public sealed class MainViewModel : ViewModelBase<MainView>
 {
-
-    // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
     readonly AudioPlayer audioPlayer;
     readonly AssetReference bgmAssetReference;
@@ -144,16 +142,10 @@ public sealed class MainViewModel : ViewModelBase<MainView>
         await SceneManager.LoadSceneAsync("OsiSetupScene")!.WithCancellation(ct);
     }
 
-    /// <summary>
-    /// ビューが開く前に実行される処理
-    /// </summary>
-    protected override void PreOpen()
+    public override void PreOpen()
     {
     }
 
-    /// <summary>
-    /// ビューの破棄時に実行される処理
-    /// </summary>
     protected override void OnDispose()
     {
         bag.Dispose();

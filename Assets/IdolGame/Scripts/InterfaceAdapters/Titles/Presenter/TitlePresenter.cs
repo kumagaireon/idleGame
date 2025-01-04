@@ -51,14 +51,13 @@ public sealed class TitlePresenter : IAsyncStartable
         logger.ZLogTrace($"Called {GetType().Name}.StartAsync");
         // ビューの追加
         await mainViewModel.ShowImageAndFadeOutAsync(mainViewModel.view.CompanyVisualElement,1.0f, 2.0f, ct);
-        //   mainViewModel.AddView(true);
         
         await audioPlayer.InitializeAsync(ct);
        
+        await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
         // メインビューの初期化
         await mainViewModel.InitializeAsync(ct);
         
-        await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
         // ビューを開く
         await mainViewModel.OpenaAsync(SceneTransitionState.Next, ct);
        

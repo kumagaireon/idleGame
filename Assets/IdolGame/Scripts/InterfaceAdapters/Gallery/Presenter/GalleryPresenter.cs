@@ -40,6 +40,6 @@ public sealed class GalleryPresenter:IAsyncStartable
         await UniTask.WaitForSeconds((1.0f), cancellationToken: ct);
        
         await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
-        await mainViewModel.OpenWithoutAddAsync(SceneTransitionState.Next, ct);
+        await mainViewModel.OpenaAsync(SceneTransitionState.Next, ct);
     }
 }

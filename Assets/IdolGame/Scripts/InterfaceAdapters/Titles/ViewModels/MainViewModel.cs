@@ -41,11 +41,11 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     // 非同期にビューを初期化するメソッド
     public async UniTask InitializeAsync(CancellationToken ct)
     {   
+        await globalStateService.LoadGlobalStateAsync(ct);
+        
         view.TouchPanel.OnInputAsObservable()
             .SubscribeAwait(async (e, ct2)
                 => await OnInput(e, ct2)).AddTo(ref bag);
-        
-        await globalStateService.LoadGlobalStateAsync(ct);
         
         // 非同期処理のためにフレームを待機
         await UniTask.Yield(ct);
@@ -63,7 +63,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// <summary>
     /// ビューが開く前に実行される処理
     /// </summary>
-    protected override void PreOpen()
+    public override void PreOpen()
     {
     }
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Play Video
   m_GUID: 620d3da5a41e19043ac503cd77c27b83
   m_SerializeEntries:
-  - m_GUID: 0ada2bd9acc021a45983de1480d65d73
+  - m_GUID: 47caf6cf6e622544488c0ad2c9506cd8
     m_Address: play_video_0
     m_ReadOnly: 0
     m_SerializedLabels: []

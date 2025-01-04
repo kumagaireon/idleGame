@@ -120,7 +120,10 @@ public sealed class MainViewModel: ViewModelBase<MainView>
             await voiceHandle.Task;
             if (voiceHandle.Status == AsyncOperationStatus.Succeeded)
             {
-                //ここでIngameの方にvoiceHandleを渡したい
+                //==================================
+                //ここでInGameの方にvoiceHandleを渡したい
+                //==================================
+                
                 if (CloseContinueAsync != null)
                 {
                     await CloseContinueAsync(SceneTransitionState.Next, ct);
@@ -147,7 +150,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// <summary>
     /// ビューが開く前に実行される処理
     /// </summary>
-    protected override void PreOpen()
+    public override void PreOpen()
     {
         view.SongSelectionScrollView.Focus();
     }

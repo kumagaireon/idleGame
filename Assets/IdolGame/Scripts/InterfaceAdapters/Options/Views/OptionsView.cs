@@ -15,6 +15,7 @@ public sealed class OptionsView : ViewBase
     {
         GraphicsSettingsOptions = OwnView.Q<OptionsDropdownUIElement>("quality-settings-options");
         SoundEnabledOptions = OwnView.Q<OptionsButtonUIElement>("sound-enabled-options");
+        BgmVolumeOptions = OwnView.Q<OptionsSliderUIElement>("bgm-volume-options");
         SeVolumeOptions = OwnView.Q<OptionsSliderUIElement>("se-volume-options");
     }
 }

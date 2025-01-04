@@ -30,11 +30,11 @@ public sealed class RecommendationPresenter : IAsyncStartable
     public async UniTask StartAsync(CancellationToken ct)
     {
         logger.ZLogTrace($"Called {GetType().Name}.StartAsync");
-        mainViewModel.AddView(true);
+        mainViewModel.AddView(false);
         await audioPlayerService.InitializeAsync(ct);
         await mainViewModel.InitializeAsync(ct);
         await UniTask.WaitForSeconds(1.0f, cancellationToken: ct);
         await audioPlayerService.PlayBgmAsync(bgmAssetReference, 1.0f, ct);
-        await mainViewModel.OpenWithoutAddAsync(SceneTransitionState.Next, ct);
+        await mainViewModel.OpenaAsync(SceneTransitionState.Next, ct);
     }
 }

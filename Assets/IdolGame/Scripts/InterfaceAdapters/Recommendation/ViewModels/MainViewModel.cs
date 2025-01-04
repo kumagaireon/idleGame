@@ -49,29 +49,50 @@ public sealed class MainViewModel : ViewModelBase<MainView>
         
         var idolDataLoader = new IdolDataLoader();
         var idolGroups = await idolDataLoader.LoadIdolDataAsync();
+        
+        await globalStateService.LoadGlobalStateAsync(ct);
 
-        foreach (var group in idolGroups)
+        if (GlobalState.IdolId != null)
         {
-            foreach (var idol in group.Members)
+            logger.ZLogTrace($"{GlobalState.IdolId}");
+            foreach (var group in idolGroups!)
             {
-                var element = scrollView.itemsTemplate.Instantiate();
-                element.Q<Label>("idol-name").text = idol.Name.ToString();
-                var handle = Addressables.LoadAssetAsync<Texture2D>(idol.ImagePath.ToString());
-                await handle.Task;
-                if (handle.Status == AsyncOperationStatus.Succeeded)
+                foreach (var idol in group.Members!)
                 {
-                    var imageElement = element.Q<VisualElement>("idol-image");
-                    imageElement.style.backgroundImage = new StyleBackground(handle.Result);
+                    logger.ZLogTrace($"{GlobalState.IdolId}");
+                    if (GlobalState.IdolId == idol.Id)
+                    {
+                        logger.ZLogTrace($"{GlobalState.IdolId},{idol.Id}");
+                        view.ExplanatoryTextElementext.text =
+                            idol.IdolSelfIntroduction.SelfIntroductionText;
+                        break;
+                    }
                 }
-
-                element.OnInputAsObservable()
-                    .SubscribeAwait(async (evt, ct2) =>
-                        await OnInputSelfIntroduction(evt, ct2, idol,group))
-                    .AddTo(ref bag);
-
-
-                scrollView.Add(element);
             }
+        }
+
+        foreach (var group in idolGroups!)
+        {
+                foreach (var idol in group.Members!)
+                {
+                    var element = scrollView.itemsTemplate.Instantiate();
+                    element.Q<Label>("idol-name").text = idol.Name.ToString();
+                    var handle = Addressables.LoadAssetAsync<Texture2D>(idol.ImagePath.ToString());
+                    await handle.Task;
+                    if (handle.Status == AsyncOperationStatus.Succeeded)
+                    {
+                        var imageElement = element.Q<VisualElement>("idol-image");
+                        imageElement.style.backgroundImage = new StyleBackground(handle.Result);
+                    }
+
+                    element.OnInputAsObservable()
+                        .SubscribeAwait(async (evt, ct2) =>
+                            await OnInputSelfIntroduction(evt, ct2, idol, group))
+                        .AddTo(ref bag);
+
+
+                    scrollView.Add(element);
+                }
         }
 
         view.GalleryVisualElement.OnInputAsObservable()
@@ -128,16 +149,9 @@ public sealed class MainViewModel : ViewModelBase<MainView>
             idol.ResultIdol.BRank.ToString(),
             idol.ResultIdol.CRank.ToString()
         };
-        logger.ZLogInformation($"GroupId: {GlobalState.GroupId}");
-        logger.ZLogInformation($"GroupBackgroundImagePath: {GlobalState.GroupBackgroundImagePath}");
-        logger.ZLogInformation($"GroupButtonUIPath: {GlobalState.GroupButtonUIPath}");
-        logger.ZLogInformation($"IdolId: {GlobalState.IdolId}");
-        logger.ZLogInformation($"IdolImagePath: {GlobalState.IdolImagePath}");
-        logger.ZLogInformation($"IdolColor: {GlobalState.IdolColor}");
-        logger.ZLogInformation($"IdolSerifMenuText: {GlobalState.IdolSerifMenuText}");
-        logger.ZLogInformation($"IdolRewardPoint: {GlobalState.IdolRewardPoint}");
+     
         await UniTask.Yield();
-   }
+    }
 
     async UniTask OnInputGallery(PointerDownEvent e, CancellationToken ct)
     {
@@ -158,7 +172,7 @@ public sealed class MainViewModel : ViewModelBase<MainView>
         await SceneManager.LoadSceneAsync("MenuScene")!.WithCancellation(ct);
     }
     
-    protected override void PreOpen()
+    public override void PreOpen()
     {
     }
 

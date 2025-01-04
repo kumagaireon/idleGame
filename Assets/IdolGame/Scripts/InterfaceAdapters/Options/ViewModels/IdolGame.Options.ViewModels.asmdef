@@ -5,7 +5,9 @@
 		"IdolGame.Common.ViewModels",
 		"IdolGame.Common.Views",
 		"IdolGame.Options.Views",
-		"UniTask"
+		"UniTask",
+		"UIToolkit.R3.Integration",
+		"IdolGame.UIElements"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

@@ -24,7 +24,7 @@ using ZLogger;
 
 namespace IdolGame.Results.ViewModels;
 
-public sealed class MainViewModel: ViewModelBase<MainView>
+public sealed class MainViewModel : ViewModelBase<MainView>
 {
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
@@ -33,10 +33,10 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     readonly AssetReference bgmAssetReference;
     List<string> resultImagePath = new List<string> { "s-image", "a-image", "b-image", "c-image" };
     int Index = 0;
-    
+
     public MainViewModel(ILogger<MainViewModel> logger,
         MainView view,
-        UIDocument rootDocument, AudioPlayer audioPlayer, 
+        UIDocument rootDocument, AudioPlayer audioPlayer,
         AssetReference bgmAssetReference)
         : base(view, rootDocument, new FadeViewTransition(rootDocument))
     {
@@ -169,7 +169,27 @@ public sealed class MainViewModel: ViewModelBase<MainView>
                 break;
             }
         }
-       
+
+        string resultText = GlobalState.IdolResultRankText?[Index] ?? "Unknown text";
+        string resultImage = resultImagePath[Index];
+
+        logger.ZLogTrace($"Text: {resultText}, ResultImage:{resultImage}");
+
+        view.IdolSupportDialogueTextElement.text = resultText;
+
+        // 結果画像を表示
+        var resultImageHandle = Addressables.LoadAssetAsync<Texture2D>(resultImage);
+        await resultImageHandle.Task;
+        if (resultImageHandle.Status == AsyncOperationStatus.Succeeded)
+        {
+            view.ResultPointImageVisualElement.style.backgroundImage =
+                new StyleBackground(resultImageHandle.Result);
+        }
+        else
+        {
+            logger.ZLogError($"Failed to load result image: {resultImage}");
+        }
+
 
         //手持ちポイントに追加する
         GlobalState.IdolRewardPoint += kariInGameResult;
@@ -197,6 +217,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
         await SceneManager.LoadSceneAsync("MenuScene")!.WithCancellation(ct);
     }
+
     async UniTask OnInputRetry(PointerDownEvent e, CancellationToken ct)
     {
         logger.ZLogInformation($"リトライ");
@@ -206,43 +227,19 @@ public sealed class MainViewModel: ViewModelBase<MainView>
 
     public async UniTask PlayVoice(CancellationToken ct)
     {
-        string resultText = GlobalState.IdolResultRankText?[Index] ?? "Unknown text";
-        string resultImage = resultImagePath[Index];
         string resultVoice = GlobalState.IdolResultRankVoice?[Index] ?? "Unknown voice";
 
-        logger.ZLogTrace(
-            $"Voice: {resultVoice}, Text: {resultText}, ResultImage:{resultImage}");
-               
-                
-        view.IdolSupportDialogueTextElement.text = resultText;
+        logger.ZLogTrace($"Voice: {resultVoice}");
 
-        // 結果画像を表示
-        var resultImageHandle = Addressables.LoadAssetAsync<Texture2D>(resultImage);
-        await resultImageHandle.Task;
-        if (resultImageHandle.Status == AsyncOperationStatus.Succeeded)
-        {
-            view.ResultPointImageVisualElement.style.backgroundImage =
-                new StyleBackground(resultImageHandle.Result);
-        }
-        else
-        {
-            logger.ZLogError($"Failed to load result image: {resultImage}");
-        }
-                
         var voiceResult = new AssetReference(resultVoice);
         await audioPlayer.PlaySeAsync(voiceResult, 1.0f, ct);
     }
-    
-    /// <summary>
-    /// ビューが開く前に実行される処理
-    /// </summary>
-    protected override void PreOpen()
+
+
+    public override void PreOpen()
     {
     }
 
-    /// <summary>
-    /// ビューの破棄時に実行される処理
-    /// </summary>
     protected override void OnDispose()
     {
         bag.Dispose();

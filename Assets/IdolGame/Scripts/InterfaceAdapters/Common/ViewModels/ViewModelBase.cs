@@ -81,7 +81,7 @@ public abstract class ViewModelBase<TView> : IDisposable where TView : ViewBase
     }
 
     // ビューを開く前の処理を定義する抽象メソッド
-    protected abstract void PreOpen();
+    public abstract void PreOpen();
 
     // 派生クラスのリソースを解放するための抽象メソッド
     protected abstract void OnDispose();

@@ -41,7 +41,7 @@ public class GlobalStateService
         string json = JsonSerializer.Serialize(globalStateData, options);
         await File.WriteAllTextAsync(Path.Combine(Application.persistentDataPath, SaveFilePath), json, ct);
 
-        logger.ZLogTrace($"Global state saved successfully.");
+        logger.ZLogTrace($"グローバル状態が正常に保存されました");
     }
 
     public async UniTask LoadGlobalStateAsync(CancellationToken ct)
@@ -93,7 +93,7 @@ public class GlobalStateService
                     }
                 }
 
-            logger.ZLogTrace($"Global state loaded successfully.");
+            logger.ZLogTrace($"グローバル状態が正常に読み込まれました");
         }
     }
 }

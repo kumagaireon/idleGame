@@ -46,7 +46,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// <summary>
     /// ビューが開く前に実行される処理
     /// </summary>
-    protected override void PreOpen()
+    public override void PreOpen()
     {
     }
 
