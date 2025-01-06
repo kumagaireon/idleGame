@@ -19,7 +19,7 @@ public class NoteController : MonoBehaviour
     private float timer = 0.0f;
 
     public static List<List<GameObject>> groupList = new List<List<GameObject>>();
-    
+
 
     private int BPM;
     private int FPS = 60;
@@ -49,13 +49,13 @@ public class NoteController : MonoBehaviour
         tapChecker = GetComponent<NoteTap>();
         
         BPM = CSVReader.instance.BPM;
-        Debug.Log(CSVReader.data.Count);
+        Debug.Log(BPM);        
     }
 
     // Update is called once per frame
     async void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime * (BPM / 60.0f);
         if (generatedGroupsNum >= CSVReader.instance.GetGroupsCount())
         {
             Debug.Log("Finish generatedGroupsNum:" + generatedGroupsNum + "groupCount:" + CSVReader.instance.GetGroupsCount());            
@@ -120,7 +120,7 @@ public class NoteController : MonoBehaviour
                 alphaChanger.FadeIn(noteRenderer);
             }
             //‘Ò‹@ŽžŠÔ                
-            await Task.Delay(1000 / (generateNotesNum - 1));
+            await Task.Delay((60 * 1000 / BPM) / (generateNotesNum - 1));           
         }
         //*************************
 
