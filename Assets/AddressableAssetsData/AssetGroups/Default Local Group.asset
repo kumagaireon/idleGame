@@ -20,6 +20,31 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15eee3eb77e9d4740b522866ed6f9b93
+    m_Address: Assets/StreamingAssets/TestVideos/video3.mp4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42dd222b2c7f69348b4b760a4aa2e2f8
+    m_Address: b-image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d6e059c6d9e98e4b859e986ebb16000
+    m_Address: start-image-path
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bc6bb4cc9207244d958aa89a9041eac
+    m_Address: c-image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75f549011c3e9274cb67245005b50959
+    m_Address: a-image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83e2b3bf2fd3560489a2727502dca84c
     m_Address: KariImage1
     m_ReadOnly: 0
@@ -30,13 +55,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a375d2ce672d684ca87ec0ab452994b
+    m_Address: s-image
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad0a59c07c32e314aabbb7c087d69d9e
     m_Address: TestImage
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be83a85961540cb419fc7a0acccbc191
+    m_Address: Assets/IdolGame/UI/Menu background/OIP.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdfbc2d41907b7b45a740f7e8ac11f2e
     m_Address: Assets/AddressableResources/Audio/KOTATSU.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff78c0d899de113448e5ddcc5de74a81
+    m_Address: Assets/StreamingAssets/TestVideos/video2.mp4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

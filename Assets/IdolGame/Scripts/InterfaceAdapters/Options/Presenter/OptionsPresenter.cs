@@ -48,6 +48,7 @@ public sealed class OptionsPresenter:IAsyncStartable
     /// <param name="ct">キャンセルトークン</param>
     public async UniTask StartAsync(CancellationToken ct)
     {
+        
         // ログ出力：メソッド開始
         logger.ZLogTrace($"Called {GetType().Name}.StartAsync");
         // ビューの追加

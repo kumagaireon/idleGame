@@ -1,0 +1,15 @@
+#idol-member {
+    height: 400px;
+    width: 300px;
+}
+
+#idol-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#idol-name {
+    -unity-text-align: upper-center;
+    -unity-font-style: bold;
+}

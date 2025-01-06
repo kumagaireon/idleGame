@@ -3,11 +3,16 @@
 	"rootNamespace": "",
 	"references": [
 		"IdolGame.ApplicationBusinessRules.UseCases",
+		"IdolGame.ApplicationBusinessRules.Interfaces",
 		"IdolGame.Recommendation.Presenter",
 		"IdolGame.Recommendation.ViewModels",
 		"IdolGame.Recommendation.Views",
+		"IdolGame.Audios.Infrastructures",
+		"IdolGame.Audio.Core",
 		"VContainer",
-		"Unity.Addressables"
+		"Unity.Addressables",
+		"IdolGame.EnterpriseBusinessRules",
+		"IdolGame.Common.Infrastructures"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

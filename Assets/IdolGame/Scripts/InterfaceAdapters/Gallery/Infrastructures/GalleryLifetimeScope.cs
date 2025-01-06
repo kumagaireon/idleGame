@@ -1,6 +1,4 @@
-
-
-using IdolGame.ApplicationBusinessRules.UseCases;
+using IdolGame.Common.infrastructures;
 using IdolGame.Gallery.Presenter;
 using IdolGame.Gallery.ViewModels;
 using IdolGame.Scripts.InterfaceAdapters.Gallery.Views;
@@ -27,8 +25,8 @@ namespace IdolGame.Gallery.Infrastructures
             builder.Register<MainViewModel>(Lifetime.Scoped);
             builder.Register<MainView>(Lifetime.Scoped);
 
-            builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
-
+            // GlobalStateService を登録
+            builder.Register<GlobalStateService>(Lifetime.Singleton); 
             builder.RegisterComponent(rootDocument);
             builder.RegisterInstance(mainTreeAsset);
             builder.RegisterInstance(bgmAssetReference);

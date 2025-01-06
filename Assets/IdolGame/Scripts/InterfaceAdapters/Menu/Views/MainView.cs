@@ -3,18 +3,26 @@ using UnityEngine.UIElements;
 
 namespace IdolGame.Menu.Views;
 
-public sealed class MainView: ViewBase
-{  
-    // アプリのバージョン情報を表示するテキスト要素
-    public TextElement AppInfoVersionTextElement { get; }
+public sealed class MainView : ViewBase
+{
+    public VisualElement OptionVisualElement { get; }
+    public VisualElement SongSelectionVisualElement { get; }
+    public VisualElement AboutMeVisualElement { get; }
+    public VisualElement BackgroundImageVisualElement { get; }
+    public VisualElement IdolImageVisualElement { get; }
+    public VisualElement SpeechBubbleVisualElement { get; }
+    public TextElement IdolSpeechBubbleTextElement { get; }
 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="asset">/// <param name="asset">VisualTreeAssetからビューを構築するためのアセット</param>
+
+
     public MainView(VisualTreeAsset asset) : base(asset)
-    { 
-        // ビューから指定された名前のテキスト要素を取得
-        AppInfoVersionTextElement = OwnView.Q<TextElement>("app-info-version-text");
+    {
+        OptionVisualElement = OwnView.Q<VisualElement>("option-button");
+        SongSelectionVisualElement = OwnView.Q<VisualElement>("song-selection-button");
+        AboutMeVisualElement = OwnView.Q<VisualElement>("about-me-button");
+        BackgroundImageVisualElement= OwnView.Q<VisualElement>("background");
+        IdolImageVisualElement = OwnView.Q<VisualElement>("idol-image");
+        SpeechBubbleVisualElement = OwnView.Q<VisualElement>("idol-speech-bubble-image");
+        IdolSpeechBubbleTextElement = OwnView.Q<TextElement>("idol-speech-bubble-text");
     }
 }

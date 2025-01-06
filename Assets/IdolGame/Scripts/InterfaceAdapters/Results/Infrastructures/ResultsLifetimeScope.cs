@@ -27,15 +27,12 @@ namespace IdolGame.Results.Infrastructures
         /// <param name="builder">コンテナビルダー</param>
         protected override void Configure(IContainerBuilder builder)
         {
-            // TitlePresenterをエントリーポイントとして登録
+            // ResultsPresenterをエントリーポイントとして登録
             builder.RegisterEntryPoint<ResultsPresenter>();
             // メインビューモデルをスコープライフタイムで登録
             builder.Register<MainViewModel>(Lifetime.Scoped);
             // メインビューをスコープライフタイムで登録
             builder.Register<MainView>(Lifetime.Scoped);
-
-            // セーブデータ取得ユースケースをスコープライフタイムで登録
-            builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
             // シリアライズフィールドのUIドキュメントを登録
             builder.RegisterComponent(rootDocument);
             // シリアライズフィールドのビジュアルツリーアセットをインスタンスとして登録

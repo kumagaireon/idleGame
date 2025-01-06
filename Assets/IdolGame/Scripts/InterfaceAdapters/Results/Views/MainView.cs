@@ -5,16 +5,28 @@ namespace IdolGame.Results.Views;
 
 public sealed class MainView: ViewBase
 {  
-    // アプリのバージョン情報を表示するテキスト要素
-    public TextElement AppInfoVersionTextElement { get; }
+    public VisualElement BackgroundImageVisualElement { get; }
+   
+    public VisualElement IdolImageVisualElement { get; }
+    public TextElement IdolSupportDialogueTextElement { get; }
+    
+    public VisualElement ResultPointImageVisualElement { get; }
+    public TextElement ResultPointsTextElement { get; }
+    
+    public VisualElement  MenuVisualElement { get; }
+    public VisualElement  RetryVisualElement { get; }
 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="asset">/// <param name="asset">VisualTreeAssetからビューを構築するためのアセット</param>
     public MainView(VisualTreeAsset asset) : base(asset)
     { 
-        // ビューから指定された名前のテキスト要素を取得
-        AppInfoVersionTextElement = OwnView.Q<TextElement>("app-info-version-text");
+        BackgroundImageVisualElement=OwnView.Query<VisualElement>("background");
+        
+        IdolImageVisualElement = OwnView.Q<VisualElement>("idol-image");
+        IdolSupportDialogueTextElement = OwnView.Q<TextElement>("idol-support-dialogue-text");
+        
+        ResultPointImageVisualElement = OwnView.Q<VisualElement>("result-point-image");
+        ResultPointsTextElement = OwnView.Q<TextElement>("result-point-text");
+      
+        MenuVisualElement = OwnView.Q<VisualElement>("menu-button");
+        RetryVisualElement = OwnView.Q<VisualElement>("retry-button");
     }
 }

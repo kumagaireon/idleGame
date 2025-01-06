@@ -1,8 +1,3 @@
-#main-view {
-    width: 100%;
-    height: 100%;
-    flex-direction: row;
-}
 
 #background {
     position: absolute;
@@ -11,30 +6,80 @@
     top: 0;
     left: 0;
     background-color: rgb(24, 24, 24);
-
 }
 
-#ui-container {
-    width: 300px;
+#optionflame {
+    position: absolute;
+    height: 502px;
+    width: 873px;
+    top: 94px;
+    left: 177px;
+}
+
+#volumechange {
+    position: absolute;
+    top: 290px;
+    left: 310px;
+    font-size: 60px;
+    height: 74px;
+    width: 237px;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+}
+
+#options-list-view {
+    width: 100%;
     height: 100%;
-    margin-left: auto;
-    -unity-text-align: middle-right;
+    padding: 24px 25%;
+}
+.options_ui_element__base {
+    width: 100%;
+    height: 58px;
+    flex-direction: row;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    background-color: rgba(60, 60, 60, 0.8);
+    transition-duration: 0.2s;
 }
 
-#ui-options-logo-container {
-    width: 100%;
-    height: auto;
-    padding-top: 24px;
+.options_ui_element__base:focus {
+    background-color: rgba(120, 120, 120, 0.8);
 }
 
-#ui-selectable-container {
-    width: 100%;
-    height: auto;
-    margin-top: auto;
+.options_ui_element__base ZenKakuNormalTextElement {
+    width: 50%;
+    padding: 12px;
+    -unity-font-style: italic;
 }
 
-#ui-app-info-container {
+.options_ui_element__base #option-value {
+    width: 48%;
+    border-radius: 6px;
+    margin: 6px;
+    padding: 4px;
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+#option-value DropdownField {
     width: 100%;
-    height: auto;
-    margin-top: 60px;
+    height: 100%;
+    margin: auto;
+    border-radius: 6px;
+}
+
+#option-value DropdownField VisualElement {
+    margin: 0;
+}
+
+#option-value Button {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-radius: 4px;
+}
+
+#option-value Slider {
+    width: 95%;
+    height: 100%;
+    margin: auto;
 }

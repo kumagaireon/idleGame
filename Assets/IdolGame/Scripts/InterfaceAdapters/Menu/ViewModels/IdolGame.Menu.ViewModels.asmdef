@@ -2,10 +2,18 @@
 	"name": "IdolGame.Menu.ViewModels",
 	"rootNamespace": "",
 	"references": [
+		"IdolGame.EnterpriseBusinessRules",
+		"IdolGame.Common.Infrastructures",
 		"IdolGame.Common.ViewModels",
 		"IdolGame.Common.Views",
 		"IdolGame.Menu.Views",
-		"UniTask"
+		"UniTask",
+		"Unity.Addressables",
+		"Unity.ResourceManager",
+		"UIToolkit.R3.Integration",
+		"IdolGame.UIElements",
+		"IdolGame.Audio.Core",
+		"IdolGame.Options.Presenter"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

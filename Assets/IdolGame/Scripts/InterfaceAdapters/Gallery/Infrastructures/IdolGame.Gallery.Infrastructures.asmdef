@@ -7,7 +7,8 @@
 		"IdolGame.Gallery.ViewModels",
 		"IdolGame.Gallery.Views",
 		"VContainer",
-		"Unity.Addressables"
+		"Unity.Addressables",
+		"IdolGame.Common.Infrastructures"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

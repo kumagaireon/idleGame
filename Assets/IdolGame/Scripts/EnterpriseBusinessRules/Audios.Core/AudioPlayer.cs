@@ -21,18 +21,33 @@ public sealed class AudioPlayer
         await service.InitializeAsync(ct);
     }
 
-    public async UniTask PlayBgmAsync(AssetReference? assetReference, CancellationToken ct)
+    public async UniTask PlayBgmAsync(AssetReference? reference, CancellationToken ct)
     {
-        await service.PlayBgmAsync(assetReference, 1.0f, ct);
+        await service.PlayBgmAsync(reference, 1.0f, ct);
+    }
+    
+    public async UniTask PlayBgmAsync(AssetReference? reference, float volume, CancellationToken ct)
+    {
+        await service.PlayBgmAsync(reference, volume, ct);
+    }
+    
+    public async UniTask PlaySeAsync(AssetReference? reference, CancellationToken ct)
+    {
+        await service.PlaySeAsync(reference, 1.0f, ct);
     }
 
-    public async UniTask PlaySeAsync(AssetReference? assetReference, CancellationToken ct)
+    public async UniTask PlaySeAsync(AssetReference? reference, float volume, CancellationToken ct)
     {
-        await service.PlaySeAsync(assetReference, 1.0f, ct);
+        await service.PlaySeAsync(reference, volume, ct);
     }
 
-    public async UniTask StopBgmAsync(AssetReference? assetReference, CancellationToken ct)
+    public async UniTask StopBgmAsync(AssetReference? reference, float duration, CancellationToken ct)
     {
-        await service.StopBgmAsync(assetReference, 1.0f, ct);
+        await service.StopBgmAsync(reference, duration, ct);
+    }
+    
+    public async UniTask StopBgmAsync(AssetReference? reference, CancellationToken ct)
+    {
+        await service.StopBgmAsync(reference, 0.0f, ct);
     }
 }

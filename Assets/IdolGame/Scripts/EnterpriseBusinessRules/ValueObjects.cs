@@ -1,6 +1,6 @@
 using UnitGenerator;
 
-namespace IdolGame.EnterpriseBusinessRules;
+namespace IdolGame;
 
 //SaveData
 [UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
@@ -23,6 +23,11 @@ public readonly partial struct IdolGroupName
 //グループロゴ画像
 [UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
 public readonly partial struct IdolGroupImagelogoPath
+{
+}
+//ボタン画像
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolGroupButtonUIPath
 {
 }
 
@@ -64,8 +69,29 @@ public readonly partial struct IdolRewardChekiImage3Path
 {}
 //報酬ボイス
 [UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct IdolRewardVicePath
+public readonly partial struct IdolRewardVideoPath
 {}
+//報酬チェキ1ポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardCheki1Point
+{}
+//報酬チェキ2ポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardCheki2Point
+{}
+//報酬チェキ3ポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardCheki3Point
+{}
+//報酬ボイスポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardVoicePoint
+{}
+//合計報酬ポイント
+[UnitOf(typeof(float), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct IdolRewardPoint
+{
+}
 
 //自己紹介
 //自己紹介セリフ
@@ -146,24 +172,6 @@ public readonly partial struct MusicVoicePath
 {
 }
 
-
-//LiveData
-[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct VideoLiveID
-{
-}
-[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct NotesID
-{
-}
-[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct SoundID
-{
-}
-[UnitOf(typeof(int), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
-public readonly partial struct CallID
-{
-}
 
 //シーンUIData
 

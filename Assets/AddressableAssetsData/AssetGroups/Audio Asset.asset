@@ -15,8 +15,33 @@ MonoBehaviour:
   m_GroupName: Audio Asset
   m_GUID: 614e1d541611b2847a79ee2afb153511
   m_SerializeEntries:
+  - m_GUID: 4267227ceaee5cc498d5f0e20484f040
+    m_Address: BGM_Title.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c7fa2211414c884facc52d3bdb3a8da
+    m_Address: BGM_Favorite-Gallery.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 660d6236efec78c4297abbeffae4baf0
     m_Address: bgm_title
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9a62f9ac4f3a1a46a967ceea61607c4
+    m_Address: BGM_Menu.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca612644c9869194c913845e209b2829
+    m_Address: BGM_Select.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc28bb4955c8b1842b2b7febf64e0b4e
+    m_Address: BGM_Result.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

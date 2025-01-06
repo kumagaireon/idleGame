@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Result Reward Cheki 1
+  m_EditorClassIdentifier: 
+  m_GroupName: Result Reward Cheki 1
+  m_GUID: c4923fc5421af584b930c89c527a63d2
+  m_SerializeEntries:
+  - m_GUID: 8443acbdb211792428b0af3eb76e5957
+    m_Address: gallery_idol_image_1_000
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5f5fc3a1f48c3ed42a09be91683fc245, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: fc96036ecb621cc4fbf864618c90efc1, type: 2}
+    - {fileID: 11400000, guid: f8cb4d22a24f65842884b8e2bf6d436e, type: 2}

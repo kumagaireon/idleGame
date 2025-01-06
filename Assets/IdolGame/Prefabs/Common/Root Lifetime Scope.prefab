@@ -85,3 +85,4 @@ MonoBehaviour:
     maxBgmSources: 2
     maxSeSources: 12
   audioContainer: {fileID: 1277256308238775872}
+  preloadReferences: []

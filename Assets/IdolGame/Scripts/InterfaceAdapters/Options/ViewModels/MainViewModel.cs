@@ -3,15 +3,26 @@ using Cysharp.Threading.Tasks;
 using IdolGame.Common.ViewModels;
 using IdolGame.Options.Views;
 using Microsoft.Extensions.Logging;
+using R3;
 using UnityEngine.UIElements;
 
 namespace IdolGame.Options.ViewModels;
 
 public sealed class MainViewModel: ViewModelBase<MainView>
 {
+    enum OptionsType
+    {
+        GraphicsSettings,
+        SoundEnabled,
+        BgmVolume,
+        SeVolume
+    }
     // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
- 
+    OptionsType currentOptions;
+    DisposableBag bag;
+    
+    
     /// <summary>
     /// コンストラクタ
     /// </summary>
@@ -32,9 +43,6 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// <param name="ct">キャンセルトークン</param>
     public async UniTask InitializeAsync(CancellationToken ct)
     {
-        // アプリのバージョン情報をテキスト要素に設定
-       // view.AppInfoVersionTextElement.text= $"Ver.{UnityEngine.Application.version}";
-        
         
         //非同期で画像を読み込む
         var visualElement = new VisualElement(); 
@@ -50,7 +58,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     /// <summary>
     /// ビューが開く前に実行される処理
     /// </summary>
-    protected override void PreOpen()
+    public override void PreOpen()
     {
     }
 

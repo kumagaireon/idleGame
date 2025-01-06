@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: B-Voice
+  m_EditorClassIdentifier: 
+  m_GroupName: B-Voice
+  m_GUID: 7db4f7216e29ec64bb211e69dc3ddb06
+  m_SerializeEntries:
+  - m_GUID: 359767bcf899cf24e8cb2b6b52b290e8
+    m_Address: b_voice_000
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 5f5fc3a1f48c3ed42a09be91683fc245, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a36652c3d40999f4ca3c4289db37b679, type: 2}
+    - {fileID: 11400000, guid: fbcb5471dc2aa73419d241512036e48a, type: 2}

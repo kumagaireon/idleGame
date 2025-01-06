@@ -1,16 +1,17 @@
 {
-	"name": "IdolGame.Options.Views",
-	"rootNamespace": "",
-	"references": [
-		"IdolGame.Common.Views"
-	],
-	"includePlatforms": [],
-	"excludePlatforms": [],
-	"allowUnsafeCode": false,
-	"overrideReferences": false,
-	"precompiledReferences": [],
-	"autoReferenced": false,
-	"defineConstraints": [],
-	"versionDefines": [],
-	"noEngineReferences": false
+  "name": "IdolGame.Options.Views",
+  "rootNamespace": "",
+  "references": [
+    "IdolGame.Common.Views",
+    "IdolGame.UIElements"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
 }

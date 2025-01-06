@@ -1,14 +1,16 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/SongSelection_Main.uss?fileID=7433441132597879392&amp;guid=30fb8f969473d724cbd860ce08824e66&amp;type=3#SongSelection_Main" />
     <IdolGame.UIElements.RootUIElement style="width: 1280px;">
-        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
-            <engine:VisualElement name="musicjacket" style="flex-grow: 1; width: 650px; height: 370px; position: absolute; top: 160px; left: 90px;">
-                <engine:VisualElement name="musicexplain" style="flex-grow: 1; width: 650px; height: 100px; position: absolute; top: 401px;">
-                    <engine:VisualElement name="startbutton" style="flex-grow: 1; position: absolute; width: 420px; height: 200px; top: -100px; right: -440px;">
-                        <engine:VisualElement name="backbutton" style="flex-grow: 1; width: 150px; position: absolute; top: -525px; left: -40px; height: 100px;" />
-                    </engine:VisualElement>
-                </engine:VisualElement>
+        <engine:VisualElement name="background" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/Menu%20background/OIP.jpg?fileID=2800000&amp;guid=be83a85961540cb419fc7a0acccbc191&amp;type=3#OIP&quot;);">
+            <engine:VisualElement name="music-jacket" style="background-image: url(&quot;project://database/Assets/IdolGame/Scripts/InterfaceAdapters/UIElements/UIImage/Title/karihaikei.png?fileID=2800000&amp;guid=1035dba99c85bcb4ca18dda2b0e45ed5&amp;type=3#karihaikei&quot;);" />
+            <engine:VisualElement name="start-button-pos" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_Choice.png?fileID=2800000&amp;guid=4bb11ea3229e0f04b8bb1c4112cd378b&amp;type=3#Button_Choice&quot;);">
+                <engine:Label text="start" name="start-text" />
             </engine:VisualElement>
+            <engine:VisualElement name="music-explain">
+                <engine:Label text="aaaaaaaaaaaa&#10;aaaaaaaaaa" name="explanation-song-selection" />
+            </engine:VisualElement>
+            <engine:VisualElement name="back-button" style="background-image: url(&quot;project://database/Assets/IdolGame/UI/ButtonUI/Button_Back.png?fileID=2800000&amp;guid=45237e02bbd81164ca62cff269cd55d6&amp;type=3#Button_Back&quot;);" />
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>
+    <IdolGame.UIElements.CustomScrollView name="song-selection-data-list-view" items-template="project://database/Assets/Resources/Uxmls/SongSelectionPrefabs/SongSelectionPrefabs.uxml?fileID=9197481963319205126&amp;guid=583d9a37d484dcb40bc7b574650924af&amp;type=3#SongSelectionPrefabs" />
 </engine:UXML>

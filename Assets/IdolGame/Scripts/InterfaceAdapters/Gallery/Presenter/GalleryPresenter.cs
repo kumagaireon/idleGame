@@ -15,17 +15,15 @@ public sealed class GalleryPresenter:IAsyncStartable
 {
     readonly ILogger<GalleryPresenter> logger;
     readonly MainViewModel mainViewModel;
-    readonly FindSaveDataUseCase findSaveDataUseCase;
     readonly AudioPlayer audioPlayer;
     readonly AssetReference bgmAssetReference;
 
     public GalleryPresenter(ILogger<GalleryPresenter> logger,
-        MainViewModel mainViewModel, FindSaveDataUseCase findSaveDataUseCase, 
+        MainViewModel mainViewModel, 
         AudioPlayer audioPlayer, AssetReference bgmAssetReference)
     {
         this.logger = logger;
         this.mainViewModel = mainViewModel;
-        this.findSaveDataUseCase = findSaveDataUseCase;
         this.audioPlayer = audioPlayer;
         this.bgmAssetReference = bgmAssetReference;
     }
@@ -38,15 +36,10 @@ public sealed class GalleryPresenter:IAsyncStartable
 
         await audioPlayer.InitializeAsync(ct);
         
-        var saves =await findSaveDataUseCase.FindAllAsync(ct);
-        foreach (var save in saves)
-        {
-            logger.ZLogTrace($"{save}");
-        }
         await mainViewModel.InitializeAsync(ct);
         await UniTask.WaitForSeconds((1.0f), cancellationToken: ct);
        
         await audioPlayer.PlayBgmAsync(bgmAssetReference, ct);
-        await mainViewModel.OpenWithoutAddAsync(SceneTransitionState.Next, ct);
+        await mainViewModel.OpenaAsync(SceneTransitionState.Next, ct);
     }
 }

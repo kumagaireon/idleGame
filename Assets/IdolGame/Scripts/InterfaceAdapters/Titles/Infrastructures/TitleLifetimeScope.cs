@@ -1,4 +1,5 @@
 using IdolGame.ApplicationBusinessRules.UseCases;
+using IdolGame.Common.infrastructures;
 using IdolGame.Titles.Presenter;
 using IdolGame.Titles.ViewModels;
 using IdolGame.Titles.Views;
@@ -10,9 +11,7 @@ using VContainer.Unity;
 
 namespace IdolGame.Titles.Infrastructures
 {
-    /// <summary>
-    /// タイトル画面のライフタイムスコープクラス
-    /// </summary>
+    // タイトル画面のライフタイムスコープクラス
     public sealed class TitleLifetimeScope : LifetimeScope
     {
         // UIドキュメントをシリアライズフィールドとして持つ
@@ -22,10 +21,8 @@ namespace IdolGame.Titles.Infrastructures
         [SerializeField] VisualTreeAsset? mainTreeAsset;
 
         [SerializeField] AssetReference? bgmAssetReference;
-        /// <summary>
-        /// コンテナビルダーの設定を行うメソッド
-        /// </summary>
-        /// <param name="builder">コンテナビルダー</param>
+       
+        // コンテナビルダーの設定を行うメソッド
         protected override void Configure(IContainerBuilder builder)
         {
             // TitlePresenterをエントリーポイントとして登録
@@ -34,9 +31,10 @@ namespace IdolGame.Titles.Infrastructures
             builder.Register<MainViewModel>(Lifetime.Scoped);
             // メインビューをスコープライフタイムで登録
             builder.Register<MainView>(Lifetime.Scoped);
-
-            // セーブデータ取得ユースケースをスコープライフタイムで登録
-            builder.Register<FindSaveDataUseCase>(Lifetime.Scoped);
+            
+            // GlobalStateService を登録
+            builder.Register<GlobalStateService>(Lifetime.Singleton); 
+            
             // シリアライズフィールドのUIドキュメントを登録
             builder.RegisterComponent(rootDocument);
             // シリアライズフィールドのビジュアルツリーアセットをインスタンスとして登録

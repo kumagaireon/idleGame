@@ -19,21 +19,14 @@ public class FadeViewTransition:IViewTransition
     readonly UIDocument rootDocument; // ルートUIDocument
     bool isAdded;// フェードエレメントが追加されたかどうかを示すフラグ
 
-    /// <summary>
-    /// コンストラクタ
-    /// </summary>
-    /// <param name="rootDocument">ルートUIDocument</param>
+    // コンストラクタ
     public FadeViewTransition(UIDocument rootDocument)
     {
         this.rootDocument = rootDocument;
         fadeViewElement.RegisterCallback<MouseDownEvent>(OnMouseDownEvent);
     }
     
-   
-
-    /// <summary>
-    /// フェードエレメントを追加
-    /// </summary>
+    // フェードエレメントを追加
     public void AddTransition()
     {
         if (isAdded)
@@ -45,9 +38,7 @@ public class FadeViewTransition:IViewTransition
         rootDocument.rootVisualElement.Add(fadeViewElement);
     }
    
-    /// <summary>
-    /// フェードエレメントを削除
-    /// </summary>
+    // フェードエレメントを削除
     public void RemoveTransition()
     {
         if (!isAdded)
@@ -59,11 +50,7 @@ public class FadeViewTransition:IViewTransition
         rootDocument.rootVisualElement.Remove(fadeViewElement);
     }
 
-    /// <summary>
-    /// フェードインアニメーションを実行
-    /// </summary>
-    /// <param name="state">シーン遷移状態</param>
-    /// <param name="ct">キャンセルトークン</param>
+    // フェードインアニメーションを実行
     public async UniTask TransitionInAsync(SceneTransitionState state, CancellationToken ct)
     {
         fadeViewElement.style.opacity = Opaque;// 初期状態を不透明に設定
@@ -76,11 +63,7 @@ public class FadeViewTransition:IViewTransition
         RemoveTransition();
     }
 
-    /// <summary>
-    /// フェードアウトアニメーションを実行
-    /// </summary>
-    /// <param name="state">シーン遷移状態</param>
-    /// <param name="ct">キャンセルトークン</param>
+    // フェードアウトアニメーションを実行
     public async UniTask TransitionOutAsync(SceneTransitionState state, CancellationToken ct)
     {
         AddTransition();
@@ -90,17 +73,11 @@ public class FadeViewTransition:IViewTransition
             .ToUniTask(ct);
     }
     
-    /// <summary>
-    /// オブジェクトを破棄
-    /// </summary>
+    // オブジェクトを破棄
     public void Dispose()
     {
         fadeViewElement.UnregisterCallback<MouseDownEvent>(OnMouseDownEvent);// マウスダウンイベントの登録解除
     }
-
-    /// <summary>
-    /// マウスダウンイベントの処理
-    /// </summary>
-    /// <param name="e">マウスダウンイベント</param>
+    // マウスダウンイベントの処理
     void OnMouseDownEvent(MouseDownEvent e) => fadeViewElement.focusController.IgnoreEvent(e);
 }

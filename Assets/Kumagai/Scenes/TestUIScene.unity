@@ -168,7 +168,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   rootDocument: {fileID: 1268093078}
-  mainTreeAsset: {fileID: 9197481963319205126, guid: 098c337e5b66d764994194accde4520e, type: 3}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: 421cb33697cbb38438d294b55d813616, type: 3}
   bgmAssetReference:
     m_AssetGUID: 660d6236efec78c4297abbeffae4baf0
     m_SubObjectName: 
@@ -247,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &840378548
 Transform:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1095440133
 Transform:
   m_ObjectHideFlags: 0
@@ -336,9 +336,9 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   rootDocument: {fileID: 1268093078}
-  mainTreeAsset: {fileID: 9197481963319205126, guid: 0aea0885d9e18c54c8c0ce57e8fa3759, type: 3}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: aa11269a5db243babc9c97231bda8b20, type: 3}
   bgmAssetReference:
-    m_AssetGUID: 0406211e2558e1a4c8e2ae7a83e4ef46
+    m_AssetGUID: cc28bb4955c8b1842b2b7febf64e0b4e
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
@@ -448,7 +448,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   rootDocument: {fileID: 1268093078}
-  mainTreeAsset: {fileID: 9197481963319205126, guid: e36877241299f2548bf65b956d697526, type: 3}
+  mainTreeAsset: {fileID: 9197481963319205126, guid: 3429b2f7b6bf410c8e427d96e408cdaf, type: 3}
   bgmAssetReference:
     m_AssetGUID: 0406211e2558e1a4c8e2ae7a83e4ef46
     m_SubObjectName: 
