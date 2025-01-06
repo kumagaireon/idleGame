@@ -66,7 +66,8 @@ public class NoteController : MonoBehaviour
             switch (CSVReader.data[generatedGroupsNum].TypeOfGroup)
             {
                 case 0: ExecuteGroup(generatedGroupsNum); break;    //通常のノーツ
-                case 1: ExecuteTap(); break;                          //タップ判定                
+                case 1: ExecuteTap(); break;                          //タップ判定
+                //統合の関係でスワイプの処理は                                                                      
             }
 
             //生成するデータを更新する

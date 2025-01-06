@@ -40,6 +40,11 @@ public class CSVReader : MonoBehaviour
     private int height = 0;
     private int startHeight = 5;
     private string csvFileName;
+    public string CsvFileName
+    {
+        get => csvFileName;
+        set => csvFileName = value;
+    }
     public int BPM { get; private set; }
 
     public List<MusicData> Music_CSV()
@@ -90,11 +95,6 @@ public class CSVReader : MonoBehaviour
             dat_list.Add(dat);
         }                
         return dat_list;
-    }
-
-    private void Start()
-    {
-            
     }
 
     public int GetGroupsCount()
