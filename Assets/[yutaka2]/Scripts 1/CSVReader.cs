@@ -22,7 +22,7 @@ public class CSVReader : MonoBehaviour
         }
         if (csvFileName == null)
         {
-            csvFileName = "MusicAndNotes1";
+            csvFileName = "Ryo_FunTime";
         }
         data = Music_CSV();
     }
@@ -68,7 +68,7 @@ public class CSVReader : MonoBehaviour
             height++;
         }
 
-        BPM = int.Parse(csvData[1][2]);        
+        BPM = int.Parse(csvData[1][3]);        
 
         for(int i = startHeight - 1; i < height; ++i)
         {
@@ -78,17 +78,17 @@ public class CSVReader : MonoBehaviour
             //*****各値の保存*****
             dat.time = Convert.ToSingle(csvData[i][0]);            
             //dat.InfoOfGroup = int.Parse(csvData[i][1]);
-            dat.TypeOfGroup = int.Parse(csvData[i][1]);
-            dat.InfoOfGroup = int.Parse(csvData[i][2]);           
+            dat.TypeOfGroup = int.Parse(csvData[i][2]);
+            dat.InfoOfGroup = int.Parse(csvData[i][3]);           
 
             //int positionStartIndex = 2;
-            int positionStartIndex = 3;
+            int positionStartIndex = 4;
             
             //positionのデータは複数存在するためListを作成
             dat.position = new List<int>();
             for (int j = 0; j < dat.InfoOfGroup; ++j)
             {
-                //位置は3列目から
+                //位置は4列目から
                 dat.position.Add(int.Parse(csvData[i][j + positionStartIndex]));                
             }
             //********************
