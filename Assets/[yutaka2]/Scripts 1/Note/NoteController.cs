@@ -138,7 +138,7 @@ public class NoteController : MonoBehaviour
 
         foreach(var groupTime in groupSpawnTimes)
         {
-            if(currentTime - groupTime >= noteLifeTime)
+            if(currentTime - groupTime >= noteLifeTime * (60.0f / BPM))
             {
                 int groupNum = groupSpawnTimes.IndexOf(groupTime);
                 Debug.Log("timeOverNum:" +  groupNum);
@@ -149,6 +149,7 @@ public class NoteController : MonoBehaviour
                         if(note != null && note.activeSelf)
                         {
                             note.SetActive(false);
+                            ScoreController.instance.MinusNoteScore();
                         }
                     }
                 }                

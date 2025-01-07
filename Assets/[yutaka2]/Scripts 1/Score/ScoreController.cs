@@ -76,28 +76,28 @@ public class ScoreController : MonoBehaviour
     public void GetNoteScore()
     {
         score += noteScore;
-        scoreText.text = "スコア：" + score.ToString();
+        UpdateScoreText();
         ShowRatio();
     }
 
     public void GetNotePerfectScore()
     {
         score += notePerfectScore;
-        scoreText.text = "スコア：" + score.ToString();
+        UpdateScoreText();
         ShowRatio();
     }
 
     public void GetTapScore()
     {
         score += tapScore;
-        scoreText.text = "スコア：" + score.ToString();
+        UpdateScoreText();
         ShowRatio();
     }
 
     public void GetPsylliumScore()
     {
         score += psylliumScore;
-        scoreText.text = "スコア：" + score.ToString();
+        UpdateScoreText();
         ShowRatio();
     }
 
@@ -105,5 +105,17 @@ public class ScoreController : MonoBehaviour
     {
         float ratio = (score / maxScore) * 100;
         ratioText.text = "盛り上がり度：" + ratio.ToString() + "%";
+    }
+
+    public void MinusNoteScore()
+    {
+        score -= noteScore;
+        UpdateScoreText();
+        ShowRatio();
+    }
+
+    public void UpdateScoreText()
+    {
+        scoreText.text = "スコア：" + score.ToString();
     }
 }

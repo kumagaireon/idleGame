@@ -1108,7 +1108,7 @@ MonoBehaviour:
   noteScore: 200
   notePerfectScore: 500
   tapScore: 200
-  PsylliumScore: 100
+  psylliumScore: 100
   scoreText: {fileID: 282062647}
   maxScoreText: {fileID: 287415927}
   ratioText: {fileID: 215453972}
@@ -1183,7 +1183,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 7.59, y: 10.58}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1235,8 +1235,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0.33369112, b: 1, a: 1}
+  m_Sprite: {fileID: 1289024196347667751, guid: 67ac0926a5e4212448199c92bcea8948, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1255,7 +1255,7 @@ Transform:
   m_GameObject: {fileID: 1675873781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.49, y: 3.37, z: 0}
+  m_LocalPosition: {x: -5.14, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
