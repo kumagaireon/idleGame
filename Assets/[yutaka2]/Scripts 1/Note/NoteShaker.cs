@@ -9,12 +9,16 @@ public class NoteShaker : MonoBehaviour
     [Header("タップ可能オブジェクト")]
     [SerializeField] private GameObject shakeAbleObject;
 
+    public static bool shakeAble = false;
+
     //タップ可能時間
     public async Task OnShakeAble()
     {
+        
         //入力の受付開始
         //InputChecker.instance.SetShakeAble();
         shakeAbleObject.SetActive(true);
+        shakeAble = true;
 
         //=====入力の回数カウント=====
         int counter = 0;
@@ -22,17 +26,18 @@ public class NoteShaker : MonoBehaviour
         while (timer < 1.0f)
         {
             timer += Time.deltaTime;
-            if (InputChecker.instance.InputShake())
-            {
-                counter++;
-                Debug.Log(counter);
-            }
+            //if (InputChecker.instance.InputShake())
+            //{
+            //    counter++;
+            //    Debug.Log(counter);
+            //}
             await Task.Yield();
         }
         //============================
 
+        shakeAble = false;
         //入力の受付終了
-        Debug.Log("shake終了 count:" + counter);
+        Debug.Log("shake終了");
         shakedCount.Add(counter);
         shakeAbleObject.SetActive(false);
         //InputChecker.instance.SetShakeNotAble();

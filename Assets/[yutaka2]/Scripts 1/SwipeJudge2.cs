@@ -19,7 +19,10 @@ public class SwipeJudge2 : MonoBehaviour
     public void DetectSwipeDirection(Vector2 currentPosition, Vector2 previousPosition)
     {
         Vector2 direction = currentPosition - previousPosition;// 方向ベクトルを計算
-        ScoreController.instance.GetPsylliumScore();
+        if (NoteShaker.shakeAble)
+        {
+            ScoreController.instance.GetPsylliumScore();
+        }
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))// 水平方向の移動が大きい場合
         {
          //   Debug.Log(direction.x > 0 ? "右スワイプ" : "左スワイプ"); // 右スワイプか左スワイプかを判定してログに出力

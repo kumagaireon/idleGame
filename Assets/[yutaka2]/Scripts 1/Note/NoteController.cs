@@ -47,6 +47,7 @@ public class NoteController : MonoBehaviour
         positioner = GetComponent<NotePositioner>();
         alphaChanger = GetComponent<NoteAlphaChanger>();  
         tapChecker = GetComponent<NoteTap>();
+        shakeChecker = GetComponent<NoteShaker>();
         
         BPM = CSVReader.instance.BPM;
         Debug.Log(BPM);        
@@ -67,6 +68,7 @@ public class NoteController : MonoBehaviour
             {
                 case 0: ExecuteGroup(generatedGroupsNum); break;    //通常のノーツ
                 case 1: ExecuteTap(); break;                          //タップ判定
+                case 2: ExecuteSwipe(); break;
                 //統合の関係でスワイプの処理は別                                                                     
             }
 
@@ -167,6 +169,10 @@ public class NoteController : MonoBehaviour
 
     private async void ExecuteSwipe()
     {
+        if(shakeChecker == null)
+        {
+            Debug.Log("null");
+        }
         await shakeChecker.OnShakeAble();
     }
 }

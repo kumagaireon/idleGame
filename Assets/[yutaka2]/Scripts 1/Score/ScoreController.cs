@@ -10,13 +10,13 @@ public class ScoreController : MonoBehaviour
     float score = 0;
     float maxScore = 0;
     [Header("ノーツスコア")]
-    [SerializeField] private float noteScore = 100;
+    [SerializeField] private float noteScore = 200;
     [Header("パーフェクトノーツスコア")]
-    [SerializeField] private float notePerfectScore = 300;
+    [SerializeField] private float notePerfectScore = 500;
     [Header("タップスコア")]
     [SerializeField] private float tapScore = 200;
     [Header("サイリウムスコア")]
-    [SerializeField] private float PsylliumScore = 100;
+    [SerializeField] private float psylliumScore = 100;
     [Header("現スコアテキスト")]
     [SerializeField] private Text scoreText;
     [Header("最大スコアテキスト")]
@@ -53,16 +53,19 @@ public class ScoreController : MonoBehaviour
             {
                 case 0:
                     //パーフェクト分を加算
-                    maxScore += 300f;
+                    maxScore += notePerfectScore;
 
                     //個数分を加算
                     int num = CSVReader.data[i].InfoOfGroup;
-                    maxScore += 100 * num;
+                    maxScore += noteScore * num;
 
                     break;
                 case 1:
                     //1グループにつき３回タップできるとする
-                    maxScore += 200 * 3;
+                    maxScore += tapScore;
+                    break;
+                case 2:
+                    maxScore += psylliumScore * 3;
                     break;
             }
         }
@@ -93,7 +96,7 @@ public class ScoreController : MonoBehaviour
 
     public void GetPsylliumScore()
     {
-        score += PsylliumScore;
+        score += psylliumScore;
         scoreText.text = "スコア：" + score.ToString();
         ShowRatio();
     }
