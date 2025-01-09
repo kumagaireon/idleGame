@@ -134,7 +134,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
                    
                 }
                 await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
-              //  await SceneManager.LoadSceneAsync("ResultScene")!.WithCancellation(ct);
+                await SceneManager.LoadSceneAsync("Game2Scene")!.WithCancellation(ct);
             }
         }
         else

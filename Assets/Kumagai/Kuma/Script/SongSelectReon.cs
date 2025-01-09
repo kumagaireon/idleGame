@@ -38,7 +38,7 @@ public class SongSelectReon : MonoBehaviour
         audio = GetComponent<AudioSource>();
         // 最初の曲の情報を取得
         songName = dataBase.songData[select].songName;
-        selectedVideoPath = dataBase.songData[select].selectedVideoPath; 
+        selectedVideoPath = dataBase.songData[select].selectedVideoPath;
         // リソースから最初の曲をロード
         Music = (AudioClip)Resources.Load("Musics/" + songName);
         // すべての曲情報を更新
@@ -113,14 +113,13 @@ public class SongSelectReon : MonoBehaviour
         // 中央の曲の場合、画像を更新
         if (id == 0)
         {
-            songImage.sprite = dataBase.songData[select + id].songImage; 
+            songImage.sprite = dataBase.songData[select + id].songImage;
         }
     }
 
     // 曲を開始するメソッド
     public void SongStart()
     {
-<<<<<<< HEAD
         // GManagerに現在の曲IDを設定
         GManagerReon.instance.songID = select;
         // CSVファイル名を設定
@@ -128,10 +127,4 @@ public class SongSelectReon : MonoBehaviour
         // LiveSceneをロード
         SceneManager.LoadScene("LiveScene");
     }
-=======
-        GManagerReon.instance.songID = select; // �I�����ꂽ�Ȃ�ID��GManager�ɐݒ�
-        csvFileName = dataBase.songData[select].csvFileName;//�Ȃ̏����i�[
-        SceneManager.LoadScene("Game2Scene"); // ���y�V�[�������[�h
-    }    
->>>>>>> 301bb4f56dbb50943f168bd81f73bd896e9ce57e
 }
