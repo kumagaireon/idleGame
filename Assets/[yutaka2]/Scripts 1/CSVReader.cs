@@ -19,12 +19,20 @@ public class CSVReader : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-        if (csvFileName == null)
-        {
-            csvFileName = "Ryo_FunTime";
-        }
+        }        
+    }
+
+    private void Start()
+    {
+        csvFileName = MoviePassGetter.videoFileName;
+        Debug.Log("CSVFileName:" + csvFileName);
         data = Music_CSV();
+    }
+
+    public void getCSVFileName(string fileName)
+    {
+        csvFileName = fileName;
+        Debug.Log("CSVFileName:" +  csvFileName);
     }
 
     public struct MusicData
@@ -53,7 +61,8 @@ public class CSVReader : MonoBehaviour
         List<MusicData> dat_list = new List<MusicData>();
 
         //ResourcesÇ©ÇÁcsvÉtÉ@ÉCÉãÇì«Ç›çûÇﬁÇΩÇﬂ
-        TextAsset csvFile;        
+        TextAsset csvFile;
+        Debug.Log(csvFileName);
         csvFile = Resources.Load("CSV/" + csvFileName) as TextAsset;
         StringReader reader = new StringReader(csvFile.text);
 
