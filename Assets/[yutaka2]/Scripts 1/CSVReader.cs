@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 public class CSVReader : MonoBehaviour
@@ -22,7 +23,7 @@ public class CSVReader : MonoBehaviour
         }
         if (csvFileName == null)
         {
-            csvFileName = MoviePassGetter.videoFileName;
+            csvFileName = "Ryo_FunTime";
         }        
         data = Music_CSV();
     }

@@ -120,6 +120,7 @@ public class SongSelectReon : MonoBehaviour
     // 曲を開始するメソッド
     public void SongStart()
     {
+<<<<<<< HEAD
         // GManagerに現在の曲IDを設定
         GManagerReon.instance.songID = select;
         // CSVファイル名を設定
@@ -127,4 +128,10 @@ public class SongSelectReon : MonoBehaviour
         // LiveSceneをロード
         SceneManager.LoadScene("LiveScene");
     }
+=======
+        GManagerReon.instance.songID = select; // �I�����ꂽ�Ȃ�ID��GManager�ɐݒ�
+        csvFileName = dataBase.songData[select].csvFileName;//�Ȃ̏����i�[
+        SceneManager.LoadScene("Game2Scene"); // ���y�V�[�������[�h
+    }    
+>>>>>>> 301bb4f56dbb50943f168bd81f73bd896e9ce57e
 }
