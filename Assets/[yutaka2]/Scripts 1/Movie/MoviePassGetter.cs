@@ -39,6 +39,7 @@ public class MoviePassGetter : MonoBehaviour
             return;
         }
 
+        
         // StreamingAssetsフォルダ内の動画パスを設定
         string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, fileName);
         
