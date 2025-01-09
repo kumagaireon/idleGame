@@ -122,8 +122,8 @@ public sealed class MainViewModel: ViewModelBase<MainView>
           
             if (voiceHandle.Status == AsyncOperationStatus.Succeeded)
             {
-             
-                var videoName = System.IO.Path.GetFileName(selectedVoicePath);
+
+                AsyncOperationHandle<VideoClip> videoName = voiceHandle;
                
                 //インゲームにvideoNameを渡す
                 MoviePassGetter.videoFileName = videoName;
@@ -134,7 +134,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
                    
                 }
                 await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
-              //  await SceneManager.LoadSceneAsync("ResultScene")!.WithCancellation(ct);
+                await SceneManager.LoadSceneAsync("SampleTestScene")!.WithCancellation(ct);
             }
         }
         else

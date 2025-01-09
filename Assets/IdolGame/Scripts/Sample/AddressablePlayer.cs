@@ -3,23 +3,30 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Video;
 
+[RequireComponent(typeof(VideoPlayer))]
 public class AddressablePlayer : MonoBehaviour
 {
-    [SerializeField] private AssetReferenceGameObject cubePrefab;
+
+    private VideoPlayer videoPlayer;
+
     async UniTask Start()
-    {
-        // var handle = Addressables.LoadAssetAsync<GameObject>("Cube_Prefab");
-        // var handle = Addressables.LoadAssetAsync<GameObject>(cubePrefab);
-        var handle = cubePrefab.LoadAssetAsync<GameObject>();
-        await handle;
+    {   
+        videoPlayer = gameObject.AddComponent<VideoPlayer>();
 
-        var instance = Object.Instantiate(handle.Result);
+        var voiceHandle = Addressables.LoadAssetAsync<VideoClip>("play_video_1");
 
-        instance.name = "Addressable Prefab ";
+        VideoClip videoClip = await voiceHandle.Task;
+
+        videoPlayer.clip = videoClip;
+        videoPlayer.playOnAwake = false;
+
+        videoPlayer.Prepare();
+        videoPlayer.prepareCompleted
+            += (VideoPlayer vp) =>
+        {
+            vp.Play();
+        };
 
         await UniTask.WaitForSeconds(2.0f);
-
-        Object.Destroy(instance);
-        Addressables.Release((handle));
     }
 }
