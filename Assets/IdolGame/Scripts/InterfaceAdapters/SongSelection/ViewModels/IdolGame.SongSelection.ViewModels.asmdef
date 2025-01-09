@@ -11,10 +11,10 @@
 		"IdolGame.UIElements",
 		"Unity.Addressables",
 		"UIToolkit.R3.Integration",
-		
 		"IdolGame.Common.Infrastructures",
 		"Unity.ResourceManager",
-		"IdolGame.Audio.Core"
+		"IdolGame.Audio.Core",
+		"_yutaka2_.Scripts_1.Movie"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

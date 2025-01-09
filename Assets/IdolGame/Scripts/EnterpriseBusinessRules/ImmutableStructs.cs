@@ -84,6 +84,8 @@ public readonly record struct MusicData(
     [property:JsonPropertyName("name")] MusicName Name,
     [property:JsonPropertyName("image_path")] MusicImagePath ImagePath,
     [property:JsonPropertyName("description")] MusicDescription Description,
-    [property:JsonPropertyName("video-path")] MusicVoicePath VoicePath)
+    [property:JsonPropertyName("video-path")] MusicVoicePath VoicePath,
+    [property:JsonPropertyName("csv-path")] CsvFilePath CsvPath
+    )
 {}
 
