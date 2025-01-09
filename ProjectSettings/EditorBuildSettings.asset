@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/IdolGame/Scenes/OsiSetupScene.unity
     guid: 2f70bc287eb0f9a48a11f54b997926bf
+  - enabled: 1
+    path: Assets/[yutaka2]/Scenes 1/Game2Scene.unity
+    guid: 0530cbb4551a36343b680f4b46fae2e7
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 7827b70b8e2e9a84a9c424de08272e1b, type: 2}
   m_UseUCBPForAssetBundles: 0

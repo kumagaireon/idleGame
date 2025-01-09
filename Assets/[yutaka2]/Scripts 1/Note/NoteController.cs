@@ -163,9 +163,9 @@ public class NoteController : MonoBehaviour
         }
     }
 
-    private async void ExecuteTap()
+    private void ExecuteTap()
     {
-        await tapChecker.OnTapAble();
+        tapChecker.StartTabAble();
     }
 
     private async void ExecuteSwipe()

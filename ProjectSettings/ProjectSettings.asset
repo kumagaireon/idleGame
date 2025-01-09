@@ -165,7 +165,7 @@ PlayerSettings:
   androidMinAspectRatio: 1
   applicationIdentifier:
     Android: com.IdolKeiya.IdolGame
-    Standalone: com.DefaultCompany.2DIdolGameKari
+    Standalone: com.IdolKeiya.IdolGame
     iPhone: com.DefaultCompany.2DIdolGameKari
   buildNumber:
     Standalone: 0

@@ -99,6 +99,6 @@ public class SongSelectReon : MonoBehaviour
     {
         GManagerReon.instance.songID = select; // �I�����ꂽ�Ȃ�ID��GManager�ɐݒ�
         csvFileName = dataBase.songData[select].csvFileName;//�Ȃ̏����i�[
-        SceneManager.LoadScene("LiveScene"); // ���y�V�[�������[�h
+        SceneManager.LoadScene("Game2Scene"); // ���y�V�[�������[�h
     }    
 }

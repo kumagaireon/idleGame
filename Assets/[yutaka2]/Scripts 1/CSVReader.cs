@@ -23,7 +23,7 @@ public class CSVReader : MonoBehaviour
         }
         if (csvFileName == null)
         {
-            csvFileName = MoviePassGetter.videoFileName;
+            csvFileName = "Ryo_FunTime";
         }        
         data = Music_CSV();
     }

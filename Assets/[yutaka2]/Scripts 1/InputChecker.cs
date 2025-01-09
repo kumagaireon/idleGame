@@ -36,9 +36,9 @@ public class InputChecker : MonoBehaviour
     //}
     
 
-    public bool TappedEnter()
+    public bool GetTapped()
     {
-        return Input.GetKeyDown(KeyCode.Space);
+        return Input.GetMouseButtonDown(0);
     }
     public bool InputShake()
     {

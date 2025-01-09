@@ -10,7 +10,7 @@ public class NoteTap : MonoBehaviour
     [SerializeField] private GameObject[] tapAbleObject;
 
     [Header("上昇速度")]
-    [SerializeField] private float moveSpeed = 0.3f;
+    [SerializeField] private float moveSpeed = 0.3f;    
 
     [Header("初期y座標")]
     [SerializeField] private float startPosY = -10.0f;
@@ -18,27 +18,52 @@ public class NoteTap : MonoBehaviour
     [Header("生存時間")]
     [SerializeField] private float lifeTime = 2.0f;
 
-    //タップ可能時間
-    public async Task OnTapAble()
+    private int index = 0;
+
+    private float currentPosX = -5.0f;
+
+    private Vector3 mousePosition;
+
+    public async void StartTabAble()
     {
-        int index = 0;
+        await OnTapAble(index);
+    }
+
+    //タップ可能時間
+    public async Task OnTapAble(int playIndex)
+    {
+        
+        index = (index + 1) % 5;
 
         //入力の受付開始
         //InputChecker.instance.SetTapAble();
-        ChangeToStartPosition(index);
-        tapAbleObject[index].SetActive(true);        
+        ChangeToStartPosition(playIndex);
+        tapAbleObject[playIndex].SetActive(true);        
 
         //=====入力の回数カウント=====
         int counter = 0;
         float timer = 0;
         while (timer < lifeTime)
         {
-            MoveObject(index);
+            MoveObject(playIndex);
             timer += Time.deltaTime;
-            if (InputChecker.instance.TappedEnter())
+            if (InputChecker.instance.GetTapped())            
             {
-                counter++;
-                ScoreController.instance.GetTapScore();
+                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Debug.Log(mousePosition);
+
+                RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);                
+                if (hit.collider != null)
+                {
+                    tapAbleObject[playIndex].SetActive(false);
+                    ScoreController.instance.GetTapScore();
+                }
+                else
+                {
+                    Debug.Log("null");
+                }
+
+                    
             }
             await Task.Yield();
         }
@@ -47,7 +72,7 @@ public class NoteTap : MonoBehaviour
         //入力の受付終了
         Debug.Log("tap終了 count:" + counter);
         tappedCount.Add(counter);
-        tapAbleObject[index].SetActive(false);
+        tapAbleObject[playIndex].SetActive(false);
         //InputChecker.instance.SetTapNotAble();
     }
 
@@ -59,8 +84,8 @@ public class NoteTap : MonoBehaviour
 
     private void ChangeToStartPosition(int index)
     {
-        float posX = tapAbleObject[index].transform.position.x;
-        tapAbleObject[index].transform.position = new Vector2(posX, startPosY);
+        currentPosX *= -1;
+        tapAbleObject[index].transform.position = new Vector2(currentPosX, startPosY);
     }
 
     private void MoveObject(int index)
