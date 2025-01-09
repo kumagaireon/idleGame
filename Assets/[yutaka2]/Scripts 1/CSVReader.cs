@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public class CSVReader : MonoBehaviour
 {
     public static CSVReader instance;
-    [SerializeField] private MoviePassGetter moviePassGetter;
+    
 
     private void Awake()
     {
@@ -40,7 +40,8 @@ public class CSVReader : MonoBehaviour
 
     private int height = 0;
     private int startHeight = 5;
-    private string csvFileName;
+    [Header("CSVファイル名")]
+    [SerializeField] private string csvFileName;
     public string CsvFileName
     {
         get => csvFileName;
@@ -86,7 +87,7 @@ public class CSVReader : MonoBehaviour
             //int positionStartIndex = 2;
             int positionStartIndex = 4;
             
-            //position�̃f�[�^�͕������݂��邽��List���쐬
+            //position�̃f�[�^�͕������݂��邽��List��쐬
             dat.position = new List<int>();
             for (int j = 0; j < dat.InfoOfGroup; ++j)
             {
