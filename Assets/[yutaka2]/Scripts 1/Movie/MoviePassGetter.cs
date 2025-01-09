@@ -1,27 +1,30 @@
 using UnityEngine;
 using UnityEngine.Video; // Video Playerを使用するために必要
 
+[DefaultExecutionOrder(-1)]
 public class MoviePassGetter : MonoBehaviour
 {
     [SerializeField] private VideoPlayer videoPlayer; // Video Playerコンポーネントの参照
-    private string videoFileName; // 動画ファイル名
+    public static string videoFileName; // 動画ファイル名
+    private string realVideoFileName;
 
     public static string VideoPath
     {
         get => VideoPath;
         set => VideoPath = value;
-    }    
+    }   
 
-    void Start()
+    void Awake()
     {
         if (videoPlayer == null)
         {
             // Video Playerコンポーネントが設定されていない場合は、自動的に取得
-            videoPlayer = GetComponent<VideoPlayer>();
-            videoFileName = "Ryo_LOVEGUN.mp4";
+            videoPlayer = GetComponent<VideoPlayer>();                     
         }
+        videoFileName = "Ryo_LOVEGUN";
+        realVideoFileName = videoFileName + ".mp4";
 
-        PlayVideoByFileName(videoFileName);
+        PlayVideoByFileName(realVideoFileName);        
     }
 
     /// <summary>
@@ -36,6 +39,7 @@ public class MoviePassGetter : MonoBehaviour
             return;
         }
 
+        
         // StreamingAssetsフォルダ内の動画パスを設定
         string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, fileName);
         

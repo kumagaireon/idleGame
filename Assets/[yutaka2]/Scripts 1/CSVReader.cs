@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public class CSVReader : MonoBehaviour
 {
     public static CSVReader instance;
+    [SerializeField] private MoviePassGetter moviePassGetter;
 
     private void Awake()
     {
@@ -22,8 +23,8 @@ public class CSVReader : MonoBehaviour
         }
         if (csvFileName == null)
         {
-            csvFileName = "Ryo_FunTime";
-        }
+            csvFileName = MoviePassGetter.videoFileName;
+        }        
         data = Music_CSV();
     }
 
@@ -52,8 +53,9 @@ public class CSVReader : MonoBehaviour
         //一時入力用で毎回初期化する
         List<MusicData> dat_list = new List<MusicData>();
 
-        //Resourcesからcsvファイルを読み込むため
-        TextAsset csvFile;        
+        //Resourcesからcsvファイルを読み込むため        
+        TextAsset csvFile;
+        Debug.Log(csvFileName);
         csvFile = Resources.Load("CSV/" + csvFileName) as TextAsset;
         StringReader reader = new StringReader(csvFile.text);
 
