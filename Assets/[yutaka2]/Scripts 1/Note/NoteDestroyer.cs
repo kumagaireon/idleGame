@@ -17,43 +17,85 @@ public class NoteDestroyer : MonoBehaviour
         }
     }
 
+
     /// <summary>
-    /// ƒIƒuƒWƒFƒNƒg‚ÌÁ‹
+    /// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç ´å£Š
     /// </summary>
-    /// <param name="targetObj">Á‹‚·‚éƒIƒuƒWƒFƒNƒg</param>
-    /// <param name="type">’P‘Ì‚©ƒOƒ‹[ƒv‚©i‚±‚Ì‚Ü‚Ü‚È‚çbool‚Å‚à‚¢‚¢j</param>
+    /// <param name="targetObj">ç ´å£Šå¯¾è±¡ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ</param>
+    /// <param name="type">0: å€‹åˆ¥ã«ç ´å£Š, 1: ã‚°ãƒ«ãƒ¼ãƒ—å…¨ä½“ã‚’ç ´å£Š</param>
     public void DestroyObject(GameObject targetObj, int type)
     {
+        // ãƒãƒ¼ãƒˆã‚°ãƒ«ãƒ¼ãƒ—ãƒªã‚¹ãƒˆã‚’ãƒ«ãƒ¼ãƒ—ã—ã¦ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒã‚§ãƒƒã‚¯
         for (int row = 0; row < NoteController.groupList.Count; row++)
         {
             for (int col = 0; col < NoteController.groupList[row].Count; col++)
             {
-                if (NoteController.groupList[row][col] == targetObj)
+                if (NoteController.groupList[row][col] != targetObj) continue;
+                switch (type)
                 {
-                    //ƒIƒuƒWƒFƒNƒg’P‘Ì‚ğÁ‹‚·‚éê‡
-                    if (type == 0)
-                    {
+                    // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå€‹åˆ¥ã«ç ´å£Šã™ã‚‹å ´åˆ
+                    case 0:
                         targetObj.SetActive(false);
-                    }
-
-                    //ƒIƒuƒWƒFƒNƒg‚ªŠ‘®‚·‚éƒOƒ‹[ƒv‚ğÁ‹‚·‚éê‡
-                    else if (type == 1)
+                        break;
+                    // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å±ã™ã‚‹ã‚°ãƒ«ãƒ¼ãƒ—å…¨ä½“ã‚’ç ´å£Šã™ã‚‹å ´åˆ
+                    case 1:
                     {
-                        //•\¦‚³‚ê‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚ğ”ñƒAƒNƒeƒBƒu
+                        // ã‚°ãƒ«ãƒ¼ãƒ—å†…ã®ã™ã¹ã¦ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’éã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ã™ã‚‹
                         foreach (GameObject o in NoteController.groupList[row])
                         {
                             o.SetActive(false);
                         }
 
-                        //ƒŠƒXƒg‚ğnull‚É‚µ‚Ä•\¦‚µ‚È‚¢‚æ‚¤‚É‚·‚éiasync await‚ª— ‚Å‰ñ‚Á‚Ä‚¢‚é‚½‚ßj
-                        for (int k = 0; k < NoteController.groupList[row].Count; k++)
+                        // ã‚°ãƒ«ãƒ¼ãƒ—ãƒªã‚¹ãƒˆã‚’nullã«è¨­å®šï¼ˆãƒ¡ãƒ¢ãƒªç®¡ç†ã®ãŸã‚ï¼‰
+                        for (var k = 0; k < NoteController.groupList[row].Count; k++)
                         {
-                            NoteController. groupList[row][k] = null;
-                            //groupList[row] = null;
-                        }                        
+                            NoteController.groupList[row][k] = null;
+                        }
+
+                        break;
                     }
                 }
             }
         }
     }
+    /*
+     {
+        for (int row = 0; row < NoteController.groupList.Count; row++)
+
+        {
+            int col = NoteController.groupList[row].IndexOf(targetObj);
+            if (col != -1) // è¦‹ã¤ã‹ã£ãŸå ´åˆã®ã¿å‡¦ç†ã‚’è¡Œã†
+            {
+                if (type == 0)
+                {
+                    DeactivateObject(targetObj);
+                }
+                else if (type == 1)
+                {
+                    DeactivateGroup(NoteController.groupList[row]);
+                }
+
+                break; // è¦‹ã¤ã‹ã£ãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
+            }
+        }
+    }
+
+    private void DeactivateObject(GameObject targetObj)
+    {
+        targetObj.SetActive(false);
+    }
+
+    private void DeactivateGroup(List<GameObject> group)
+    {
+        foreach (GameObject obj in group)
+        {
+            obj.SetActive(false);
+        }
+
+        for (int k = 0; k < group.Count; k++)
+        {
+            group[k] = null;
+        }
+    }
+ */
 }

@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class NoteShaker : MonoBehaviour
 {
+    // シェイクのカウントリスト
     private List<int> shakedCount = new List<int>();
 
-    [Header("�^�b�v�\�I�u�W�F�N�g")]
-    [SerializeField] private GameObject shakeAbleObject;
+    [Header("タップ可能オブジェクト")] [SerializeField]
+    private GameObject shakeAbleObject;
 
+    // シェイクが可能かどうかを示すフラグ
     public static bool shakeAble = false;
 
-    //�^�b�v�\����
+    // 指定されたオブジェクトをシェイク可能にする
     public async Task OnShakeAble()
     {
-        
-        //���͂̎�t�J�n
+
+        // シェイク可能状態を設定
         //InputChecker.instance.SetShakeAble();
         shakeAbleObject.SetActive(true);
         shakeAble = true;
 
-        //=====���͂̉񐔃J�E���g=====
+        // シェイクのカウント
         int counter = 0;
         float timer = 0;
         while (timer < 1.0f)
@@ -35,9 +37,9 @@ public class NoteShaker : MonoBehaviour
         }
         //============================
 
+        // シェイク終了
         shakeAble = false;
-        //���͂̎�t�I��
-        Debug.Log("shake�I��");
+        Debug.Log("shake完了");
         shakedCount.Add(counter);
         shakeAbleObject.SetActive(false);
         //InputChecker.instance.SetShakeNotAble();

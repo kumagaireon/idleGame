@@ -1,37 +1,45 @@
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class NoteAlphaChanger : MonoBehaviour
 {
-    [Header("�ύX����")]
-    [SerializeField] private float duration = 1.0f;
-    [Header("�����A���t�@�l")]
-    [SerializeField] private float firstAlpha = 0.3f;    
+    [Header("変化時間")] [SerializeField] private float duration = 1.0f; // アルファ変化の所要時間
+    [Header("初期アルファ値")] [SerializeField] private float firstAlpha = 0.3f; // 初期アルファ値
 
-    private async Task OnFadeIn(SpriteRenderer targetSR)
+    /// <summary>
+    /// SpriteRendererのアルファ値をフェードインさせるメソッド
+    /// </summary>
+    /// <param name="targetSr">対象のSpriteRenderer</param>
+    private async UniTask OnFadeIn(SpriteRenderer targetSr)
     {
-        //�󂯎����SpriteRenderer�̃A���t�@�l�̂ݕύX����
-        Color color = targetSR.color;
+        // 渡されたSpriteRendererのアルファ値を初期値に設定
+        Color color = targetSr.color;
         color.a = firstAlpha;
-        targetSR.color = color;
+        targetSr.color = color;
 
-        //���߂�FadeIn�ɕK�v�ȕϐ����Z�b�g����
-        float startAlpha = color.a;     //Fade�̏����l
-        float endAlpha = 1.0f;          //Fade�̍ŏI�l
-        float elapsedTime = 0.0f;       //Fade�̒��Ԓl
+        // フェードインに必要な変数を設定
+        float startAlpha = color.a; // フェードの開始アルファ値
+        float endAlpha = 1.0f; // フェードの終了アルファ値
+        float elapsedTime = 0.0f; // 経過時間
 
-        while(elapsedTime < duration)
+        // フェードインの処理
+        while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
             float newAlpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / duration);
             color.a = newAlpha;
-            targetSR.color = color;
+            targetSr.color = color;
             await Task.Yield();
         }
     }
 
-    public async void FadeIn(SpriteRenderer targetSR)
+    /// <summary>
+    /// フェードインを開始する公開メソッド
+    /// </summary>
+    /// <param name="targetSr">対象のSpriteRenderer</param>
+    public async void FadeIn(SpriteRenderer targetSr)
     {
-        await OnFadeIn(targetSR);
+        await OnFadeIn(targetSr);
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Threading;
-using _yutaka2_.Scripts_1.Movie;
 using Cysharp.Threading.Tasks;
 using IdolGame.Audios.Core;
 using IdolGame.Common.ViewModels;
@@ -21,7 +20,7 @@ namespace IdolGame.SongSelection.ViewModels;
 
 public sealed class MainViewModel: ViewModelBase<MainView>
 {
-    // ログ記録用のロガー
+       // ログ記録用のロガー
     readonly ILogger<MainViewModel> logger;
     DisposableBag bag;
     readonly AudioPlayer audioPlayer;
@@ -122,8 +121,8 @@ public sealed class MainViewModel: ViewModelBase<MainView>
           
             if (voiceHandle.Status == AsyncOperationStatus.Succeeded)
             {
-             
-                var videoName = System.IO.Path.GetFileName(selectedVoicePath);
+
+                AsyncOperationHandle<VideoClip> videoName = voiceHandle;
                
                 //インゲームにvideoNameを渡す
                 MoviePassGetter.videoFileName = videoName;
@@ -134,7 +133,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
                    
                 }
                 await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
-                await SceneManager.LoadSceneAsync("Game2Scene")!.WithCancellation(ct);
+                await SceneManager.LoadSceneAsync("InGame")!.WithCancellation(ct);
             }
         }
         else

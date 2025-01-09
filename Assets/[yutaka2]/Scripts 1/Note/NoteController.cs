@@ -1,38 +1,41 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class NoteController : MonoBehaviour
 {
-    public static NoteController instance;
+    public static NoteController? instance;
 
-    private NoteGenerator generator;
-    private NotePositioner positioner;
-    private NoteAlphaChanger alphaChanger;
-    private NoteTap tapChecker;
-    private NoteShaker shakeChecker;
+    private NoteGenerator? generator;
+    private NotePositioner? positioner;
+    private NoteAlphaChanger? alphaChanger;
+    private NoteTap? tapChecker;
+    private NoteShaker? shakeChecker;
 
-    private int generatedGroupsNum = 0;
+    private int generatedGroupsNum = 0; // ç”Ÿæˆã•ã‚ŒãŸã‚°ãƒ«ãƒ¼ãƒ—ã®æ•°
 
-    private float timer = 0.0f;
+    private float timer = 0.0f; // ã‚¿ã‚¤ãƒãƒ¼
 
+    // ãƒãƒ¼ãƒˆã®ã‚°ãƒ«ãƒ¼ãƒ—ãƒªã‚¹ãƒˆ
     public static List<List<GameObject>> groupList = new List<List<GameObject>>();
 
 
     private int BPM;
     private int FPS = 60;
 
+    private float noteLifeTime = 2.0f; // ãƒãƒ¼ãƒˆã®å¯¿å‘½æ™‚é–“
+
+    // ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸãƒãƒ¼ãƒˆãƒªã‚¹ãƒˆ
     private List<GameObject> clickedList = new List<GameObject>();
 
-    private float noteLifeTime = 2.0f;
     //private Dictionary<int, float> groupSpawnTimes = new Dictionary<int, float>();
-    private List<float> groupSpawnTimes = new List<float>();        
+    // ã‚°ãƒ«ãƒ¼ãƒ—ã®ç”Ÿæˆæ™‚é–“ãƒªã‚¹ãƒˆ
+    private List<float> groupSpawnTimes = new List<float>();
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -41,139 +44,147 @@ public class NoteController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void Start()
-    {        
+    {
         generator = GetComponent<NoteGenerator>();
         positioner = GetComponent<NotePositioner>();
-        alphaChanger = GetComponent<NoteAlphaChanger>();  
+        alphaChanger = GetComponent<NoteAlphaChanger>();
         tapChecker = GetComponent<NoteTap>();
         shakeChecker = GetComponent<NoteShaker>();
-        
-        BPM = CSVReader.instance.BPM;
-        Debug.Log(BPM);        
+
+        BPM = CSVReader.instance!.Bpm;
+        Debug.Log(BPM);
     }
 
-    // Update is called once per frame
+
     async void Update()
     {
+        // ã‚¿ã‚¤ãƒãƒ¼ã®æ›´æ–°
         timer += Time.deltaTime * (BPM / 60.0f);
-        if (generatedGroupsNum >= CSVReader.instance.GetGroupsCount())
+        // ã™ã¹ã¦ã®ã‚°ãƒ«ãƒ¼ãƒ—ãŒç”Ÿæˆã•ã‚ŒãŸå ´åˆ
+        if (generatedGroupsNum >= CSVReader.instance!.GetGroupsCount())
         {
-            Debug.Log("Finish generatedGroupsNum:" + generatedGroupsNum + "groupCount:" + CSVReader.instance.GetGroupsCount());            
+            Debug.Log("Finish generatedGroupsNum:" + generatedGroupsNum + "groupCount:" +
+                      CSVReader.instance.GetGroupsCount());
         }
-
-        else if (timer > CSVReader.data[generatedGroupsNum].time)
+        // ã‚°ãƒ«ãƒ¼ãƒ—ç”Ÿæˆã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«é”ã—ãŸå ´åˆ
+        else if (timer > CSVReader.data[generatedGroupsNum].Time)
         {
             switch (CSVReader.data[generatedGroupsNum].TypeOfGroup)
             {
-                case 0: ExecuteGroup(generatedGroupsNum); break;    //’Êí‚Ìƒm[ƒc
-                case 1: ExecuteTap(); break;                          //ƒ^ƒbƒv”»’è
-                case 2: ExecuteSwipe(); break;
-                //“‡‚ÌŠÖŒW‚ÅƒXƒƒCƒv‚Ìˆ—‚Í•Ê                                                                     
+                case 0: ExecuteGroup(generatedGroupsNum); break; // ãƒãƒ¼ãƒˆã‚°ãƒ«ãƒ¼ãƒ—
+                case 1: ExecuteTap(); break; // ã‚¿ãƒƒãƒ—ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
+                case 2:
+                    ExecuteSwipe();
+                    break;
+                    ; // ã‚¹ãƒ¯ã‚¤ãƒ—ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
+                // ä»–ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚‚è¿½åŠ å¯èƒ½
             }
 
-            //¶¬‚·‚éƒf[ƒ^‚ğXV‚·‚é
+            // ç”Ÿæˆã•ã‚ŒãŸã‚°ãƒ«ãƒ¼ãƒ—æ•°ã‚’æ›´æ–°
             generatedGroupsNum++;
 
         }
 
+        // å¤ã„ãƒãƒ¼ãƒˆã‚’ãƒã‚§ãƒƒã‚¯ã—ã¦å‰Šé™¤
         CheckAndDestroyOldNotes();
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private async void ExecuteGroup(int groupsNum)
     {
         await OnExecuteGroup(groupsNum);
     }
 
-    private async Task OnExecuteGroup(int groupNum)
+    private async UniTask OnExecuteGroup(int groupNum)
     {
-        //ƒOƒ‹[ƒv‚ÅŠÇ—‚·‚é‚½‚ß‚ÌList‚ğì¬
+        // ã‚°ãƒ«ãƒ¼ãƒ—ã‚’ç®¡ç†ã™ã‚‹ãƒªã‚¹ãƒˆã‚’ä½œæˆ
         List<GameObject> objList = new List<GameObject>();
 
-        //¶¬‚·‚éŒÂ”
+        // ç”Ÿæˆã™ã‚‹ãƒãƒ¼ãƒˆã®æ•°
         int generateNotesNum = CSVReader.data[groupNum].InfoOfGroup;
-        
-        //*****ƒOƒ‹[ƒvƒŠƒXƒg‚É’Ç‰Á******
-        for(int i = 0; i < generateNotesNum; i++)
+
+        // ã‚°ãƒ«ãƒ¼ãƒ—ãƒªã‚¹ãƒˆã«è¿½åŠ 
+        for (int i = 0; i < generateNotesNum; i++)
         {
-            GameObject noteObj = generator.GenerateNote();
+            GameObject noteObj = generator!.GenerateNote();
             noteObj.SetActive(false);
 
-            //ƒOƒ‹[ƒv‚É‚Ü‚Æ‚ß‚é
             objList.Add(noteObj);
         }
-        //ƒOƒ‹[ƒvƒŠƒXƒg‚É’Ç‰Á
-        groupList.Add(objList);
-        //******************************
 
-        //******À‘Ì‚ğ‚Â‚­‚é*******
+        // ãƒãƒ¼ãƒˆã‚’è¡¨ç¤º
+        groupList.Add(objList);
+
         for (int i = 0; i < generateNotesNum; i++)
         {
             if (objList[i] != null)
             {
-                //¶¬               
                 objList[i].SetActive(true);
+                objList[i].transform.position = positioner!.SetPosition(CSVReader.data[groupNum].Position[i]);
 
-                //ˆÊ’u‚ğİ’è
-                objList[i].transform.position = positioner.SetPosition(CSVReader.data[groupNum].position[i]);
-
-                //ƒAƒ‹ƒtƒ@’l‚ÌFade
                 SpriteRenderer noteRenderer = objList[i].GetComponent<SpriteRenderer>();
-                alphaChanger.FadeIn(noteRenderer);
+                alphaChanger!.FadeIn(noteRenderer);
             }
-            //‘Ò‹@ŠÔ                
-            await Task.Delay((60 * 1000 / BPM) / (generateNotesNum - 1));           
-        }
-        //*************************
 
-        //ƒOƒ‹[ƒv¶¬‚ğ‹L˜^
+            await Task.Delay((60 * 1000 / BPM) / (generateNotesNum - 1));
+        }
+
+        // ã‚°ãƒ«ãƒ¼ãƒ—ç”Ÿæˆæ™‚é–“ã‚’è¨˜éŒ²
         groupSpawnTimes.Add(Time.time);
     }
 
 
-    //¶‘¶ŠÔ‚ğ‚·‚¬‚½‚çƒm[ƒc‚ğÁ‹
-    private void CheckAndDestroyOldNotes() {
+    // å¤ã„ãƒãƒ¼ãƒˆã‚’ãƒã‚§ãƒƒã‚¯ã—ã¦å‰Šé™¤
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void CheckAndDestroyOldNotes()
+    {
         float currentTime = Time.time;
         List<int> groupsToRemove = new List<int>();
 
-        foreach(var groupTime in groupSpawnTimes)
+        foreach (var groupTime in groupSpawnTimes)
         {
-            if(currentTime - groupTime >= noteLifeTime * (60.0f / BPM))
+            if (currentTime - groupTime >= noteLifeTime * (60.0f / BPM))
             {
                 int groupNum = groupSpawnTimes.IndexOf(groupTime);
-                Debug.Log("timeOverNum:" +  groupNum);
-                if(groupNum < groupList.Count)
+                Debug.Log("timeOverNum:" + groupNum);
+                if (groupNum < groupList.Count)
                 {
-                    foreach(var note in groupList[groupNum])
+                    foreach (var note in groupList[groupNum])
                     {
-                        if(note != null && note.activeSelf)
+                        if (note != null && note.activeSelf)
                         {
                             note.SetActive(false);
                             ScoreController.instance.MinusNoteScore();
                         }
                     }
-                }                
+                }
+
                 groupsToRemove.Add(groupNum);
             }
         }
 
-        foreach(var groupIndex in groupsToRemove)
+        foreach (var groupIndex in groupsToRemove)
         {
             groupSpawnTimes.Remove(groupIndex);
         }
     }
 
+    // ã‚¿ãƒƒãƒ—ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’å®Ÿè¡Œ
     private void ExecuteTap()
     {
-        tapChecker.StartTabAble();
+        tapChecker!.StartTabAble();
     }
 
+    // ã‚¹ãƒ¯ã‚¤ãƒ—ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’å®Ÿè¡Œ
     private async void ExecuteSwipe()
     {
-        if(shakeChecker == null)
+        if (!shakeChecker)
         {
             Debug.Log("null");
         }
-        await shakeChecker.OnShakeAble();
+
+        await shakeChecker!.OnShakeAble();
     }
 }

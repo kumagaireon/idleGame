@@ -6,9 +6,10 @@ public class NoteGenerator : MonoBehaviour
 {
     public static NoteGenerator instance;
 
-    [Header("�m�[�c")]
+    [Header("ノート")]
     [SerializeField] private GameObject notePrefab;
 
+    // グループごとのノートリスト
     private List<List<GameObject>> groupList = new List<List<GameObject>>();
 
     private void Awake()
@@ -23,13 +24,12 @@ public class NoteGenerator : MonoBehaviour
         }                
     }
 
-    /// <summary>
-    /// //note�𐶐����郁�\�b�h
-    /// </summary>
-    /// <param name="num">���������</param>
-    /// <param name="posNum">��������ʒu</param>
+   /// <summary>
+   /// ノートを生成するメソッド
+   /// </summary>
+   /// <returns>生成されたノートオブジェクト<</returns>
     public GameObject GenerateNote()
     {
-        return Instantiate(notePrefab);        
+        return Instantiate(notePrefab);// ノートのプレハブをインスタンス化
     }
 }
