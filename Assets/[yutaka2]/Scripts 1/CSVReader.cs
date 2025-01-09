@@ -23,7 +23,7 @@ public class CSVReader : MonoBehaviour
         }
         if (csvFileName == null)
         {
-            csvFileName = "Ryo_FunTime";
+            csvFileName = "Fruity_100percent";
         }        
         data = Music_CSV();
     }

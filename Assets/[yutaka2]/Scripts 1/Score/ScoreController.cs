@@ -41,6 +41,7 @@ public class ScoreController : MonoBehaviour
     private void Start()
     {
         CalculateMaxScore();
+        score = maxScore / 2;
     }
 
     public void CalculateMaxScore()
@@ -104,12 +105,36 @@ public class ScoreController : MonoBehaviour
     private void ShowRatio()
     {
         float ratio = (score / maxScore) * 100;
-        ratioText.text = "·‚èã‚ª‚è“xF" + ratio.ToString() + "%";
+        string rank;
+        if(ratio >= 90.0f)
+        {
+            rank = "S";
+        }
+        else if (ratio >= 60.0f)
+        {
+            rank = "A";
+        }
+        else if(ratio >= 30.0f)
+        {
+            rank = "B";
+        }
+        else
+        {
+            rank = "C";
+        }
+        ratioText.text = rank;
     }
 
     public void MinusNoteScore()
     {
         score -= noteScore;
+        UpdateScoreText();
+        ShowRatio();
+    }
+
+    public void MinusTapScore()
+    {
+        score -= 100;
         UpdateScoreText();
         ShowRatio();
     }

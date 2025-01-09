@@ -72,7 +72,12 @@ public class NoteTap : MonoBehaviour
         //“ü—Í‚Ìó•tI—¹
         Debug.Log("tapI—¹ count:" + counter);
         tappedCount.Add(counter);
-        tapAbleObject[playIndex].SetActive(false);
+        if(tapAbleObject[playIndex].activeSelf)
+        {
+            ScoreController.instance.MinusTapScore();
+            tapAbleObject[playIndex].SetActive(false);
+        }
+        
         //InputChecker.instance.SetTapNotAble();
     }
 

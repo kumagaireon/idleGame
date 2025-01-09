@@ -21,7 +21,7 @@ public class MoviePassGetter : MonoBehaviour
             // Video Playerコンポーネントが設定されていない場合は、自動的に取得
             videoPlayer = GetComponent<VideoPlayer>();                     
         }
-        videoFileName = "Ryo_LOVEGUN";
+        videoFileName = "fruity_100percent";
         realVideoFileName = videoFileName + ".mp4";
 
         PlayVideoByFileName(realVideoFileName);        
