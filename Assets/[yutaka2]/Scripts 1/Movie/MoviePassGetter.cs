@@ -19,10 +19,10 @@ public class MoviePassGetter : MonoBehaviour
         videoFileName = "fruity_100percent";
         realVideoFileName = videoFileName + ".mp4";
         
-        videoPlayer.url = realVideoFileName;
-        videoPlayer.Play();
+        //videoPlayer.url = realVideoFileName;
+        //videoPlayer.Play();
         
-     //   PlayVideoByFileName(realVideoFileName);        
+        PlayVideoByFileName(realVideoFileName);        
     }
 
     /// <summary>
