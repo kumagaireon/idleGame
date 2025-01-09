@@ -10,6 +10,30 @@ public class CSVReader : MonoBehaviour
 {
     public static CSVReader instance;
     
+<<<<<<< HEAD
+=======
+    //MoviePassGetterコンポーネントへの参照
+    [SerializeField] private MoviePassGetter moviePassGetter;
+
+    // 音楽データの構造体
+    public struct MusicData
+    {
+        public float time; // 時間
+        public float TypeOfGroup; // グループのタイプ
+        public int InfoOfGroup; // グループ情報
+        public List<int> position; // ポジション
+    }
+
+    // 音楽データのリスト
+    public static List<MusicData> data = new List<MusicData>();
+
+    private int height = 0;// CSVの行数
+    private int startHeight = 5;// データの開始行数
+    
+    private string csvFileName;// CSVファイル名
+    
+    public int BPM { get; private set; }// BPM
+>>>>>>> 510c681b9548066f51e82590077bdfd30a715935
 
     private void Awake()
     {
