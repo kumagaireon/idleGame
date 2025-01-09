@@ -6,7 +6,7 @@ public class MoviePassGetter : MonoBehaviour
     [SerializeField] private VideoPlayer videoPlayer; // Video Playerコンポーネントの参照
     private string videoFileName; // 動画ファイル名
 
-    public string VideoPath
+    public static string VideoPath
     {
         get => VideoPath;
         set => VideoPath = value;

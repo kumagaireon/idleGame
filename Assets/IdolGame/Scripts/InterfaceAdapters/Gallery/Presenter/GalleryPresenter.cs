@@ -32,7 +32,7 @@ public sealed class GalleryPresenter:IAsyncStartable
     {
         logger.ZLogTrace($"Called {GetType().Name}.StartAsync");
 
-        mainViewModel.AddView(true);
+        mainViewModel.AddView(false);
 
         await audioPlayer.InitializeAsync(ct);
         

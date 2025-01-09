@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
@@ -9,7 +8,6 @@ using IdolGame.SongSelection.Views;
 using IdolGame.UIElements;
 using Microsoft.Extensions.Logging;
 using R3;
-using UIToolkit.R3.Integration;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -116,7 +114,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
 
         if (selectedVoicePath != null)
         {
-            var voiceHandle = Addressables.LoadAssetAsync<VideoClip>(selectedVoicePath);
+            var voiceHandle = Addressables.LoadAssetAsync<VideoPlayer>(selectedVoicePath);
             await voiceHandle.Task;
             if (voiceHandle.Status == AsyncOperationStatus.Succeeded)
             {
@@ -124,6 +122,8 @@ public sealed class MainViewModel: ViewModelBase<MainView>
                 //ここでInGameの方にvoiceHandleを渡したい
                 //==================================
                 
+                
+                logger.ZLogTrace($"{selectedVoicePath}");
                 if (CloseContinueAsync != null)
                 {
                     await CloseContinueAsync(SceneTransitionState.Next, ct);
@@ -139,6 +139,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         }
         
     }
+
 
     async UniTask OnInputReturn(PointerDownEvent e, CancellationToken ct)
     {
