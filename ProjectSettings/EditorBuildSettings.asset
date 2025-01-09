@@ -30,8 +30,22 @@ EditorBuildSettings:
     path: Assets/IdolGame/Scenes/OsiSetupScene.unity
     guid: 2f70bc287eb0f9a48a11f54b997926bf
   - enabled: 1
-    path: Assets/[yutaka2]/Scenes 1/Game2Scene.unity
+    path: Assets/[yutaka2]/Scenes 1/Fruity_InGame.unity
     guid: 0530cbb4551a36343b680f4b46fae2e7
+<<<<<<< HEAD
+  - enabled: 1
+<<<<<<< HEAD
+    path: Assets/[yutaka2]/Scenes 1/OneLove_InGame.unity
+    guid: d13c2360bac10354e9edde226e042ff7
+  - enabled: 1
+    path: Assets/[yutaka2]/Scenes 1/Ryo_InGame.unity
+    guid: 51c2ca121fcb4e34cafa331f85a059fe
+=======
+    path: Assets/IdolGame/Scripts/Tests/SampleTestScene.unity
+    guid: 2da36d76b0860844a86c6048f697fc9e
+>>>>>>> f93e7416d9abee70e31a144980c836e5a513629b
+=======
+>>>>>>> 510c681b9548066f51e82590077bdfd30a715935
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 7827b70b8e2e9a84a9c424de08272e1b, type: 2}
   m_UseUCBPForAssetBundles: 0
