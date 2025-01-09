@@ -1,21 +1,16 @@
 using UnityEngine;
-using UnityEngine.Video; // Video Playerを使用するために必要
+using UnityEngine.Video;
 
+// Video Playerを使用するために必要
 [DefaultExecutionOrder(-1)]
 public class MoviePassGetter : MonoBehaviour
 {
     [SerializeField] private VideoPlayer videoPlayer; // Video Playerコンポーネントの参照
-    public static string videoFileName; // 動画ファイル名
+    public static string videoFileName { get; set; } // 動画ファイル名
     private string realVideoFileName;
-
-    public static string VideoPath
-    {
-        get => VideoPath;
-        set => VideoPath = value;
-    }   
-
+    
     void Awake()
-    {
+    {   
         if (videoPlayer == null)
         {
             // Video Playerコンポーネントが設定されていない場合は、自動的に取得
@@ -23,8 +18,11 @@ public class MoviePassGetter : MonoBehaviour
         }
         videoFileName = "Ryo_LOVEGUN";
         realVideoFileName = videoFileName + ".mp4";
-
-        PlayVideoByFileName(realVideoFileName);        
+        
+        videoPlayer.url = realVideoFileName;
+        videoPlayer.Play();
+        
+     //   PlayVideoByFileName(realVideoFileName);        
     }
 
     /// <summary>
@@ -53,11 +51,5 @@ public class MoviePassGetter : MonoBehaviour
         // 動画のURLを設定して再生
         videoPlayer.url = videoPath;
         videoPlayer.Play();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

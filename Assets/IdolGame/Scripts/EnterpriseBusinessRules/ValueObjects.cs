@@ -171,7 +171,10 @@ public readonly partial struct MusicDescription
 public readonly partial struct MusicVoicePath
 {
 }
-
+[UnitOf(typeof(string), UnitGenerateOptions.ImplicitOperator | UnitGenerateOptions.JsonConverter)]
+public readonly partial struct CsvFilePath
+{
+}
 
 //シーンUIData
 

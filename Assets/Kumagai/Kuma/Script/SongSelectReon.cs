@@ -7,98 +7,124 @@ using TMPro;
 
 public class SongSelectReon : MonoBehaviour
 {
-    [SerializeField] SongDataBaseReon dataBase; // �Ȃ̃f�[�^�x�[�X
-    [SerializeField] TextMeshProUGUI[] songNameText; // �Ȗ���\������TextMeshProUGUI�̔z��
-    [SerializeField] TextMeshProUGUI[] songLevelText; // �ȃ��x����\������TextMeshProUGUI�̔z��
-    [SerializeField] TextMeshProUGUI[] csvFileText; // �ȃ��x����\������TextMeshProUGUI�̔z��
+    // データベースの参照
+    [SerializeField] SongDataBaseReon dataBase;
 
-    [SerializeField] Image songImage; // �Ȃ̉摜��\������Image�I�u�W�F�N�g
+    // 曲名を表示するためのTextMeshProUGUIの配列
+    [SerializeField] TextMeshProUGUI[] songNameText;
 
-    AudioSource audio; // �I�[�f�B�I�\�[�X�R���|�[�l���g
-    AudioClip Music; // ���ݑI������Ă���Ȃ̃I�[�f�B�I�N���b�v
-    string songName; // ���ݑI������Ă���Ȃ̖��O
-    int select; // ���ݑI������Ă���Ȃ̃C���f�b�N�X
-  [SerializeField]  private string selectedVideoPath;
-    public static string csvFileName { get; private set; }
+    // 曲のレベルを表示するためのTextMeshProUGUIの配列
+    [SerializeField] TextMeshProUGUI[] songLevelText;
+
+    // CSVファイル名を表示するためのTextMeshProUGUIの配列
+    [SerializeField] TextMeshProUGUI[] csvFileText;
+
+    // 曲の画像を表示するためのImageオブジェクト [
+    [SerializeField] Image songImage;
+
+
+    AudioSource audio; // オーディオソースコンポーネント
+    AudioClip Music; // 現在再生中の曲のオーディオクリップ
+    string songName; // 現在選択中の曲名
+    int select; // 現在選択中のインデックス
+    [SerializeField] private string selectedVideoPath; // 選択されたビデオのパス
+    public static string csvFileName { get; private set; } // CSVファイル名のプロパティ
 
     private void Start()
     {
-        select = 0; // �ŏ��ɑI�������Ȃ��C���f�b�N�X0�ɐݒ�
-        audio = GetComponent<AudioSource>(); // AudioSource�R���|�[�l���g���擾
-        songName = dataBase.songData[select].songName; // �����̋Ȗ����f�[�^�x�[�X����擾
-        selectedVideoPath = dataBase.songData[select].selectedVideoPath; // �����̋Ȗ����f�[�^�x�[�X����擾
-        Music = (AudioClip)Resources.Load("Musics/" + songName); // �����̋Ȃ����\�[�X���烍�[�h
-        SongUpdateALL(); // �ȏ���S�čX�V
+        // 最初の選択を0に設定
+        select = 0;
+        // AudioSourceコンポーネントを取得
+        audio = GetComponent<AudioSource>();
+        // 最初の曲の情報を取得
+        songName = dataBase.songData[select].songName;
+        selectedVideoPath = dataBase.songData[select].selectedVideoPath; 
+        // リソースから最初の曲をロード
+        Music = (AudioClip)Resources.Load("Musics/" + songName);
+        // すべての曲情報を更新
+        SongUpdateALL();
     }
 
     void Update()
     {
-        // �����L�[�������ꂽ��
+        // 下矢印キーが押された場合
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (select < dataBase.songData.Length - 1) // �f�[�^�x�[�X�̒����ȓ��ł����
+            if (select < dataBase.songData.Length - 1) // インデックスがデータベースの範囲内であるかを確認
             {
-                select++; // �Ȃ̑I�������̋ȂɈړ�
-                SongUpdateALL(); // �ȏ���S�čX�V
+                select++; // インデックスを増加
+                SongUpdateALL(); // すべての曲情報を更新
             }
         }
 
-        // ����L�[�������ꂽ��
+        // 上矢印キーが押された場合
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (select > 0) // �C���f�b�N�X��0�ȏ�ł����
+            if (select > 0) // インデックスが0以上であるかを確認
             {
-                select--; // �Ȃ̑I����O�̋ȂɈړ�
-                SongUpdateALL(); // �ȏ���S�čX�V
+                select--; // インデックスを減少
+                SongUpdateALL(); // すべての曲情報を更新
             }
         }
 
-        // �X�y�[�X�L�[�������ꂽ��
+        // スペースキーが押された場合
         if (Input.GetKeyDown(KeyCode.Space))
-        {                        
-            SongStart(); // �Ȃ̍Đ����J�n
+        {
+            SongStart(); // 曲を再生開始
         }
     }
 
+    // すべての曲情報を更新するメソッド
     private void SongUpdateALL()
     {
-        songName = dataBase.songData[select].songName; // ���ݑI������Ă���Ȗ����f�[�^�x�[�X����擾
-        selectedVideoPath = dataBase.songData[select].selectedVideoPath; // ���ݑI������Ă���Ȗ����f�[�^�x�[�X����擾
-        Music = (AudioClip)Resources.Load("Musics/" + songName); // ���ݑI������Ă���Ȃ����\�[�X���烍�[�h
-        audio.Stop(); // ���ݍĐ����̉��y���~
-        audio.PlayOneShot(Music); // �V�����Ȃ��Đ�
+        // 現在の選択中の曲の情報を取得
+        songName = dataBase.songData[select].songName;
+        selectedVideoPath = dataBase.songData[select].selectedVideoPath;
 
+        // リソースから現在の曲をロード
+        Music = (AudioClip)Resources.Load("Musics/" + songName);
+        // 現在再生中の曲を停止
+        audio.Stop();
+        // 新しい曲を再生
+        audio.PlayOneShot(Music);
+        // 5曲分の情報を更新
         for (int i = 0; i < 5; i++)
         {
-            SongUpdate(i - 2); // �Ȃ̏����X�V
+            SongUpdate(i - 2);
         }
     }
 
+    // 曲情報を更新するメソッド
     private void SongUpdate(int id)
     {
         try
         {
-            // �Ȗ��ƃ��x�����e�L�X�g�ɕ\��
+            // 曲名とレベルを対応するテキストに表示
             songNameText[id + 2].text = dataBase.songData[select + id].songName;
             songLevelText[id + 2].text = "Lv." + dataBase.songData[select + id].songLevel;
         }
         catch
         {
-            // �C���f�b�N�X���͈͊O�̏ꍇ�A�e�L�X�g����ɂ���
+            // インデックスが範囲外の場合、テキストを空にする
             songNameText[id + 2].text = "";
             songLevelText[id + 2].text = "";
         }
 
+        // 中央の曲の場合、画像を更新
         if (id == 0)
         {
-            songImage.sprite = dataBase.songData[select + id].songImage; // �Ȃ̉摜��\��
+            songImage.sprite = dataBase.songData[select + id].songImage; 
         }
     }
 
+    // 曲を開始するメソッド
     public void SongStart()
     {
-        GManagerReon.instance.songID = select; // �I�����ꂽ�Ȃ�ID��GManager�ɐݒ�
-        csvFileName = dataBase.songData[select].csvFileName;//�Ȃ̏����i�[
-        SceneManager.LoadScene("LiveScene"); // ���y�V�[�������[�h
-    }    
+        // GManagerに現在の曲IDを設定
+        GManagerReon.instance.songID = select;
+        // CSVファイル名を設定
+        csvFileName = dataBase.songData[select].csvFileName;
+        // LiveSceneをロード
+        SceneManager.LoadScene("LiveScene");
+    }
 }

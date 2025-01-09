@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 
 public class CSVReader : MonoBehaviour
@@ -50,22 +49,22 @@ public class CSVReader : MonoBehaviour
 
     public List<MusicData> Music_CSV()
     {
-        //ˆê“ü—Í—p‚Å–ˆ‰ñ‰Šú‰»‚·‚é
+        //ï¿½êï¿½ï¿½ï¿½Í—pï¿½Å–ï¿½ï¿½ñ‰Šï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         List<MusicData> dat_list = new List<MusicData>();
 
-        //Resources‚©‚çcsvƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚Ş‚½‚ß        
+        //Resourcesï¿½ï¿½ï¿½ï¿½csvï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½Ş‚ï¿½ï¿½ï¿½        
         TextAsset csvFile;
         Debug.Log(csvFileName);
         csvFile = Resources.Load("CSV/" + csvFileName) as TextAsset;
         StringReader reader = new StringReader(csvFile.text);
 
-        //“Ç‚İ‚ñ‚¾csv‚Ì“à—e‚ğŠi”[
+        //ï¿½Ç‚İï¿½ï¿½ï¿½csvï¿½Ì“ï¿½ï¿½eï¿½ï¿½ï¿½iï¿½[
         List<string[]> csvData = new List<string[]>();
         while(reader.Peek() > -1)
         {
             string line = reader.ReadLine();
 
-            //,‚Å‹æØ‚Á‚ÄŠi”[
+            //,ï¿½Å‹ï¿½Ø‚ï¿½ï¿½ÄŠiï¿½[
             csvData.Add(line.Split(','));
             height++;
         }
@@ -74,10 +73,10 @@ public class CSVReader : MonoBehaviour
 
         for(int i = startHeight - 1; i < height; ++i)
         {
-            //1s‚Ìƒf[ƒ^•Û‘¶—p‚Ì•Ï”
+            //1ï¿½sï¿½Ìƒfï¿½[ï¿½^ï¿½Û‘ï¿½ï¿½pï¿½Ì•Ïï¿½
             MusicData dat = new MusicData();       
             
-            //*****Še’l‚Ì•Û‘¶*****
+            //*****ï¿½eï¿½lï¿½Ì•Û‘ï¿½*****
             dat.time = Convert.ToSingle(csvData[i][0]);            
             //dat.InfoOfGroup = int.Parse(csvData[i][1]);
             dat.TypeOfGroup = int.Parse(csvData[i][2]);
@@ -86,11 +85,11 @@ public class CSVReader : MonoBehaviour
             //int positionStartIndex = 2;
             int positionStartIndex = 4;
             
-            //position‚Ìƒf[ƒ^‚Í•¡”‘¶İ‚·‚é‚½‚ßList‚ğì¬
+            //positionï¿½Ìƒfï¿½[ï¿½^ï¿½Í•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½é‚½ï¿½ï¿½Listï¿½ï¿½ï¿½ì¬
             dat.position = new List<int>();
             for (int j = 0; j < dat.InfoOfGroup; ++j)
             {
-                //ˆÊ’u‚Í4—ñ–Ú‚©‚ç
+                //ï¿½Ê’uï¿½ï¿½4ï¿½ï¿½Ú‚ï¿½ï¿½ï¿½
                 dat.position.Add(int.Parse(csvData[i][j + positionStartIndex]));                
             }
             //********************

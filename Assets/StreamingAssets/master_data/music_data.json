@@ -4,83 +4,95 @@
     "name": "My Lady",
     "image_path": "play_image_0",
     "description": "ここに曲の説明を書いて0",
-    "video-path": "fluity_100percent"
+    "video-path": "fluity_100percent",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 1,
     "name": "First Love",
     "image_path": "play_image_1",
     "description": "ここに曲の説明を書いて1",
-    "video-path": "play_video_1"
+    "video-path": "play_video_1",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 0,
     "name": "My Lady",
     "image_path": "play_image_0",
     "description": "ここに曲の説明を書いて0",
-    "video-path": "fluity_100percent"
+    "video-path": "fluity_100percent",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 1,
     "name": "First Love",
     "image_path": "play_image_1",
     "description": "ここに曲の説明を書いて1",
-    "video-path": "play_video_1"
+    "video-path": "play_video_1",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 0,
     "name": "My Lady",
     "image_path": "play_image_0",
     "description": "ここに曲の説明を書いて0",
-    "video-path": "fluity_100percent"
+    "video-path": "fluity_100percent",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 1,
     "name": "First Love",
     "image_path": "play_image_1",
     "description": "ここに曲の説明を書いて1",
-    "video-path": "play_video_1"
+    "video-path": "play_video_1",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 0,
     "name": "My Lady",
     "image_path": "play_image_0",
     "description": "ここに曲の説明を書いて0",
-    "video-path": "fluity_100percent"
+    "video-path": "fluity_100percent",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 1,
     "name": "First Love",
     "image_path": "play_image_1",
     "description": "ここに曲の説明を書いて1",
-    "video-path": "play_video_1"
+    "video-path": "play_video_1",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 0,
     "name": "My Lady",
     "image_path": "play_image_0",
     "description": "ここに曲の説明を書いて0",
-    "video-path": "fluity_100percent"
+    "video-path": "fluity_100percent",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 1,
     "name": "First Love",
     "image_path": "play_image_1",
     "description": "ここに曲の説明を書いて1",
-    "video-path": "play_video_1"
+    "video-path": "play_video_1",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 0,
     "name": "My Lady",
     "image_path": "play_image_0",
     "description": "ここに曲の説明を書いて0",
-    "video-path": "fluity_100percent"
+    "video-path": "fluity_100percent",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   },
   {
     "id": 1,
     "name": "First Love",
     "image_path": "play_image_1",
     "description": "ここに曲の説明を書いて1",
-    "video-path": "play_video_1"
+    "video-path": "play_video_1",
+    "csv-path": "CSVファイル名？パス？を書き込んで"
   }
 ]

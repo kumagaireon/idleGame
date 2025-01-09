@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading;
+using _yutaka2_.Scripts_1.Movie;
 using Cysharp.Threading.Tasks;
 using IdolGame.Audios.Core;
 using IdolGame.Common.ViewModels;
@@ -105,6 +106,8 @@ public sealed class MainViewModel: ViewModelBase<MainView>
 
         selectedVoicePath = musicData.VoicePath;
         logger.ZLogTrace($"{selectedVoicePath}");
+        
+        
         await UniTask.Yield(ct);
     }
 
@@ -114,23 +117,24 @@ public sealed class MainViewModel: ViewModelBase<MainView>
 
         if (selectedVoicePath != null)
         {
-            var voiceHandle = Addressables.LoadAssetAsync<VideoPlayer>(selectedVoicePath);
+            var voiceHandle = Addressables.LoadAssetAsync<VideoClip>(selectedVoicePath);
             await voiceHandle.Task;
+          
             if (voiceHandle.Status == AsyncOperationStatus.Succeeded)
             {
-                //==================================
-                //ここでInGameの方にvoiceHandleを渡したい
-                //==================================
-                
-                
-                logger.ZLogTrace($"{selectedVoicePath}");
+             
+                var videoName = System.IO.Path.GetFileName(selectedVoicePath);
+               
+                //インゲームにvideoNameを渡す
+                MoviePassGetter.videoFileName = videoName;
+            
                 if (CloseContinueAsync != null)
                 {
                     await CloseContinueAsync(SceneTransitionState.Next, ct);
                    
                 }
                 await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
-                await SceneManager.LoadSceneAsync("ResultScene")!.WithCancellation(ct);
+              //  await SceneManager.LoadSceneAsync("ResultScene")!.WithCancellation(ct);
             }
         }
         else
