@@ -1,9 +1,10 @@
 diff a/Assets/[yutaka2]/Scripts 1/CSVReader.cs b/Assets/[yutaka2]/Scripts 1/CSVReader.cs	(rejected hunks)
-@@ -3,7 +3,6 @@
- using System.Collections.Generic;
- using System.IO;
- using UnityEngine;
--using UnityEngine.EventSystems;
+@@ -9,7 +9,7 @@
+     public static CSVReader instance;
+     
+     //MoviePassGetterコンポーネントへの参照
+-    [SerializeField] private MoviePassGetter moviePassGetter;
++  //  [SerializeField] private MoviePassGetter moviePassGetter;
  
- 
- public class CSVReader : MonoBehaviour
+     // 音楽データの構造体
+     public struct MusicData

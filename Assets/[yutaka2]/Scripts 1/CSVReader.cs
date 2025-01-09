@@ -9,7 +9,7 @@ public class CSVReader : MonoBehaviour
     public static CSVReader instance;
     
     //MoviePassGetterコンポーネントへの参照
-    [SerializeField] private MoviePassGetter moviePassGetter;
+  //  [SerializeField] private MoviePassGetter moviePassGetter;
 
     // 音楽データの構造体
     public struct MusicData
