@@ -19,15 +19,13 @@ public class CSVReader : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }        
-    }
+        }
 
-    private void Start()
-    {
         csvFileName = MoviePassGetter.videoFileName;
         Debug.Log("CSVFileName:" + csvFileName);
         data = Music_CSV();
     }
+  
 
     public void getCSVFileName(string fileName)
     {
