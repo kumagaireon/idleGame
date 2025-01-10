@@ -12,16 +12,16 @@ namespace IdolGame.Audios.Infrastructures;
 [Serializable]
 public struct AudioPlayerSettings
 {
-    public int maxBgmSources;
-    public int maxSeSources;
+    public int maxBgmSources;// 最大BGMソース数
+    public int maxSeSources;// 最大SEソース数
 }
 
 public sealed class AudioPlayerServiceImpl:IAudioPlayerService
 {
     readonly ILogger<AudioPlayerServiceImpl> logger;
-    readonly AudioPlayerSettings settings; 
-    readonly GameObject gameObjcet; 
-    readonly IAudioLoader loader;
+    readonly AudioPlayerSettings settings; // オーディオプレイヤーの設定
+    readonly GameObject gameObjcet; // オーディオを再生するゲームオブジェクト
+    readonly IAudioLoader loader;// オーディオローダーのインターフェース
     List<AudioSource>? bgmSources;
     List<AudioSource>? seSources; 
     bool initialized;
@@ -66,6 +66,7 @@ public sealed class AudioPlayerServiceImpl:IAudioPlayerService
         await UniTask.Yield(ct);
     }
 
+    // BGMを再生する非同期メソッド
     public async UniTask PlayBgmAsync(AssetReference? reference, float volume, CancellationToken ct)
     {
         if (!initialized)
@@ -94,6 +95,7 @@ public sealed class AudioPlayerServiceImpl:IAudioPlayerService
         emptySource.Play();
     }
 
+    // SEを再生する非同期メソッド
     public async UniTask PlaySeAsync(AssetReference? reference, float volume, CancellationToken ct)
     {
         if (!initialized)
@@ -121,6 +123,7 @@ public sealed class AudioPlayerServiceImpl:IAudioPlayerService
         emptySource.PlayOneShot(clip);
     }
 
+    // BGMを停止する非同期メソッド
     public async UniTask StopBgmAsync(AssetReference? reference, float duration, CancellationToken ct)
     {
         if (!initialized)

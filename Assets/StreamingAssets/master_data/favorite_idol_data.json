@@ -1,6 +1,6 @@
 [
   {
-    "group-id": 10,
+    "group-id": 0,
     "group-name": "確認用グループ",
     "group-image-logo-path": "group_logo_00",
     "background-image-path": "background_00",
@@ -128,314 +128,36 @@
           "b-rank-voice": "b_voice_000",
           "c-rank-voice": "c_voice_000"
         }
-      },
-      {
-        "id": 3,
-        "idol-name": "3仮太郎",
-        "image-path": "boby_idol_000",
-        "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
-        "idol-reward": {
-          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
-          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
-          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
-          "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
-          "cheki-1-point": 1000,
-          "cheki-2-point": 1500,
-          "cheki-3-point": 2000,
-          "video-point": 2500,
-          "idol-point": 0
-        },
-        "idol-self-introduction": {
-          "self-introduction-text": "3推し選択時のセリフはここに書いてね。",
-          "self-introduction-voice-path": "self_introduction_voice_000",
-          "favorite-image-path": "full_idol_image_000"
-        },
-        "result-idol": {
-          "s-rank": "Good!!!!!",
-          "a-rank": "ナイスー",
-          "b-rank": "フフフフフwww",
-          "c-rank": "ファーwww",
-          "s-rank-point": 2000.75,
-          "a-rank-point": 1500.5,
-          "b-rank-point": 1000.25,
-          "c-rank-point": 500,
-          "s-rank-voice": "s_voice_000",
-          "a-rank-voice": "a_voice_000",
-          "b-rank-voice": "b_voice_000",
-          "c-rank-voice": "c_voice_000"
-        }
-      },
-      {
-        "id": 4,
-        "idol-name": "4仮太郎",
-        "image-path": "boby_idol_000",
-        "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
-        "idol-reward": {
-          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
-          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
-          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
-          "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
-          "cheki-1-point": 1000,
-          "cheki-2-point": 1500,
-          "cheki-3-point": 2000,
-          "video-point": 2500,
-          "idol-point": 0
-        },
-        "idol-self-introduction": {
-          "self-introduction-text": "4推し選択時のセリフはここに書いてね。",
-          "self-introduction-voice-path": "self_introduction_voice_000",
-          "favorite-image-path": "full_idol_image_000"
-        },
-        "result-idol": {
-          "s-rank": "Good!!!!!",
-          "a-rank": "ナイスー",
-          "b-rank": "フフフフフwww",
-          "c-rank": "ファーwww",
-          "s-rank-point": 2000.75,
-          "a-rank-point": 1500.5,
-          "b-rank-point": 1000.25,
-          "c-rank-point": 500,
-          "s-rank-voice": "s_voice_000",
-          "a-rank-voice": "a_voice_000",
-          "b-rank-voice": "b_voice_000",
-          "c-rank-voice": "c_voice_000"
-        }
-      },
-      {
-        "id": 5,
-        "idol-name": "5仮太郎",
-        "image-path": "boby_idol_000",
-        "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
-        "idol-reward": {
-          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
-          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
-          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
-          "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
-          "cheki-1-point": 1000,
-          "cheki-2-point": 1500,
-          "cheki-3-point": 2000,
-          "video-point": 2500,
-          "idol-point": 0
-        },
-        "idol-self-introduction": {
-          "self-introduction-text": "5推し選択時のセリフはここに書いてね。",
-          "self-introduction-voice-path": "self_introduction_voice_000",
-          "favorite-image-path": "full_idol_image_000"
-        },
-        "result-idol": {
-          "s-rank": "Good!!!!!",
-          "a-rank": "ナイスー",
-          "b-rank": "フフフフフwww",
-          "c-rank": "ファーwww",
-          "s-rank-point": 2000.75,
-          "a-rank-point": 1500.5,
-          "b-rank-point": 1000.25,
-          "c-rank-point": 500,
-          "s-rank-voice": "s_voice_000",
-          "a-rank-voice": "a_voice_000",
-          "b-rank-voice": "b_voice_000",
-          "c-rank-voice": "c_voice_000"
-        }
-      },
-      {
-        "id": 6,
-        "idol-name": "6仮太郎",
-        "image-path": "boby_idol_000",
-        "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
-        "idol-reward": {
-          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
-          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
-          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
-          "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
-          "cheki-1-point": 1000,
-          "cheki-2-point": 1500,
-          "cheki-3-point": 2000,
-          "video-point": 2500,
-          "idol-point": 0
-        },
-        "idol-self-introduction": {
-          "self-introduction-text": "6推し選択時のセリフはここに書いてね。",
-          "self-introduction-voice-path": "self_introduction_voice_000",
-          "favorite-image-path": "full_idol_image_000"
-        },
-        "result-idol": {
-          "s-rank": "Good!!!!!",
-          "a-rank": "ナイスー",
-          "b-rank": "フフフフフwww",
-          "c-rank": "ファーwww",
-          "s-rank-point": 2000.75,
-          "a-rank-point": 1500.5,
-          "b-rank-point": 1000.25,
-          "c-rank-point": 500,
-          "s-rank-voice": "s_voice_000",
-          "a-rank-voice": "a_voice_000",
-          "b-rank-voice": "b_voice_000",
-          "c-rank-voice": "c_voice_000"
-        }
-      },
-      {
-        "id": 7,
-        "idol-name": "7仮太郎",
-        "image-path": "boby_idol_000",
-        "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
-        "idol-reward": {
-          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
-          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
-          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
-          "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
-          "cheki-1-point": 1000,
-          "cheki-2-point": 1500,
-          "cheki-3-point": 2000,
-          "video-point": 2500,
-          "idol-point": 0
-        },
-        "idol-self-introduction": {
-          "self-introduction-text": "7推し選択時のセリフはここに書いてね。",
-          "self-introduction-voice-path": "self_introduction_voice_000",
-          "favorite-image-path": "full_idol_image_000"
-        },
-        "result-idol": {
-          "s-rank": "Good!!!!!",
-          "a-rank": "ナイスー",
-          "b-rank": "フフフフフwww",
-          "c-rank": "ファーwww",
-          "s-rank-point": 2000.75,
-          "a-rank-point": 1500.5,
-          "b-rank-point": 1000.25,
-          "c-rank-point": 500,
-          "s-rank-voice": "s_voice_000",
-          "a-rank-voice": "a_voice_000",
-          "b-rank-voice": "b_voice_000",
-          "c-rank-voice": "c_voice_000"
-        }
-      },
-      {
-        "id": 8,
-        "idol-name": "8仮太郎",
-        "image-path": "boby_idol_000",
-        "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
-        "idol-reward": {
-          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
-          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
-          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
-          "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
-          "cheki-1-point": 1000,
-          "cheki-2-point": 1500,
-          "cheki-3-point": 2000,
-          "video-point": 2500,
-          "idol-point": 0
-        },
-        "idol-self-introduction": {
-          "self-introduction-text": "8推し選択時のセリフはここに書いてね。",
-          "self-introduction-voice-path": "self_introduction_voice_000",
-          "favorite-image-path": "full_idol_image_000"
-        },
-        "result-idol": {
-          "s-rank": "Good!!!!!",
-          "a-rank": "ナイスー",
-          "b-rank": "フフフフフwww",
-          "c-rank": "ファーwww",
-          "s-rank-point": 2000.75,
-          "a-rank-point": 1500.5,
-          "b-rank-point": 1000.25,
-          "c-rank-point": 500,
-          "s-rank-voice": "s_voice_000",
-          "a-rank-voice": "a_voice_000",
-          "b-rank-voice": "b_voice_000",
-          "c-rank-voice": "c_voice_000"
-        }
-      },
-      {
-        "id": 9,
-        "idol-name": "9仮太郎",
-        "image-path": "boby_idol_000",
-        "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
-        "idol-reward": {
-          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
-          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
-          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
-          "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
-          "cheki-1-point": 1000,
-          "cheki-2-point": 1500,
-          "cheki-3-point": 2000,
-          "video-point": 2500,
-          "idol-point": 0
-        },
-        "idol-self-introduction": {
-          "self-introduction-text": "9推し選択時のセリフはここに書いてね。",
-          "self-introduction-voice-path": "self_introduction_voice_000",
-          "favorite-image-path": "full_idol_image_000"
-        },
-        "result-idol": {
-          "s-rank": "Good!!!!!",
-          "a-rank": "ナイスー",
-          "b-rank": "フフフフフwww",
-          "c-rank": "ファーwww",
-          "s-rank-point": 2000.75,
-          "a-rank-point": 1500.5,
-          "b-rank-point": 1000.25,
-          "c-rank-point": 500,
-          "s-rank-voice": "s_voice_000",
-          "a-rank-voice": "a_voice_000",
-          "b-rank-voice": "b_voice_000",
-          "c-rank-voice": "c_voice_000"
-        }
-      },
+      }
+    ]
+  },
+  {
+    "group-id": 1,
+    "group-name": "FRUiTY",
+    "group-image-logo-path": "group_logo_00",
+    "background-image-path": "background_00",
+    "idol-button-ui-path": "idol_button_ui_00",
+    "members": [
       {
         "id": 10,
         "idol-name": "10仮太郎",
         "image-path": "boby_idol_000",
         "collar-code": "FF0000",
-        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。\n改行の仕方は\n",
         "idol-reward": {
           "reward-cheki-image-1-path": "gallery_idol_image_1_000",
           "reward-cheki-image-2-path": "gallery_idol_image_2_000",
           "reward-cheki-image-3-path": "gallery_idol_image_3_000",
           "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-1": "2025-01-04T17:13:23.0541938+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-video": "2025-01-04T17:13:23.0592141+09:00",
           "cheki-1-point": 1000,
           "cheki-2-point": 1500,
           "cheki-3-point": 2000,
           "video-point": 2500,
-          "idol-point": 0
+          "idol-point": 4200
         },
         "idol-self-introduction": {
           "self-introduction-text": "10推し選択時のセリフはここに書いてね。",
@@ -462,24 +184,329 @@
         "idol-name": "11仮太郎",
         "image-path": "boby_idol_000",
         "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。\n改行の仕方は\n",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
+          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
+          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
+          "reward-vidce-path": null,
+          "date-acquisitio-reward-check-1": "2024-12-30T15:42:26.8398265+09:00",
+          "date-acquisitio-reward-check-2": "2024-12-30T15:42:26.8444134+09:00",
+          "date-acquisitio-reward-check-3": "2024-12-30T15:42:26.8444134+09:00",
+          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
+          "cheki-1-point": 1000,
+          "cheki-2-point": 1500,
+          "cheki-3-point": 2000,
+          "video-point": 2500,
+          "idol-point": 2050
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "11推し選択時のセリフはここに書いてね。",
+          "self-introduction-voice-path": "self_introduction_voice_000",
+          "favorite-image-path": "full_idol_image_000"
+        },
+        "result-idol": {
+          "s-rank": "Good!!!!!",
+          "a-rank": "ナイスー",
+          "b-rank": "フフフフフwww",
+          "c-rank": "ファーwww",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "s_voice_000",
+          "a-rank-voice": "a_voice_000",
+          "b-rank-voice": "b_voice_000",
+          "c-rank-voice": "c_voice_000"
+        }
+      },
+      {
+        "id": 12,
+        "idol-name": "12仮太郎",
+        "image-path": "boby_idol_000",
+        "collar-code": "FF0000",
         "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
         "idol-reward": {
           "reward-cheki-image-1-path": "gallery_idol_image_1_000",
           "reward-cheki-image-2-path": "gallery_idol_image_2_000",
           "reward-cheki-image-3-path": "gallery_idol_image_3_000",
           "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-2": "2024-12-15T12:33:41.8841718+09:00",
-          "date-acquisitio-reward-check-3": "2024-12-15T12:33:41.8841718+09:00",
+          "date-acquisitio-reward-check-1": "2025-01-09T16:05:16.2799195+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-09T16:05:16.2829467+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-09T16:05:16.2829467+09:00",
+          "date-acquisitio-reward-video": "2025-01-09T16:05:16.2829467+09:00",
+          "cheki-1-point": 1000,
+          "cheki-2-point": 1500,
+          "cheki-3-point": 2000,
+          "video-point": 2500,
+          "idol-point": 3150
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "12推し選択時のセリフはここに書いてね。",
+          "self-introduction-voice-path": "self_introduction_voice_000",
+          "favorite-image-path": "full_idol_image_000"
+        },
+        "result-idol": {
+          "s-rank": "Good!!!!!",
+          "a-rank": "ナイスー",
+          "b-rank": "フフフフフwww",
+          "c-rank": "ファーwww",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "s_voice_000",
+          "a-rank-voice": "a_voice_000",
+          "b-rank-voice": "b_voice_000",
+          "c-rank-voice": "c_voice_000"
+        }
+      }
+    ]
+  },
+  {
+    "group-id": 2,
+    "group-name": "One of one Love",
+    "group-image-logo-path": "group_logo_00",
+    "background-image-path": "background_00",
+    "idol-button-ui-path": "idol_button_ui_00",
+    "members": [
+      {
+        "id": 20,
+        "idol-name": "20仮太郎",
+        "image-path": "boby_idol_000",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。\n改行の仕方は\n",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
+          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
+          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
+          "reward-vidce-path": null,
+          "date-acquisitio-reward-check-1": "2025-01-04T17:13:23.0541938+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-video": "2025-01-04T17:13:23.0592141+09:00",
+          "cheki-1-point": 1000,
+          "cheki-2-point": 1500,
+          "cheki-3-point": 2000,
+          "video-point": 2500,
+          "idol-point": 4200
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "20推し選択時のセリフはここに書いてね。",
+          "self-introduction-voice-path": "self_introduction_voice_000",
+          "favorite-image-path": "full_idol_image_000"
+        },
+        "result-idol": {
+          "s-rank": "Good!!!!!",
+          "a-rank": "ナイスー",
+          "b-rank": "フフフフフwww",
+          "c-rank": "ファーwww",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "s_voice_000",
+          "a-rank-voice": "a_voice_000",
+          "b-rank-voice": "b_voice_000",
+          "c-rank-voice": "c_voice_000"
+        }
+      },
+      {
+        "id": 21,
+        "idol-name": "21仮太郎",
+        "image-path": "boby_idol_000",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。\n改行の仕方は\n",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
+          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
+          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
+          "reward-vidce-path": null,
+          "date-acquisitio-reward-check-1": "2024-12-30T15:42:26.8398265+09:00",
+          "date-acquisitio-reward-check-2": "2024-12-30T15:42:26.8444134+09:00",
+          "date-acquisitio-reward-check-3": "2024-12-30T15:42:26.8444134+09:00",
           "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
           "cheki-1-point": 1000,
           "cheki-2-point": 1500,
           "cheki-3-point": 2000,
           "video-point": 2500,
-          "idol-point": 0
+          "idol-point": 2050
         },
         "idol-self-introduction": {
-          "self-introduction-text": "11推し選択時のセリフはここに書いてね。",
+          "self-introduction-text": "21推し選択時のセリフはここに書いてね。",
+          "self-introduction-voice-path": "self_introduction_voice_000",
+          "favorite-image-path": "full_idol_image_000"
+        },
+        "result-idol": {
+          "s-rank": "Good!!!!!",
+          "a-rank": "ナイスー",
+          "b-rank": "フフフフフwww",
+          "c-rank": "ファーwww",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "s_voice_000",
+          "a-rank-voice": "a_voice_000",
+          "b-rank-voice": "b_voice_000",
+          "c-rank-voice": "c_voice_000"
+        }
+      },
+      {
+        "id": 22,
+        "idol-name": "22仮太郎",
+        "image-path": "boby_idol_000",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
+          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
+          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
+          "reward-vidce-path": null,
+          "date-acquisitio-reward-check-1": "2025-01-09T16:05:16.2799195+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-09T16:05:16.2829467+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-09T16:05:16.2829467+09:00",
+          "date-acquisitio-reward-video": "2025-01-09T16:05:16.2829467+09:00",
+          "cheki-1-point": 1000,
+          "cheki-2-point": 1500,
+          "cheki-3-point": 2000,
+          "video-point": 2500,
+          "idol-point": 3150
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "22推し選択時のセリフはここに書いてね。",
+          "self-introduction-voice-path": "self_introduction_voice_000",
+          "favorite-image-path": "full_idol_image_000"
+        },
+        "result-idol": {
+          "s-rank": "Good!!!!!",
+          "a-rank": "ナイスー",
+          "b-rank": "フフフフフwww",
+          "c-rank": "ファーwww",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "s_voice_000",
+          "a-rank-voice": "a_voice_000",
+          "b-rank-voice": "b_voice_000",
+          "c-rank-voice": "c_voice_000"
+        }
+      }
+    ]
+  },
+  {
+    "group-id": 3,
+    "group-name": "HiColor(Ryo)",
+    "group-image-logo-path": "group_logo_00",
+    "background-image-path": "background_00",
+    "idol-button-ui-path": "idol_button_ui_00",
+    "members": [
+      {
+        "id": 30,
+        "idol-name": "30仮太郎",
+        "image-path": "boby_idol_000",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。\n改行の仕方は\n",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
+          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
+          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
+          "reward-vidce-path": null,
+          "date-acquisitio-reward-check-1": "2025-01-04T17:13:23.0541938+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-video": "2025-01-04T17:13:23.0592141+09:00",
+          "cheki-1-point": 1000,
+          "cheki-2-point": 1500,
+          "cheki-3-point": 2000,
+          "video-point": 2500,
+          "idol-point": 4200
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "30推し選択時のセリフはここに書いてね。",
+          "self-introduction-voice-path": "self_introduction_voice_000",
+          "favorite-image-path": "full_idol_image_000"
+        },
+        "result-idol": {
+          "s-rank": "Good!!!!!",
+          "a-rank": "ナイスー",
+          "b-rank": "フフフフフwww",
+          "c-rank": "ファーwww",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "s_voice_000",
+          "a-rank-voice": "a_voice_000",
+          "b-rank-voice": "b_voice_000",
+          "c-rank-voice": "c_voice_000"
+        }
+      },
+      {
+        "id": 31,
+        "idol-name": "31仮太郎",
+        "image-path": "boby_idol_000",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。\n改行の仕方は\n",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
+          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
+          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
+          "reward-vidce-path": null,
+          "date-acquisitio-reward-check-1": "2024-12-30T15:42:26.8398265+09:00",
+          "date-acquisitio-reward-check-2": "2024-12-30T15:42:26.8444134+09:00",
+          "date-acquisitio-reward-check-3": "2024-12-30T15:42:26.8444134+09:00",
+          "date-acquisitio-reward-video": "2024-12-15T12:33:41.8841718+09:00",
+          "cheki-1-point": 1000,
+          "cheki-2-point": 1500,
+          "cheki-3-point": 2000,
+          "video-point": 2500,
+          "idol-point": 2050
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "31推し選択時のセリフはここに書いてね。",
+          "self-introduction-voice-path": "self_introduction_voice_000",
+          "favorite-image-path": "full_idol_image_000"
+        },
+        "result-idol": {
+          "s-rank": "Good!!!!!",
+          "a-rank": "ナイスー",
+          "b-rank": "フフフフフwww",
+          "c-rank": "ファーwww",
+          "s-rank-point": 2000.75,
+          "a-rank-point": 1500.5,
+          "b-rank-point": 1000.25,
+          "c-rank-point": 500,
+          "s-rank-voice": "s_voice_000",
+          "a-rank-voice": "a_voice_000",
+          "b-rank-voice": "b_voice_000",
+          "c-rank-voice": "c_voice_000"
+        }
+      },
+      {
+        "id": 32,
+        "idol-name": "32仮太郎",
+        "image-path": "boby_idol_000",
+        "collar-code": "FF0000",
+        "serif-menu-text": "メニュー画面のセリフはここで行ってね。改行の仕方は模索中",
+        "idol-reward": {
+          "reward-cheki-image-1-path": "gallery_idol_image_1_000",
+          "reward-cheki-image-2-path": "gallery_idol_image_2_000",
+          "reward-cheki-image-3-path": "gallery_idol_image_3_000",
+          "reward-vidce-path": null,
+          "date-acquisitio-reward-check-1": "2025-01-09T16:05:16.2799195+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-09T16:05:16.2829467+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-09T16:05:16.2829467+09:00",
+          "date-acquisitio-reward-video": "2025-01-09T16:05:16.2829467+09:00",
+          "cheki-1-point": 1000,
+          "cheki-2-point": 1500,
+          "cheki-3-point": 2000,
+          "video-point": 2500,
+          "idol-point": 3150
+        },
+        "idol-self-introduction": {
+          "self-introduction-text": "32推し選択時のセリフはここに書いてね。",
           "self-introduction-voice-path": "self_introduction_voice_000",
           "favorite-image-path": "full_idol_image_000"
         },

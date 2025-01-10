@@ -126,7 +126,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
                
                 //インゲームにvideoNameを渡す
                 MoviePassGetter.videoFileName = videoName;
-            
+                
                 if (CloseContinueAsync != null)
                 {
                     await CloseContinueAsync(SceneTransitionState.Next, ct);

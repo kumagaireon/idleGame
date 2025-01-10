@@ -23,7 +23,7 @@ public class TapDetector : MonoBehaviour
         {
             isPressing = false;// 押されているフラグを下げる
             float pressDuration = Time.time - pressStartTime;// 押されていた時間を計算
-// 押されていた時間が閾値を超えている場合
+            // 押されていた時間が閾値を超えている場合
             if (pressDuration >= longPressThreshold)
             {
                 Debug.Log("長押しが検出されました"); // 長押しとしてログに出力

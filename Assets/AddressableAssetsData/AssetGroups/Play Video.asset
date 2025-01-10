@@ -15,6 +15,26 @@ MonoBehaviour:
   m_GroupName: Play Video
   m_GUID: 620d3da5a41e19043ac503cd77c27b83
   m_SerializeEntries:
+  - m_GUID: 06320bb608e155f479777a31db8dbbcd
+    m_Address: Ryo_LOVEGUN
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c74fe88dd96b9b4ca35333d3af7e97b
+    m_Address: OneLove_MyLady
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ace9a5c1ba8f6c4a9152dbb55e39e2c
+    m_Address: Ryo_FunTime
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f31d556843b10e4ca072ad59b14fda3
+    m_Address: OneLove_FirstLove
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47caf6cf6e622544488c0ad2c9506cd8
     m_Address: fluity_100percent
     m_ReadOnly: 0
@@ -22,6 +42,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d34242a832929cf49a1a041aed290d8a
     m_Address: play_video_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5f7b00054645cc43a84be4e05c3412a
+    m_Address: fruity_followme
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f15fa3a5cbcc3bc46b0c703c45b698ee
+    m_Address: fruity_100percent
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

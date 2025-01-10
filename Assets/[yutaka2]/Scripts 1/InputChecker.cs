@@ -42,7 +42,7 @@ public class InputChecker : MonoBehaviour
     }
     public bool InputShake()
     {
-        //ƒTƒCƒŠƒEƒ€‚Ì“ü—Í”»’è‚ğ‹L“ü‚·‚é
+        // ã‚µã‚¤ãƒªã‚¦ãƒ ã®å…¥åŠ›ã‚’å¸¸ã«å—ã‘å…¥ã‚Œã‚‹ï¼ˆä»®å®Ÿè£…ï¼‰
         return true;
     }
 }

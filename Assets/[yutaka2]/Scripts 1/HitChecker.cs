@@ -2,45 +2,51 @@ using UnityEngine;
 
 public class HitChecker : MonoBehaviour
 {
-    private Vector3 mousePosition;
-    private GameObject currentHitObject;
+    private Vector3 mousePosition; // ãƒã‚¦ã‚¹ã®ä½ç½®
+    private GameObject currentHitObject; // ç¾åœ¨ãƒ’ãƒƒãƒˆã—ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 
     void Update()
     {
+        // ãƒã‚¦ã‚¹ã®ä½ç½®ã‚’ã‚¹ã‚¯ãƒªãƒ¼ãƒ³åº§æ¨™ã‹ã‚‰ãƒ¯ãƒ¼ãƒ«ãƒ‰åº§æ¨™ã«å¤‰æ›
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        // ãƒã‚¦ã‚¹ã®ä½ç½®ã«Raycastã‚’é£›ã°ã™
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
         if (hit.collider != null)
         {
             if (InputChecker.instance.GetMouseButtonDown())
             {
-                //Hit‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğ•Û
+                // ãƒ’ãƒƒãƒˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—
                 currentHitObject = hit.collider.gameObject;
 
-                //Hit‚µ‚½ƒIƒuƒWƒFƒNƒg‚Ìí—Şi0:¬Œ÷A1:¸”sA2:ÅŒã)
+                // ãƒ’ãƒƒãƒˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é †åºã‚’ãƒã‚§ãƒƒã‚¯ (0: ä½•ã‚‚ãªã—, 1: ç¶šè¡Œ, 2: å¤±æ•—, 3: å®Œäº†)
                 int destroyNum = NoteOrderChecker.instance.CheckNoteClick(currentHitObject);
 
+                // é †åºã«åŸºã¥ã„ã¦å‡¦ç†ã‚’åˆ†å²
                 switch (destroyNum)
                 {
                     case 0: break;
-                    case 1: //ƒIƒuƒWƒFƒNƒg’P‘Ì‚ğÁ‹
+                    case 1: // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å€‹åˆ¥ã«ç ´å£Š
                         NoteDestroyer.instance.DestroyObject(currentHitObject, 0);
-                        ScoreController.instance.GetNoteScore(); ; break;
-                    case 2: //ƒIƒuƒWƒFƒNƒgƒOƒ‹[ƒv‚ğÁ‹
+                        ScoreController.instance.GetNoteScore();
+                        ;
+                        break;
+                    case 2: // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚°ãƒ«ãƒ¼ãƒ—ã‚’ç ´å£Š
                         NoteDestroyer.instance.DestroyObject(currentHitObject, 1); break;
-                    case 3: //ƒIƒuƒWƒFƒNƒgƒOƒ‹[ƒv‚ğÁ‹(ÅŒã‚ÌƒIƒuƒWƒFƒNƒg)
+                    case 3: // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚°ãƒ«ãƒ¼ãƒ—ã‚’ç ´å£Š (æœ€å¾Œã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ)
                         NoteDestroyer.instance.DestroyObject(currentHitObject, 1);
-                        ScoreController.instance.GetNotePerfectScore(); break;
+                        ScoreController.instance.GetNotePerfectScore();
+                        break;
                 }
             }
         }
 
         if (InputChecker.instance.GetMouseButtonUp())
         {
-            //ƒIƒuƒWƒFƒNƒg‚ª‘®‚·‚éƒOƒ‹[ƒv‚ğÁ‹
+            // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚°ãƒ«ãƒ¼ãƒ—ã‚’ç ´å£Š
             NoteDestroyer.instance.DestroyObject(currentHitObject, 1);
 
-            //ƒNƒŠƒbƒNƒŠƒXƒg‚ğClear
+            // ã‚¯ãƒªãƒƒã‚¯ãƒªã‚¹ãƒˆã‚’ã‚¯ãƒªã‚¢
             NoteOrderChecker.instance.ClearClickedList();
         }
     }

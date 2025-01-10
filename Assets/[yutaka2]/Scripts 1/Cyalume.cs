@@ -44,14 +44,14 @@ public class Cyalume : MonoBehaviour
         }
 #endif
     }
-// Cyalumeの生成を開始するコルーチン
+    // Cyalumeの生成を開始するコルーチン
     private IEnumerator StartCyalume(Vector2 position)
     {
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(position.x, position.y, 10));
         currentCyalume = Instantiate(CyalumeObl, worldPosition, Quaternion.identity);
         yield return null;
     }
-// Cyalumeの位置を更新するコルーチン
+    // Cyalumeの位置を更新するコルーチン
     private IEnumerator UpdateCyalume(Vector2 position)
     {
         if (currentCyalume != null)
@@ -61,7 +61,7 @@ public class Cyalume : MonoBehaviour
         }
         yield return null;
     }
-// Cyalumeの生成を終了するコルーチン
+    // Cyalumeの生成を終了するコルーチン
     private IEnumerator EndCyalume()
     {
         if (currentCyalume != null)

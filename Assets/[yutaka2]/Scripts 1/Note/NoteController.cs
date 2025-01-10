@@ -78,7 +78,7 @@ public class NoteController : MonoBehaviour
                 case 2:
                     ExecuteSwipe();
                     break;
-                    ; // スワイプアクション
+                     // スワイプアクション
                 // 他のアクションも追加可能
             }
 
@@ -148,7 +148,7 @@ public class NoteController : MonoBehaviour
             if (currentTime - groupTime >= noteLifeTime * (60.0f / BPM))
             {
                 int groupNum = groupSpawnTimes.IndexOf(groupTime);
-                Debug.Log("timeOverNum:" + groupNum);
+              //  Debug.Log("timeOverNum:" + groupNum);
                 if (groupNum < groupList.Count)
                 {
                     foreach (var note in groupList[groupNum])

@@ -27,7 +27,7 @@ public class NoteGenerator : MonoBehaviour
    /// <summary>
    /// ノートを生成するメソッド
    /// </summary>
-   /// <returns>生成されたノートオブジェクト<</returns>
+   /// <returns>生成されたノートオブジェクト</returns>
     public GameObject GenerateNote()
     {
         return Instantiate(notePrefab);// ノートのプレハブをインスタンス化

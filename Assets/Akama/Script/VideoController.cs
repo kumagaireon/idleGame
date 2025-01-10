@@ -12,7 +12,8 @@ public class VideoController : MonoBehaviour
     {
         videoPlayer.targetTexture = renderTexture;
         rawImage.texture = renderTexture;
-        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, ButtonClick.videoToPlay + ".mp4");
+        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath,
+            ButtonClick.videoToPlay + ".mp4");
         videoPlayer.url = videoPath;
         videoPlayer.Play();
     }
