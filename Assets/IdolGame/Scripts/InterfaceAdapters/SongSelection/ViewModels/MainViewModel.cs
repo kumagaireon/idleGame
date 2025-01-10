@@ -4,6 +4,8 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using IdolGame.Audios.Core;
 using IdolGame.Common.ViewModels;
+using IdolGame.InGame.Controllers;
+using IdolGame.InGame.Models;
 using IdolGame.SongSelection.Views;
 using IdolGame.UIElements;
 using Microsoft.Extensions.Logging;
@@ -25,7 +27,8 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     DisposableBag bag;
     readonly AudioPlayer audioPlayer;
     readonly AssetReference bgmAssetReference;
-    string? selectedVoicePath;
+    
+    MusicData? selectedMusic;
     
     public Func<SceneTransitionState, CancellationToken, UniTask>? CloseContinueAsync { get; set; }
 
@@ -66,8 +69,7 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         
         view.ExplanationSongSelectionTextElement.text = firstSong.Description;
         view.MusicJacketVisualElement.style.backgroundImage = new StyleBackground(handle.Result);
-        selectedVoicePath = firstSong.VoicePath;
-      
+        
         foreach (var song in musicsong)
         {
             var element = scrollView.itemsTemplate.Instantiate();
@@ -95,18 +97,16 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         await UniTask.Yield(ct);
     }
 
-    async UniTask OnInput(PointerDownEvent e, CancellationToken ct,MusicData musicData)
+    async UniTask OnInput(PointerDownEvent e, CancellationToken ct, MusicData musicData)
     {
         var handle = Addressables.LoadAssetAsync<Texture2D>(musicData.ImagePath.ToString());
         await handle.Task;
-        
-        view.ExplanationSongSelectionTextElement.text= musicData.Description;
+
+        view.ExplanationSongSelectionTextElement.text = musicData.Description;
         view.MusicJacketVisualElement.style.backgroundImage = new StyleBackground(handle.Result);
 
-        selectedVoicePath = musicData.VoicePath;
-        logger.ZLogTrace($"{selectedVoicePath}");
-        
-        
+        selectedMusic = musicData;
+        logger.ZLogTrace($"CsvPath: {selectedMusic.Value.CsvPath}");
         await UniTask.Yield(ct);
     }
 
@@ -114,35 +114,32 @@ public sealed class MainViewModel: ViewModelBase<MainView>
     {
         logger.ZLogInformation($"インゲーム画面遷移");
 
-        if (selectedVoicePath != null)
+        if (selectedMusic != null)
         {
-            var voiceHandle = Addressables.LoadAssetAsync<VideoClip>(selectedVoicePath);
-            await voiceHandle.Task;
-          
-            if (voiceHandle.Status == AsyncOperationStatus.Succeeded)
-            {
+            await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
 
-                AsyncOperationHandle<VideoClip> videoName = voiceHandle;
-               
-                //インゲームにvideoNameを渡す
-                MoviePassGetter.videoFileName = videoName;
-                
-                if (CloseContinueAsync != null)
-                {
-                    await CloseContinueAsync(SceneTransitionState.Next, ct);
-                   
-                }
-                await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
-                await SceneManager.LoadSceneAsync("InGame")!.WithCancellation(ct);
-            }
+            // SelectedMusicData に必要な値を割り当てる
+            var selectedMusicData = new SelectedMusicData(
+                selectedMusic.Value.Name,
+                selectedMusic.Value.VideoPath,
+                selectedMusic.Value.CsvPath,
+                0);
+            
+            GameData.SelectedMusicData = selectedMusicData;
+            logger.ZLogTrace( $"Name: {GameData.SelectedMusicData.Name}\n"
+                             + $"VoicePath: {GameData.SelectedMusicData.VideoPath}\n"
+                             + $"CsvPath: {GameData.SelectedMusicData.CsvPath}\n"
+                             + $"Path: {GameData.SelectedMusicData.Score}\n");
+
+            await SceneManager.LoadSceneAsync("LiveScene")!.WithCancellation(ct);
+            //     await SceneManager.LoadSceneAsync("InGame")!.WithCancellation(ct);
+            //   await SceneManager.LoadSceneAsync("ResultScene")!.WithCancellation(ct);
         }
         else
         {
             logger.ZLogTrace($"ないよ");
         }
-        
     }
-
 
     async UniTask OnInputReturn(PointerDownEvent e, CancellationToken ct)
     {

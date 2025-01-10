@@ -1,0 +1,25 @@
+{
+    "name": "IdolGame.InGame.Controllers",
+    "rootNamespace": "",
+    "references": [
+        "IdolGame.InGame.UseCases",
+        "IdolGame.InGame.Entities",
+        "IdolGame.InGame.Interfaces",
+        "IdolGame.InGame.Data",
+        "IdolGame.InGame.Services",
+        "IdolGame.InGame.Models",
+        "IdolGame.InGame.Presenters",
+        "UniTask",
+        "Unity.Addressables",
+        "Unity.ResourceManager"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

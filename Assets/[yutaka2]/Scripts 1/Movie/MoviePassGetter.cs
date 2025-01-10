@@ -13,7 +13,7 @@ public class MoviePassGetter : MonoBehaviour
     public static AsyncOperationHandle<VideoClip> videoFileName { get; set; } // 動画ファイル名
     private RawImage videoImage;
     [SerializeField] private Text videoName;
-
+    
     async UniTask Awake()
     {
         videoPlayer = gameObject.AddComponent<VideoPlayer>();
@@ -70,6 +70,4 @@ public class MoviePassGetter : MonoBehaviour
                 => await OnVideoEnd(); // スクリプトが破棄される際にイベントのサブスクライブを解除
         }
     }
-
-    public float score;
 }

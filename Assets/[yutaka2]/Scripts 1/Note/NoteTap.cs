@@ -50,6 +50,7 @@ public class NoteTap : MonoBehaviour
         {
             MoveObject(playIndex);
             timer += Time.deltaTime;
+            
             if (InputChecker.instance.GetTapped())            
             {
                 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -1,9 +1,9 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Resources/Style%20Sheets/Runtime/InGame_Main.uss?fileID=7433441132597879392&amp;guid=67a15390e0b882442a74c978d46ea61f&amp;type=3#InGame_Main" />
     <IdolGame.UIElements.RootUIElement>
-        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none;">
+        <engine:VisualElement name="background" style="flex-grow: 1; background-image: none; background-color: rgb(181, 123, 123);">
             <engine:VisualElement name="moviearea" style="flex-grow: 1; width: 1280px; height: 550px; position: absolute; top: 0;">
-                <engine:VisualElement name="cyalume" style="flex-grow: 1; width: 1280px; height: 200px; position: absolute; top: 519px;" />
+                <engine:VisualElement name="cyalume" style="flex-grow: 1; width: 1280px; height: 200px; position: absolute; top: 519px; background-color: rgb(88, 36, 36);" />
             </engine:VisualElement>
         </engine:VisualElement>
     </IdolGame.UIElements.RootUIElement>

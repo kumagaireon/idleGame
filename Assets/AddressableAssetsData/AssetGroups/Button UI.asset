@@ -15,8 +15,23 @@ MonoBehaviour:
   m_GroupName: Button UI
   m_GUID: 3512097ab9b80864fa658b6cae53d54d
   m_SerializeEntries:
+  - m_GUID: 0ea1f80424d7a374e895fefdee9b1a05
+    m_Address: idol_button_ui_03
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cad90b617b5f2934ebe119a58eaba728
+    m_Address: idol_button_ui_02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7074d1730ba91d45be302fff7082bc9
     m_Address: idol_button_ui_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df1e95cd70527764c8365e5ca7cacc88
+    m_Address: idol_button_ui_01
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

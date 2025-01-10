@@ -606,7 +606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf170ee41c7d934389b7d72b1cc057c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CyalumeObl: {fileID: 8478714831566654048, guid: 4611404dcba9e724e96daf8dc34fb6c3, type: 3}
 --- !u!4 &509708769
 Transform:
   m_ObjectHideFlags: 0
@@ -634,7 +633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a9f6367a59568449d9e3eab99f6b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  longPressThreshold: 0.5
 --- !u!114 &509708771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,8 +657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8a44119e284d246ba67ba5d1dd826f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchInterval: 0.1
-  swipeThreshold: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2077,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1767403142}
-  - component: {fileID: 1767403141}
+  - component: {fileID: 1767403143}
   m_Layer: 0
   m_Name: CSVReader
   m_TagString: Untagged
@@ -2089,19 +2085,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1767403141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1767403140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4a94976b712364b96fcbdd5bf0ee05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  csvFileName: Fruity_100percent
 --- !u!4 &1767403142
 Transform:
   m_ObjectHideFlags: 0
@@ -2117,6 +2100,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 199905040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1767403143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767403140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d278c84872560cd4a8a1ad678050cacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1893638930
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,15 +17,15 @@
           "reward-cheki-image-2-path": "gallery_idol_image_2_000",
           "reward-cheki-image-3-path": "gallery_idol_image_3_000",
           "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2025-01-04T17:13:23.0541938+09:00",
-          "date-acquisitio-reward-check-2": "2025-01-04T17:13:23.0592141+09:00",
-          "date-acquisitio-reward-check-3": "2025-01-04T17:13:23.0592141+09:00",
-          "date-acquisitio-reward-video": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-check-1": "2025-01-10T13:52:51.8391046+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-10T13:52:51.8391046+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-10T13:52:51.8391046+09:00",
+          "date-acquisitio-reward-video": "2025-01-10T13:52:51.8391046+09:00",
           "cheki-1-point": 1000,
           "cheki-2-point": 1500,
           "cheki-3-point": 2000,
           "video-point": 2500,
-          "idol-point": 4200
+          "idol-point": 3210
         },
         "idol-self-introduction": {
           "self-introduction-text": "0推し選択時のセリフはここに書いてね。",
@@ -135,8 +135,8 @@
     "group-id": 1,
     "group-name": "FRUiTY",
     "group-image-logo-path": "group_logo_00",
-    "background-image-path": "background_00",
-    "idol-button-ui-path": "idol_button_ui_00",
+    "background-image-path": "background_01",
+    "idol-button-ui-path": "idol_button_ui_01",
     "members": [
       {
         "id": 10,
@@ -149,15 +149,15 @@
           "reward-cheki-image-2-path": "gallery_idol_image_2_000",
           "reward-cheki-image-3-path": "gallery_idol_image_3_000",
           "reward-vidce-path": null,
-          "date-acquisitio-reward-check-1": "2025-01-04T17:13:23.0541938+09:00",
-          "date-acquisitio-reward-check-2": "2025-01-04T17:13:23.0592141+09:00",
-          "date-acquisitio-reward-check-3": "2025-01-04T17:13:23.0592141+09:00",
-          "date-acquisitio-reward-video": "2025-01-04T17:13:23.0592141+09:00",
+          "date-acquisitio-reward-check-1": "2025-01-10T13:50:41.1740093+09:00",
+          "date-acquisitio-reward-check-2": "2025-01-10T13:50:41.1740093+09:00",
+          "date-acquisitio-reward-check-3": "2025-01-10T13:50:41.1740093+09:00",
+          "date-acquisitio-reward-video": "2025-01-10T13:50:41.1740093+09:00",
           "cheki-1-point": 1000,
           "cheki-2-point": 1500,
           "cheki-3-point": 2000,
           "video-point": 2500,
-          "idol-point": 4200
+          "idol-point": 5250
         },
         "idol-self-introduction": {
           "self-introduction-text": "10推し選択時のセリフはここに書いてね。",
@@ -267,8 +267,8 @@
     "group-id": 2,
     "group-name": "One of one Love",
     "group-image-logo-path": "group_logo_00",
-    "background-image-path": "background_00",
-    "idol-button-ui-path": "idol_button_ui_00",
+    "background-image-path": "background_02",
+    "idol-button-ui-path": "idol_button_ui_02",
     "members": [
       {
         "id": 20,
@@ -399,8 +399,8 @@
     "group-id": 3,
     "group-name": "HiColor(Ryo)",
     "group-image-logo-path": "group_logo_00",
-    "background-image-path": "background_00",
-    "idol-button-ui-path": "idol_button_ui_00",
+    "background-image-path": "background_03",
+    "idol-button-ui-path": "idol_button_ui_03",
     "members": [
       {
         "id": 30,

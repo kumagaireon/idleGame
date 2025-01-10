@@ -3,64 +3,72 @@
     "id": 0,
     "name": "My Lady",
     "image_path": "play_image_0",
-    "description": "ここに曲の説明を書いて0",
+    "description": "ここに曲の説明を書いて0\nCSVパスはこの曲はまだ設定されていない",
     "video-path": "fluity_100percent",
-    "csv-path": "CSVファイル名？パス？を書き込んで"
+    "csv-path": "CSVファイル名？パス？を書き込んで",
+    "max-score": 1000
   },
   {
     "id": 1,
     "name": "First Love",
     "image_path": "play_image_1",
-    "description": "ここに曲の説明を書いて1",
+    "description": "ここに曲の説明を書いて1\nCSVパスはこの曲はまだ設定されていない",
     "video-path": "play_video_1",
-    "csv-path": "CSVファイル名？パス？を書き込んで"
+    "csv-path": "CSVファイル名？パス？を書き込んで",
+    "max-score": 1000
   },
   {
     "id": 2,
     "name": "100percent",
     "image_path": "play_image_0",
-    "description": "ここに曲の説明を書いて0",
+    "description": "ここに曲の説明を書いて2\nこの曲は遊べる",
     "video-path": "fruity_100percent",
-    "csv-path": "CSVファイル名？パス？を書き込んで"
+    "csv-path": "fruity_100percent",
+    "max-score": 1000
   },
   {
     "id": 3,
     "name": "followme",
     "image_path": "play_image_1",
-    "description": "ここに曲の説明を書いて1",
+    "description": "ここに曲の説明を書いて3\nCSVパスはこの曲はまだ設定されていない",
     "video-path": "fruity_followme",
-    "csv-path": "CSVファイル名？パス？を書き込んで"
+    "csv-path": "CSVファイル名？パス？を書き込んで",
+    "max-score": 1000
   },
   {
     "id": 4,
     "name": "FirstLove",
     "image_path": "play_image_0",
-    "description": "ここに曲の説明を書いて0",
+    "description": "ここに曲の説明を書いて4\nこの曲は遊べる",
     "video-path": "OneLove_FirstLove",
-    "csv-path": "CSVファイル名？パス？を書き込んで"
+    "csv-path": "OneLove_FirstLove",
+    "max-score": 1000
   },
   {
     "id": 5,
     "name": "MyLady",
     "image_path": "play_image_1",
-    "description": "ここに曲の説明を書いて1",
+    "description": "ここに曲の説明を書いて5\nCSVパスはこの曲はまだ設定されていない",
     "video-path": "OneLove_MyLady",
-    "csv-path": "CSVファイル名？パス？を書き込んで"
+    "csv-path": "CSVファイル名？パス？を書き込んで",
+    "max-score": 1000
   },
   {
     "id": 6,
     "name": "FunTime",
     "image_path": "play_image_0",
-    "description": "ここに曲の説明を書いて0",
+    "description": "ここに曲の説明を書いて6\nこの曲は遊べる",
     "video-path": "Ryo_FunTime",
-    "csv-path": "CSVファイル名？パス？を書き込んで"
+    "csv-path": "Ryo_FunTime",
+    "max-score": 1000
   },
   {
     "id": 7,
     "name": "LOVEGUN",
     "image_path": "play_image_1",
-    "description": "ここに曲の説明を書いて1",
+    "description": "ここに曲の説明を書いて7\nCSVパスはこの曲はまだ設定されていない",
     "video-path": "Ryo_LOVEGUN",
-    "csv-path": "CSVファイル名？パス？を書き込んで"
+    "csv-path": "CSVファイル名？パス？を書き込んで",
+    "max-score": 1000
   }
 ]

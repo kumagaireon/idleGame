@@ -15,8 +15,23 @@ MonoBehaviour:
   m_GroupName: Idol Group Background
   m_GUID: 0fac34d28008ae74a87f16d347062aa4
   m_SerializeEntries:
-  - m_GUID: 18c2087c7c9dae047a11bfdc8eea922c
+  - m_GUID: 5e80b74734182fd4ca1d6d1bafb4f0ee
+    m_Address: background_03
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94654be08203c3643ab240cf236124ac
     m_Address: background_00
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5c4633b0afe6594fb6361a541778512
+    m_Address: background_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e96a1a1e043c16248a06911069e4f6a6
+    m_Address: background_02
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

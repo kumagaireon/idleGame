@@ -20,7 +20,7 @@ namespace IdolGame.InGame.Infrastructures
         // ビジュアルツリーアセットをシリアライズフィールドとして持つ
         [SerializeField] VisualTreeAsset? mainTreeAsset;
 
-        [SerializeField] AssetReference? bgmAssetReference;
+       [SerializeField] AssetReference? bgmAssetReference;
 
         /// <summary>
         /// コンテナビルダーの設定を行うメソッド
@@ -40,7 +40,7 @@ namespace IdolGame.InGame.Infrastructures
             // シリアライズフィールドのUIドキュメントを登録
             builder.RegisterComponent(rootDocument);
             // シリアライズフィールドのビジュアルツリーアセットをインスタンスとして登録
-            builder.RegisterInstance(mainTreeAsset);
+            builder.RegisterInstance(mainTreeAsset); 
             builder.RegisterInstance(bgmAssetReference);
         }
 

@@ -1,0 +1,17 @@
+{
+    "name": "IdolGame.InGame.Services",
+    "rootNamespace": "",
+    "references": [
+        "IdolGame.InGame.Interfaces",
+        "UniTask"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

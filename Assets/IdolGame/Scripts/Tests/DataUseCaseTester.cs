@@ -12,6 +12,28 @@ using UnityEngine.TestTools;
 
 public sealed class DataUseCaseTester
 {
+    
+      [UnityTest]
+    public IEnumerator TestCreateKakunnData() => UniTask.ToCoroutine(async () =>
+    {
+        var cts = new CancellationTokenSource();
+
+        // データストアのパスを設定
+        var path = Path.Combine(Application.streamingAssetsPath, "master_data", "kakunin_data.json");
+
+        // データストアを初期化
+        var dataStore = new JsonAsyncDataStore<ScoreData[]>(path);
+
+        // サンプルのアイドルグループデータを作成し、データストアに保存
+        await dataStore.StoreAsync(new[]
+        {
+            new ScoreData
+            {
+                ScorePoint=0
+            }
+        }, cts.Token);
+    });
+    
     //===========確認用===============
     [UnityTest]
     public IEnumerator TestCreateKakuninData() => UniTask.ToCoroutine(async () =>
@@ -72,7 +94,7 @@ public sealed class DataUseCaseTester
                 Name = "曲名",
                 ImagePath = "画像パス",
                 Description= "説明文",
-                VoicePath = "動画パス"
+                VideoPath = "動画パス"
             }
         }, cts.Token);
     });

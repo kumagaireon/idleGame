@@ -1,12 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static CSVReader;
 
 public class ScoreController : MonoBehaviour
 {
     public static ScoreController instance;
-    
     float score = 0;
     float maxScore = 0;
 
@@ -25,7 +23,7 @@ public class ScoreController : MonoBehaviour
     private Text ratioText;
 
 
-    private List<MusicData> data = new List<MusicData>();
+    private List<CSVReader.MusicData> data = new List<CSVReader.MusicData>();
 
     private void Awake()
     {
@@ -37,6 +35,7 @@ public class ScoreController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 
     private void Start()

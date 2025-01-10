@@ -1,0 +1,21 @@
+{
+    "name": "IdolGame.InGame.UseCases",
+    "rootNamespace": "",
+    "references": [
+        "IdolGame.InGame.Interfaces",
+        "IdolGame.InGame.Entities",
+        "IdolGame.InGame.Presenters",
+        "Unity.Addressables",
+        "UniTask",
+        "Unity.ResourceManager"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

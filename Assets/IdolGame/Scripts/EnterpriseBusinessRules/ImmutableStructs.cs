@@ -84,8 +84,13 @@ public readonly record struct MusicData(
     [property:JsonPropertyName("name")] MusicName Name,
     [property:JsonPropertyName("image_path")] MusicImagePath ImagePath,
     [property:JsonPropertyName("description")] MusicDescription Description,
-    [property:JsonPropertyName("video-path")] MusicVoicePath VoicePath,
-    [property:JsonPropertyName("csv-path")] CsvFilePath CsvPath
+    [property:JsonPropertyName("video-path")] MusicVoicePath VideoPath,
+    [property:JsonPropertyName("csv-path")] CsvFilePath CsvPath,
+    [property:JsonPropertyName("max-score")] float MaxScorePoint
     )
 {}
 
+public readonly record struct ScoreData(
+    [property:JsonPropertyName("score-point")] float ScorePoint
+)
+{}
