@@ -70,4 +70,6 @@ public class MoviePassGetter : MonoBehaviour
                 => await OnVideoEnd(); // スクリプトが破棄される際にイベントのサブスクライブを解除
         }
     }
+
+    public float score;
 }

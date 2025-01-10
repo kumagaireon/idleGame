@@ -6,7 +6,7 @@ using static CSVReader;
 public class ScoreController : MonoBehaviour
 {
     public static ScoreController instance;
-
+    
     float score = 0;
     float maxScore = 0;
 

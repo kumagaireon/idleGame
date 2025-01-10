@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine.Video;
 
 //仮の終了処理
+namespace _yutaka2_.Scripts_1.Movie;
+
 public class VideoEndHandler : MonoBehaviour
 {
-   private VideoPlayer videoPlayer;
+    private VideoPlayer videoPlayer;
 
     void Start()
     {
@@ -15,7 +17,7 @@ public class VideoEndHandler : MonoBehaviour
     void OnVideoEnd(VideoPlayer source)
     {
         Debug.Log("動画が終了しました。");
-    //    SceneManager.LoadSceneAsync("InGame");
+        //    SceneManager.LoadSceneAsync("InGame");
     }
 
     void OnDestroy()

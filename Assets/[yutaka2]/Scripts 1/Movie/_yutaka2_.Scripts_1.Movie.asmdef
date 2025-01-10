@@ -2,9 +2,8 @@
     "name": "_yutaka2_.Scripts_1.Movie",
     "rootNamespace": "",
     "references": [
-        "Unity.Addressables",
-        "Unity.ResourceManager",
-        "UniTask"
+        "UniTask",
+        "Unity.ResourceManager"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
