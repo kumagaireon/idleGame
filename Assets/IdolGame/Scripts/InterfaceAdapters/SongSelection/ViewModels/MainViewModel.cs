@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using IdolGame.Audios.Core;
 using IdolGame.Common.ViewModels;
 using IdolGame.InGame.Controllers;
+using IdolGame.InGame.Data;
 using IdolGame.InGame.Models;
 using IdolGame.SongSelection.Views;
 using IdolGame.UIElements;
@@ -118,22 +119,28 @@ public sealed class MainViewModel: ViewModelBase<MainView>
         {
             await audioPlayer.StopBgmAsync(bgmAssetReference, ct);
 
+            // 選択した音楽データをMusicDataRepositoryに渡す
+            var musicDataRepository = new MusicCsvDataRepository();
+            await musicDataRepository.LoadMusicDataAsync(selectedMusic.Value.CsvPath, ct);
+
+            logger.ZLogTrace($"GetBpm: {musicDataRepository.GetBpm()}");
+            
             // SelectedMusicData に必要な値を割り当てる
             var selectedMusicData = new SelectedMusicData(
                 selectedMusic.Value.Name,
                 selectedMusic.Value.VideoPath,
                 selectedMusic.Value.CsvPath,
-                0);
+                musicDataRepository.GetBpm());
             
             GameData.SelectedMusicData = selectedMusicData;
-            logger.ZLogTrace( $"Name: {GameData.SelectedMusicData.Name}\n"
+            logger.ZLogTrace($"Name: {GameData.SelectedMusicData.Name}\n"
                              + $"VoicePath: {GameData.SelectedMusicData.VideoPath}\n"
                              + $"CsvPath: {GameData.SelectedMusicData.CsvPath}\n"
-                             + $"Path: {GameData.SelectedMusicData.Score}\n");
+                             + $"Score: {GameData.SelectedMusicData.Bpm}\n");
 
             await SceneManager.LoadSceneAsync("LiveScene")!.WithCancellation(ct);
-            //     await SceneManager.LoadSceneAsync("InGame")!.WithCancellation(ct);
-            //   await SceneManager.LoadSceneAsync("ResultScene")!.WithCancellation(ct);
+            // await SceneManager.LoadSceneAsync("InGame")!.WithCancellation(ct);
+            // await SceneManager.LoadSceneAsync("ResultScene")!.WithCancellation(ct);
         }
         else
         {

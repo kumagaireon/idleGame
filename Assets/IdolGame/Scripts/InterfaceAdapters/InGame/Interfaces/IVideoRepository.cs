@@ -6,5 +6,6 @@ namespace IdolGame.InGame.Interfaces;
 
 public interface IVideoRepository
 {
-    UniTask<VideoClip> LoadVideo(string videoPath);
+    // ビデオパスを指定してビデオを非同期で読み込むメソッド
+    UniTask<VideoClip> LoadVideo(string? videoPath);
 }

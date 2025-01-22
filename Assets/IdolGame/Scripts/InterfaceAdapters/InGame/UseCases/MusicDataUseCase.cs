@@ -7,20 +7,17 @@ namespace IdolGame.InGame.UseCases;
 
 public class MusicDataUseCase
 {
-    private readonly IMusicDataRepository _musicDataRepository;
+    private readonly IMusicCSVDataRepository musicCsvDataRepository;
 
-    public MusicDataUseCase(IMusicDataRepository musicDataRepository)
+    // コンストラクタでIMusicDataRepositoryを受け取る
+    public MusicDataUseCase(IMusicCSVDataRepository musicCsvDataRepository)
     {
-        _musicDataRepository = musicDataRepository;
+        this.musicCsvDataRepository = musicCsvDataRepository;
     }
 
-    public UniTask<List<CSVMusicData>> GetMusicDataAsync(string? csvFileName)
-    {
-        return _musicDataRepository.LoadMusicDataAsync(csvFileName);
-    }
-
+    // BPM（拍数）を取得するメソッド
     public int GetBpm()
     {
-        return _musicDataRepository.GetBpm();
+        return musicCsvDataRepository.GetBpm();
     }
 }

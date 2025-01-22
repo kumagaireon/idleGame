@@ -9,64 +9,63 @@ namespace IdolGame.InGame.UseCases;
 
 public class NoteUseCase
 {
-    private readonly INoteRepository _noteRepository;
-    private readonly IPositionService _positionService;
-    private readonly IAlphaService _alphaService;
-    private readonly List<float> _groupSpawnTimes = new List<float>();
-    public readonly float NoteLifeTime = 2.0f; // ノートの寿命時間
+    private readonly INoteRepository noteRepository; private readonly IPositionService positionService; private readonly IAlphaService alphaService; private readonly List<float> groupSpawnTimes = new List<float>(); public readonly float NoteLifeTime = 2.0f;
 
+    // コンストラクタでINoteRepository、IPositionService、IAlphaServiceを受け取る
     public NoteUseCase(INoteRepository noteRepository, IPositionService positionService, IAlphaService alphaService)
     {
-        _noteRepository = noteRepository;
-        _positionService = positionService;
-        _alphaService = alphaService;
+        this.noteRepository = noteRepository;
+        this.positionService = positionService;
+        this.alphaService = alphaService;
     }
 
+    // ノートを生成するメソッド
     public async UniTask GenerateNotes(Note note)
     {
         List<GameObject> notes = new List<GameObject>();
-        for (int i = 0; i < note.InfoOfGroup; i++)
+        for (int i = 0; i < note.GroupInfo; i++)
         {
-            GameObject noteObj = _noteRepository.GetPooledNote();
+            GameObject noteObj = noteRepository.GetPooledNote();
             noteObj.SetActive(false);
-            Vector2 position = _positionService.SetPosition(note.Position[i]);
+            Vector2 position = positionService.GetPosition(note.Position[i]);
             noteObj.transform.position = position;
             SpriteRenderer noteRenderer = noteObj.GetComponent<SpriteRenderer>();
-            await _alphaService.FadeIn(noteRenderer);
+            await alphaService.FadeIn(noteRenderer); // ノートのフェードイン
+
             noteObj.SetActive(true);
             notes.Add(noteObj);
         }
 
-        _noteRepository.AddToGroup(notes);
-        _groupSpawnTimes.Add(Time.time);
+        noteRepository.AddToGroup(notes); // ノートグループに追加
+        groupSpawnTimes.Add(Time.time); // ノートの生成時間を記録
     }
 
+    // ノートグループを破棄するメソッド
     public void DestroyNotes(int groupNum)
     {
-        List<GameObject> noteGroup = _noteRepository.GetGroup(groupNum);
-        foreach (var note in noteGroup)
-        {
-            if (note != null && note.activeSelf)
-            {
-                note.SetActive(false);
-                _noteRepository.ReturnPooledNote(note);
-            }
-        }
-
-        _noteRepository.RemoveGroup(groupNum);
+        List<GameObject> noteGroup = noteRepository.GetGroup(groupNum);
+        noteRepository.RemoveGroup(groupNum); // ノートグループを削除
+        noteGroup.RemoveAll(note => note != null && note.activeSelf); // ノートをプールに返却 
     }
 
+    // ノートグループの生成時間を取得するメソッド
     public List<float> GetGroupSpawnTimes()
     {
-        return _groupSpawnTimes;
+        return groupSpawnTimes;
     }
 
+    // ノートグループのリストを取得するメソッド
     public List<List<GameObject>> GetGroupList()
     {
-        return _noteRepository.GetAllGroups();
+        return noteRepository.GetAllGroups();
     }
 
+    // ノートグループの生成時間を削除するメソッド（未実装）
     public void RemoveGroupSpawnTime(int groupIndex)
     {
+        if (groupIndex >= 0 && groupIndex < groupSpawnTimes.Count)
+        {
+            groupSpawnTimes.RemoveAt(groupIndex);
+        }
     }
 }

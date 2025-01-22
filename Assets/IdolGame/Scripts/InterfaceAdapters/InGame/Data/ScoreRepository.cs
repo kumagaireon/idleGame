@@ -1,11 +1,37 @@
 using IdolGame.InGame.Interfaces;
+using UnityEngine;
 
 namespace IdolGame.InGame.Data;
 
 public class ScoreRepository : IScoreRepository
 {
+    private static ScoreRepository _instance;
     private float _currentScore = 0;
     private float _maxScore = 1000; // サンプルの最大スコア
+  
+    // シングルトンパターンのインスタンス化
+    public static ScoreRepository Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new ScoreRepository();
+            }
+            return _instance;
+        }
+    }
+
+    
+    public void AddScore(float score)
+    {
+        _currentScore = Mathf.Min(_currentScore + score, _maxScore);
+    }
+
+    public void SubtractScore(float score)
+    {
+        _currentScore = Mathf.Max(_currentScore - score, 0);
+    }
 
     public void AddNoteScore()
     {

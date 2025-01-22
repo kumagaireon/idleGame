@@ -40,9 +40,9 @@ public class CSVReader : MonoBehaviour
         // デフォルトのCSVファイル名を設定
         if (csvFileName == null)
         {
-          //  csvFileName = "Fruity_100percent";
+        csvFileName = "Fruity_100percent";
           //  csvFileName = "OneLove_FirstLove";
-            csvFileName = "Ryo_FunTime";
+             //   csvFileName = "Ryo_FunTime";
         }        
         
         // CSVデータの読み込み

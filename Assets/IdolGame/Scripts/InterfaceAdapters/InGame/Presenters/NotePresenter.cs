@@ -5,6 +5,7 @@ namespace IdolGame.InGame.Presenters;
 
 public static class NotePresenter
 {
+    // ノートを表示するメソッド
     public static void DisplayNotes(List<GameObject> notes)
     {
         foreach (var note in notes)
@@ -12,13 +13,13 @@ public static class NotePresenter
             if (note != null)
             {
                 note.SetActive(true);
-                // ノートの位置やその他の表示に関する設定をここで行う
                 SpriteRenderer renderer = note.GetComponent<SpriteRenderer>();
                 renderer.enabled = true;
             }
         }
     }
 
+    // ノートを非表示にするメソッド
     public static void HideNotes(List<GameObject> notes)
     {
         foreach (var note in notes)
@@ -32,6 +33,7 @@ public static class NotePresenter
         }
     }
 
+    // ノートの位置を更新するメソッド
     public static void UpdateNotePosition(GameObject note, Vector2 newPosition)
     {
         if (note != null)

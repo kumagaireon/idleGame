@@ -5,5 +5,6 @@ namespace IdolGame.InGame.Interfaces;
 
 public interface IAlphaService
 {
+    // SpriteRendererをフェードインさせるメソッド
     UniTask FadeIn(SpriteRenderer targetSr);
 }

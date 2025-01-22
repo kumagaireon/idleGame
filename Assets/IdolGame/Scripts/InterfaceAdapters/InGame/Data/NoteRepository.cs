@@ -6,74 +6,58 @@ namespace IdolGame.InGame.Data;
 
 public class NoteRepository : INoteRepository
 {
-    private readonly List<List<GameObject>> _noteGroups = new List<List<GameObject>>();
-    private readonly Queue<GameObject> _notePool = new Queue<GameObject>();
-    private readonly GameObject _notePrefab;
-    private readonly int _initialPoolSize = 20;
+    private readonly List<List<GameObject>> noteGroups = new List<List<GameObject>>();
+    private readonly Queue<GameObject> notePool = new Queue<GameObject>();
+    private readonly GameObject notePrefab;
+    private readonly int initialPoolSize = 20;
 
+    // コンストラクタでノートプレファブを受け取り、プールを初期化
     public NoteRepository(GameObject notePrefab)
     {
-        _notePrefab = notePrefab;
-        for (int i = 0; i < _initialPoolSize; i++)
+        this.notePrefab = notePrefab;
+        for (int i = 0; i < initialPoolSize; i++)
         {
-            GameObject note = GameObject.Instantiate(_notePrefab);
+            GameObject note = GameObject.Instantiate(this.notePrefab);
             note.SetActive(false);
-            _notePool.Enqueue(note);
+            notePool.Enqueue(note);
         }
     }
 
+    // プールからノートを取得するメソッド
     public GameObject GetPooledNote()
     {
-        if (_notePool.Count > 0)
-        {
-            return _notePool.Dequeue();
-        }
-        else
-        {
-            GameObject note = GameObject.Instantiate(_notePrefab);
-            note.SetActive(false);
-            return note;
-        }
+        return notePool.Count > 0 ? notePool.Dequeue() : GameObject.Instantiate(notePrefab);
     }
 
     public void ReturnPooledNote(GameObject note)
     {
         note.SetActive(false);
-        _notePool.Enqueue(note);
+        notePool.Enqueue(note);
     }
 
     public void AddToGroup(List<GameObject> notes)
     {
-        _noteGroups.Add(notes);
+        noteGroups.Add(notes);
     }
 
     public List<GameObject> GetGroup(int groupNum)
     {
-        return _noteGroups[groupNum];
+        return noteGroups[groupNum];
     }
 
     public void RemoveNote(GameObject note)
     {
         note.SetActive(false);
-        _notePool.Enqueue(note);
+        notePool.Enqueue(note);
     }
 
     public void RemoveGroup(int groupNum)
     {
-        List<GameObject> noteGroup = _noteGroups[groupNum];
-        foreach (var note in noteGroup)
-        {
-            if (note != null)
-            {
-                RemoveNote(note);
-            }
-        }
-
-        _noteGroups[groupNum] = null;
+        noteGroups.RemoveAt(groupNum);
     }
 
     public List<List<GameObject>> GetAllGroups()
     {
-        return _noteGroups;
+        return noteGroups;
     }
 }

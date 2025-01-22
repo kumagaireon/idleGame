@@ -41,24 +41,23 @@ namespace IdolGame.InGame.Controllers
             }
             catch (Exception ex)
             {
-                Debug.LogError($"Failed to play video: {ex.Message}");
+                Debug.LogError($"ビデオを再生できませんでした: {ex.Message}");
             }
         }
-
 
         private async UniTask OnVideoEnd(VideoPlayer vp)
         {
             Debug.Log("動画が終了しました。");
             await UniTask.Delay(2000);
             Debug.Log("遷移します");
-            // SceneManager.LoadSceneAsync("NextScene"); // 次のシーンへの遷移
+            // SceneManager.LoadSceneAsync("NextScene");
         }
 
         public void StopVideo()
         {
             if (_videoPlayer == null)
             {
-                Debug.LogError("VideoPlayer is not initialized.");
+                Debug.LogError("VideoPlayerが初期化されていません。");
                 return;
             }
 

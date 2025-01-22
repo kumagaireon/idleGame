@@ -21,11 +21,6 @@ public class SceneModel
         return SelectedMusic.VideoPath;
     }
 
-    public string? GetNotePath()
-    {
-        return SelectedMusic.CsvPath;
-    }
-
     public async UniTask<VideoClip> LoadVideoAsync()
     {
         var videoPath = GetVideoPath();
@@ -37,13 +32,13 @@ public class SceneModel
         }
         else
         {
-            throw new Exception($"Failed to load video from path: {videoPath}");
+            throw new Exception($"パスからビデオを読み込めませんでした: {videoPath}");
         }
     }
 
-    public void EndGame(float score)
+    public void EndGame(int bpm)
     {
-        SelectedMusic.Score = score;
-        Debug.Log($"Game ended. Score: {SelectedMusic.Score}");
+        SelectedMusic.Bpm = bpm;
+        Debug.Log($"ゲームが終了しました。スコア： {SelectedMusic.Bpm}");
     }
 }

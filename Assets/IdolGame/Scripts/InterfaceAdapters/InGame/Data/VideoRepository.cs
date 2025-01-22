@@ -10,9 +10,10 @@ namespace IdolGame.InGame.Data;
 
 public class VideoRepository : IVideoRepository
 {
-    public async UniTask<VideoClip> LoadVideo(string videoPath)
+    // ビデオパスを指定してビデオを非同期で読み込むメソッドの実装
+    public async UniTask<VideoClip> LoadVideo(string? videoPath)
     {
-        AsyncOperationHandle<VideoClip> handle = Addressables.LoadAssetAsync<VideoClip>(videoPath);
+        var handle = Addressables.LoadAssetAsync<VideoClip>(videoPath);
         await handle.Task;
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
@@ -20,8 +21,8 @@ public class VideoRepository : IVideoRepository
         }
         else
         {
-            Debug.LogError($"Failed to load video: {videoPath}");
-            throw new Exception($"Failed to load video: {videoPath}");
+            Debug.LogError($"ビデオの読み込みに失敗しました: {videoPath}");
+            throw new Exception($"ビデオの読み込みに失敗しました {videoPath}");
         }
     }
 }

@@ -16,7 +16,9 @@
 		"IdolGame.Audio.Core",
 		"IdolGame.InGame.Models",
 		"IdolGame.InGame.Controllers",
-		"_yutaka2_.Scripts_1.Movie"
+		"_yutaka2_.Scripts_1.Movie",
+		"IdolGame.InGame.Data",
+		"IdolGame.InGame.Entities"
 	],
 	"includePlatforms": [],
 	"excludePlatforms": [],

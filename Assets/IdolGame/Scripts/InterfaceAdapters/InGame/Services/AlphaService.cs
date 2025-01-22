@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace IdolGame.InGame.Services;
 
-public class AlphaService:IAlphaService
+public class AlphaService : IAlphaService
 {
-    [SerializeField] private float duration = 1.0f; // アルファ変化の所要時間
-    [SerializeField] private float firstAlpha = 0.3f; // 初期アルファ値
+    [SerializeField] private readonly float duration = 1.0f; // アルファ変化の所要時間
+    [SerializeField] private readonly float firstAlpha = 0.3f; // 初期アルファ値
 
     public async UniTask FadeIn(SpriteRenderer targetSr)
     {

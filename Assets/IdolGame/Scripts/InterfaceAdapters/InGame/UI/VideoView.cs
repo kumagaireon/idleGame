@@ -35,7 +35,7 @@ namespace IdolGame.InGame.UI
         {
             if (videoPlayer == null)
             {
-                Debug.LogError("VideoPlayer is not initialized.");
+                Debug.LogError("VideoPlayerが初期化されていません。");
                 return;
             }
 

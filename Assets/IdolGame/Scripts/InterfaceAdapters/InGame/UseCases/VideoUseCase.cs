@@ -18,7 +18,7 @@ public class VideoUseCase
         _videoRepository = videoRepository;
     }
 
-    public async UniTask<VideoClip> GetVideoClip(string videoPath)
+    public async UniTask<VideoClip> GetVideoClip(string? videoPath)
     {
         return await _videoRepository.LoadVideo(videoPath);
     }

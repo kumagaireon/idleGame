@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "name": "My Lady",
+    "name": "仮曲名0",
     "image_path": "play_image_0",
     "description": "ここに曲の説明を書いて0\nCSVパスはこの曲はまだ設定されていない",
     "video-path": "fluity_100percent",
@@ -10,7 +10,7 @@
   },
   {
     "id": 1,
-    "name": "First Love",
+    "name": "仮曲名1",
     "image_path": "play_image_1",
     "description": "ここに曲の説明を書いて1\nCSVパスはこの曲はまだ設定されていない",
     "video-path": "play_video_1",
