@@ -12,5 +12,5 @@ public class CSVMusicData
     // ミュージックデータのグループに関する情報
     public int InfoOfGroup { get; set; }
     // ミュージックデータの位置情報（オプション）
-    public List<Vector2> Position { get; set; }
+    public List<Vector2>? Position { get; set; }
 }
